@@ -42,8 +42,6 @@ class Settings {
     var cadenceFrequency = 0
     var settingsTab = 0
     
-   
-    
     //MARK: Methods
     init() {
         print("init settings")
