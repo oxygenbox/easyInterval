@@ -141,18 +141,20 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 145, height: 80))
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 145, height: 60))
         label.textAlignment = .center
+        label.textColor = UIColor.myBlue
         label.font = UIFont.boldSystemFont(ofSize: 24)
         label.backgroundColor = UIColor.clear
         label.isOpaque = false
         
-        label.backgroundColor = UIColor.myBlue
-        label.textColor = UIColor.white
         
         if component == Picker.mode.rawValue {
             label.text = Data.modeNameArray[row]
             label.attributedText = Tool.formatPickerMode(mode: Data.modeNameArray[row])
+            label.backgroundColor = UIColor.myBlue
+            label.textColor = UIColor.white
+
         } else {
             label.text = Data.timeArray[row]
             label.attributedText = Tool.formatPickerTime(time: Data.timeArray[row])
@@ -241,7 +243,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         case .vibrate:
             preferenceSwitch.isOn = data.vibrateOn
         case .cadence:
-            preferenceSwitch.isOn = data.vibrateOn
+            preferenceSwitch.isOn = data.cadenceOn
         case .music:
             preferenceSwitch.isOn = data.musicOn
         case .workout:
@@ -249,7 +251,6 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         default:
             break
         }
-
     }
     
     func initSlider() {
@@ -273,11 +274,8 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
             let minutes = data.sessionIncrement * data.sequenceRepeats
             let h = minutes / 60
             let m = minutes - h * 60
-        
             let time = "\(h):\(Tool.numberToString(value: m))"
-        
             sliderMessage.text = "\(minutes) MINUTE (\(time)) WORKOUT"
-            
         } else if activePreference == .cadence {
             sliderMessage.text = cadenceMessage()
         }

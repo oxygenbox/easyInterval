@@ -86,7 +86,5 @@ class Settings {
         
         defaults.synchronize()
     }
-    
-    
 }
 
