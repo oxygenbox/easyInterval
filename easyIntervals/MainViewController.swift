@@ -23,7 +23,7 @@
  4. Display remaining woSession time
     - value from Session - sessionSeconds
  5. Display current settings (states)
-    - value from Data
+    - value from Datatim
  6. Display progress - interval
     - value from Workout - pctInterval
  7. Display progress of woSession
@@ -45,9 +45,9 @@ import QuartzCore
 class MainViewController: UIViewController, WorkoutDelegate {
     
     //MARK:- IBOUTLET
-    @IBOutlet weak var intervalTime: UILabel!
-    @IBOutlet weak var elapsedTime: UILabel!
-    @IBOutlet weak var modeLabel: UILabel!
+   // @IBOutlet weak var intervalTime: UILabel!
+   // @IBOutlet weak var elapsedTime: UILabel!
+  //  @IBOutlet weak var modeLabel: UILabel!
     
     @IBOutlet weak var infoButton: UIBarButtonItem!
     @IBOutlet weak var audioButton: UIBarButtonItem!
@@ -55,6 +55,14 @@ class MainViewController: UIViewController, WorkoutDelegate {
     @IBOutlet weak var cadenceButton: UIBarButtonItem!
     @IBOutlet weak var musicButton: UIBarButtonItem!
     @IBOutlet weak var workoutButton: UIBarButtonItem!
+    
+    @IBOutlet weak var timerView: TimerView!
+    
+    @IBOutlet weak var button1: UIButton!
+    @IBOutlet weak var button2: UIButton!
+    @IBOutlet weak var button3: UIButton!
+    @IBOutlet weak var button4: UIButton!
+    @IBOutlet weak var button5: UIButton!
     
     //MARK -  Variable
     var workout = Workout()
@@ -87,6 +95,8 @@ class MainViewController: UIViewController, WorkoutDelegate {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Reset", style: .plain, target: self, action: #selector(resetTapped))
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "Main", style: .plain, target: nil, action: nil)
+        
+        format()
     }
     
     func initInterface() {
@@ -102,13 +112,33 @@ class MainViewController: UIViewController, WorkoutDelegate {
     func initWorkout() {
         workout.delegate = self
         postTimes()
-        modeLabel.text = workout.currentMode.name.uppercased()
-      //  intervalTime.text = workout.intervalSeconds()
+        timerView.modeLabel.text = workout.currentMode.name.uppercased()
+      
+        
+        
     }
     
     func toggleSession() {
         workout.toggleTimer()
+        
+        if(workout.timer == nil) {
+            self.timerView.sink()
+            sink()
+        } else {
+            self.timerView.rise()
+        }
     }
+
+    func rise() {
+       
+
+    }
+    
+    func sink() {
+        
+    }
+    
+    
     
     //MARK: - Gestures
     func initGestures() {
@@ -132,18 +162,18 @@ class MainViewController: UIViewController, WorkoutDelegate {
     
     
     func settingTapped() {
-        if let vc = storyboard?.instantiateViewController(withIdentifier: "Settings") as? SettingsViewController {
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "Setting") as? SettingViewController {
             self.navigationController?.pushViewController(vc, animated: true)
             self.modeUpdate()
         }
     }
     
     func postTimes() {
-        intervalTime.text = Tool.formatTime(secs: workout.currentInterval.remainingSeconds, withHours: false)
-        elapsedTime.text = Tool.formatTime(secs: workout.elapsedSeconds, withHours: true)
+        timerView.intervalTime.text = Tool.formatTime(secs: workout.currentInterval.remainingSeconds, withHours: false)
+        timerView.elapsedTime.text = Tool.formatTime(secs: workout.elapsedSeconds, withHours: true)
         
-        intervalTime.textColor = UIColor.white
-        intervalTime.backgroundColor = UIColor.black
+        timerView.intervalTime.textColor = UIColor.white
+        timerView.intervalTime.backgroundColor = UIColor.black
         
         
         
@@ -205,57 +235,33 @@ class MainViewController: UIViewController, WorkoutDelegate {
     }
     
     func modeUpdate() {
-        modeLabel.text = workout.currentMode.name.uppercased()
+        timerView.modeLabel.text = workout.currentMode.name.uppercased()
     }
     
-    func test() {
-    //QuartzCorw
-        let color = UIColor.red
-        intervalTime.textColor = color
-        intervalTime.layer.shadowColor = color.cgColor
-        intervalTime.layer.shadowRadius = 4.0 / 2
-        intervalTime.layer.shadowOpacity = 0.9
-        intervalTime.layer.shadowOffset = CGSize.zero
-        intervalTime.layer.masksToBounds = false
+    func format() {
         
-    }
-    
-    func testA() {
-        //QuartzCorw
-        let color = UIColor.black
-        intervalTime.textColor = UIColor.darkGray
-        intervalTime.layer.shadowColor = color.cgColor
-        intervalTime.layer.shadowRadius = 4.0 / 4
-        intervalTime.layer.shadowOpacity = 1.0
-        intervalTime.layer.shadowOffset = CGSize(width: 1, height: -1)
-        intervalTime.layer.masksToBounds = false
+        let array = [button1, button2, button3, button4, button5]
         
-    }
-    
-    func testB() {
-        //QuartzCorw
-        let color = UIColor.white
-        intervalTime.textColor = UIColor.lightGray
-        intervalTime.layer.shadowColor = color.cgColor
-        intervalTime.layer.shadowRadius = 4.0 / 4
-        intervalTime.layer.shadowOpacity = 1.0
-        intervalTime.layer.shadowOffset = CGSize(width: 1, height: -1)
-        intervalTime.layer.masksToBounds = false
+        for button in array {
+            button!.backgroundColor = UIColor.on
+           // button.titleLabel?.text = ""
+            button!.layer.cornerRadius = 5
+            
+            button!.layer.cornerRadius = 4.0
+            //        layer.shadowColor = UIColor(red: CGFloat(157.0) / 255.0, green: CGFloat(157.0) / 255.0, blue: CGFloat(157.0) / 255.0, alpha: 0.9).CGColor
+            button!.layer.shadowColor = UIColor.black.cgColor
+            button!.layer.shadowOpacity = 0.7
+            button!.layer.shadowRadius = 5.0
+            button!.layer.shadowOffset = CGSize(width: 0.0, height: 4.0)
+
+        }
         
+        button3.layer.shadowRadius = 0
+        button3.layer.shadowOffset = CGSize(width: 1.0, height: -1.0)
     }
     
-    func testC() {
-        //QuartzCorw
-        let color = UIColor.black
-        intervalTime.textColor = UIColor.darkGray
-        intervalTime.layer.shadowColor = color.cgColor
-        intervalTime.layer.shadowRadius = 4.0 / 4
-        intervalTime.layer.shadowOpacity = 1.0
-        intervalTime.layer.shadowOffset = CGSize(width: -1, height: 1)
-        intervalTime.layer.masksToBounds = false
+    
         
-    }
-    
 
 }
 
@@ -277,28 +283,6 @@ extension UIColor
     }
 }
 
-
-
-/*
- 
- IColor *color = button.currentTitleColor;
- button.titleLabel.layer.shadowColor = [color CGColor];
- button.titleLabel.layer.shadowRadius = 4.0f;
- button.titleLabel.layer.shadowOpacity = .9;
- button.titleLabel.layer.shadowOffset = CGSizeZero;
- button.titleLabel.layer.masksToBounds = NO;
- 
- 
- 
- 
- let attrs = [NSForegroundColorAttributeName: UIColor.red,
- NSFontAttributeName: UIFont(name: "Georgia-Bold", size: 24)!,
- NSTextEffectAttributeName: NSTextEffectLetterpressStyle as NSString
- ]
- 
- let string = NSAttributedString(string: "Hello, world!", attributes: attrs)
- yourLabel.attributedText = string
- */
 
 
 

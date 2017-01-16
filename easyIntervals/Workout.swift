@@ -70,18 +70,9 @@ class Workout: NSObject, AVAudioPlayerDelegate {
     func cadenceCheck() {
         if data.cadenceOn && currentMode == .run {
             if cadenceTracker == data.cadenceFrequency {
-                print("@@@@@@@@@@@@@@@@@@@@@@")
-                print("Cadence \(data.cadenceFrequency) \(cadenceTracker) \(currentMode)")
-                print("@@@@@@@@@@@@@@@@@@@@@@")
-                
-              //  bgTaskIdentifier = UIApplication.shared.beginBackgroundTask(expirationHandler: {
-                //    UIApplication.shared.endBackgroundTask(self.bgTaskIdentifier)
-              //  })
-                
                 cadenceTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(playCadence), userInfo: nil, repeats: false)
                 RunLoop.main.add(timer!, forMode: RunLoopMode.commonModes)
                 cadenceTracker = 0
-                
             }
             cadenceTracker += 1
         }
@@ -90,6 +81,13 @@ class Workout: NSObject, AVAudioPlayerDelegate {
     func playCadence() {
         speak(word: "cadenceBeat")
     }
+    
+    func vibrate() {
+        if data.vibrateOn {
+            AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
+        }
+    }
+    
     
     func speak(word: String){
         if data.audioOn {
@@ -126,6 +124,7 @@ class Workout: NSObject, AVAudioPlayerDelegate {
         if currentInterval.countDown {
             let word = String(currentInterval.remainingSeconds)
             speak(word: word)
+            vibrate()
         } else if currentInterval.complete {
            complete()
         }

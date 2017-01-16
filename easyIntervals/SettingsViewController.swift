@@ -5,6 +5,8 @@
 //  Created by Michael Schaffner on 1/9/17.
 //  Copyright © 2017 Michael Schaffner. All rights reserved.
 //
+
+/*
 enum Picker: Int {
     case mode
     case time
@@ -295,7 +297,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     }
 }
 
-
+*/
 
 
 
