@@ -19,7 +19,6 @@ class SettingsCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -33,16 +32,11 @@ class SettingsCell: UITableViewCell {
         bgView.backgroundColor = UIColor.off
         bgView.layer.cornerRadius = 4
         bgView.clipsToBounds = true
-        /*
-        
-        
-        
         self.pref = preference
         self.title.text = preference.name
         self.desc.text = preference.desc
         prefSwitch.tag = preference.rawValue
         prefSwitch.isOn = switchSetting
-        */
     }
 
 }

@@ -428,7 +428,48 @@
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YNU-83-YXx">
                                                     <rect key="frame" x="2" y="1" width="371" height="68"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="30s-cK-OZH">
+                                                            <rect key="frame" x="8" y="8" width="355" height="52"/>
+                                                            <subviews>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="DXp-js-Agh">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="355" height="31"/>
+                                                                    <subviews>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CADENCE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nz0-yR-ZSE">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="96" height="31"/>
+                                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NjJ-15-qYL">
+                                                                            <rect key="frame" x="306" y="0.0" width="51" height="31"/>
+                                                                        </switch>
+                                                                    </subviews>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="31" id="ImM-Sl-Npk"/>
+                                                                    </constraints>
+                                                                </stackView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Labe Label  Label  Label  Label l" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ebS-dc-Um3">
+                                                                    <rect key="frame" x="0.0" y="31" width="243" height="21"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="DXp-js-Agh" firstAttribute="top" secondItem="30s-cK-OZH" secondAttribute="top" id="D69-hP-9d6"/>
+                                                                <constraint firstAttribute="trailing" secondItem="DXp-js-Agh" secondAttribute="trailing" id="Lmc-8L-MxE"/>
+                                                                <constraint firstItem="DXp-js-Agh" firstAttribute="leading" secondItem="30s-cK-OZH" secondAttribute="leading" id="kHg-2n-qxr"/>
+                                                            </constraints>
+                                                        </stackView>
+                                                    </subviews>
                                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="30s-cK-OZH" secondAttribute="trailing" constant="8" id="Jb6-mk-dWz"/>
+                                                        <constraint firstItem="30s-cK-OZH" firstAttribute="leading" secondItem="YNU-83-YXx" secondAttribute="leading" constant="8" id="ack-Nw-nEw"/>
+                                                        <constraint firstItem="30s-cK-OZH" firstAttribute="top" secondItem="YNU-83-YXx" secondAttribute="top" constant="8" id="dHX-y7-nZH"/>
+                                                        <constraint firstAttribute="bottom" secondItem="30s-cK-OZH" secondAttribute="bottom" constant="8" id="uyG-b2-kOy"/>
+                                                    </constraints>
                                                 </view>
                                             </subviews>
                                             <constraints>
@@ -440,6 +481,9 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="bgView" destination="YNU-83-YXx" id="Gea-Xj-u5u"/>
+                                            <outlet property="desc" destination="ebS-dc-Um3" id="AAb-uY-zvI"/>
+                                            <outlet property="prefSwitch" destination="NjJ-15-qYL" id="zwA-Uj-J5T"/>
+                                            <outlet property="title" destination="nz0-yR-ZSE" id="wiK-Mr-AQd"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
