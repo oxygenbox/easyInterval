@@ -83,17 +83,28 @@ class SettingViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         return preferences[data.settingsTab]
     }
 
+    //MARK:- Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setUp()
+    }
+        
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+        
+    //MARK: - Method
+    func setUp() {
+        view.backgroundColor = UIColor.black
+        tableView.backgroundColor = UIColor.clear
+    }
     
     //MARK: - PickerView
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -167,17 +178,22 @@ class SettingViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return pickerData.count
+        return preferences.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! SettingsCell
         
-        cell.textLabel?.text = String(pickerData[indexPath.row])
+        cell.setUp(preference: preferences[indexPath.row])
+        
+        //cell.textLabel?.text = String(pickerData[indexPath.row])
         
         return cell
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
     
     
     

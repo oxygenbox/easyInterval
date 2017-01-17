@@ -35,9 +35,11 @@ class TimerView: UIView {
     
     func setUp() {
         backgroundColor = UIColor.clear
+        //intervalTime.textColor = UIColor.white
+        //elapsedTime.textColor = UIColor.white
+       // modeLabel.textColor = UIColor.white
         
-        
-        let bgColor = UIColor.orange
+        let bgColor = UIColor.black
         let radius: CGFloat = 8.0
         
         bgView = UIView(frame: CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height))
@@ -56,6 +58,8 @@ class TimerView: UIView {
         cover.backgroundColor = bgColor
         cover.clipsToBounds = true
         cover.layer.cornerRadius = radius
+        cover.layer.borderColor = UIColor.white.cgColor
+        cover.layer.borderWidth = 2
         
         insertSubview(cover, at: 0)
         insertSubview(bgView, at: 0)

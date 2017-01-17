@@ -173,8 +173,8 @@ class MainViewController: UIViewController, WorkoutDelegate {
         timerView.elapsedTime.text = Tool.formatTime(secs: workout.elapsedSeconds, withHours: true)
         
         timerView.intervalTime.textColor = UIColor.white
-        timerView.intervalTime.backgroundColor = UIColor.black
-        
+        timerView.elapsedTime.textColor = UIColor.white
+        timerView.modeLabel.textColor = UIColor.white
         
         
         self.modeUpdate()
