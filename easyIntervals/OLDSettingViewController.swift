@@ -13,7 +13,7 @@ class OLDSettingViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var table: UITableView!
     
     //MARK: - variables
-    var preferences: [Preference] =  [.info, .audio, .vibrate, .cadence, .music, .workout]
+    var preferences: [Preference] =  [ .audio, .vibrate, .cadence, .music, .workout]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,8 +71,6 @@ class OLDSettingViewController: UIViewController, UITableViewDelegate, UITableVi
             cell.switch.isOn = data.musicOn
         case .workout:
             cell.switch.isOn = data.workoutOn
-        default:
-            break
         }
         
         cell.slider.isHidden = true

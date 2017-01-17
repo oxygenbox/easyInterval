@@ -29,12 +29,10 @@ enum Picker: Int {
 }
 
 enum Preference: Int {
-    case info, audio, vibrate, cadence, music, workout
+    case audio, vibrate, cadence, music, workout
     
     var name: String {
         switch self {
-        case .info:
-            return "Info"
         case .audio:
             return "Audio"
         case .vibrate:
@@ -47,21 +45,45 @@ enum Preference: Int {
             return "Workout"
         }
     }
+    
+    var desc: String {
+        switch self {
+        case .audio:
+            return "Play audio cues including counting down the last five seconds of each interval"
+        case .vibrate:
+            return "Vibrate for the last five seconds of each interval"
+        case .cadence:
+            return "Play audio cadence check at the beginning of every other run interval"
+        case .music:
+            return "Play music from your iTunes while timer is running"
+        case .workout:
+            return "Run  a session for the length of:"
+        }
+    }
 }
+
+
+
+
+
+
+
+
+
+
 
 
 import UIKit
 
 class SettingViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITableViewDelegate, UITableViewDataSource {
     
-   var pickerData = [1, 2, 3, 4, 5]
     
     //MARK: - IBOutlets
     @IBOutlet weak var picker:UIPickerView!
     @IBOutlet weak var tableView: UITableView!
     
     //MARK: - Variables
-    var preferences: [Preference] =  [.info, .audio, .vibrate, .cadence, .music, .workout]
+    var preferences: [Preference] =  [.audio, .vibrate, .cadence, .music, .workout]
     
     var runComponent: Int {
         if data.isRunWalk {
@@ -104,6 +126,29 @@ class SettingViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     func setUp() {
         view.backgroundColor = UIColor.black
         tableView.backgroundColor = UIColor.clear
+    }
+    
+    func switchChanged(sender: UISwitch) {
+        
+        let pref = preferences[sender.tag]
+        let value = sender.isOn
+        
+        print("SWITCH \(pref) \(value)")
+        
+        switch pref {
+            case .audio:
+                data.audioOn = value
+            case .vibrate:
+                data.vibrateOn = value
+            case .cadence:
+                data.cadenceOn  = value
+            case .music:
+                data.musicOn = value
+            case .workout:
+                data.workoutOn = value
+        }
+        
+        data.save()
     }
     
     //MARK: - PickerView
@@ -184,15 +229,34 @@ class SettingViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! SettingsCell
         
-        cell.setUp(preference: preferences[indexPath.row])
+        let pref = preferences[indexPath.row]
         
-        //cell.textLabel?.text = String(pickerData[indexPath.row])
+        var value = true
+        
+        switch pref {
+            case .audio:
+                value = data.audioOn
+            case .vibrate:
+                value = data.vibrateOn
+            case .cadence:
+                value = data.cadenceOn
+            case .music:
+                value = data.musicOn
+            case .workout:
+                value = data.workoutOn
+        }
+        
+        
+        cell.setUp(preference: pref, switchSetting: value)
+        cell.prefSwitch.addTarget(self, action: #selector(switchChanged(sender:)), for: .valueChanged)
+
+        
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
+        return 70
     }
     
     

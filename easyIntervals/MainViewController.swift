@@ -157,7 +157,7 @@ class MainViewController: UIViewController, WorkoutDelegate {
     }
     
     func swipeDetected(_ sender : UISwipeGestureRecognizer) {
-        print("swipe")
+        print("swipe ")
     }
     
     

@@ -29,15 +29,16 @@ class SettingsCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setUp(preference:Preference) {
+    func setUp(preference:Preference, switchSetting: Bool) {
         backgroundColor = UIColor.clear
         bgView.layer.cornerRadius = 10
         bgView.clipsToBounds = true
         
-        
-        
         self.pref = preference
         self.title.text = preference.name
+        self.desc.text = preference.desc
+        prefSwitch.tag = preference.rawValue
+        prefSwitch.isOn = switchSetting
     }
 
 }
