@@ -246,11 +246,14 @@ class SettingViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
                 value = data.workoutOn
         }
         
-        
+         /*
+         
         cell.setUp(preference: pref, switchSetting: value)
         cell.prefSwitch.addTarget(self, action: #selector(switchChanged(sender:)), for: .valueChanged)
 
+        */
         
+        cell.setUp(preference: pref, switchSetting: value)
         
         return cell
     }

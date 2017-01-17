@@ -11,7 +11,6 @@ import UIKit
 class SettingsCell: UITableViewCell {
     
     @IBOutlet weak var bgView: UIView!
-    
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var desc: UILabel!
     @IBOutlet weak var prefSwitch: UISwitch!
@@ -31,14 +30,19 @@ class SettingsCell: UITableViewCell {
     
     func setUp(preference:Preference, switchSetting: Bool) {
         backgroundColor = UIColor.clear
-        bgView.layer.cornerRadius = 10
+        bgView.backgroundColor = UIColor.off
+        bgView.layer.cornerRadius = 4
         bgView.clipsToBounds = true
+        /*
+        
+        
         
         self.pref = preference
         self.title.text = preference.name
         self.desc.text = preference.desc
         prefSwitch.tag = preference.rawValue
         prefSwitch.isOn = switchSetting
+        */
     }
 
 }
