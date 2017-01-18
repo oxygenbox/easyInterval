@@ -25,6 +25,7 @@ class Workout: NSObject, AVAudioPlayerDelegate {
     var cadenceTimer: Timer?
     var delegate: WorkoutDelegate?
     var audioPlayer: AVAudioPlayer?
+    
     var bgTaskIdentifier: UIBackgroundTaskIdentifier!
     var currentMode: Mode = .run
     var currentInterval: Interval!
@@ -96,6 +97,13 @@ class Workout: NSObject, AVAudioPlayerDelegate {
                 audioPlayer = try AVAudioPlayer(contentsOf: url!)
                 audioPlayer!.delegate = self
                 audioPlayer!.prepareToPlay()
+                
+                let audioSession = AVAudioSession.sharedInstance()
+                
+                do {
+                    try audioSession.setCategory(AVAudioSessionCategoryPlayback)
+                }
+                
                 audioPlayer!.volume = 1
                 audioPlayer!.play()
             } catch {
