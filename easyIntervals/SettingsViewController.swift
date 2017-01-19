@@ -65,6 +65,15 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     @IBOutlet weak var message1: UILabel!
     @IBOutlet weak var message2: UILabel!
     
+    @IBOutlet weak var iconView: UIView!
+    @IBOutlet weak var sliderView: UIView!
+    @IBOutlet weak var switchView: UIView!
+    @IBOutlet weak var messageview: UIView!
+    
+    @IBOutlet var prefViews: [UIView]!
+    
+    let baseColor = UIColor.lightGray
+    
     //variables
     var preferences: [Preference] =  [.info, .audio, .vibrate, .cadence, .music, .workout]
 
@@ -227,8 +236,53 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         if !data.isRunWalk {
             picker.selectRow(1, inComponent: 0, animated: false)
         }
+        
+        setUpViews()
+        
         changePreference()
     }
+    
+    func setUpViews() {
+        
+        view.backgroundColor = baseColor
+        
+        
+        for pref in prefViews {
+            pref.backgroundColor = baseColor
+            pref.layer.borderColor = UIColor.black.cgColor
+            pref.layer.borderWidth = 0.5
+            pref.layer.shadowColor = UIColor.white.cgColor
+            pref.layer.shadowRadius = 1
+            pref.layer.shadowOpacity = 1
+            pref.layer.shadowOffset = CGSize(width: 1, height: -1)
+            
+            
+            
+        }
+    }
+    
+    /*
+     
+    
+     
+     
+     
+     
+    
+     messageVview.layer.shadowColor = UIColor.white.cgColor
+     messageVview.layer.shadowRadius = 1
+     messageVview.layer.shadowOffset = CGSize(width: 1, height: -1)
+     
+     // messageVview.layer.shadowColor = UIColor.black.cgColor
+     messageVview.layer.shadowOpacity = 1
+     // messageVview.layer.shadowOffset = CGSize.zero
+     messageVview.layer.shadowRadius = 1
+
+ */
+    
+    
+    
+    
     
     func changePreference() {
         

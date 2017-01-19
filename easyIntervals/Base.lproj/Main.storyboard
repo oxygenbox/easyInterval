@@ -298,7 +298,6 @@
                                                 </connections>
                                             </pickerView>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.0" green="0.93725490199999995" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="dgE-IG-F5x" firstAttribute="centerY" secondItem="EPt-3f-U6W" secondAttribute="centerY" id="Owu-MA-dqP"/>
                                             <constraint firstAttribute="height" constant="150" id="hlg-dG-hJc"/>
@@ -308,18 +307,18 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w4e-r2-zn1" userLabel="View - prefwindow">
                                         <rect key="frame" x="21.5" y="298" width="300" height="261"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="285-nn-kwX" userLabel="Stack View pref">
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="285-nn-kwX" userLabel="Stack View pref">
                                                 <rect key="frame" x="0.0" y="0.0" width="300" height="251"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DjB-lE-5CV">
-                                                        <rect key="frame" x="0.0" y="0.0" width="300" height="106"/>
+                                                    <view contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="DjB-lE-5CV">
+                                                        <rect key="frame" x="0.0" y="0.0" width="300" height="81"/>
                                                         <color key="backgroundColor" red="0.87058823529999996" green="0.91764705879999997" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="300" id="VEc-jy-a2q"/>
                                                         </constraints>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="odl-bG-M3a" userLabel="message View">
-                                                        <rect key="frame" x="0.5" y="106" width="299" height="92"/>
+                                                    <view contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="odl-bG-M3a" userLabel="message View">
+                                                        <rect key="frame" x="0.5" y="91" width="299" height="100"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Here is a bit of descriptive text to figure out the layout" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OPO-Eh-n22">
                                                                 <rect key="frame" x="20" y="20" width="260" height="55"/>
@@ -331,22 +330,23 @@
                                                         <color key="backgroundColor" red="0.6588235294" green="0.57254901960000004" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstItem="OPO-Eh-n22" firstAttribute="top" secondItem="odl-bG-M3a" secondAttribute="top" constant="20" id="INY-D9-sxB"/>
+                                                            <constraint firstAttribute="height" constant="100" id="Id9-rN-gqw"/>
                                                             <constraint firstItem="OPO-Eh-n22" firstAttribute="leading" secondItem="odl-bG-M3a" secondAttribute="leading" constant="20" id="euR-22-98M"/>
                                                             <constraint firstAttribute="bottom" secondItem="OPO-Eh-n22" secondAttribute="bottom" constant="20" id="gEr-nJ-i4G"/>
                                                             <constraint firstAttribute="trailing" secondItem="OPO-Eh-n22" secondAttribute="trailing" constant="20" id="rt5-tU-GDf"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DZt-PE-xWO" userLabel="controls View">
-                                                        <rect key="frame" x="0.0" y="198" width="300" height="53"/>
+                                                        <rect key="frame" x="0.0" y="201" width="300" height="50"/>
                                                         <subviews>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eht-NA-hYp" userLabel="controls Stack View">
-                                                                <rect key="frame" x="0.0" y="0.0" width="300" height="53"/>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Eht-NA-hYp" userLabel="controls Stack View">
+                                                                <rect key="frame" x="0.0" y="0.0" width="300" height="50"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="3eA-Xk-XaA" userLabel="SliderView">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="230" height="53"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="225" height="50"/>
                                                                         <subviews>
                                                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="lF9-ad-OVV">
-                                                                                <rect key="frame" x="18" y="11.5" width="194" height="31"/>
+                                                                                <rect key="frame" x="18" y="10" width="189" height="31"/>
                                                                                 <color key="maximumTrackTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 <connections>
                                                                                     <action selector="sliderChangedWithSender:" destination="weC-Ga-LzU" eventType="valueChanged" id="CQR-8I-F2c"/>
@@ -362,10 +362,10 @@
                                                                         </constraints>
                                                                     </view>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WcW-B4-Jx7" userLabel="switch View">
-                                                                        <rect key="frame" x="230" y="0.0" width="70" height="53"/>
+                                                                        <rect key="frame" x="230" y="0.0" width="70" height="50"/>
                                                                         <subviews>
                                                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Po0-0A-e9a">
-                                                                                <rect key="frame" x="10" y="11.5" width="51" height="31"/>
+                                                                                <rect key="frame" x="10" y="10" width="51" height="31"/>
                                                                                 <connections>
                                                                                     <action selector="switchChangedWithSender:" destination="weC-Ga-LzU" eventType="valueChanged" id="Hg5-pU-3MP"/>
                                                                                 </connections>
@@ -382,7 +382,7 @@
                                                                 <constraints>
                                                                     <constraint firstItem="WcW-B4-Jx7" firstAttribute="top" secondItem="Eht-NA-hYp" secondAttribute="top" id="6Ph-ft-Iqu"/>
                                                                     <constraint firstAttribute="bottom" secondItem="WcW-B4-Jx7" secondAttribute="bottom" id="BFC-fZ-JGt"/>
-                                                                    <constraint firstItem="WcW-B4-Jx7" firstAttribute="leading" secondItem="3eA-Xk-XaA" secondAttribute="trailing" id="D5v-Oa-HmS"/>
+                                                                    <constraint firstItem="WcW-B4-Jx7" firstAttribute="leading" secondItem="3eA-Xk-XaA" secondAttribute="trailing" constant="10" id="D5v-Oa-HmS"/>
                                                                     <constraint firstAttribute="trailing" secondItem="WcW-B4-Jx7" secondAttribute="trailing" id="Lft-pT-Jav"/>
                                                                 </constraints>
                                                             </stackView>
@@ -398,13 +398,16 @@
                                                     </view>
                                                 </subviews>
                                                 <constraints>
+                                                    <constraint firstItem="odl-bG-M3a" firstAttribute="top" secondItem="DjB-lE-5CV" secondAttribute="bottom" constant="10" id="B2f-4c-cEx"/>
                                                     <constraint firstAttribute="trailing" secondItem="DZt-PE-xWO" secondAttribute="trailing" id="MZ2-SH-h5k"/>
                                                     <constraint firstAttribute="bottom" secondItem="DZt-PE-xWO" secondAttribute="bottom" constant="10" id="P00-3O-9hB"/>
+                                                    <constraint firstItem="DjB-lE-5CV" firstAttribute="leading" secondItem="285-nn-kwX" secondAttribute="leading" id="VK3-LR-kRW"/>
+                                                    <constraint firstAttribute="trailing" secondItem="DjB-lE-5CV" secondAttribute="trailing" id="bAk-N3-2va"/>
+                                                    <constraint firstItem="DjB-lE-5CV" firstAttribute="top" secondItem="285-nn-kwX" secondAttribute="top" id="rfH-ft-U62"/>
                                                     <constraint firstItem="DZt-PE-xWO" firstAttribute="leading" secondItem="285-nn-kwX" secondAttribute="leading" id="xOX-5q-hyN"/>
                                                 </constraints>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" red="1" green="0.86666666670000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="285-nn-kwX" secondAttribute="trailing" id="CdQ-Y9-hnn"/>
                                             <constraint firstItem="285-nn-kwX" firstAttribute="leading" secondItem="w4e-r2-zn1" secondAttribute="leading" id="M3E-Uq-5uX"/>
@@ -448,7 +451,7 @@
                                 </items>
                             </toolbar>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="q9u-g6-GbV" secondAttribute="trailing" id="7nF-3r-aPe"/>
                             <constraint firstItem="hA6-ll-trC" firstAttribute="leading" secondItem="X3F-P3-dDh" secondAttribute="leadingMargin" id="8Md-Eb-Xs6"/>
@@ -462,10 +465,16 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="message1" destination="OPO-Eh-n22" id="asb-Oq-kJO"/>
+                        <outlet property="messageview" destination="odl-bG-M3a" id="1a1-LK-CE1"/>
                         <outlet property="picker" destination="dgE-IG-F5x" id="t3j-7x-Wrm"/>
                         <outlet property="preferenceSwitch" destination="Po0-0A-e9a" id="BA4-x7-WE3"/>
                         <outlet property="segmentedControl" destination="IGi-tP-e7q" id="I26-va-GaS"/>
                         <outlet property="sessionSlider" destination="lF9-ad-OVV" id="cWV-93-ACZ"/>
+                        <outlet property="sliderView" destination="3eA-Xk-XaA" id="gb4-rH-BNE"/>
+                        <outlet property="switchView" destination="WcW-B4-Jx7" id="hAc-eX-loy"/>
+                        <outletCollection property="prefViews" destination="odl-bG-M3a" collectionClass="NSMutableArray" id="x0w-EC-kbe"/>
+                        <outletCollection property="prefViews" destination="WcW-B4-Jx7" collectionClass="NSMutableArray" id="BSA-pj-RAs"/>
+                        <outletCollection property="prefViews" destination="3eA-Xk-XaA" collectionClass="NSMutableArray" id="VKW-Bv-ddh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ixP-l7-aOV" userLabel="First Responder" sceneMemberID="firstResponder"/>
