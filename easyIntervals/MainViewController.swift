@@ -162,7 +162,7 @@ class MainViewController: UIViewController, WorkoutDelegate {
     
     
     func settingTapped() {
-        if let vc = storyboard?.instantiateViewController(withIdentifier: "Setting") as? SettingViewController {
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "Settings") as? SettingsViewController {
             self.navigationController?.pushViewController(vc, animated: true)
             self.modeUpdate()
         }

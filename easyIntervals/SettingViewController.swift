@@ -5,6 +5,7 @@
 //  Created by Michael Schaffner on 1/16/17.
 //  Copyright © 2017 Michael Schaffner. All rights reserved.
 //
+/*
 enum Picker: Int {
     case mode
     case time
@@ -45,7 +46,7 @@ enum Preference: Int {
             return "Workout"
         }
     }
-    
+ 
     var desc: String {
         switch self {
         case .audio:
@@ -61,7 +62,7 @@ enum Preference: Int {
         }
     }
 }
-
+*/
 
 
 
@@ -146,6 +147,8 @@ class SettingViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
                 data.musicOn = value
             case .workout:
                 data.workoutOn = value
+        default:
+            break
         }
         
         data.save()
@@ -244,6 +247,8 @@ class SettingViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
                 value = data.musicOn
             case .workout:
                 value = data.workoutOn
+        default:
+            break
         }
          
         cell.setUp(preference: pref, switchSetting: value)

@@ -6,7 +6,7 @@
 //  Copyright © 2017 Michael Schaffner. All rights reserved.
 //
 
-/*
+
 enum Picker: Int {
     case mode
     case time
@@ -147,6 +147,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         label.textAlignment = .center
         label.textColor = UIColor.myBlue
         label.font = UIFont.boldSystemFont(ofSize: 24)
+        label.font = UIFont(name: "Avenir Next", size: 30.0)!
         label.backgroundColor = UIColor.clear
         label.isOpaque = false
         
@@ -156,6 +157,8 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
             label.attributedText = Tool.formatPickerMode(mode: Data.modeNameArray[row])
             label.backgroundColor = UIColor.myBlue
             label.textColor = UIColor.white
+            label.layer.cornerRadius = label.frame.size.height / 2
+            label.clipsToBounds = true
 
         } else {
             label.text = Data.timeArray[row]
@@ -235,7 +238,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         } else {
             sessionSlider.isHidden = true
         }
-        sliderMessage.isHidden = sessionSlider.isHidden
+       // sliderMessage.isHidden = sessionSlider.isHidden
         
         preferenceSwitch.isHidden = activePreference == .info
         
@@ -273,13 +276,13 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     
     func postSliderMessage() {
         if activePreference == .workout {
-            let minutes = data.sessionIncrement * data.sequenceRepeats
-            let h = minutes / 60
-            let m = minutes - h * 60
-            let time = "\(h):\(Tool.numberToString(value: m))"
-            sliderMessage.text = "\(minutes) MINUTE (\(time)) WORKOUT"
+           // let minutes = data.sessionIncrement * data.sequenceRepeats
+           // let h = minutes / 60
+           // let m = minutes - h * 60
+           // let time = "\(h):\(Tool.numberToString(value: m))"
+           // sliderMessage.text = "\(minutes) MINUTE (\(time)) WORKOUT"
         } else if activePreference == .cadence {
-            sliderMessage.text = cadenceMessage()
+            //sliderMessage.text = cadenceMessage()
         }
     }
     
@@ -297,7 +300,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     }
 }
 
-*/
+
 
 
 

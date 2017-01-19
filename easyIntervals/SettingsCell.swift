@@ -34,7 +34,7 @@ class SettingsCell: UITableViewCell {
         bgView.clipsToBounds = true
         self.pref = preference
         self.title.text = preference.name
-        self.desc.text = preference.desc
+       // self.desc.text = preference.desc
         prefSwitch.tag = preference.rawValue
         prefSwitch.isOn = switchSetting
     }

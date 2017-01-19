@@ -71,11 +71,14 @@ class OLDSettingViewController: UIViewController, UITableViewDelegate, UITableVi
             cell.switch.isOn = data.musicOn
         case .workout:
             cell.switch.isOn = data.workoutOn
+        default:
+            break
         }
         
         cell.slider.isHidden = true
        // cell.slider.removeFromSuperview()
         return cell
+        
     }
     
     /*
