@@ -22,44 +22,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Gnn-bz-L1J">
-                                <rect key="frame" x="61" y="397" width="254" height="30"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="vOr-wq-boF">
-                                        <rect key="frame" x="0.0" y="0.0" width="254" height="30"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XP2-XV-DRg">
-                                                <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
-                                                <color key="backgroundColor" red="1" green="0.0" blue="0.021556500230000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                <state key="normal" title="Button"/>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fvF-mP-cna">
-                                                <rect key="frame" x="52" y="0.0" width="46" height="30"/>
-                                                <color key="backgroundColor" red="1" green="0.0" blue="0.021556500230000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                <state key="normal" title="Button"/>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z2V-c7-Cpy">
-                                                <rect key="frame" x="104" y="0.0" width="46" height="30"/>
-                                                <color key="backgroundColor" red="1" green="0.0" blue="0.021556500230000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                <state key="normal" title="Button"/>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6xf-09-9ij">
-                                                <rect key="frame" x="156" y="0.0" width="46" height="30"/>
-                                                <color key="backgroundColor" red="1" green="0.0" blue="0.021556500230000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                <state key="normal" title="Button"/>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0iI-PW-T8F">
-                                                <rect key="frame" x="208" y="0.0" width="46" height="30"/>
-                                                <color key="backgroundColor" red="1" green="0.0" blue="0.021556500230000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                <state key="normal" title="Button"/>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                            </stackView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zle-ih-hCx">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zle-ih-hCx">
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="I1q-Oc-4rY"/>
+                                </constraints>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="0Il-Mn-K1x"/>
                                     <barButtonItem title="info |" id="Hqp-7n-xKL"/>
@@ -76,29 +43,29 @@
                                 <rect key="frame" x="29" y="90" width="316" height="210"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="f7G-pH-eLx">
-                                        <rect key="frame" x="11" y="-15" width="292.5" height="241.5"/>
+                                        <rect key="frame" x="0.0" y="-20" width="317" height="250.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rN6-IT-4ur">
-                                                <rect key="frame" x="8" y="8" width="276.5" height="150"/>
+                                                <rect key="frame" x="8" y="8" width="301" height="150"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="150" id="NLN-Nu-oqd"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="128"/>
+                                                <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="132"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="ffM-m9-SDD">
-                                                <rect key="frame" x="29.5" y="158" width="234" height="59.5"/>
+                                                <rect key="frame" x="34" y="158" width="249.5" height="68.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WALK" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8fV-ff-ThU">
-                                                        <rect key="frame" x="0.0" y="14.5" width="60" height="31"/>
-                                                        <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="26"/>
+                                                        <rect key="frame" x="0.0" y="14" width="65.5" height="41"/>
+                                                        <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="30"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ajq-fh-CcL">
-                                                        <rect key="frame" x="66" y="0.0" width="168" height="59.5"/>
-                                                        <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="50"/>
+                                                        <rect key="frame" x="71.5" y="0.0" width="178" height="68.5"/>
+                                                        <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="50"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -124,26 +91,28 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Zle-ih-hCx" secondAttribute="bottom" id="7UM-xY-a8X"/>
                             <constraint firstItem="Apd-bg-MZI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="965-2C-eJp"/>
-                            <constraint firstItem="Gnn-bz-L1J" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="M4n-Wr-Ry6"/>
-                            <constraint firstItem="Gnn-bz-L1J" firstAttribute="top" secondItem="Apd-bg-MZI" secondAttribute="bottom" constant="97" id="NeF-1O-NKf"/>
+                            <constraint firstAttribute="trailing" secondItem="Zle-ih-hCx" secondAttribute="trailing" id="Bkm-Sb-eKM"/>
                             <constraint firstItem="Apd-bg-MZI" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="26" id="lVG-0k-l1y"/>
+                            <constraint firstItem="Zle-ih-hCx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="pZr-EK-3pt"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="PDY-oe-NjH"/>
                     <connections>
                         <outlet property="audioButton" destination="R5y-FJ-4ct" id="uaV-Cp-b4a"/>
-                        <outlet property="button1" destination="XP2-XV-DRg" id="Kh0-9r-b54"/>
-                        <outlet property="button2" destination="fvF-mP-cna" id="QH3-RY-UpT"/>
-                        <outlet property="button3" destination="z2V-c7-Cpy" id="tXU-fe-B6n"/>
-                        <outlet property="button4" destination="6xf-09-9ij" id="mM7-NX-d6y"/>
-                        <outlet property="button5" destination="0iI-PW-T8F" id="Fbk-Hk-Cej"/>
                         <outlet property="cadenceButton" destination="mJS-81-i76" id="OKu-Cq-TPq"/>
                         <outlet property="infoButton" destination="Hqp-7n-xKL" id="8eD-1W-lgJ"/>
                         <outlet property="musicButton" destination="un2-48-ApN" id="fzh-zp-KW8"/>
                         <outlet property="timerView" destination="Apd-bg-MZI" id="9Z0-43-zjK"/>
                         <outlet property="vibrateButton" destination="n8p-6G-8Go" id="mFP-tH-gex"/>
                         <outlet property="workoutButton" destination="fQI-Vs-iIz" id="haP-I7-GK9"/>
+                        <outletCollection property="prefButtons" destination="Hqp-7n-xKL" id="uh7-ti-RM0"/>
+                        <outletCollection property="prefButtons" destination="R5y-FJ-4ct" id="BOs-AE-JEq"/>
+                        <outletCollection property="prefButtons" destination="n8p-6G-8Go" id="jQe-Fv-nbI"/>
+                        <outletCollection property="prefButtons" destination="mJS-81-i76" id="nGV-AZ-boq"/>
+                        <outletCollection property="prefButtons" destination="un2-48-ApN" id="8ri-2W-qiY"/>
+                        <outletCollection property="prefButtons" destination="fQI-Vs-iIz" id="q1n-7q-U4b"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -282,7 +251,7 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dx4-c7-5DA" userLabel="View top c">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="130"/>
-                                        <color key="backgroundColor" red="0.6588235294" green="0.57254901960000004" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="130" id="HdX-AF-Wjo"/>
                                         </constraints>
@@ -312,7 +281,7 @@
                                                 <subviews>
                                                     <view contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="DjB-lE-5CV">
                                                         <rect key="frame" x="0.0" y="0.0" width="300" height="81"/>
-                                                        <color key="backgroundColor" red="0.87058823529999996" green="0.91764705879999997" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="300" id="VEc-jy-a2q"/>
                                                         </constraints>
@@ -387,7 +356,7 @@
                                                                 </constraints>
                                                             </stackView>
                                                         </subviews>
-                                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
                                                             <constraint firstItem="Eht-NA-hYp" firstAttribute="leading" secondItem="DZt-PE-xWO" secondAttribute="leading" id="E0g-wD-vck"/>
                                                             <constraint firstAttribute="height" constant="50" id="eYw-6B-gxL"/>
@@ -399,10 +368,12 @@
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstItem="odl-bG-M3a" firstAttribute="top" secondItem="DjB-lE-5CV" secondAttribute="bottom" constant="10" id="B2f-4c-cEx"/>
+                                                    <constraint firstAttribute="trailing" secondItem="odl-bG-M3a" secondAttribute="trailing" constant="0.5" id="BqX-w1-de2"/>
                                                     <constraint firstAttribute="trailing" secondItem="DZt-PE-xWO" secondAttribute="trailing" id="MZ2-SH-h5k"/>
                                                     <constraint firstAttribute="bottom" secondItem="DZt-PE-xWO" secondAttribute="bottom" constant="10" id="P00-3O-9hB"/>
                                                     <constraint firstItem="DjB-lE-5CV" firstAttribute="leading" secondItem="285-nn-kwX" secondAttribute="leading" id="VK3-LR-kRW"/>
                                                     <constraint firstAttribute="trailing" secondItem="DjB-lE-5CV" secondAttribute="trailing" id="bAk-N3-2va"/>
+                                                    <constraint firstItem="odl-bG-M3a" firstAttribute="leading" secondItem="285-nn-kwX" secondAttribute="leading" constant="0.5" id="ce6-GX-m9t"/>
                                                     <constraint firstItem="DjB-lE-5CV" firstAttribute="top" secondItem="285-nn-kwX" secondAttribute="top" id="rfH-ft-U62"/>
                                                     <constraint firstItem="DZt-PE-xWO" firstAttribute="leading" secondItem="285-nn-kwX" secondAttribute="leading" id="xOX-5q-hyN"/>
                                                 </constraints>
@@ -433,15 +404,15 @@
                                 <items>
                                     <barButtonItem style="plain" id="0hg-vI-fdx">
                                         <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="IGi-tP-e7q">
-                                            <rect key="frame" x="16" y="8" width="344" height="29"/>
+                                            <rect key="frame" x="16" y="7" width="344" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <segments>
-                                                <segment title="First"/>
-                                                <segment title="Second"/>
-                                                <segment title=""/>
-                                                <segment title=""/>
-                                                <segment title=""/>
-                                                <segment title=""/>
+                                                <segment title="info"/>
+                                                <segment title="audio"/>
+                                                <segment title="vibrate"/>
+                                                <segment title="cadence"/>
+                                                <segment title="music"/>
+                                                <segment title="workout"/>
                                             </segments>
                                             <connections>
                                                 <action selector="segmentChangedWithSender:" destination="weC-Ga-LzU" eventType="valueChanged" id="CVp-B6-olE"/>
@@ -464,12 +435,12 @@
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
-                        <outlet property="message1" destination="OPO-Eh-n22" id="asb-Oq-kJO"/>
                         <outlet property="messageview" destination="odl-bG-M3a" id="1a1-LK-CE1"/>
                         <outlet property="picker" destination="dgE-IG-F5x" id="t3j-7x-Wrm"/>
+                        <outlet property="prefMessage" destination="OPO-Eh-n22" id="Y3U-vV-B4h"/>
+                        <outlet property="prefSlider" destination="lF9-ad-OVV" id="TYW-XX-6gC"/>
                         <outlet property="preferenceSwitch" destination="Po0-0A-e9a" id="BA4-x7-WE3"/>
                         <outlet property="segmentedControl" destination="IGi-tP-e7q" id="I26-va-GaS"/>
-                        <outlet property="sessionSlider" destination="lF9-ad-OVV" id="cWV-93-ACZ"/>
                         <outlet property="sliderView" destination="3eA-Xk-XaA" id="gb4-rH-BNE"/>
                         <outlet property="switchView" destination="WcW-B4-Jx7" id="hAc-eX-loy"/>
                         <outletCollection property="prefViews" destination="odl-bG-M3a" collectionClass="NSMutableArray" id="x0w-EC-kbe"/>

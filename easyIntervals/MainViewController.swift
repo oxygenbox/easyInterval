@@ -37,6 +37,13 @@
  Session
  Data
  Settings
+ 
+ //To do
+ chec restart
+ //stylize navigation bar
+ add graphic swap
+ look through graphics
+ 
  */
 
 import UIKit
@@ -56,13 +63,13 @@ class MainViewController: UIViewController, WorkoutDelegate {
     @IBOutlet weak var musicButton: UIBarButtonItem!
     @IBOutlet weak var workoutButton: UIBarButtonItem!
     
+    
+    
+    @IBOutlet weak var toolBar: UIToolbar!
     @IBOutlet weak var timerView: TimerView!
     
-    @IBOutlet weak var button1: UIButton!
-    @IBOutlet weak var button2: UIButton!
-    @IBOutlet weak var button3: UIButton!
-    @IBOutlet weak var button4: UIButton!
-    @IBOutlet weak var button5: UIButton!
+    @IBOutlet var prefButtons: [UIBarButtonItem]!
+
     
     //MARK -  Variable
     var workout = Workout()
@@ -74,7 +81,7 @@ class MainViewController: UIViewController, WorkoutDelegate {
         initInterface()
         initGestures()
         initWorkout()
-        view.backgroundColor = UIColor.myBlue
+        view.backgroundColor = UIColor.base
     }
     
     override func viewDidLoad() {
@@ -86,17 +93,18 @@ class MainViewController: UIViewController, WorkoutDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-
    //MARK: METHODS
     //-------
     func setUp() {
         title = data.settingTitle
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Settings", style: .plain, target: self, action: #selector(settingTapped))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Reset", style: .plain, target: self, action: #selector(resetTapped))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Settings", style: .plain, target: self, action: #selector(settingTapped))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Reset", style: .plain, target: self, action: #selector(resetTapped))
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "Main", style: .plain, target: nil, action: nil)
         
-        format()
+        for button in prefButtons {
+            button.tintColor = UIColor.accent
+        }
     }
     
     func initInterface() {
@@ -105,40 +113,22 @@ class MainViewController: UIViewController, WorkoutDelegate {
         cadenceButton.isEnabled = data.cadenceOn
         musicButton.isEnabled = data.musicOn
         workoutButton.isEnabled = data.workoutOn
-        
-        
     }
     
     func initWorkout() {
         workout.delegate = self
         postTimes()
-        timerView.modeLabel.text = workout.currentMode.name.uppercased()
-      
-        
-        
+        timerView.modeLabel.attributedText = modeName()
     }
     
     func toggleSession() {
         workout.toggleTimer()
-        
         if(workout.timer == nil) {
             self.timerView.sink()
-            sink()
         } else {
             self.timerView.rise()
         }
     }
-
-    func rise() {
-       
-
-    }
-    
-    func sink() {
-        
-    }
-    
-    
     
     //MARK: - Gestures
     func initGestures() {
@@ -146,20 +136,17 @@ class MainViewController: UIViewController, WorkoutDelegate {
         twoFingerTap.numberOfTapsRequired = 1
         twoFingerTap.numberOfTouchesRequired = 2
         view.addGestureRecognizer(twoFingerTap)
-        
         let swipeRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipeDetected(_:)))
         view.addGestureRecognizer(swipeRecognizer)
     }
-    
     
     func twoTapDetected(_ sender: UITapGestureRecognizer) {
         toggleSession()
     }
     
     func swipeDetected(_ sender : UISwipeGestureRecognizer) {
-        print("swipe ")
+        print("swipe")
     }
-    
     
     func settingTapped() {
         if let vc = storyboard?.instantiateViewController(withIdentifier: "Settings") as? SettingsViewController {
@@ -172,14 +159,12 @@ class MainViewController: UIViewController, WorkoutDelegate {
         timerView.intervalTime.text = Tool.formatTime(secs: workout.currentInterval.remainingSeconds, withHours: false)
         timerView.elapsedTime.text = Tool.formatTime(secs: workout.elapsedSeconds, withHours: true)
         
-        timerView.intervalTime.textColor = UIColor.white
-        timerView.elapsedTime.textColor = UIColor.white
-        timerView.modeLabel.textColor = UIColor.white
-        
-        
+        timerView.intervalTime.textColor = UIColor.accent
+        timerView.elapsedTime.textColor = UIColor.accent
+        timerView.modeLabel.textColor = UIColor.accent
+
         self.modeUpdate()
     }
-    
     
     //reset alert functions
     func resetTapped() {
@@ -190,23 +175,26 @@ class MainViewController: UIViewController, WorkoutDelegate {
         
         let walkAction = UIAlertAction(title: "Restart Walk Interval", style: .default) { [unowned self] (action) in
            self.workout.restart(mode: .walk)
+            postTimes()
         }
         
         let elapsedAction = UIAlertAction(title: "Restart Elapsed Time", style: .default) { [unowned self] (action) in
             self.workout.elapsedSeconds = 0
+            postTimes()
         }
         
         let allAction = UIAlertAction(title: "Restart Interval & Elapsed Time", style: .default) { [unowned self] (action) in
              self.workout.restart(mode: self.workout.currentMode)
             self.workout.elapsedSeconds = 0
+            postTimes()
         }
         
         let workoutAction = UIAlertAction(title: "Restart Workout", style: .default) { (action) in
-            
+           // postTimes()
         }
         
         let endWOAction = UIAlertAction(title: "End Workout", style: .default) { (action) in
-            
+          //  postTimes()
         }
         
         let cancelActions = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
@@ -235,34 +223,15 @@ class MainViewController: UIViewController, WorkoutDelegate {
     }
     
     func modeUpdate() {
-        timerView.modeLabel.text = workout.currentMode.name.uppercased()
+        timerView.modeLabel.attributedText = modeName()
     }
     
-    func format() {
-        
-        let array = [button1, button2, button3, button4, button5]
-        
-        for button in array {
-            button!.backgroundColor = UIColor.on
-           // button.titleLabel?.text = ""
-            button!.layer.cornerRadius = 5
-            
-            button!.layer.cornerRadius = 4.0
-            //        layer.shadowColor = UIColor(red: CGFloat(157.0) / 255.0, green: CGFloat(157.0) / 255.0, blue: CGFloat(157.0) / 255.0, alpha: 0.9).CGColor
-            button!.layer.shadowColor = UIColor.black.cgColor
-            button!.layer.shadowOpacity = 0.7
-            button!.layer.shadowRadius = 5.0
-            button!.layer.shadowOffset = CGSize(width: 0.0, height: 4.0)
-
-        }
-        
-        button3.layer.shadowRadius = 0
-        button3.layer.shadowOffset = CGSize(width: 1.0, height: -1.0)
+    func modeName() -> NSMutableAttributedString {
+        let attributes =  [NSFontAttributeName: UIFont(name: "AvenirNext-DemiBold", size: 30.0)!]
+        let mode = workout.currentMode.name.uppercased()
+        let mutableString = NSMutableAttributedString(string: mode, attributes: attributes)
+        return mutableString
     }
-    
-    
-        
-
 }
 
 extension UIColor
@@ -279,6 +248,14 @@ extension UIColor
     
     public class var myBlue: UIColor
     {
+        return UIColor(red: 5/255, green: 85/255, blue: 179/255, alpha: 1.0)
+    }
+    
+    public class var base: UIColor {
+        return UIColor.white
+    }
+    
+    public class var accent: UIColor {
         return UIColor(red: 5/255, green: 85/255, blue: 179/255, alpha: 1.0)
     }
 }

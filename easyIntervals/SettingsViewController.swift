@@ -49,6 +49,23 @@ enum Preference: Int {
                 return "Workout"
         }
     }
+    
+    var desc: String {
+        switch self {
+        case .info:
+            return "Info mention need tio be written"
+        case .audio:
+            return "Play audio cues including counting down the last five seconds of each interval"
+        case .vibrate:
+            return "Vibrate for the last five seconds of each interval"
+        case .cadence:
+            return "Play audio cadence check at the beginning of every other run interval"
+        case .music:
+            return "Play music from your iTunes while timer is running"
+        case .workout:
+            return "Run  a session for the length of:"
+        }
+    }
 }
 
 import UIKit
@@ -60,8 +77,8 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var preferenceSwitch: UISwitch!
     
-    @IBOutlet weak var sessionSlider: UISlider!
-    @IBOutlet weak var sliderMessage: UILabel!
+    @IBOutlet weak var prefSlider: UISlider!
+    @IBOutlet weak var prefMessage: UILabel!
     @IBOutlet weak var message1: UILabel!
     @IBOutlet weak var message2: UILabel!
     
@@ -72,7 +89,8 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     
     @IBOutlet var prefViews: [UIView]!
     
-    let baseColor = UIColor.lightGray
+    let baseColor = UIColor.white
+    let higlightColor = UIColor.myBlue
     
     //variables
     var preferences: [Preference] =  [.info, .audio, .vibrate, .cadence, .music, .workout]
@@ -154,7 +172,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 145, height: 60))
         label.textAlignment = .center
-        label.textColor = UIColor.myBlue
+        label.textColor = higlightColor
         label.font = UIFont.boldSystemFont(ofSize: 24)
         label.font = UIFont(name: "Avenir Next", size: 30.0)!
         label.backgroundColor = UIColor.clear
@@ -164,10 +182,13 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         if component == Picker.mode.rawValue {
             label.text = Data.modeNameArray[row]
             label.attributedText = Tool.formatPickerMode(mode: Data.modeNameArray[row])
-            label.backgroundColor = UIColor.myBlue
-            label.textColor = UIColor.white
+            //label.backgroundColor = UIColor.myBlue
+            label.textColor = higlightColor
             label.layer.cornerRadius = label.frame.size.height / 2
             label.clipsToBounds = true
+            
+            label.layer.borderWidth = 1
+            label.layer.borderColor = higlightColor.cgColor
 
         } else {
             label.text = Data.timeArray[row]
@@ -214,7 +235,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     
     @IBAction func sliderChanged(sender: UISlider) {
         let value  = Int(sender.value)
-        sessionSlider.setValue(Float(value), animated: false)
+        prefSlider.setValue(Float(value), animated: false)
         postSliderMessage()
         if activePreference == .workout {
             data.sequenceRepeats = value
@@ -245,8 +266,6 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     func setUpViews() {
         
         view.backgroundColor = baseColor
-        
-        
         for pref in prefViews {
             pref.backgroundColor = baseColor
             pref.layer.borderColor = UIColor.black.cgColor
@@ -255,42 +274,18 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
             pref.layer.shadowRadius = 1
             pref.layer.shadowOpacity = 1
             pref.layer.shadowOffset = CGSize(width: 1, height: -1)
-            
-            
-            
         }
     }
-    
-    /*
-     
-    
-     
-     
-     
-     
-    
-     messageVview.layer.shadowColor = UIColor.white.cgColor
-     messageVview.layer.shadowRadius = 1
-     messageVview.layer.shadowOffset = CGSize(width: 1, height: -1)
-     
-     // messageVview.layer.shadowColor = UIColor.black.cgColor
-     messageVview.layer.shadowOpacity = 1
-     // messageVview.layer.shadowOffset = CGSize.zero
-     messageVview.layer.shadowRadius = 1
-
- */
-    
-    
-    
-    
-    
+   
     func changePreference() {
         
         if activePreference == .cadence || activePreference == .workout {
-            sessionSlider.isHidden = false
+            prefSlider.isHidden = false
             initSlider()
+            revealSlider(show: true)
         } else {
-            sessionSlider.isHidden = true
+            revealSlider(show: false)
+          //  prefSlider.isHidden = true
         }
        // sliderMessage.isHidden = sessionSlider.isHidden
         
@@ -310,21 +305,23 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         default:
             break
         }
+        revealMessage()
+      //  prefMessage.text = activePreference.desc
     }
     
     func initSlider() {
         if activePreference == .workout {
-            sessionSlider.minimumValue = 1
-            sessionSlider.maximumValue  = 6
+            prefSlider.minimumValue = 1
+            prefSlider.maximumValue  = 6
             let value = Float(data.sequenceRepeats)
-            sessionSlider.setValue(value, animated: false)
+            prefSlider.setValue(value, animated: false)
             postSliderMessage()
         } else if activePreference == .cadence {
-            sessionSlider.minimumValue = 1
-            sessionSlider.maximumValue = 4
+            prefSlider.minimumValue = 1
+            prefSlider.maximumValue = 4
             let value = Float(data.cadenceFrequency)
-            sessionSlider.setValue(value, animated: false)
-            postSliderMessage()
+            prefSlider.setValue(value, animated: false)
+            //postSliderMessage()
         }
     }
     
@@ -352,14 +349,94 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
                 return "Every Fourth Run Interval"
         }
     }
+    
+    
+    func revealSlider(show: Bool) {
+        if prefSlider.isHidden != show {
+            UIView.transition(with: sliderView, duration: 1.0, options: [.transitionFlipFromLeft], animations: {
+                self.prefSlider.isHidden = show
+            }, completion: { (success: Bool) in
+                
+            })
+        }
+    }
+    
+    func revealMessage() {
+        UIView.transition(with: messageview, duration: 1.0, options: [.transitionFlipFromLeft], animations: {
+            self.prefMessage.text = self.activePreference.desc
+        }, completion: { (success: Bool) in
+            
+        })
+    }
 }
 
 
+/*
+ 
+
+ UIView.transition(with: sliderView, duration: 1.0, options: [.transitionFlipFromRight], animations: {
+ self.slider.isHidden = show
+ })
+
+ 
+ 
+ 
+ 
+ func setUp() {
+ let tap = UITapGestureRecognizer(target: self, action: #selector(tapped))
+ boxA.isUserInteractionEnabled = true
+ boxA.addGestureRecognizer(tap)
+ }
+ 
+ 
+ func sliderFlip(show: Bool) {
+ if  slider.isHidden != show {
+ UIView.transition(with: sliderView, duration: 1.0, options: [.transitionFlipFromRight], animations: {
+ self.slider.isHidden = show
+ })
+ }
+ }
+ 
+ func imageFlip(show: Bool) {
+ UIView.transition(with: imageView, duration: 1.25, options: [.transitionFlipFromRight], animations: {
+ 
+ })
+ }
+ 
+ 
+ func switchFlip(show: Bool) {
+ UIView.transition(with: switchView, duration: 1.25, options: [.transitionFlipFromRight], animations: {
+ 
+ })
+ }
+ 
+ 
+ 
+ func messageFlip(show: Bool) {
+ UIView.transition(with: messageVview, duration: 1.0, options: [.transitionFlipFromRight], animations: {
+ 
+ })
+ }
+
+ 
+ 
+ */
 
 
 
-    
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*
