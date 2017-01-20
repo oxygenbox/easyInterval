@@ -175,18 +175,18 @@ class MainViewController: UIViewController, WorkoutDelegate {
         
         let walkAction = UIAlertAction(title: "Restart Walk Interval", style: .default) { [unowned self] (action) in
            self.workout.restart(mode: .walk)
-            postTimes()
+            self.postTimes()
         }
         
         let elapsedAction = UIAlertAction(title: "Restart Elapsed Time", style: .default) { [unowned self] (action) in
             self.workout.elapsedSeconds = 0
-            postTimes()
+            self.postTimes()
         }
         
         let allAction = UIAlertAction(title: "Restart Interval & Elapsed Time", style: .default) { [unowned self] (action) in
              self.workout.restart(mode: self.workout.currentMode)
             self.workout.elapsedSeconds = 0
-            postTimes()
+            self.postTimes()
         }
         
         let workoutAction = UIAlertAction(title: "Restart Workout", style: .default) { (action) in

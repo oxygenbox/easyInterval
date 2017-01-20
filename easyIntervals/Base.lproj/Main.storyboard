@@ -28,15 +28,19 @@
                                     <constraint firstAttribute="height" constant="44" id="I1q-Oc-4rY"/>
                                 </constraints>
                                 <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="RyL-gY-HHr"/>
+                                    <barButtonItem image="icon_help" id="Hqp-7n-xKL"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="0Il-Mn-K1x"/>
-                                    <barButtonItem title="info |" id="Hqp-7n-xKL"/>
-                                    <barButtonItem title="audio |" id="R5y-FJ-4ct"/>
-                                    <barButtonItem title="vibrate |" id="n8p-6G-8Go"/>
-                                    <barButtonItem title="cadence |" id="mJS-81-i76"/>
-                                    <barButtonItem title="music |" id="un2-48-ApN"/>
-                                    <barButtonItem title="wo" id="fQI-Vs-iIz"/>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="aec-0m-FkQ"/>
+                                    <barButtonItem image="icon_audio" id="R5y-FJ-4ct"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Lxf-G6-eLf"/>
+                                    <barButtonItem image="icon_vibrate" id="n8p-6G-8Go"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="gBY-hh-K3Z"/>
+                                    <barButtonItem image="icon_cadence" id="mJS-81-i76"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="zOb-3e-tmo"/>
+                                    <barButtonItem image="icon_music" id="un2-48-ApN"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="aec-0m-FkQ"/>
+                                    <barButtonItem image="icon_time" id="fQI-Vs-iIz"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="2k7-v4-6NI"/>
                                 </items>
                             </toolbar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Apd-bg-MZI" customClass="TimerView" customModule="easyIntervals" customModuleProvider="target">
@@ -107,12 +111,12 @@
                         <outlet property="timerView" destination="Apd-bg-MZI" id="9Z0-43-zjK"/>
                         <outlet property="vibrateButton" destination="n8p-6G-8Go" id="mFP-tH-gex"/>
                         <outlet property="workoutButton" destination="fQI-Vs-iIz" id="haP-I7-GK9"/>
-                        <outletCollection property="prefButtons" destination="Hqp-7n-xKL" id="uh7-ti-RM0"/>
-                        <outletCollection property="prefButtons" destination="R5y-FJ-4ct" id="BOs-AE-JEq"/>
-                        <outletCollection property="prefButtons" destination="n8p-6G-8Go" id="jQe-Fv-nbI"/>
-                        <outletCollection property="prefButtons" destination="mJS-81-i76" id="nGV-AZ-boq"/>
-                        <outletCollection property="prefButtons" destination="un2-48-ApN" id="8ri-2W-qiY"/>
-                        <outletCollection property="prefButtons" destination="fQI-Vs-iIz" id="q1n-7q-U4b"/>
+                        <outletCollection property="prefButtons" destination="Hqp-7n-xKL" collectionClass="NSMutableArray" id="uh7-ti-RM0"/>
+                        <outletCollection property="prefButtons" destination="R5y-FJ-4ct" collectionClass="NSMutableArray" id="BOs-AE-JEq"/>
+                        <outletCollection property="prefButtons" destination="n8p-6G-8Go" collectionClass="NSMutableArray" id="jQe-Fv-nbI"/>
+                        <outletCollection property="prefButtons" destination="mJS-81-i76" collectionClass="NSMutableArray" id="nGV-AZ-boq"/>
+                        <outletCollection property="prefButtons" destination="un2-48-ApN" collectionClass="NSMutableArray" id="8ri-2W-qiY"/>
+                        <outletCollection property="prefButtons" destination="fQI-Vs-iIz" collectionClass="NSMutableArray" id="q1n-7q-U4b"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -157,12 +161,12 @@
                                             <rect key="frame" x="15" y="7" width="344" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <segments>
-                                                <segment title="i"/>
-                                                <segment title="a"/>
-                                                <segment title="v"/>
-                                                <segment title="c"/>
-                                                <segment title="m"/>
-                                                <segment title="wo"/>
+                                                <segment title="" image="icon_help"/>
+                                                <segment title="" image="icon_audio"/>
+                                                <segment title="" image="icon_vibrate"/>
+                                                <segment title="" image="icon_cadence"/>
+                                                <segment title="" image="icon_music"/>
+                                                <segment title="" image="icon_time"/>
                                             </segments>
                                             <connections>
                                                 <action selector="segmentChangedWithSender:" destination="DaW-Ah-u3t" eventType="valueChanged" id="FvV-dX-1yM"/>
@@ -287,10 +291,10 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="odl-bG-M3a" userLabel="message View">
-                                                        <rect key="frame" x="0.5" y="91" width="299" height="100"/>
+                                                        <rect key="frame" x="0.0" y="91" width="300" height="100"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Here is a bit of descriptive text to figure out the layout" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OPO-Eh-n22">
-                                                                <rect key="frame" x="20" y="20" width="260" height="55"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Here is a bit of descriptive text to figure out the layout" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OPO-Eh-n22">
+                                                                <rect key="frame" x="20" y="20" width="260" height="60"/>
                                                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -351,7 +355,6 @@
                                                                 <constraints>
                                                                     <constraint firstItem="WcW-B4-Jx7" firstAttribute="top" secondItem="Eht-NA-hYp" secondAttribute="top" id="6Ph-ft-Iqu"/>
                                                                     <constraint firstAttribute="bottom" secondItem="WcW-B4-Jx7" secondAttribute="bottom" id="BFC-fZ-JGt"/>
-                                                                    <constraint firstItem="WcW-B4-Jx7" firstAttribute="leading" secondItem="3eA-Xk-XaA" secondAttribute="trailing" constant="10" id="D5v-Oa-HmS"/>
                                                                     <constraint firstAttribute="trailing" secondItem="WcW-B4-Jx7" secondAttribute="trailing" id="Lft-pT-Jav"/>
                                                                 </constraints>
                                                             </stackView>
@@ -370,7 +373,6 @@
                                                     <constraint firstItem="odl-bG-M3a" firstAttribute="top" secondItem="DjB-lE-5CV" secondAttribute="bottom" constant="10" id="B2f-4c-cEx"/>
                                                     <constraint firstAttribute="trailing" secondItem="odl-bG-M3a" secondAttribute="trailing" constant="0.5" id="BqX-w1-de2"/>
                                                     <constraint firstAttribute="trailing" secondItem="DZt-PE-xWO" secondAttribute="trailing" id="MZ2-SH-h5k"/>
-                                                    <constraint firstAttribute="bottom" secondItem="DZt-PE-xWO" secondAttribute="bottom" constant="10" id="P00-3O-9hB"/>
                                                     <constraint firstItem="DjB-lE-5CV" firstAttribute="leading" secondItem="285-nn-kwX" secondAttribute="leading" id="VK3-LR-kRW"/>
                                                     <constraint firstAttribute="trailing" secondItem="DjB-lE-5CV" secondAttribute="trailing" id="bAk-N3-2va"/>
                                                     <constraint firstItem="odl-bG-M3a" firstAttribute="leading" secondItem="285-nn-kwX" secondAttribute="leading" constant="0.5" id="ce6-GX-m9t"/>
@@ -384,7 +386,6 @@
                                             <constraint firstItem="285-nn-kwX" firstAttribute="leading" secondItem="w4e-r2-zn1" secondAttribute="leading" id="M3E-Uq-5uX"/>
                                             <constraint firstAttribute="bottom" secondItem="285-nn-kwX" secondAttribute="bottom" constant="10" id="ep4-c8-TbV"/>
                                             <constraint firstItem="285-nn-kwX" firstAttribute="top" secondItem="w4e-r2-zn1" secondAttribute="top" id="gBO-SN-hfK"/>
-                                            <constraint firstAttribute="height" constant="250" id="hOT-Cq-rdr"/>
                                             <constraint firstAttribute="width" constant="300" id="mjW-Pl-QGi"/>
                                         </constraints>
                                     </view>
@@ -407,12 +408,12 @@
                                             <rect key="frame" x="16" y="7" width="344" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <segments>
-                                                <segment title="info"/>
-                                                <segment title="audio"/>
-                                                <segment title="vibrate"/>
-                                                <segment title="cadence"/>
-                                                <segment title="music"/>
-                                                <segment title="workout"/>
+                                                <segment title="" image="icon_help"/>
+                                                <segment title="" image="icon_audio"/>
+                                                <segment title="" image="icon_vibrate"/>
+                                                <segment title="" image="icon_cadence"/>
+                                                <segment title="" image="icon_music"/>
+                                                <segment title="" image="icon_time"/>
                                             </segments>
                                             <connections>
                                                 <action selector="segmentChangedWithSender:" destination="weC-Ga-LzU" eventType="valueChanged" id="CVp-B6-olE"/>
@@ -471,4 +472,12 @@
             <point key="canvasLocation" x="233" y="-414"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icon_audio" width="22" height="22"/>
+        <image name="icon_cadence" width="22" height="22"/>
+        <image name="icon_help" width="22" height="22"/>
+        <image name="icon_music" width="22" height="22"/>
+        <image name="icon_time" width="22" height="22"/>
+        <image name="icon_vibrate" width="22" height="22"/>
+    </resources>
 </document>
