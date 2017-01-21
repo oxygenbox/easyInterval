@@ -87,6 +87,11 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     @IBOutlet weak var switchView: UIView!
     @IBOutlet weak var messageview: UIView!
     
+    @IBOutlet weak var modeImageA: UIImageView!
+    @IBOutlet weak var modeImageB: UIImageView!
+    @IBOutlet weak var modeDivider: UIView!
+    
+    
     @IBOutlet var prefViews: [UIView]!
     
     let baseColor = UIColor.white
@@ -207,6 +212,11 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         data.calcSessionIncrement()
         title = data.settingTitle
         initSlider()
+        
+        if component == 0 {
+            modeChange()
+        }
+        
     }
     
     //MARK: - IBAction
@@ -249,6 +259,8 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     //MARK: - Methods
     func setUp() {
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "Main", style: .plain, target: nil, action: nil)
+        segmentedControl.tintColor = UIColor.accent
+        
         title = data.settingTitle
         //init interface
         segmentedControl.selectedSegmentIndex = data.settingsTab
@@ -259,6 +271,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         }
         
         setUpViews()
+        setModeImages()
         
         changePreference()
     }
@@ -368,6 +381,53 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
             
         })
     }
+    
+    func modeChange(){
+        
+        UIView.animate(withDuration: 0.60, delay: 0, options: [.curveEaseOut], animations: {
+            self.modeImageA.center.x -= 300
+            self.modeImageB.center.x += 300
+        }) { (success: Bool) in
+            self.setModeImages()
+            UIView.animate(withDuration: 0.60, delay: 0, options: [.curveEaseInOut], animations: {
+                self.modeImageA.center.x += 300
+                self.modeImageB.center.x -= 300
+            })
+        }
+        
+        /*
+        
+        UIView.animate(withDuration: 0.25, animations: {
+            self.modeImageA.center.x -= 300
+            self.modeImageB.center.x += 300
+        }) { (success: Bool) in
+            self.setModeImages()
+            UIView.animate(withDuration: 0.25, animations: {
+                self.modeImageA.center.x += 300
+                self.modeImageB.center.x -= 300
+            })
+        }
+        */
+        
+        
+        
+        
+    }
+    
+    func setModeImages() {
+        if data.isRunWalk {
+            modeImageA.image = UIImage(named: "run")
+            modeImageB.image = UIImage(named: "walk")
+        } else {
+            modeImageA.image = UIImage(named: "walk")
+            modeImageB.image = UIImage(named: "run")
+        }
+        
+        modeImageA.tintImageColor(color: UIColor.accent)
+        modeImageB.tintImageColor(color: UIColor.accent)
+    }
+    
+    
 }
 
 

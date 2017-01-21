@@ -97,10 +97,19 @@ class MainViewController: UIViewController, WorkoutDelegate {
     //-------
     func setUp() {
         title = data.settingTitle
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Settings", style: .plain, target: self, action: #selector(settingTapped))
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Reset", style: .plain, target: self, action: #selector(resetTapped))
         
+        
+        navigationItem.rightBarButtonItem?.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.base, NSFontAttributeName: UIFont(name: "AvenirNextCondensed-Medium", size: 16.0)!], for: .normal)
+        
+        navigationItem.leftBarButtonItem?.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.base, NSFontAttributeName: UIFont(name: "AvenirNextCondensed-Medium", size: 16.0)!], for: .normal)
+        
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "Main", style: .plain, target: nil, action: nil)
+        
+        navigationItem.backBarButtonItem?.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.base, NSFontAttributeName: UIFont(name: "AvenirNextCondensed-Regular", size: 10.0)!], for: .normal)
+        
         
         for button in prefButtons {
             button.tintColor = UIColor.accent
@@ -260,6 +269,12 @@ extension UIColor
     }
 }
 
+extension UIImageView {
+    func tintImageColor(color : UIColor) {
+        self.image = self.image!.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+        self.tintColor = color
+    }
+}
 
 
 
