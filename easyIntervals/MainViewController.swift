@@ -65,8 +65,11 @@ class MainViewController: UIViewController, WorkoutDelegate {
     
     
     
+    
+    
     @IBOutlet weak var toolBar: UIToolbar!
     @IBOutlet weak var timerView: TimerView!
+    @IBOutlet weak var progressView: ProgressView!
     
     @IBOutlet var prefButtons: [UIBarButtonItem]!
 
@@ -228,6 +231,7 @@ class MainViewController: UIViewController, WorkoutDelegate {
     
     func percentComplete(pct: CGFloat) {
         //print(1 - pct)
+        progressView.update(pct: pct)
     }
     
     func modeUpdate() {

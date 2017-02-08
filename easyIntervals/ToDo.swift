@@ -17,7 +17,9 @@ import Foundation
  5. Workout mode - elapsed, progress
  6. Design
  7 make sure funtinality is obviosus
- 7. Animations
+ 8. Animations
+ 9. Progress
+ 
  
  9. Implement music
  10. Countdown to start

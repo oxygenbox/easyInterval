@@ -92,12 +92,22 @@
                                     <outlet property="modeLabel" destination="8fV-ff-ThU" id="VgP-PT-a3h"/>
                                 </connections>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M2j-si-XyH" customClass="ProgressView" customModule="easyIntervals" customModuleProvider="target">
+                                <rect key="frame" x="57.666666666666657" y="330" width="300" height="200"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="FcE-5x-NsB"/>
+                                    <constraint firstAttribute="width" constant="300" id="Hb4-fR-opa"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Zle-ih-hCx" secondAttribute="bottom" id="7UM-xY-a8X"/>
                             <constraint firstItem="Apd-bg-MZI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="965-2C-eJp"/>
                             <constraint firstAttribute="trailing" secondItem="Zle-ih-hCx" secondAttribute="trailing" id="Bkm-Sb-eKM"/>
+                            <constraint firstItem="M2j-si-XyH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="E3G-pY-JBK"/>
+                            <constraint firstItem="M2j-si-XyH" firstAttribute="top" secondItem="Apd-bg-MZI" secondAttribute="bottom" constant="30" id="IRe-Vg-69e"/>
                             <constraint firstItem="Apd-bg-MZI" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="26" id="lVG-0k-l1y"/>
                             <constraint firstItem="Zle-ih-hCx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="pZr-EK-3pt"/>
                         </constraints>
@@ -108,6 +118,7 @@
                         <outlet property="cadenceButton" destination="mJS-81-i76" id="OKu-Cq-TPq"/>
                         <outlet property="infoButton" destination="Hqp-7n-xKL" id="8eD-1W-lgJ"/>
                         <outlet property="musicButton" destination="un2-48-ApN" id="fzh-zp-KW8"/>
+                        <outlet property="progressView" destination="M2j-si-XyH" id="TXw-6d-uWa"/>
                         <outlet property="timerView" destination="Apd-bg-MZI" id="9Z0-43-zjK"/>
                         <outlet property="vibrateButton" destination="n8p-6G-8Go" id="mFP-tH-gex"/>
                         <outlet property="workoutButton" destination="fQI-Vs-iIz" id="haP-I7-GK9"/>
@@ -121,7 +132,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1074" y="-414"/>
+            <point key="canvasLocation" x="1073.913043478261" y="-414.13043478260875"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="xnE-uV-p4m">
