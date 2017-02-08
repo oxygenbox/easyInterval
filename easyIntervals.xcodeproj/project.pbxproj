@@ -20,6 +20,7 @@
 		9E6789DC1E2D1F4800E1674E /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6789DB1E2D1F4800E1674E /* TimerView.swift */; };
 		9E6789DE1E2D5C1E00E1674E /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6789DD1E2D5C1E00E1674E /* SettingViewController.swift */; };
 		9E6789E01E2D6FBC00E1674E /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6789DF1E2D6FBC00E1674E /* SettingsCell.swift */; };
+		9EC7AC511E4B5C1B00C89EA7 /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC7AC501E4B5C1B00C89EA7 /* ToDo.swift */; };
 		9ED0CF5E1E2588510036233A /* Interval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED0CF5D1E2588510036233A /* Interval.swift */; };
 		9ED0CF5F1E26714B0036233A /* 1.caf in Resources */ = {isa = PBXBuildFile; fileRef = 9E2E77EC1E2577730082ED83 /* 1.caf */; };
 		9ED0CF601E2671520036233A /* 2.caf in Resources */ = {isa = PBXBuildFile; fileRef = 9E2E77ED1E2577730082ED83 /* 2.caf */; };
@@ -70,6 +71,7 @@
 		9E6789DB1E2D1F4800E1674E /* TimerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		9E6789DD1E2D5C1E00E1674E /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		9E6789DF1E2D6FBC00E1674E /* SettingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
+		9EC7AC501E4B5C1B00C89EA7 /* ToDo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
 		9ED0CF5D1E2588510036233A /* Interval.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interval.swift; sourceTree = "<group>"; };
 		9ED0CF6C1E2684320036233A /* Workout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
 		9ED0CF6E1E26B53E0036233A /* Tool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tool.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				9ED0CFA61E2BE93E0036233A /* PreferenceView.swift */,
 				9E6789DB1E2D1F4800E1674E /* TimerView.swift */,
 				9E6789DF1E2D6FBC00E1674E /* SettingsCell.swift */,
+				9EC7AC501E4B5C1B00C89EA7 /* ToDo.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 				9ED0CF6F1E26B53E0036233A /* Tool.swift in Sources */,
 				9E2E77E61E23D9FE0082ED83 /* Data.swift in Sources */,
 				9ED0CF731E2982850036233A /* SettingTableViewCell.swift in Sources */,
+				9EC7AC511E4B5C1B00C89EA7 /* ToDo.swift in Sources */,
 				9E2E77CF1E23D92F0082ED83 /* ViewController.swift in Sources */,
 				9ED0CF6D1E2684320036233A /* Workout.swift in Sources */,
 				9E2E77CD1E23D92F0082ED83 /* AppDelegate.swift in Sources */,

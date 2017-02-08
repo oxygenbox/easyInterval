@@ -110,7 +110,6 @@ class MainViewController: UIViewController, WorkoutDelegate {
         
         navigationItem.backBarButtonItem?.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.base, NSFontAttributeName: UIFont(name: "AvenirNextCondensed-Regular", size: 10.0)!], for: .normal)
         
-        
         for button in prefButtons {
             button.tintColor = UIColor.accent
         }

@@ -39,7 +39,7 @@ class TimerView: UIView {
         //elapsedTime.textColor = UIColor.white
        // modeLabel.textColor = UIColor.white
         
-        let bgColor = UIColor.black
+        let bgColor = UIColor.base
         let radius: CGFloat = 8.0
         
         bgView = UIView(frame: CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height))
@@ -58,7 +58,7 @@ class TimerView: UIView {
         cover.backgroundColor = bgColor
         cover.clipsToBounds = true
         cover.layer.cornerRadius = radius
-        cover.layer.borderColor = UIColor.white.cgColor
+        cover.layer.borderColor = UIColor.accent.cgColor
         cover.layer.borderWidth = 2
         
         insertSubview(cover, at: 0)
