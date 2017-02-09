@@ -12,15 +12,28 @@ import  UIKit
 
 class ProgressView: UIView {
     var progressBar: UIView!
+    var imageView: UIImageView!
     
     
     override func draw(_ rect: CGRect) {
         progressBar = UIView(frame: rect)
         
         
+        
         progressBar.frame = CGRect(x: 0, y: frame.size.height, width: frame.size.width, height: 0)
-        progressBar.backgroundColor = UIColor.orange
+        
+        backgroundColor =  UIColor(red: 149/255, green: 242/255, blue: 254/255, alpha: 1)
+        backgroundColor = UIColor.red
+    
+        progressBar.backgroundColor = UIColor(red: 114/255, green: 184/255, blue: 253/255, alpha: 1)
+            
+    
+        
+        imageView = UIImageView(image: UIImage(named: "run_mask_shadow"))
+        
         addSubview(progressBar)
+        addSubview(imageView)
+      //  progressBar.mask = imageView
     }
     
     
