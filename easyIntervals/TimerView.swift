@@ -39,6 +39,7 @@ class TimerView: UIView {
         //elapsedTime.textColor = UIColor.white
        // modeLabel.textColor = UIColor.white
         
+        /*
         let bgColor = UIColor.base
         let radius: CGFloat = 8.0
         
@@ -64,19 +65,19 @@ class TimerView: UIView {
         insertSubview(cover, at: 0)
         insertSubview(bgView, at: 0)
     
-       
+       */
     }
     
     
     func rise() {
         UIView.animate(withDuration: 0.5) {
-            self.bgView.alpha = 1
+            //self.bgView.alpha = 1
         }
     }
     
     func sink() {
         UIView.animate(withDuration: 0.5) {
-            self.bgView.alpha = 0
+          //  self.bgView.alpha = 0
         }
     }
     
