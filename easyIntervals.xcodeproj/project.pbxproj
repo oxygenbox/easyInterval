@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E2ADA551E535496000F5688 /* Paths.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2ADA541E535496000F5688 /* Paths.swift */; };
 		9E2E77CD1E23D92F0082ED83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2E77CC1E23D92F0082ED83 /* AppDelegate.swift */; };
 		9E2E77CF1E23D92F0082ED83 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2E77CE1E23D92F0082ED83 /* ViewController.swift */; };
 		9E2E77D21E23D92F0082ED83 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E2E77D01E23D92F0082ED83 /* Main.storyboard */; };
@@ -44,6 +45,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9E2ADA541E535496000F5688 /* Paths.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Paths.swift; sourceTree = "<group>"; };
 		9E2E77C91E23D92F0082ED83 /* easyIntervals.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = easyIntervals.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E2E77CC1E23D92F0082ED83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9E2E77CE1E23D92F0082ED83 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 				9E6789DB1E2D1F4800E1674E /* TimerView.swift */,
 				9E6789DF1E2D6FBC00E1674E /* SettingsCell.swift */,
 				9EC7AC521E4B5EF700C89EA7 /* ProgressView.swift */,
+				9E2ADA541E535496000F5688 /* Paths.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 				9ED0CF6F1E26B53E0036233A /* Tool.swift in Sources */,
 				9E2E77E61E23D9FE0082ED83 /* Data.swift in Sources */,
 				9ED0CF731E2982850036233A /* SettingTableViewCell.swift in Sources */,
+				9E2ADA551E535496000F5688 /* Paths.swift in Sources */,
 				9EC7AC511E4B5C1B00C89EA7 /* ToDo.swift in Sources */,
 				9E2E77CF1E23D92F0082ED83 /* ViewController.swift in Sources */,
 				9ED0CF6D1E2684320036233A /* Workout.swift in Sources */,
