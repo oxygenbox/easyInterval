@@ -69,7 +69,7 @@ class MainViewController: UIViewController, WorkoutDelegate {
     
     @IBOutlet weak var toolBar: UIToolbar!
     @IBOutlet weak var timerView: TimerView!
-    @IBOutlet weak var progressView: ProgressView!
+    @IBOutlet weak var modeView: ModeView!
     
     @IBOutlet var prefButtons: [UIBarButtonItem]!
 
@@ -117,7 +117,7 @@ class MainViewController: UIViewController, WorkoutDelegate {
             button.tintColor = UIColor.accent
         }
         
-        progressView.backgroundColor = UIColor(red: 149/255, green: 242/255, blue: 254/255, alpha: 1)
+       // progressView.backgroundColor = UIColor(red: 149/255, green: 242/255, blue: 254/255, alpha: 1)
     }
     
     func initInterface() {
@@ -233,7 +233,7 @@ class MainViewController: UIViewController, WorkoutDelegate {
     
     func percentComplete(pct: CGFloat) {
         //print(1 - pct)
-        progressView.update(pct: pct)
+       // progressView.update(pct: pct)
     }
     
     func modeUpdate() {

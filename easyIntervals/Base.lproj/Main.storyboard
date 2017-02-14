@@ -84,12 +84,12 @@
                                     <outlet property="modeLabel" destination="8fV-ff-ThU" id="VgP-PT-a3h"/>
                                 </connections>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M2j-si-XyH" customClass="ProgressView" customModule="easyIntervals" customModuleProvider="target">
-                                <rect key="frame" x="55.666666666666657" y="272" width="304" height="331"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M2j-si-XyH" customClass="ModeView" customModule="easyIntervals" customModuleProvider="target">
+                                <rect key="frame" x="47.666666666666657" y="272" width="320" height="350"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="331" id="FcE-5x-NsB"/>
-                                    <constraint firstAttribute="width" constant="304" id="Hb4-fR-opa"/>
+                                    <constraint firstAttribute="height" constant="350" id="FcE-5x-NsB"/>
+                                    <constraint firstAttribute="width" constant="320" id="Hb4-fR-opa"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -111,8 +111,8 @@
                         <outlet property="audioButton" destination="R5y-FJ-4ct" id="uaV-Cp-b4a"/>
                         <outlet property="cadenceButton" destination="mJS-81-i76" id="OKu-Cq-TPq"/>
                         <outlet property="infoButton" destination="Hqp-7n-xKL" id="8eD-1W-lgJ"/>
+                        <outlet property="modeView" destination="M2j-si-XyH" id="9X4-Vf-D61"/>
                         <outlet property="musicButton" destination="un2-48-ApN" id="fzh-zp-KW8"/>
-                        <outlet property="progressView" destination="M2j-si-XyH" id="TXw-6d-uWa"/>
                         <outlet property="timerView" destination="Apd-bg-MZI" id="9Z0-43-zjK"/>
                         <outlet property="vibrateButton" destination="n8p-6G-8Go" id="mFP-tH-gex"/>
                         <outlet property="workoutButton" destination="fQI-Vs-iIz" id="haP-I7-GK9"/>
