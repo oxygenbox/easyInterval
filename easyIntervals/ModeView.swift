@@ -16,14 +16,47 @@ class ModeView: UIView {
     let bodyLayer = CAShapeLayer()
     let headLayer = CAShapeLayer()
     
+    let strokeEndAnimation: CAAnimation = {
+        let animation = CABasicAnimation(keyPath: "strokeEnd")
+        animation.fromValue = 0
+        animation.toValue = 1
+        animation.duration = 5.5
+        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+        let group = CAAnimationGroup()
+        group.duration = 5.5
+        group.repeatCount = MAXFLOAT
+        group.animations = [animation]
+        return group
+    }()
     
+    let strokeStartAnimation : CAAnimation = {
+        let animation = CABasicAnimation(keyPath: "strokeStart")
+        animation.beginTime = 0.75
+        animation.fromValue = 0
+        animation.toValue = 1
+        animation.duration = 5.5
+        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+        let group = CAAnimationGroup()
+        group.duration = 5.5
+        group.repeatCount = MAXFLOAT
+        group.animations = [animation]
+        return group
+    }()
+    
+    //MARK:- VARIABLES
     var mode: Mode = .run {
         didSet {
             setModePath()
+            print("SET")
+            //setHeadTimer()
         }
     }
 
-    
+    var animating: Bool = true {
+        didSet {
+            updateAnimation()
+        }
+    }
     
     //MARK:- LIFECYCLE
     override init(frame: CGRect) {
@@ -41,26 +74,29 @@ class ModeView: UIView {
         
     }
     
+    //MARK:- METHODS
     func setUp(){
+        backgroundColor = UIColor.white
         //makeHeadTimer()
-        backLayer.strokeColor = UIColor.cyan.cgColor
+        backLayer.strokeColor = UIColor.blueC.cgColor
         backLayer.fillColor = UIColor.clear.cgColor
         backLayer.lineWidth = 2.0
         backLayer.lineCap = kCALineCapRound
         backLayer.path = Paths.walkingBody.cgPath
         
         
-        bodyLayer.strokeColor = UIColor.black.cgColor
+        bodyLayer.strokeColor = UIColor.accent.cgColor
         bodyLayer.fillColor = UIColor.clear.cgColor
         bodyLayer.lineWidth = 2.0
         bodyLayer.lineCap = kCALineCapRound
         bodyLayer.path = Paths.walkingBody.cgPath
         
-        headLayer.strokeColor = UIColor.black.cgColor
+        headLayer.strokeColor = UIColor.blueC.cgColor
         headLayer.fillColor = UIColor.clear.cgColor
         headLayer.lineWidth = 2.0
         headLayer.lineCap = kCALineCapRound
         headLayer.path = Paths.walkingHead.cgPath
+        headLayer.fillColor = UIColor.clear.cgColor
         
         //add layers
         self.layer.addSublayer(backLayer)
@@ -71,7 +107,18 @@ class ModeView: UIView {
     }
     
     func updateAnimation() {
-        
+        if  animating {
+            bodyLayer.add(strokeEndAnimation, forKey: "strokeEnd")
+            bodyLayer.add(strokeStartAnimation, forKey: "strokeStart")
+            //headLayer.add(strokeEndAnimation, forKey: "strokeEnd")
+            //headLayer.add(strokeStartAnimation, forKey: "strokeStart")
+ 
+        } else {
+            bodyLayer.removeAnimation(forKey: "strokeEnd")
+            bodyLayer.add(strokeEndAnimation, forKey: "strokeStart")
+            headLayer.removeAnimation(forKey: "strokeEnd")
+            headLayer.add(strokeEndAnimation, forKey: "strokeStart")
+        }
     }
     
     func setModePath() {
@@ -84,170 +131,60 @@ class ModeView: UIView {
             backLayer.path = Paths.walkingBody.cgPath
             headLayer.path = Paths.walkingHead.cgPath
         }
-
+        
+        // setHeadTimer()
+        // makeHeadTimer()
+    }
+    
+    func pauseAnimation(layer: CAShapeLayer){
+        let pausedTime = layer.convertTime(CACurrentMediaTime(), from: nil)
+        layer.speed = 0.0
+        layer.timeOffset = pausedTime
+    }
+    
+    func resumeAnimation(layer: CAShapeLayer){
+        let pausedTime = layer.timeOffset
+        layer.speed = 1.0
+        layer.timeOffset = 0.0
+        layer.beginTime = 0.0
+        let timeSincePause = layer.convertTime(CACurrentMediaTime(), from: nil) - pausedTime
+        layer.beginTime = timeSincePause
+    }
+    
+    func setHeadTimer() {
+        
+        let circleLayer = CAShapeLayer()
+        
+        var rect = Paths.walkingHead.bounds
+        if mode == .run {
+            rect = Paths.runningHead.bounds
+        }
+        
+        let center = CGPoint(x:rect.midX, y: rect.midY)
+        let radius = min(rect.width, rect.height) / 2-circleLayer.lineWidth/2
+        
+        let startAngle = CGFloat(-M_PI_2)
+        let endAngle = startAngle + CGFloat(M_PI * 2)
+        let path = UIBezierPath(arcCenter: CGPoint.zero, radius: radius / 2, startAngle: startAngle, endAngle: endAngle, clockwise: true)
+        
+        headTimerLayer.position = center
+        headTimerLayer.path = path.cgPath
+        headTimerLayer.fillColor = UIColor.clear.cgColor
+        headTimerLayer.strokeColor = UIColor.cyan.cgColor
+        headTimerLayer.lineWidth = radius
+        layer.addSublayer(headTimerLayer)
+    
+        let animation = CABasicAnimation(keyPath: "strokeEnd")
+        
+        animation.fromValue = 0.0
+        animation.toValue = 1.0
+        animation.duration = 30.0
+        headTimerLayer.add(animation, forKey: "dawLineAnimation")
     }
 }
 
 
 
-/*
- class ModeIconView: UIView {
- var timer: Timer!
- var total:CGFloat = 60
- var tick:CGFloat = 0
- var isRunning = false
- 
- 
- 
- func setUp() {
- 
- 
- 
- 
- }
- 
- @IBAction func switchMode() {
- isRunning = !isRunning
- 
- if isRunning {
- bodyLayer.path = Paths.runningBody.cgPath
- backLayer.path = Paths.runningBody.cgPath
- headLayer.path = Paths.runningHead.cgPath
- }else {
- bodyLayer.path = Paths.walkingBody.cgPath
- backLayer.path = Paths.walkingBody.cgPath
- headLayer.path = Paths.walkingHead.cgPath
- }
- makeHeadTimer()
- }
- 
- @IBAction func toggleAnimation(sender: UIButton) {
- animating = !animating
- 
- if animating {
- resumeAnimation(layer: bodyLayer)
- } else {
- pauseAnimation(layer: bodyLayer)
- }
- 
- }
- 
- func  updateAnimation() {
- if  animating {
- bodyLayer.add(strokeEndAnimation, forKey: "strokeEnd")
- bodyLayer.add(strokeStartAnimation, forKey: "strokeStart")
- } else {
- bodyLayer.removeAnimation(forKey: "strokeEnd")
- bodyLayer.add(strokeEndAnimation, forKey: "strokeStart")
- }
- 
- }
- 
- let strokeEndAnimation: CAAnimation = {
- let animation = CABasicAnimation(keyPath: "strokeEnd")
- animation.fromValue = 0
- animation.toValue = 1
- animation.duration = 5.5
- animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
- let group = CAAnimationGroup()
- group.duration = 5.5
- group.repeatCount = MAXFLOAT
- group.animations = [animation]
- return group
- }()
- 
- 
- let strokeStartAnimation : CAAnimation = {
- let animation = CABasicAnimation(keyPath: "strokeStart")
- animation.beginTime = 0.75
- animation.fromValue = 0
- animation.toValue = 1
- animation.duration = 5.5
- animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
- let group = CAAnimationGroup()
- group.duration = 5.5
- group.repeatCount = MAXFLOAT
- group.animations = [animation]
- 
- return group
- }()
- 
- let rotateAnimation: CABasicAnimation = {
- let animation = CABasicAnimation(keyPath: "transfor,transform.rotation.z")
- animation.fromValue = 0
- animation.toValue = 1 //M_PI * 2
- animation.duration = 2
- animation.repeatCount = MAXFLOAT
- return animation
- 
- }()
- 
- @IBInspectable var animating: Bool = true {
- didSet {
- updateAnimation()
- }
- }
- 
- 
- func makeHeadTimer() {
- 
- let circleLayer = CAShapeLayer()
- 
- var rect = Paths.walkingHead.bounds
- if isRunning {
- rect = Paths.runningHead.bounds
- 
- }
- 
- let center = CGPoint(x:rect.midX, y: rect.midY)
- let radius = min(rect.width, rect.height) / 2-circleLayer.lineWidth/2
- 
- let startAngle = CGFloat(-M_PI_2)
- let endAngle = startAngle + CGFloat(M_PI * 2)
- let path = UIBezierPath(arcCenter: CGPoint.zero, radius: radius / 2, startAngle: startAngle, endAngle: endAngle, clockwise: true)
- 
- headTimerLayer.position = center
- headTimerLayer.path = path.cgPath
- headTimerLayer.fillColor = UIColor.cyan.cgColor
- headTimerLayer.strokeColor = UIColor.orange.cgColor
- headTimerLayer.lineWidth = radius
- layer.addSublayer(headTimerLayer)
- 
- 
- let animation = CABasicAnimation(keyPath: "strokeEnd")
- 
- animation.fromValue = 0.0
- animation.toValue = 1.0
- animation.duration = 30.0
- 
- headTimerLayer.add(animation, forKey: "dawLineAnimation")
- 
- }
- 
- func pauseAnimation(layer: CAShapeLayer){
- let pausedTime = layer.convertTime(CACurrentMediaTime(), from: nil)
- layer.speed = 0.0
- layer.timeOffset = pausedTime
- }
- 
- func resumeAnimation(layer: CAShapeLayer){
- let pausedTime = layer.timeOffset
- layer.speed = 1.0
- layer.timeOffset = 0.0
- layer.beginTime = 0.0
- let timeSincePause = layer.convertTime(CACurrentMediaTime(), from: nil) - pausedTime
- layer.beginTime = timeSincePause
- }
- 
- 
- 
- }
- 
- 
- 
- 
  
  
 
- 
- */
