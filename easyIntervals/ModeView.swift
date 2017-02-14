@@ -16,6 +16,15 @@ class ModeView: UIView {
     let bodyLayer = CAShapeLayer()
     let headLayer = CAShapeLayer()
     
+    
+    var mode: Mode = .run {
+        didSet {
+            setModePath()
+        }
+    }
+
+    
+    
     //MARK:- LIFECYCLE
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -57,12 +66,25 @@ class ModeView: UIView {
         self.layer.addSublayer(backLayer)
         self.layer.addSublayer(bodyLayer)
         self.layer.addSublayer(headLayer)
-        
+        setModePath()
         updateAnimation()
     }
     
     func updateAnimation() {
         
+    }
+    
+    func setModePath() {
+        if mode == .run {
+            bodyLayer.path = Paths.runningBody.cgPath
+            backLayer.path = Paths.runningBody.cgPath
+            headLayer.path = Paths.runningHead.cgPath
+        }else {
+            bodyLayer.path = Paths.walkingBody.cgPath
+            backLayer.path = Paths.walkingBody.cgPath
+            headLayer.path = Paths.walkingHead.cgPath
+        }
+
     }
 }
 

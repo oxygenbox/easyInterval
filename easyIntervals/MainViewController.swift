@@ -238,6 +238,7 @@ class MainViewController: UIViewController, WorkoutDelegate {
     
     func modeUpdate() {
         timerView.modeLabel.attributedText = modeName()
+        modeView.mode = workout.currentMode
     }
     
     func modeName() -> NSMutableAttributedString {
