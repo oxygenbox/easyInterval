@@ -15,6 +15,7 @@ class ModeView: UIView {
     let backLayer = CAShapeLayer()
     let bodyLayer = CAShapeLayer()
     let headLayer = CAShapeLayer()
+    //let elapsedLayer = CAShapeLayer()
     
     let lineWidth:CGFloat = 4.0
     
@@ -100,10 +101,21 @@ class ModeView: UIView {
         headLayer.path = Paths.walkingHead.cgPath
         headLayer.fillColor = UIColor.clear.cgColor
         
+        /*
+        elapsedLayer.strokeColor = UIColor.accent.cgColor
+        elapsedLayer.strokeEnd = 0.3
+        elapsedLayer.fillColor = UIColor.clear.cgColor
+        elapsedLayer.lineWidth = lineWidth
+        elapsedLayer.lineCap = kCALineCapRound
+        elapsedLayer.path = Paths.walkingHead.cgPath
+        elapsedLayer.fillColor = UIColor.clear.cgColor
+        */
+        
         //add layers
         self.layer.addSublayer(backLayer)
         self.layer.addSublayer(bodyLayer)
         self.layer.addSublayer(headLayer)
+        //self.layer.addSublayer(elapsedLayer)
         setModePath()
         updateAnimation()
         pauseAnimation(layer: bodyLayer)
@@ -129,10 +141,12 @@ class ModeView: UIView {
             bodyLayer.path = Paths.runningBody.cgPath
             backLayer.path = Paths.runningBody.cgPath
             headLayer.path = Paths.runningHead.cgPath
+          //  elapsedLayer.path = Paths.runningHead.cgPath
         }else {
             bodyLayer.path = Paths.walkingBody.cgPath
             backLayer.path = Paths.walkingBody.cgPath
             headLayer.path = Paths.walkingHead.cgPath
+          //  elapsedLayer.path = Paths.walkingHead.cgPath
         }
         
         // setHeadTimer()
@@ -182,7 +196,7 @@ class ModeView: UIView {
         headTimerLayer.path = path.cgPath
         headTimerLayer.fillColor = UIColor.clear.cgColor
         headTimerLayer.strokeColor = UIColor.blueC.cgColor
-        headTimerLayer.lineWidth = radius 
+        headTimerLayer.lineWidth = radius
         headTimerLayer.strokeEnd = 0
         layer.addSublayer(headTimerLayer)
     
