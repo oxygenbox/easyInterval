@@ -237,6 +237,7 @@ class MainViewController: UIViewController, WorkoutDelegate {
     func percentComplete(pct: CGFloat) {
         //print(1 - pct)
        // progressView.update(pct: pct)
+        modeView.animateHead(pct: 1 - pct)
     }
     
     func modeUpdate() {

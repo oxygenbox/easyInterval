@@ -50,7 +50,7 @@ class ModeView: UIView {
         didSet {
             setModePath()
             print("SET")
-            //setHeadTimer()
+            setHeadTimer()
         }
     }
 
@@ -181,18 +181,31 @@ class ModeView: UIView {
         headTimerLayer.position = center
         headTimerLayer.path = path.cgPath
         headTimerLayer.fillColor = UIColor.clear.cgColor
-        headTimerLayer.strokeColor = UIColor.cyan.cgColor
-        headTimerLayer.lineWidth = radius
+        headTimerLayer.strokeColor = UIColor.blueC.cgColor
+        headTimerLayer.lineWidth = radius 
+        headTimerLayer.strokeEnd = 0
         layer.addSublayer(headTimerLayer)
     
-        let animation = CABasicAnimation(keyPath: "strokeEnd")
-        
-        animation.fromValue = 0.0
-        animation.toValue = 1.0
-        animation.duration = 30.0
-        headTimerLayer.add(animation, forKey: "dawLineAnimation")
+        //let animation = CABasicAnimation(keyPath: "strokeEnd")
+        //animation.fromValue = 0.0
+        //animation.toValue = 0.5
+        //animation.duration = 30.0
+       // headTimerLayer.add(animation, forKey: "dawLineAnimation")
     }
+    
+    func animateStroke(layer: CAShapeLayer, pct: CGFloat) {
+        layer.removeAllAnimations()
+        layer.strokeEnd = pct
+    }
+    
+    func animateHead(pct: CGFloat) {
+        animateStroke(layer: headTimerLayer, pct: pct)
+    }
+    
+    
 }
+
+
 
 
 
