@@ -116,8 +116,6 @@ class MainViewController: UIViewController, WorkoutDelegate {
         for button in prefButtons {
             button.tintColor = UIColor.accent
         }
-        
-       // progressView.backgroundColor = UIColor(red: 149/255, green: 242/255, blue: 254/255, alpha: 1)
     }
     
     func initInterface() {
@@ -136,9 +134,14 @@ class MainViewController: UIViewController, WorkoutDelegate {
     
     func toggleSession() {
         workout.toggleTimer()
+        
+        
         if(workout.timer == nil) {
+            print("PAUSE")
+            modeView.pause()
             self.timerView.sink()
         } else {
+            modeView.play()
             self.timerView.rise()
         }
     }

@@ -130,6 +130,22 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let newView = UIView()
+        newView.frame = CGRect(x: 0, y: 0, width: modeImageA.frame.size.width, height: modeImageA.frame.size.height)
+        newView.backgroundColor = UIColor.yellow
+        
+        let sl = CAShapeLayer()
+        sl.path = Paths.runningBody.cgPath
+        modeImageA.layer.addSublayer(sl)
+        
+        
+        
+        modeImageA.addSubview(newView)
+        
+        
+        
+        
     }
 
     override func didReceiveMemoryWarning() {

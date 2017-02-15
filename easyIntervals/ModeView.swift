@@ -16,6 +16,8 @@ class ModeView: UIView {
     let bodyLayer = CAShapeLayer()
     let headLayer = CAShapeLayer()
     
+    let lineWidth:CGFloat = 4.0
+    
     let strokeEndAnimation: CAAnimation = {
         let animation = CABasicAnimation(keyPath: "strokeEnd")
         animation.fromValue = 0
@@ -80,20 +82,20 @@ class ModeView: UIView {
         //makeHeadTimer()
         backLayer.strokeColor = UIColor.blueC.cgColor
         backLayer.fillColor = UIColor.clear.cgColor
-        backLayer.lineWidth = 2.0
+        backLayer.lineWidth = lineWidth
         backLayer.lineCap = kCALineCapRound
         backLayer.path = Paths.walkingBody.cgPath
         
         
         bodyLayer.strokeColor = UIColor.accent.cgColor
         bodyLayer.fillColor = UIColor.clear.cgColor
-        bodyLayer.lineWidth = 2.0
+        bodyLayer.lineWidth = lineWidth
         bodyLayer.lineCap = kCALineCapRound
         bodyLayer.path = Paths.walkingBody.cgPath
         
         headLayer.strokeColor = UIColor.blueC.cgColor
         headLayer.fillColor = UIColor.clear.cgColor
-        headLayer.lineWidth = 2.0
+        headLayer.lineWidth = lineWidth
         headLayer.lineCap = kCALineCapRound
         headLayer.path = Paths.walkingHead.cgPath
         headLayer.fillColor = UIColor.clear.cgColor
@@ -104,6 +106,7 @@ class ModeView: UIView {
         self.layer.addSublayer(headLayer)
         setModePath()
         updateAnimation()
+        pauseAnimation(layer: bodyLayer)
     }
     
     func updateAnimation() {
@@ -149,6 +152,14 @@ class ModeView: UIView {
         layer.beginTime = 0.0
         let timeSincePause = layer.convertTime(CACurrentMediaTime(), from: nil) - pausedTime
         layer.beginTime = timeSincePause
+    }
+    
+    func pause() {
+        pauseAnimation(layer: bodyLayer)
+    }
+    
+    func play() {
+        resumeAnimation(layer: bodyLayer)
     }
     
     func setHeadTimer() {

@@ -10,6 +10,20 @@ import Foundation
 
 
 /*
+ Feb 15
+ Makehead progress
+ make pig elspded bsvkground
+ elaped or remaining
+ Stackview layout
+ Show firt screen instructions
+ Fir screen play with coor
+ 
+ */
+
+
+
+
+/*
  1. Clean up
  2. Test functionality
  3. Test settings
