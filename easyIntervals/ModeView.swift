@@ -50,7 +50,6 @@ class ModeView: UIView {
     var mode: Mode = .run {
         didSet {
             setModePath()
-            print("SET")
             setHeadTimer()
         }
     }

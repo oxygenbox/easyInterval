@@ -78,7 +78,12 @@ class TimerViewController: UIViewController {
     }
     
     func postTimes() {
-        
+        intervalTime.text = Tool.formatTime(secs: workout.currentInterval.remainingSeconds, withHours: false)
+        elapsedTime.text = Tool.formatTime(secs: workout.elapsedSeconds, withHours: true)
+        intervalTime.textColor = UIColor.accent
+        elapsedTime.textColor = UIColor.accent
+        sessionType.textColor = UIColor.accent
+        self.modeUpdate()
     }
     
     func initWorkout() {
@@ -88,16 +93,69 @@ class TimerViewController: UIViewController {
     }
     
     func toggleSession() {
-        
+        workout.toggleTimer()
+        if(workout.timer == nil) {
+            print("PAUSE")
+            modeView.pause()
+           // self.timerView.sink()
+        } else {
+            modeView.play()
+          //  self.timerView.rise()
+        }
     }
     
+    //MARK:- NAVBAR BUTTON ACTIONS
     func settingTapped() {
-        
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "Settings") as? SettingsViewController {
+            self.navigationController?.pushViewController(vc, animated: true)
+            self.modeUpdate()
+        }
     }
-    
     
     func resetTapped() {
+        let ac = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
+        let runAction = UIAlertAction(title: "Restart Run Interval", style: .default) { [unowned self] (action) in
+            self.workout.restart(mode: .run)
+        }
         
+        let walkAction = UIAlertAction(title: "Restart Walk Interval", style: .default) { [unowned self] (action) in
+            self.workout.restart(mode: .walk)
+            self.postTimes()
+        }
+        
+        let elapsedAction = UIAlertAction(title: "Restart Elapsed Time", style: .default) { [unowned self] (action) in
+            self.workout.elapsedSeconds = 0
+            self.postTimes()
+        }
+        
+        let allAction = UIAlertAction(title: "Restart Interval & Elapsed Time", style: .default) { [unowned self] (action) in
+            self.workout.restart(mode: self.workout.currentMode)
+            self.workout.elapsedSeconds = 0
+            self.postTimes()
+        }
+        
+        let workoutAction = UIAlertAction(title: "Restart Workout", style: .default) { (action) in
+            // postTimes()
+        }
+        
+        let endWOAction = UIAlertAction(title: "End Workout", style: .default) { (action) in
+            //  postTimes()
+        }
+        
+        let cancelActions = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        if !data.workoutOn {
+            ac.addAction(runAction)
+            ac.addAction(walkAction)
+            ac.addAction(elapsedAction)
+            ac.addAction(allAction)
+        } else {
+            ac.addAction(workoutAction)
+            ac.addAction(endWOAction)
+        }
+        
+        ac.addAction(cancelActions)
+        present(ac, animated: true, completion: nil)
     }
     
     //MARK: - GESTURES
@@ -120,17 +178,18 @@ class TimerViewController: UIViewController {
     
 }
 
+//MARK:- EXTENSIONS
 extension TimerViewController: WorkoutDelegate {
     func woTick(){
-        
+        postTimes()
     }
 
     func modeUpdate(){
-        
+        modeView.mode = workout.currentMode
     }
 
     func percentComplete(pct: CGFloat) {
-        
+        modeView.animateHead(pct: 1 - pct)
     }
 
 }
@@ -186,125 +245,7 @@ extension TimerViewController: WorkoutDelegate {
  look through graphics
  
  */
- 
- import UIKit
- import QuartzCore
- 
- class MainViewController: UIViewController, WorkoutDelegate {
- 
- 
- 
 
- 
- @IBOutlet weak var toolBar: UIToolbar!
- @IBOutlet weak var timerView: TimerView!
- 
- 
-
- 
- 
- func initWorkout() {
-
- }
- 
- func toggleSession() {
- workout.toggleTimer()
- if(workout.timer == nil) {
- print("PAUSE")
- modeView.pause()
- self.timerView.sink()
- } else {
- modeView.play()
- self.timerView.rise()
- }
- }
- 
- //MARK: - Gestures
- func initGestures() {
-  }
- 
- 
- 
- func settingTapped() {
- if let vc = storyboard?.instantiateViewController(withIdentifier: "Settings") as? SettingsViewController {
- self.navigationController?.pushViewController(vc, animated: true)
- self.modeUpdate()
- }
- }
- 
- func postTimes() {
- timerView.intervalTime.text = Tool.formatTime(secs: workout.currentInterval.remainingSeconds, withHours: false)
- timerView.elapsedTime.text = Tool.formatTime(secs: workout.elapsedSeconds, withHours: true)
- 
- timerView.intervalTime.textColor = UIColor.accent
- timerView.elapsedTime.textColor = UIColor.accent
- timerView.modeLabel.textColor = UIColor.accent
- 
- self.modeUpdate()
- }
- 
- //reset alert functions
- func resetTapped() {
- let ac = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
- let runAction = UIAlertAction(title: "Restart Run Interval", style: .default) { [unowned self] (action) in
- self.workout.restart(mode: .run)
- }
- 
- let walkAction = UIAlertAction(title: "Restart Walk Interval", style: .default) { [unowned self] (action) in
- self.workout.restart(mode: .walk)
- self.postTimes()
- }
- 
- let elapsedAction = UIAlertAction(title: "Restart Elapsed Time", style: .default) { [unowned self] (action) in
- self.workout.elapsedSeconds = 0
- self.postTimes()
- }
- 
- let allAction = UIAlertAction(title: "Restart Interval & Elapsed Time", style: .default) { [unowned self] (action) in
- self.workout.restart(mode: self.workout.currentMode)
- self.workout.elapsedSeconds = 0
- self.postTimes()
- }
- 
- let workoutAction = UIAlertAction(title: "Restart Workout", style: .default) { (action) in
- // postTimes()
- }
- 
- let endWOAction = UIAlertAction(title: "End Workout", style: .default) { (action) in
- //  postTimes()
- }
- 
- let cancelActions = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
- 
- if !data.workoutOn {
- ac.addAction(runAction)
- ac.addAction(walkAction)
- ac.addAction(elapsedAction)
- ac.addAction(allAction)
- } else {
- ac.addAction(workoutAction)
- ac.addAction(endWOAction)
- }
- 
- ac.addAction(cancelActions)
- present(ac, animated: true, completion: nil)
- }
- 
- //MARK:- WorkoutDelegate Methods
- func woTick() {
- postTimes()
- }
- 
- func percentComplete(pct: CGFloat) {
- //print(1 - pct)
- // progressView.update(pct: pct)
- modeView.animateHead(pct: 1 - pct)
- }
- 
- func modeUpdate() {
- timerView.modeLabel.attributedText = modeName()
- modeView.mode = workout.currentMode
- }
  
  func modeName() -> NSMutableAttributedString {
  let attributes =  [NSFontAttributeName: UIFont(name: "AvenirNext-DemiBold", size: 30.0)!]
