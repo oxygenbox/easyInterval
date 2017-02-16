@@ -159,26 +159,23 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="124"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R7R-iP-y6O">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="90"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="85.5"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="90" id="4Yv-6r-pRU"/>
-                                                </constraints>
                                                 <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="100"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" distribution="fillEqually" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="DnF-aw-DNt">
-                                                <rect key="frame" x="0.0" y="90" width="320" height="34"/>
+                                                <rect key="frame" x="0.0" y="85.5" width="320" height="38.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CD3-HI-dbn">
-                                                        <rect key="frame" x="0.0" y="0.0" width="157.5" height="34"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="157.5" height="38.5"/>
                                                         <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="32"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="remaining" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bgv-8v-S82">
-                                                        <rect key="frame" x="162.5" y="0.0" width="157.5" height="34"/>
+                                                        <rect key="frame" x="162.5" y="0.0" width="157.5" height="38.5"/>
                                                         <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="28"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -202,7 +199,6 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dAF-z7-CFH">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                        <color key="backgroundColor" red="0.0039215686269999999" green="0.15686274510000001" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="50" id="D1G-G1-Vrh"/>
                                             <constraint firstAttribute="height" constant="50" id="lDo-iw-Aqx"/>
@@ -211,27 +207,22 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LaX-mj-V9q">
                                         <rect key="frame" x="51" y="0.0" width="50" height="50"/>
-                                        <color key="backgroundColor" red="0.0039215686269999999" green="0.15686274510000001" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" image="icon_audio"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GXU-qb-VFT">
                                         <rect key="frame" x="101.5" y="0.0" width="50" height="50"/>
-                                        <color key="backgroundColor" red="0.0039215686269999999" green="0.15686274510000001" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" image="icon_vibrate"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zRP-8L-l9d">
                                         <rect key="frame" x="152.5" y="0.0" width="50" height="50"/>
-                                        <color key="backgroundColor" red="0.0039215686269999999" green="0.15686274510000001" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" image="icon_cadence"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6g3-71-4EX">
                                         <rect key="frame" x="203" y="0.0" width="50" height="50"/>
-                                        <color key="backgroundColor" red="0.0039215686269999999" green="0.15686274510000001" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" image="icon_music"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aHE-lQ-LuD">
                                         <rect key="frame" x="254" y="0.0" width="50" height="50"/>
-                                        <color key="backgroundColor" red="0.0039215686269999999" green="0.15686274510000001" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" image="icon_time"/>
                                     </button>
                                 </subviews>
@@ -249,7 +240,7 @@
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="0.1358506944" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="GjU-O3-kFv" secondAttribute="trailing" id="8mf-7B-2FH"/>
                             <constraint firstItem="GjU-O3-kFv" firstAttribute="top" secondItem="41A-kT-TeL" secondAttribute="bottom" id="EY6-2t-nwf"/>
@@ -273,6 +264,12 @@
                         <outlet property="sessionType" destination="Bgv-8v-S82" id="ChG-yd-hYh"/>
                         <outlet property="vibrateButton" destination="GXU-qb-VFT" id="XaV-lg-akY"/>
                         <outlet property="workoutButton" destination="aHE-lQ-LuD" id="gMI-bh-0x7"/>
+                        <outletCollection property="prefButtons" destination="dAF-z7-CFH" collectionClass="NSMutableArray" id="aIR-ru-v6o"/>
+                        <outletCollection property="prefButtons" destination="LaX-mj-V9q" collectionClass="NSMutableArray" id="t1J-Hp-X6a"/>
+                        <outletCollection property="prefButtons" destination="GXU-qb-VFT" collectionClass="NSMutableArray" id="F9t-l2-22O"/>
+                        <outletCollection property="prefButtons" destination="zRP-8L-l9d" collectionClass="NSMutableArray" id="kvH-HK-Pgc"/>
+                        <outletCollection property="prefButtons" destination="6g3-71-4EX" collectionClass="NSMutableArray" id="cfb-bR-9yj"/>
+                        <outletCollection property="prefButtons" destination="aHE-lQ-LuD" collectionClass="NSMutableArray" id="h4H-Wc-yLN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DAB-P2-GOx" userLabel="First Responder" sceneMemberID="firstResponder"/>

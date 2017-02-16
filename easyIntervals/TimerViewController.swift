@@ -21,9 +21,117 @@ class TimerViewController: UIViewController {
     @IBOutlet weak var musicButton: UIButton!
     @IBOutlet weak var workoutButton: UIButton!
     
+     @IBOutlet var prefButtons: [UIButton]!
+    
     @IBOutlet weak var modeView: ModeView!
     
+    //MARK -  VARIABLES
+    var workout = Workout()
+    
+    
     //MARK:- LIFECYCLE
+    //MARK -  LifeCycle
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setUp()
+        initInterface()
+        initGestures()
+        initWorkout()
+        view.backgroundColor = UIColor.base
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    //MARK:- Methods
+    func setUp() {
+        title = data.settingTitle
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Settings", style: .plain, target: self, action: #selector(settingTapped))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Reset", style: .plain, target: self, action: #selector(resetTapped))
+
+        navigationItem.rightBarButtonItem?.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.base, NSFontAttributeName: UIFont(name: "AvenirNextCondensed-Medium", size: 16.0)!], for: .normal)
+        
+        navigationItem.leftBarButtonItem?.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.base, NSFontAttributeName: UIFont(name: "AvenirNextCondensed-Medium", size: 16.0)!], for: .normal)
+        
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Main", style: .plain, target: nil, action: nil)
+        
+        navigationItem.backBarButtonItem?.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.base, NSFontAttributeName: UIFont(name: "AvenirNextCondensed-Regular", size: 10.0)!], for: .normal)
+        
+        for button in prefButtons {
+            button.backgroundColor = UIColor.blueC
+        }
+
+    }
+    
+    func initInterface() {
+        audioButton.isEnabled = data.audioOn
+        vibrateButton.isEnabled = data.vibrateOn
+        cadenceButton.isEnabled = data.cadenceOn
+        musicButton.isEnabled = data.musicOn
+        workoutButton.isEnabled = data.workoutOn
+    }
+    
+    func postTimes() {
+        
+    }
+    
+    func initWorkout() {
+        workout.delegate = self
+        postTimes()
+       // timerView.modeLabel.attributedText = modeName()
+    }
+    
+    func toggleSession() {
+        
+    }
+    
+    func settingTapped() {
+        
+    }
+    
+    
+    func resetTapped() {
+        
+    }
+    
+    //MARK: - GESTURES
+    func initGestures() {
+        let twoFingerTap = UITapGestureRecognizer(target: self, action: #selector(twoTapDetected(_:)))
+        twoFingerTap.numberOfTapsRequired = 1
+        twoFingerTap.numberOfTouchesRequired = 2
+        view.addGestureRecognizer(twoFingerTap)
+        let swipeRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipeDetected(_:)))
+        view.addGestureRecognizer(swipeRecognizer)
+    }
+    
+    func twoTapDetected(_ sender: UITapGestureRecognizer) {
+        toggleSession()
+    }
+    
+    func swipeDetected(_ sender : UISwipeGestureRecognizer) {
+        print("swipe")
+    }
+    
+}
+
+extension TimerViewController: WorkoutDelegate {
+    func woTick(){
+        
+    }
+
+    func modeUpdate(){
+        
+    }
+
+    func percentComplete(pct: CGFloat) {
+        
+    }
 
 }
 
@@ -92,65 +200,11 @@ class TimerViewController: UIViewController {
  @IBOutlet weak var timerView: TimerView!
  
  
- @IBOutlet var prefButtons: [UIBarButtonItem]!
+
  
- 
- //MARK -  Variable
- var workout = Workout()
- 
- //MARK -  LifeCycle
- override func viewWillAppear(_ animated: Bool) {
- super.viewWillAppear(animated)
- setUp()
- initInterface()
- initGestures()
- initWorkout()
- view.backgroundColor = UIColor.base
- }
- 
- override func viewDidLoad() {
- super.viewDidLoad()
- }
- 
- override func didReceiveMemoryWarning() {
- super.didReceiveMemoryWarning()
- // Dispose of any resources that can be recreated.
- }
- 
- //MARK: METHODS
- //-------
- func setUp() {
- title = data.settingTitle
- 
- navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Settings", style: .plain, target: self, action: #selector(settingTapped))
- navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Reset", style: .plain, target: self, action: #selector(resetTapped))
- 
- 
- navigationItem.rightBarButtonItem?.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.base, NSFontAttributeName: UIFont(name: "AvenirNextCondensed-Medium", size: 16.0)!], for: .normal)
- 
- navigationItem.leftBarButtonItem?.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.base, NSFontAttributeName: UIFont(name: "AvenirNextCondensed-Medium", size: 16.0)!], for: .normal)
- 
- navigationItem.backBarButtonItem = UIBarButtonItem(title: "Main", style: .plain, target: nil, action: nil)
- 
- navigationItem.backBarButtonItem?.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.base, NSFontAttributeName: UIFont(name: "AvenirNextCondensed-Regular", size: 10.0)!], for: .normal)
- 
- for button in prefButtons {
- button.tintColor = UIColor.blueC
- }
- }
- 
- func initInterface() {
- audioButton.isEnabled = data.audioOn
- vibrateButton.isEnabled = data.vibrateOn
- cadenceButton.isEnabled = data.cadenceOn
- musicButton.isEnabled = data.musicOn
- workoutButton.isEnabled = data.workoutOn
- }
  
  func initWorkout() {
- workout.delegate = self
- postTimes()
- timerView.modeLabel.attributedText = modeName()
+
  }
  
  func toggleSession() {
@@ -167,21 +221,9 @@ class TimerViewController: UIViewController {
  
  //MARK: - Gestures
  func initGestures() {
- let twoFingerTap = UITapGestureRecognizer(target: self, action: #selector(twoTapDetected(_:)))
- twoFingerTap.numberOfTapsRequired = 1
- twoFingerTap.numberOfTouchesRequired = 2
- view.addGestureRecognizer(twoFingerTap)
- let swipeRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipeDetected(_:)))
- view.addGestureRecognizer(swipeRecognizer)
- }
+  }
  
- func twoTapDetected(_ sender: UITapGestureRecognizer) {
- toggleSession()
- }
  
- func swipeDetected(_ sender : UISwipeGestureRecognizer) {
- print("swipe")
- }
  
  func settingTapped() {
  if let vc = storyboard?.instantiateViewController(withIdentifier: "Settings") as? SettingsViewController {

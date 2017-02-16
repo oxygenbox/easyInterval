@@ -91,7 +91,6 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     @IBOutlet weak var modeImageB: UIImageView!
     @IBOutlet weak var modeDivider: UIView!
     
-    
     @IBOutlet var prefViews: [UIView]!
     
     let baseColor = UIColor.white
