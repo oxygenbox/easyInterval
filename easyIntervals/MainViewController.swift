@@ -63,10 +63,6 @@ class MainViewController: UIViewController, WorkoutDelegate {
     @IBOutlet weak var musicButton: UIBarButtonItem!
     @IBOutlet weak var workoutButton: UIBarButtonItem!
     
-    
-    
-    
-    
     @IBOutlet weak var toolBar: UIToolbar!
     @IBOutlet weak var timerView: TimerView!
     @IBOutlet weak var modeView: ModeView!
@@ -114,7 +110,7 @@ class MainViewController: UIViewController, WorkoutDelegate {
         navigationItem.backBarButtonItem?.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.base, NSFontAttributeName: UIFont(name: "AvenirNextCondensed-Regular", size: 10.0)!], for: .normal)
         
         for button in prefButtons {
-            button.tintColor = UIColor.accent
+            button.tintColor = UIColor.blueC
         }
     }
     
@@ -134,8 +130,6 @@ class MainViewController: UIViewController, WorkoutDelegate {
     
     func toggleSession() {
         workout.toggleTimer()
-        
-        
         if(workout.timer == nil) {
             print("PAUSE")
             modeView.pause()

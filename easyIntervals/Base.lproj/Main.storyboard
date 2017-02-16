@@ -97,10 +97,10 @@
                                 </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M2j-si-XyH" customClass="ModeView" customModule="easyIntervals" customModuleProvider="target">
-                                <rect key="frame" x="27.5" y="232" width="320" height="350"/>
+                                <rect key="frame" x="28" y="232" width="320" height="330"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="350" id="FcE-5x-NsB"/>
+                                    <constraint firstAttribute="height" constant="330" id="FcE-5x-NsB"/>
                                     <constraint firstAttribute="width" constant="320" id="Hb4-fR-opa"/>
                                 </constraints>
                             </view>
@@ -138,7 +138,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1073.913043478261" y="-414.13043478260875"/>
+            <point key="canvasLocation" x="876" y="-394"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="xnE-uV-p4m">
@@ -365,57 +365,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ixP-l7-aOV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2525.5999999999999" y="-378.26086956521743"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="3ZY-VR-XaQ">
-            <objects>
-                <viewController id="80L-V3-NKF" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="nZn-VE-0Q2"/>
-                        <viewControllerLayoutGuide type="bottom" id="hMq-BB-yOB"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Y34-T9-tqH">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aC2-gm-HBe">
-                                <rect key="frame" x="20" y="430" width="180" height="236"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.94901960780000005" green="0.95294117649999999" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QoS-IB-O8i">
-                                <rect key="frame" x="214" y="430" width="180" height="236"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.93725490199999995" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Eq0-6m-KXi">
-                                <rect key="frame" x="0.0" y="692" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.6588235294" green="0.57254901960000004" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iir-fX-xRA">
-                                <rect key="frame" x="20" y="257" width="374" height="150"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.6588235294" green="0.57254901960000004" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1qL-op-B2Z">
-                                <rect key="frame" x="208" y="80" width="206" height="150"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.93725490199999995" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9WX-kU-Zzk">
-                                <rect key="frame" x="0.0" y="80" width="206" height="150"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ynm-tm-Wkh" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3443.4782608695655" y="-378.26086956521743"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ZC4-Q6-k0j">
