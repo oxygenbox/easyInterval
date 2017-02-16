@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E1703FB1E56240E007B2D05 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1703FA1E56240E007B2D05 /* TimerViewController.swift */; };
 		9E2ADA551E535496000F5688 /* Paths.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2ADA541E535496000F5688 /* Paths.swift */; };
 		9E2E77CD1E23D92F0082ED83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2E77CC1E23D92F0082ED83 /* AppDelegate.swift */; };
 		9E2E77CF1E23D92F0082ED83 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2E77CE1E23D92F0082ED83 /* ViewController.swift */; };
@@ -46,6 +47,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9E1703FA1E56240E007B2D05 /* TimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		9E2ADA541E535496000F5688 /* Paths.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Paths.swift; sourceTree = "<group>"; };
 		9E2E77C91E23D92F0082ED83 /* easyIntervals.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = easyIntervals.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E2E77CC1E23D92F0082ED83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				9E2E77E21E23D9BD0082ED83 /* SettingsViewController.swift */,
 				9E6789DD1E2D5C1E00E1674E /* SettingViewController.swift */,
 				9ED0CF701E295F600036233A /* OLDSettingViewController.swift */,
+				9E1703FA1E56240E007B2D05 /* TimerViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 				9ED0CF6F1E26B53E0036233A /* Tool.swift in Sources */,
 				9E2E77E61E23D9FE0082ED83 /* Data.swift in Sources */,
 				9EA221821E53554300A79D21 /* ModeView.swift in Sources */,
+				9E1703FB1E56240E007B2D05 /* TimerViewController.swift in Sources */,
 				9ED0CF731E2982850036233A /* SettingTableViewCell.swift in Sources */,
 				9E2ADA551E535496000F5688 /* Paths.swift in Sources */,
 				9EC7AC511E4B5C1B00C89EA7 /* ToDo.swift in Sources */,
