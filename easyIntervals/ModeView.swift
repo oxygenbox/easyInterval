@@ -78,7 +78,7 @@ class ModeView: UIView {
     
     //MARK:- METHODS
     func setUp(){
-        backgroundColor = UIColor.white
+        backgroundColor = UIColor.lightGray
         //makeHeadTimer()
         backLayer.strokeColor = UIColor.blueC.cgColor
         backLayer.fillColor = UIColor.clear.cgColor
