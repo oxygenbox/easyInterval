@@ -15,6 +15,8 @@ class ModeView: UIView {
     let backLayer = CAShapeLayer()
     let bodyLayer = CAShapeLayer()
     let headLayer = CAShapeLayer()
+    
+    let backTimerLayer = CAShapeLayer()
     //let elapsedLayer = CAShapeLayer()
     
     let lineWidth:CGFloat = 4.0
@@ -51,6 +53,7 @@ class ModeView: UIView {
         didSet {
             setModePath()
             setHeadTimer()
+            
         }
     }
 
@@ -198,6 +201,18 @@ class ModeView: UIView {
         headTimerLayer.lineWidth = radius
         headTimerLayer.strokeEnd = 0
         layer.addSublayer(headTimerLayer)
+        
+        
+        let backCenter = center
+        let backRadius = min(bounds.size.width, bounds.size.height) / 2-circleLayer.lineWidth/2
+        let backPath = UIBezierPath(arcCenter: CGPoint.zero, radius: backRadius / 2, startAngle: startAngle, endAngle: endAngle, clockwise: true)
+        backTimerLayer.position = backCenter
+        backTimerLayer.path = backPath.cgPath
+        backTimerLayer.fillColor = UIColor.clear.cgColor
+        backTimerLayer.strokeColor = UIColor.orange.cgColor
+        layer.insertSublayer(backTimerLayer, at: 0)
+        
+        
     
         //let animation = CABasicAnimation(keyPath: "strokeEnd")
         //animation.fromValue = 0.0
