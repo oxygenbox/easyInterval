@@ -23,9 +23,9 @@ enum Picker: Int {
     var height: CGFloat {
         switch self {
         case .mode:
-            return 60.0
-        default:
             return 50.0
+        default:
+            return 30.0
         }
     }
 }

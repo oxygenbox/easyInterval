@@ -166,7 +166,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hA6-ll-trC" userLabel="main Stack View c">
-                                <rect key="frame" x="16" y="64" width="288" height="510"/>
+                                <rect key="frame" x="16" y="64" width="288" height="410"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dx4-c7-5DA" userLabel="View top c">
                                         <rect key="frame" x="0.0" y="0.0" width="288" height="130"/>
@@ -185,10 +185,10 @@
                                         </constraints>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EPt-3f-U6W" userLabel="Picker View c">
-                                        <rect key="frame" x="0.0" y="130" width="288" height="150"/>
+                                        <rect key="frame" x="0.0" y="130" width="288" height="50"/>
                                         <subviews>
                                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dgE-IG-F5x">
-                                                <rect key="frame" x="-16" y="-33" width="320" height="216"/>
+                                                <rect key="frame" x="-16" y="-83" width="320" height="216"/>
                                                 <connections>
                                                     <outlet property="dataSource" destination="weC-Ga-LzU" id="DFt-lP-S0X"/>
                                                     <outlet property="delegate" destination="weC-Ga-LzU" id="rQ7-3j-rUG"/>
@@ -196,13 +196,13 @@
                                             </pickerView>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="dgE-IG-F5x" firstAttribute="centerY" secondItem="EPt-3f-U6W" secondAttribute="centerY" id="Owu-MA-dqP"/>
-                                            <constraint firstAttribute="height" constant="150" id="hlg-dG-hJc"/>
-                                            <constraint firstItem="dgE-IG-F5x" firstAttribute="centerX" secondItem="EPt-3f-U6W" secondAttribute="centerX" id="kZH-7b-YFo"/>
+                                            <constraint firstItem="dgE-IG-F5x" firstAttribute="centerY" secondItem="EPt-3f-U6W" secondAttribute="centerY" id="aAa-U7-fbi"/>
+                                            <constraint firstItem="dgE-IG-F5x" firstAttribute="centerX" secondItem="EPt-3f-U6W" secondAttribute="centerX" id="cEI-FA-SZ5"/>
+                                            <constraint firstAttribute="height" constant="50" id="hlg-dG-hJc"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w4e-r2-zn1" userLabel="View - prefwindow">
-                                        <rect key="frame" x="0.0" y="280" width="288" height="230"/>
+                                        <rect key="frame" x="0.0" y="180" width="288" height="230"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="285-nn-kwX" userLabel="Stack View pref">
                                                 <rect key="frame" x="0.0" y="0.0" width="288" height="220"/>
