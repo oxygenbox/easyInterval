@@ -14,9 +14,9 @@ enum Picker: Int {
     var width: CGFloat {
         switch self {
         case .mode:
-            return 145.0
+            return 130.0
         default:
-            return 75.0
+            return 66.0
         }
     }
     
@@ -129,22 +129,6 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let newView = UIView()
-        newView.frame = CGRect(x: 0, y: 0, width: modeImageA.frame.size.width, height: modeImageA.frame.size.height)
-        newView.backgroundColor = UIColor.yellow
-        
-        let sl = CAShapeLayer()
-        sl.path = Paths.runningBody.cgPath
-        modeImageA.layer.addSublayer(sl)
-        
-        
-        
-        modeImageA.addSubview(newView)
-        
-        
-        
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -190,31 +174,55 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 145, height: 60))
+        
+        
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: Picker.time.width, height: 50))
         label.textAlignment = .center
         label.textColor = higlightColor
-        label.font = UIFont.boldSystemFont(ofSize: 24)
-        label.font = UIFont(name: "Avenir Next", size: 30.0)!
+        label.font = UIFont(name: "Avenir Next", size: 24.0)!
         label.backgroundColor = UIColor.clear
         label.isOpaque = false
         
-        
         if component == Picker.mode.rawValue {
-            label.text = Data.modeNameArray[row]
+            
+            label.frame.size.height = Picker.mode.height
+            label.frame.size.width = Picker.mode.width
             label.attributedText = Tool.formatPickerMode(mode: Data.modeNameArray[row])
-            //label.backgroundColor = UIColor.myBlue
-            label.textColor = higlightColor
             label.layer.cornerRadius = label.frame.size.height / 2
             label.clipsToBounds = true
-            
-            label.layer.borderWidth = 1
+            label.layer.borderWidth = 2
             label.layer.borderColor = higlightColor.cgColor
+        } else {
+             label.attributedText = Tool.formatPickerTime(time: Data.timeArray[row])
+        }
+        
+        
+        /*
+       
+        
+        
+        
+        
+        
+        
+        
+        if component == Picker.mode.rawValue {
+         
+         
+            //label.backgroundColor = UIColor.myBlue
+            label.textColor = higlightColor
+         
+         
 
         } else {
             label.text = Data.timeArray[row]
-            label.attributedText = Tool.formatPickerTime(time: Data.timeArray[row])
+         
         }
+         */
+        
+       // label.text = "C"
         return label
+
     }
     
         

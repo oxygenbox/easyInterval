@@ -64,7 +64,7 @@ class ModeView: RingsView {
     //MARK:- LIFECYCLE
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setUp()
+       // setUp()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -78,7 +78,14 @@ class ModeView: RingsView {
     }
     
     //MARK:- METHODS
-    func setUp(){
+    func setUp() {
+        backgroundColor = UIColor.clear
+    }
+    
+    
+    
+    
+    func OLDsetUp(){
         backgroundColor = UIColor.clear
         backLayer.strokeColor = UIColor.blueC.cgColor
         backLayer.fillColor = UIColor.clear.cgColor
