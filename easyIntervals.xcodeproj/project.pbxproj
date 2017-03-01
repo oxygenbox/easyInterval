@@ -44,6 +44,7 @@
 		9ED0CF711E295F600036233A /* OLDSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED0CF701E295F600036233A /* OLDSettingViewController.swift */; };
 		9ED0CF731E2982850036233A /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED0CF721E2982850036233A /* SettingTableViewCell.swift */; };
 		9ED0CFA71E2BE93E0036233A /* PreferenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED0CFA61E2BE93E0036233A /* PreferenceView.swift */; };
+		9EF51F1F1E651AD700D1B663 /* RingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF51F1E1E651AD600D1B663 /* RingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +87,7 @@
 		9ED0CF701E295F600036233A /* OLDSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OLDSettingViewController.swift; sourceTree = "<group>"; };
 		9ED0CF721E2982850036233A /* SettingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
 		9ED0CFA61E2BE93E0036233A /* PreferenceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceView.swift; sourceTree = "<group>"; };
+		9EF51F1E1E651AD600D1B663 /* RingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +170,7 @@
 				9EC7AC521E4B5EF700C89EA7 /* ProgressView.swift */,
 				9E2ADA541E535496000F5688 /* Paths.swift */,
 				9EA221811E53554300A79D21 /* ModeView.swift */,
+				9EF51F1E1E651AD600D1B663 /* RingsView.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 				9ED0CF6D1E2684320036233A /* Workout.swift in Sources */,
 				9E2E77CD1E23D92F0082ED83 /* AppDelegate.swift in Sources */,
 				9ED0CF5E1E2588510036233A /* Interval.swift in Sources */,
+				9EF51F1F1E651AD700D1B663 /* RingsView.swift in Sources */,
 				9E6789E01E2D6FBC00E1674E /* SettingsCell.swift in Sources */,
 				9E2E77E31E23D9BD0082ED83 /* SettingsViewController.swift in Sources */,
 				9EC7AC531E4B5EF700C89EA7 /* ProgressView.swift in Sources */,

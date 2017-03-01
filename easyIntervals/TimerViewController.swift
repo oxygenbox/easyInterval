@@ -190,10 +190,11 @@ extension TimerViewController: WorkoutDelegate {
 
     func percentComplete(pct: CGFloat) {
         modeView.animateHead(pct: 1 - pct)
+        modeView.elapsedTimer(percent: 1-pct)
+        modeView.intervalTimer(percent: 1-pct)
+        print(pct)
     }
-
 }
-
 
 
 /*

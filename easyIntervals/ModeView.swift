@@ -9,15 +9,13 @@
 import Foundation
 import UIKit
 
-class ModeView: UIView {
+class ModeView: RingsView {
     //MARK:- CONSTANTS
     let headTimerLayer = CAShapeLayer()
     let backLayer = CAShapeLayer()
     let bodyLayer = CAShapeLayer()
     let headLayer = CAShapeLayer()
     
-    let backTimerLayer = CAShapeLayer()
-    //let elapsedLayer = CAShapeLayer()
     
     let lineWidth:CGFloat = 4.0
     
@@ -81,8 +79,7 @@ class ModeView: UIView {
     
     //MARK:- METHODS
     func setUp(){
-        backgroundColor = UIColor.lightGray
-        //makeHeadTimer()
+        backgroundColor = UIColor.clear
         backLayer.strokeColor = UIColor.blueC.cgColor
         backLayer.fillColor = UIColor.clear.cgColor
         backLayer.lineWidth = lineWidth
@@ -103,39 +100,27 @@ class ModeView: UIView {
         headLayer.path = Paths.walkingHead.cgPath
         headLayer.fillColor = UIColor.clear.cgColor
         
-        /*
-        elapsedLayer.strokeColor = UIColor.accent.cgColor
-        elapsedLayer.strokeEnd = 0.3
-        elapsedLayer.fillColor = UIColor.clear.cgColor
-        elapsedLayer.lineWidth = lineWidth
-        elapsedLayer.lineCap = kCALineCapRound
-        elapsedLayer.path = Paths.walkingHead.cgPath
-        elapsedLayer.fillColor = UIColor.clear.cgColor
-        */
-        
         //add layers
         self.layer.addSublayer(backLayer)
         self.layer.addSublayer(bodyLayer)
         self.layer.addSublayer(headLayer)
-        //self.layer.addSublayer(elapsedLayer)
         setModePath()
         updateAnimation()
         pauseAnimation(layer: bodyLayer)
     }
     
     func updateAnimation() {
+        /*
         if  animating {
             bodyLayer.add(strokeEndAnimation, forKey: "strokeEnd")
             bodyLayer.add(strokeStartAnimation, forKey: "strokeStart")
-            //headLayer.add(strokeEndAnimation, forKey: "strokeEnd")
-            //headLayer.add(strokeStartAnimation, forKey: "strokeStart")
- 
         } else {
             bodyLayer.removeAnimation(forKey: "strokeEnd")
             bodyLayer.add(strokeEndAnimation, forKey: "strokeStart")
             headLayer.removeAnimation(forKey: "strokeEnd")
             headLayer.add(strokeEndAnimation, forKey: "strokeStart")
         }
+ */
     }
     
     func setModePath() {
@@ -143,16 +128,11 @@ class ModeView: UIView {
             bodyLayer.path = Paths.runningBody.cgPath
             backLayer.path = Paths.runningBody.cgPath
             headLayer.path = Paths.runningHead.cgPath
-          //  elapsedLayer.path = Paths.runningHead.cgPath
         }else {
             bodyLayer.path = Paths.walkingBody.cgPath
             backLayer.path = Paths.walkingBody.cgPath
             headLayer.path = Paths.walkingHead.cgPath
-          //  elapsedLayer.path = Paths.walkingHead.cgPath
         }
-        
-        // setHeadTimer()
-        // makeHeadTimer()
     }
     
     func pauseAnimation(layer: CAShapeLayer){
@@ -201,24 +181,6 @@ class ModeView: UIView {
         headTimerLayer.lineWidth = radius
         headTimerLayer.strokeEnd = 0
         layer.addSublayer(headTimerLayer)
-        
-        
-        let backCenter = center
-        let backRadius = min(bounds.size.width, bounds.size.height) / 2-circleLayer.lineWidth/2
-        let backPath = UIBezierPath(arcCenter: CGPoint.zero, radius: backRadius / 2, startAngle: startAngle, endAngle: endAngle, clockwise: true)
-        backTimerLayer.position = backCenter
-        backTimerLayer.path = backPath.cgPath
-        backTimerLayer.fillColor = UIColor.clear.cgColor
-        backTimerLayer.strokeColor = UIColor.orange.cgColor
-        layer.insertSublayer(backTimerLayer, at: 0)
-        
-        
-    
-        //let animation = CABasicAnimation(keyPath: "strokeEnd")
-        //animation.fromValue = 0.0
-        //animation.toValue = 0.5
-        //animation.duration = 30.0
-       // headTimerLayer.add(animation, forKey: "dawLineAnimation")
     }
     
     func animateStroke(layer: CAShapeLayer, pct: CGFloat) {
@@ -228,6 +190,7 @@ class ModeView: UIView {
     
     func animateHead(pct: CGFloat) {
         animateStroke(layer: headTimerLayer, pct: pct)
+        
     }
     
     
