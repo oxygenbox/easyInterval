@@ -166,26 +166,42 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hA6-ll-trC" userLabel="main Stack View c">
-                                <rect key="frame" x="16" y="64" width="288" height="410"/>
+                                <rect key="frame" x="16" y="74" width="288" height="430"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dx4-c7-5DA" userLabel="View top c">
-                                        <rect key="frame" x="0.0" y="0.0" width="288" height="130"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="288" height="150"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="walk" translatesAutoresizingMaskIntoConstraints="NO" id="EDT-lh-5sT">
-                                                <rect key="frame" x="180" y="8" width="108" height="128"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="run" translatesAutoresizingMaskIntoConstraints="NO" id="Y7e-g8-Iwd">
-                                                <rect key="frame" x="0.0" y="8" width="108" height="128"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            </imageView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="hno-cI-zcN">
+                                                <rect key="frame" x="3" y="7" width="282" height="136"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gtj-Vl-jic" customClass="SettingModeView" customModule="easyIntervals" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="136" height="136"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="136" id="gQq-LH-2LK"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uMK-1C-z5V" customClass="SettingModeView" customModule="easyIntervals" customModuleProvider="target">
+                                                        <rect key="frame" x="146" y="0.0" width="136" height="136"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="uMK-1C-z5V" secondAttribute="height" multiplier="1:1" id="8QB-wF-R6g"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="uMK-1C-z5V" firstAttribute="height" secondItem="gtj-Vl-jic" secondAttribute="height" id="aOl-Yc-j5c"/>
+                                                </constraints>
+                                            </stackView>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="130" id="HdX-AF-Wjo"/>
+                                            <constraint firstAttribute="height" constant="150" id="HdX-AF-Wjo"/>
+                                            <constraint firstItem="hno-cI-zcN" firstAttribute="centerX" secondItem="dx4-c7-5DA" secondAttribute="centerX" id="JzY-8M-ByF"/>
+                                            <constraint firstItem="hno-cI-zcN" firstAttribute="centerY" secondItem="dx4-c7-5DA" secondAttribute="centerY" id="dp0-kZ-HLt"/>
                                         </constraints>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EPt-3f-U6W" userLabel="Picker View c">
-                                        <rect key="frame" x="0.0" y="130" width="288" height="50"/>
+                                        <rect key="frame" x="0.0" y="150" width="288" height="50"/>
                                         <subviews>
                                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dgE-IG-F5x">
                                                 <rect key="frame" x="-16" y="-83" width="320" height="216"/>
@@ -202,7 +218,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w4e-r2-zn1" userLabel="View - prefwindow">
-                                        <rect key="frame" x="0.0" y="180" width="288" height="230"/>
+                                        <rect key="frame" x="0.0" y="200" width="288" height="230"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="285-nn-kwX" userLabel="Stack View pref">
                                                 <rect key="frame" x="0.0" y="0.0" width="288" height="220"/>
@@ -315,6 +331,7 @@
                                     </view>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="dx4-c7-5DA" firstAttribute="leading" secondItem="hA6-ll-trC" secondAttribute="leading" id="S4h-Hg-izK"/>
                                     <constraint firstAttribute="trailing" secondItem="dx4-c7-5DA" secondAttribute="trailing" id="TDQ-m6-cGM"/>
                                     <constraint firstItem="EPt-3f-U6W" firstAttribute="leading" secondItem="hA6-ll-trC" secondAttribute="leading" id="Tti-bc-zeE"/>
                                     <constraint firstAttribute="trailing" secondItem="EPt-3f-U6W" secondAttribute="trailing" id="fuV-zT-PzO"/>
@@ -352,20 +369,20 @@
                             <constraint firstItem="hA6-ll-trC" firstAttribute="leading" secondItem="X3F-P3-dDh" secondAttribute="leadingMargin" id="8Md-Eb-Xs6"/>
                             <constraint firstItem="q9u-g6-GbV" firstAttribute="leading" secondItem="X3F-P3-dDh" secondAttribute="leading" id="9xl-bh-thf"/>
                             <constraint firstAttribute="trailingMargin" secondItem="hA6-ll-trC" secondAttribute="trailing" id="L7e-4b-bKC"/>
-                            <constraint firstItem="hA6-ll-trC" firstAttribute="top" secondItem="cxL-gh-ywG" secondAttribute="bottom" id="ZVH-ws-Ydn"/>
+                            <constraint firstItem="hA6-ll-trC" firstAttribute="top" secondItem="cxL-gh-ywG" secondAttribute="bottom" constant="10" id="ZVH-ws-Ydn"/>
                             <constraint firstItem="Ddb-Wh-gg1" firstAttribute="top" secondItem="q9u-g6-GbV" secondAttribute="bottom" id="pbq-EW-tPg"/>
                             <constraint firstAttribute="trailing" secondItem="q9u-g6-GbV" secondAttribute="trailing" id="uKG-ho-aar"/>
                         </constraints>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="leftModeIcon" destination="gtj-Vl-jic" id="nXe-Nl-NYr"/>
                         <outlet property="messageview" destination="odl-bG-M3a" id="1a1-LK-CE1"/>
-                        <outlet property="modeImageA" destination="Y7e-g8-Iwd" id="Zio-wS-Yad"/>
-                        <outlet property="modeImageB" destination="EDT-lh-5sT" id="gWf-5i-iGp"/>
                         <outlet property="picker" destination="dgE-IG-F5x" id="t3j-7x-Wrm"/>
                         <outlet property="prefMessage" destination="OPO-Eh-n22" id="Y3U-vV-B4h"/>
                         <outlet property="prefSlider" destination="lF9-ad-OVV" id="TYW-XX-6gC"/>
                         <outlet property="preferenceSwitch" destination="Po0-0A-e9a" id="BA4-x7-WE3"/>
+                        <outlet property="rightModeIcon" destination="uMK-1C-z5V" id="4yQ-hX-Vog"/>
                         <outlet property="segmentedControl" destination="IGi-tP-e7q" id="I26-va-GaS"/>
                         <outlet property="sliderView" destination="3eA-Xk-XaA" id="gb4-rH-BNE"/>
                         <outlet property="switchView" destination="WcW-B4-Jx7" id="hAc-eX-loy"/>
@@ -404,7 +421,5 @@
         <image name="icon_music" width="22" height="22"/>
         <image name="icon_time" width="22" height="22"/>
         <image name="icon_vibrate" width="22" height="22"/>
-        <image name="run" width="266" height="288"/>
-        <image name="walk" width="266" height="288"/>
     </resources>
 </document>

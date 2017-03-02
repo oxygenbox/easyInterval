@@ -87,9 +87,10 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     @IBOutlet weak var switchView: UIView!
     @IBOutlet weak var messageview: UIView!
     
-    @IBOutlet weak var modeImageA: UIImageView!
-    @IBOutlet weak var modeImageB: UIImageView!
     @IBOutlet weak var modeDivider: UIView!
+    
+    @IBOutlet weak var leftModeIcon: SettingModeView!
+    @IBOutlet weak var rightModeIcon: SettingModeView!
     
     @IBOutlet var prefViews: [UIView]!
     
@@ -119,7 +120,6 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         return preferences[data.settingsTab]
     }
     
-    
     //MARK: - Lifecycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -129,6 +129,11 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+         setModeImages()
     }
 
     override func didReceiveMemoryWarning() {
@@ -173,9 +178,6 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     }
         
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
-        
-        
-        
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: Picker.time.width, height: 50))
         label.textAlignment = .center
         label.textColor = higlightColor
@@ -192,40 +194,14 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
             label.clipsToBounds = true
             label.layer.borderWidth = 2
             label.layer.borderColor = higlightColor.cgColor
+            
         } else {
              label.attributedText = Tool.formatPickerTime(time: Data.timeArray[row])
         }
         
-        
-        /*
-       
-        
-        
-        
-        
-        
-        
-        
-        if component == Picker.mode.rawValue {
-         
-         
-            //label.backgroundColor = UIColor.myBlue
-            label.textColor = higlightColor
-         
-         
-
-        } else {
-            label.text = Data.timeArray[row]
-         
-        }
-         */
-        
-       // label.text = "C"
         return label
-
     }
     
-        
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
        
         data.isRunWalk = picker.selectedRow(inComponent: 0) == 0
@@ -294,13 +270,10 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         }
         
         setUpViews()
-        setModeImages()
-        
         changePreference()
     }
     
     func setUpViews() {
-        
         view.backgroundColor = baseColor
         for pref in prefViews {
             pref.backgroundColor = baseColor
@@ -314,7 +287,6 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     }
    
     func changePreference() {
-        
         if activePreference == .cadence || activePreference == .workout {
             prefSlider.isHidden = false
             initSlider()
@@ -408,102 +380,37 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     func modeChange(){
         
         UIView.animate(withDuration: 0.60, delay: 0, options: [.curveEaseOut], animations: {
-            self.modeImageA.center.x -= 300
-            self.modeImageB.center.x += 300
+         
         }) { (success: Bool) in
             self.setModeImages()
             UIView.animate(withDuration: 0.60, delay: 0, options: [.curveEaseInOut], animations: {
-                self.modeImageA.center.x += 300
-                self.modeImageB.center.x -= 300
+             
             })
         }
         
-        /*
-        
-        UIView.animate(withDuration: 0.25, animations: {
-            self.modeImageA.center.x -= 300
-            self.modeImageB.center.x += 300
-        }) { (success: Bool) in
-            self.setModeImages()
-            UIView.animate(withDuration: 0.25, animations: {
-                self.modeImageA.center.x += 300
-                self.modeImageB.center.x -= 300
-            })
+        if data.isRunWalk {
+            leftModeIcon.mode = .run
+            rightModeIcon.mode = .walk
+        } else {
+            leftModeIcon.mode = .walk
+            rightModeIcon.mode = .run
         }
-        */
-        
-        
-        
-        
     }
     
     func setModeImages() {
         if data.isRunWalk {
-            modeImageA.image = UIImage(named: "run")
-            modeImageB.image = UIImage(named: "walk")
+            leftModeIcon.mode = .run
+            rightModeIcon.mode = .walk
         } else {
-            modeImageA.image = UIImage(named: "walk")
-            modeImageB.image = UIImage(named: "run")
+            leftModeIcon.mode = .walk
+            rightModeIcon.mode = .run
         }
-        
-        modeImageA.tintImageColor(color: UIColor.accent)
-        modeImageB.tintImageColor(color: UIColor.accent)
     }
     
     
 }
 
 
-/*
- 
-
- UIView.transition(with: sliderView, duration: 1.0, options: [.transitionFlipFromRight], animations: {
- self.slider.isHidden = show
- })
-
- 
- 
- 
- 
- func setUp() {
- let tap = UITapGestureRecognizer(target: self, action: #selector(tapped))
- boxA.isUserInteractionEnabled = true
- boxA.addGestureRecognizer(tap)
- }
- 
- 
- func sliderFlip(show: Bool) {
- if  slider.isHidden != show {
- UIView.transition(with: sliderView, duration: 1.0, options: [.transitionFlipFromRight], animations: {
- self.slider.isHidden = show
- })
- }
- }
- 
- func imageFlip(show: Bool) {
- UIView.transition(with: imageView, duration: 1.25, options: [.transitionFlipFromRight], animations: {
- 
- })
- }
- 
- 
- func switchFlip(show: Bool) {
- UIView.transition(with: switchView, duration: 1.25, options: [.transitionFlipFromRight], animations: {
- 
- })
- }
- 
- 
- 
- func messageFlip(show: Bool) {
- UIView.transition(with: messageVview, duration: 1.0, options: [.transitionFlipFromRight], animations: {
- 
- })
- }
-
- 
- 
- */
 
 
 
@@ -514,52 +421,3 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
 
 
 
-
-
-
-
-
-
-
-
-/*
- 
- 
- enum Device {
- case iPad, iPhone
- var year: Int {
- switch self {
-	case iPhone: return 2007
-	case iPad: return 2010
- }
- }
- }
- 
- @objc(pickerView:viewForRow:forComponent:reusingView:) func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
- 
- let label = UILabel(frame: CGRect(x: 60, y: 0, width: 145, height: 80))
- label.textAlignment = .center
- label.font = UIFont.boldSystemFont(ofSize: 24)
- label.backgroundColor = UIColor.clear
- label.isOpaque = false
- 
- switch component {
- case 0:
- label.text = sharedData.modeArray[row]
- label.attributedText = modeAttributedText(sharedData.modeArray[row])
- 
- 
- label.backgroundColor = pickerBlue
- label.textColor = UIColor.white
- default:
- label.text = sharedData.timeArray[row]
- label.attributedText = timeLabelAttibutedText(sharedData.timeArray[row])
- label.textColor = pickerBlue
- }
- return label
- }
- 
- 
- 
- 
- */

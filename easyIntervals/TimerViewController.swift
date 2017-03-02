@@ -48,7 +48,7 @@ class TimerViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
     //MARK:- Methods
     func setUp() {
         title = data.settingTitle
@@ -66,7 +66,6 @@ class TimerViewController: UIViewController {
         for button in prefButtons {
             button.backgroundColor = UIColor.blueC
         }
-
     }
     
     func initInterface() {
