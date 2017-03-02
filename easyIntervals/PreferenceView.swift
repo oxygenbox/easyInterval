@@ -21,14 +21,18 @@ class PreferenceView: UIView {
     */
     
     override func awakeFromNib() {
-        layer.cornerRadius = 4.0
+        layer.cornerRadius = bounds.height / 2
         //        layer.shadowColor = UIColor(red: CGFloat(157.0) / 255.0, green: CGFloat(157.0) / 255.0, blue: CGFloat(157.0) / 255.0, alpha: 0.9).CGColor
-        layer.shadowColor = UIColor.black.cgColor
-        layer.shadowOpacity = 0.7
-        layer.shadowRadius = 5.0
+        backgroundColor = UIColor.white
+        
+        layer.shadowColor = UIColor.myBlue.cgColor
+        layer.borderWidth = 2
+        layer.borderColor = UIColor.myBlue.cgColor
+        layer.shadowOpacity = 0.3
+        layer.shadowRadius = 2.0
         layer.shadowOffset = CGSize(width: 0.0, height: 4.0)
         
-        backgroundColor = UIColor.black
+        backgroundColor = UIColor.base
         
             }
     

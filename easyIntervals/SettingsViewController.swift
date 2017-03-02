@@ -81,9 +81,8 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     @IBOutlet weak var message2: UILabel!
     
     @IBOutlet weak var iconView: UIView!
-    @IBOutlet weak var sliderView: UIView!
     @IBOutlet weak var switchView: UIView!
-    @IBOutlet weak var messageview: UIView!
+    
     
     @IBOutlet weak var modeDivider: UIView!
     
@@ -272,6 +271,8 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     
     func setUpViews() {
         view.backgroundColor = baseColor
+        /*
+        
         for pref in prefViews {
             pref.backgroundColor = baseColor
             pref.layer.borderColor = UIColor.black.cgColor
@@ -280,7 +281,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
             pref.layer.shadowRadius = 1
             pref.layer.shadowOpacity = 1
             pref.layer.shadowOffset = CGSize(width: 1, height: -1)
-        }
+        }*/
     }
    
     func changePreference() {
@@ -357,7 +358,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     
     func revealSlider(show: Bool) {
         if prefSlider.isHidden != show {
-            UIView.transition(with: sliderView, duration: 1.0, options: [.transitionFlipFromLeft], animations: {
+            UIView.transition(with: prefSlider, duration: 1.0, options: [.transitionFlipFromLeft], animations: {
                 self.prefSlider.isHidden = show
             }, completion: { (success: Bool) in
                 
