@@ -14,21 +14,20 @@ class TimerViewController: UIViewController {
     @IBOutlet weak var elapsedTime: UILabel!
     @IBOutlet weak var sessionType: UILabel!
     
-    @IBOutlet weak var infoButton: UIButton!
-    @IBOutlet weak var audioButton: UIButton!
-    @IBOutlet weak var vibrateButton: UIButton!
-    @IBOutlet weak var cadenceButton: UIButton!
-    @IBOutlet weak var musicButton: UIButton!
-    @IBOutlet weak var workoutButton: UIButton!
+    @IBOutlet weak var infoButton: RoundButton!
+    @IBOutlet weak var audioButton: RoundButton!
+    @IBOutlet weak var vibrateButton: RoundButton!
+    @IBOutlet weak var cadenceButton: RoundButton!
+    @IBOutlet weak var musicButton: RoundButton!
+    @IBOutlet weak var workoutButton: RoundButton!
     
      @IBOutlet var prefButtons: [UIButton]!
-    
     @IBOutlet weak var modeView: ModeView!
     
     //MARK -  VARIABLES
     var workout = Workout()
     
-    
+
     //MARK:- LIFECYCLE
     //MARK -  LifeCycle
     override func viewWillAppear(_ animated: Bool) {
@@ -63,17 +62,14 @@ class TimerViewController: UIViewController {
         
         navigationItem.backBarButtonItem?.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.base, NSFontAttributeName: UIFont(name: "AvenirNextCondensed-Regular", size: 10.0)!], for: .normal)
         
-        for button in prefButtons {
-            button.backgroundColor = UIColor.blueC
-        }
     }
     
     func initInterface() {
-        audioButton.isEnabled = data.audioOn
-        vibrateButton.isEnabled = data.vibrateOn
-        cadenceButton.isEnabled = data.cadenceOn
-        musicButton.isEnabled = data.musicOn
-        workoutButton.isEnabled = data.workoutOn
+        audioButton.active = data.audioOn
+        vibrateButton.active = data.vibrateOn
+        cadenceButton.active = data.cadenceOn
+        musicButton.active = data.musicOn
+        workoutButton.active = data.workoutOn
     }
     
     func postTimes() {

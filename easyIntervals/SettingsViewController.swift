@@ -213,7 +213,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         initSlider()
         
         if component == 0 {
-            modeChange()
+            setModeImages()
         }
         
     }
@@ -377,27 +377,9 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         })
     }
     
-    func modeChange(){
-        
-        UIView.animate(withDuration: 0.60, delay: 0, options: [.curveEaseOut], animations: {
-         
-        }) { (success: Bool) in
-            self.setModeImages()
-            UIView.animate(withDuration: 0.60, delay: 0, options: [.curveEaseInOut], animations: {
-             
-            })
-        }
-        
-        if data.isRunWalk {
-            leftModeIcon.mode = .run
-            rightModeIcon.mode = .walk
-        } else {
-            leftModeIcon.mode = .walk
-            rightModeIcon.mode = .run
-        }
-    }
-    
     func setModeImages() {
+        rightModeIcon.delay = 0.2
+        
         if data.isRunWalk {
             leftModeIcon.mode = .run
             rightModeIcon.mode = .walk

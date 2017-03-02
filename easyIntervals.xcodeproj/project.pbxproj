@@ -20,6 +20,7 @@
 		9E2E77E81E23DA0C0082ED83 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2E77E71E23DA0C0082ED83 /* Settings.swift */; };
 		9E2E77EA1E2557670082ED83 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2E77E91E2557670082ED83 /* Session.swift */; };
 		9E520DDC1E6756BB00142F85 /* SettingModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E520DDB1E6756BB00142F85 /* SettingModeView.swift */; };
+		9E520DDE1E685DF400142F85 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E520DDD1E685DF400142F85 /* RoundButton.swift */; };
 		9E6789DC1E2D1F4800E1674E /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6789DB1E2D1F4800E1674E /* TimerView.swift */; };
 		9E6789DE1E2D5C1E00E1674E /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6789DD1E2D5C1E00E1674E /* SettingViewController.swift */; };
 		9E6789E01E2D6FBC00E1674E /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6789DF1E2D6FBC00E1674E /* SettingsCell.swift */; };
@@ -77,6 +78,7 @@
 		9E2E77F71E2577730082ED83 /* stop.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = stop.caf; sourceTree = "<group>"; };
 		9E2E77F81E2577730082ED83 /* walk.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = walk.caf; sourceTree = "<group>"; };
 		9E520DDB1E6756BB00142F85 /* SettingModeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingModeView.swift; sourceTree = "<group>"; };
+		9E520DDD1E685DF400142F85 /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		9E6789DB1E2D1F4800E1674E /* TimerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		9E6789DD1E2D5C1E00E1674E /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		9E6789DF1E2D6FBC00E1674E /* SettingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 				9EA221811E53554300A79D21 /* ModeView.swift */,
 				9EF51F1E1E651AD600D1B663 /* RingsView.swift */,
 				9E520DDB1E6756BB00142F85 /* SettingModeView.swift */,
+				9E520DDD1E685DF400142F85 /* RoundButton.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E520DDE1E685DF400142F85 /* RoundButton.swift in Sources */,
 				9E6789DC1E2D1F4800E1674E /* TimerView.swift in Sources */,
 				9E2E77EA1E2557670082ED83 /* Session.swift in Sources */,
 				9E520DDC1E6756BB00142F85 /* SettingModeView.swift in Sources */,

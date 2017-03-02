@@ -10,19 +10,16 @@ import UIKit
 
 class SettingModeView: UIView {
     var imageView: UIImageView!
+    var delay: Double = 0
     
     var mode: Mode = .run {
         didSet {
-            setImage()
+           // setImage()
+            change()
         }
     }
     
-    
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-        super.draw(rect)
+    override func awakeFromNib() {
         layer.cornerRadius = bounds.width/2
         layer.borderColor = UIColor.myBlue.cgColor
         layer.borderWidth = 4
@@ -33,20 +30,11 @@ class SettingModeView: UIView {
         imageView.frame = rect
         imageView.contentMode = .scaleAspectFit
         addSubview(imageView)
-        
-       // setMode(mode: .walk)
-       // print("draw")
-    }
-    
-    override func awakeFromNib() {
-        print("awake")
+
     }
     
     
     func setImage() {
-        
-        print("MODE \(self.mode)")
-        
         var imageName = "walk_solid"
         if mode == .run {
             imageName = "run_solid"
@@ -55,6 +43,24 @@ class SettingModeView: UIView {
         imageView.image = UIImage(named: imageName)
         imageView.tintImageColor(color: UIColor.myBlue)
         
+    }
+    
+    func change() {
+    
+        
+        UIView.animate(withDuration: 0.2, delay: 0, options: .curveLinear, animations: {
+            self.imageView.transform = CGAffineTransform(translationX: 0, y: self.bounds.height)
+        }) { (true) in
+            self.imageView.transform = CGAffineTransform(translationX: 0, y: -self.bounds.height)
+            self.setImage()
+            
+            UIView.animate(withDuration: 0.2, delay: self.delay, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveLinear, animations: {
+                self.imageView.transform = .identity
+            }, completion: nil)
+            
+            
+        }
+ 
     }
 
 }
