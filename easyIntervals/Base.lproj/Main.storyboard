@@ -223,15 +223,8 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="285-nn-kwX" userLabel="Stack View pref">
                                                 <rect key="frame" x="0.0" y="0.0" width="288" height="220"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="DjB-lE-5CV">
-                                                        <rect key="frame" x="0.0" y="0.0" width="288" height="50"/>
-                                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="300" id="VEc-jy-a2q"/>
-                                                        </constraints>
-                                                    </view>
                                                     <view contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="odl-bG-M3a" userLabel="message View">
-                                                        <rect key="frame" x="0.0" y="60" width="288" height="100"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="288" height="100"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Here is a bit of descriptive text to figure out the layout" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OPO-Eh-n22">
                                                                 <rect key="frame" x="20" y="8" width="248" height="84"/>
@@ -243,7 +236,6 @@
                                                         <color key="backgroundColor" red="0.6588235294" green="0.57254901960000004" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstItem="OPO-Eh-n22" firstAttribute="top" secondItem="odl-bG-M3a" secondAttribute="top" constant="8" id="INY-D9-sxB"/>
-                                                            <constraint firstAttribute="height" constant="100" id="Id9-rN-gqw"/>
                                                             <constraint firstItem="OPO-Eh-n22" firstAttribute="leading" secondItem="odl-bG-M3a" secondAttribute="leading" constant="20" id="euR-22-98M"/>
                                                             <constraint firstAttribute="bottom" secondItem="OPO-Eh-n22" secondAttribute="bottom" constant="8" id="gEr-nJ-i4G"/>
                                                             <constraint firstAttribute="trailing" secondItem="OPO-Eh-n22" secondAttribute="trailing" constant="20" id="rt5-tU-GDf"/>
@@ -310,13 +302,7 @@
                                                     </view>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstItem="odl-bG-M3a" firstAttribute="top" secondItem="DjB-lE-5CV" secondAttribute="bottom" constant="10" id="B2f-4c-cEx"/>
-                                                    <constraint firstAttribute="trailing" secondItem="odl-bG-M3a" secondAttribute="trailing" constant="0.5" id="BqX-w1-de2"/>
                                                     <constraint firstAttribute="trailing" secondItem="DZt-PE-xWO" secondAttribute="trailing" id="MZ2-SH-h5k"/>
-                                                    <constraint firstItem="DjB-lE-5CV" firstAttribute="leading" secondItem="285-nn-kwX" secondAttribute="leading" id="VK3-LR-kRW"/>
-                                                    <constraint firstAttribute="trailing" secondItem="DjB-lE-5CV" secondAttribute="trailing" id="bAk-N3-2va"/>
-                                                    <constraint firstItem="odl-bG-M3a" firstAttribute="leading" secondItem="285-nn-kwX" secondAttribute="leading" constant="0.5" id="ce6-GX-m9t"/>
-                                                    <constraint firstItem="DjB-lE-5CV" firstAttribute="top" secondItem="285-nn-kwX" secondAttribute="top" id="rfH-ft-U62"/>
                                                     <constraint firstItem="DZt-PE-xWO" firstAttribute="leading" secondItem="285-nn-kwX" secondAttribute="leading" id="xOX-5q-hyN"/>
                                                 </constraints>
                                             </stackView>

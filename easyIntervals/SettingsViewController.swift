@@ -287,9 +287,9 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         if activePreference == .cadence || activePreference == .workout {
             prefSlider.isHidden = false
             initSlider()
-            revealSlider(show: true)
-        } else {
             revealSlider(show: false)
+        } else {
+            revealSlider(show: true)
           
         }
         
@@ -366,7 +366,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     }
     
     func revealMessage() {
-        UIView.transition(with: messageview, duration: 1.0, options: [.transitionFlipFromLeft], animations: {
+        UIView.transition(with: prefMessage, duration: 1.0, options: [.transitionFlipFromLeft], animations: {
             self.prefMessage.text = self.activePreference.desc
         }, completion: { (success: Bool) in
             
