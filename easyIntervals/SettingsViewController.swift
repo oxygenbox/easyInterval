@@ -10,7 +10,6 @@
 enum Picker: Int {
     case mode
     case time
-    
     var width: CGFloat {
         switch self {
         case .mode:
@@ -69,7 +68,6 @@ enum Preference: Int {
 }
 
 import UIKit
-
 class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
 
     //MARK: - IBOutlets
@@ -215,7 +213,6 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         if component == 0 {
             setModeImages()
         }
-        
     }
     
     //MARK: - IBAction
@@ -293,9 +290,8 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
             revealSlider(show: true)
         } else {
             revealSlider(show: false)
-          //  prefSlider.isHidden = true
+          
         }
-       // sliderMessage.isHidden = sessionSlider.isHidden
         
         preferenceSwitch.isHidden = activePreference == .info
         

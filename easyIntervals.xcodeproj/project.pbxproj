@@ -141,10 +141,7 @@
 		9E2E77DE1E23D9780082ED83 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				9E2E77E01E23D9A90082ED83 /* MainViewController.swift */,
 				9E2E77E21E23D9BD0082ED83 /* SettingsViewController.swift */,
-				9E6789DD1E2D5C1E00E1674E /* SettingViewController.swift */,
-				9ED0CF701E295F600036233A /* OLDSettingViewController.swift */,
 				9E1703FA1E56240E007B2D05 /* TimerViewController.swift */,
 			);
 			name = Controllers;
@@ -153,6 +150,9 @@
 		9E2E77DF1E23D9850082ED83 /* temp */ = {
 			isa = PBXGroup;
 			children = (
+				9E2E77E01E23D9A90082ED83 /* MainViewController.swift */,
+				9ED0CF701E295F600036233A /* OLDSettingViewController.swift */,
+				9E6789DD1E2D5C1E00E1674E /* SettingViewController.swift */,
 			);
 			name = temp;
 			sourceTree = "<group>";

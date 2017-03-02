@@ -29,7 +29,6 @@ class TimerViewController: UIViewController {
     
 
     //MARK:- LIFECYCLE
-    //MARK -  LifeCycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setUp()
