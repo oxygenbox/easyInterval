@@ -24,7 +24,7 @@ class TimerViewController: UIViewController {
      @IBOutlet var prefButtons: [UIButton]!
     @IBOutlet weak var modeView: ModeView!
     
-    //MARK -  VARIABLES
+    //MARK - VARIABLES
     var workout = Workout()
     
 
@@ -32,7 +32,7 @@ class TimerViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setUp()
-        initInterface()
+        setPreferenceButtons()
         initGestures()
         initWorkout()
         view.backgroundColor = UIColor.base
@@ -63,7 +63,7 @@ class TimerViewController: UIViewController {
         
     }
     
-    func initInterface() {
+    func setPreferenceButtons() {
         audioButton.active = data.audioOn
         vibrateButton.active = data.vibrateOn
         cadenceButton.active = data.cadenceOn

@@ -52,7 +52,7 @@ enum Preference: Int {
     var desc: String {
         switch self {
         case .info:
-            return "Info mention need tio be written"
+            return "Info mention need to be written"
         case .audio:
             return "Play audio cues including counting down the last five seconds of each interval"
         case .vibrate:
@@ -62,7 +62,7 @@ enum Preference: Int {
         case .music:
             return "Play music from your iTunes while timer is running"
         case .workout:
-            return "Run  a session for the length of:"
+            return "Run a session for the length of:"
         }
     }
 }

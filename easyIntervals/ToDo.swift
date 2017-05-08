@@ -18,12 +18,16 @@ import Foundation
  Show firt screen instructions
  Fir screen play with coor
  
+ 
+ 
+ 
  */
 
 
 
 
 /*
+ Write preference esciptions
  1. Clean up
  2. Test functionality
  3. Test settings
