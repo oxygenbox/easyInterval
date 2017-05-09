@@ -78,14 +78,14 @@ class ModeView: RingsView {
     }
     
     //MARK:- METHODS
-    func setUp() {
-        backgroundColor = UIColor.clear
-    }
+//    func setUp() {
+//        backgroundColor = UIColor.clear
+//    }
     
     
     
     
-    func OLDsetUp(){
+    func setUp(){
         backgroundColor = UIColor.clear
         backLayer.strokeColor = UIColor.blueC.cgColor
         backLayer.fillColor = UIColor.clear.cgColor

@@ -49,7 +49,7 @@
 import UIKit
 import QuartzCore
 
-class MainViewController: UIViewController, WorkoutDelegate {
+class MainViewController: UIViewController {
     
     //MARK:- IBOUTLET
    // @IBOutlet weak var intervalTime: UILabel!
@@ -123,7 +123,7 @@ class MainViewController: UIViewController, WorkoutDelegate {
     }
     
     func initWorkout() {
-        workout.delegate = self
+      //  workout.delegate = self
         postTimes()
         timerView.modeLabel.attributedText = modeName()
     }
@@ -133,10 +133,8 @@ class MainViewController: UIViewController, WorkoutDelegate {
         if(workout.timer == nil) {
             print("PAUSE")
             modeView.pause()
-            self.timerView.sink()
         } else {
             modeView.play()
-            self.timerView.rise()
         }
     }
     

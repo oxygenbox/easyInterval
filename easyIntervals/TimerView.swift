@@ -28,59 +28,11 @@ class TimerView: UIView {
     
     override func didMoveToSuperview() {
         super.didMoveToSuperview()
+       
       
-        setUp()
-      
     }
     
-    func setUp() {
-        backgroundColor = UIColor.clear
-        //intervalTime.textColor = UIColor.white
-        //elapsedTime.textColor = UIColor.white
-       // modeLabel.textColor = UIColor.white
-        
-        /*
-        let bgColor = UIColor.base
-        let radius: CGFloat = 8.0
-        
-        bgView = UIView(frame: CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height))
-        bgView.backgroundColor = bgColor
-        bgView.layer.cornerRadius = radius
-        
-        bgView.layer.shadowOffset = CGSize(width: 0.0, height: 4.0)
-        bgView.layer.shadowRadius = 5.0
-        bgView.layer.shadowOpacity = 0.7
-        bgView.alpha = 0
-        
-        insertSubview(bgView, at: 0)
-        
-        
-        let cover = UIView(frame: CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height))
-        cover.backgroundColor = bgColor
-        cover.clipsToBounds = true
-        cover.layer.cornerRadius = radius
-        cover.layer.borderColor = UIColor.accent.cgColor
-        cover.layer.borderWidth = 2
-        
-        insertSubview(cover, at: 0)
-        insertSubview(bgView, at: 0)
-    
-       */
-    }
-    
-    
-    func rise() {
-        UIView.animate(withDuration: 0.5) {
-            //self.bgView.alpha = 1
-        }
-    }
-    
-    func sink() {
-        UIView.animate(withDuration: 0.5) {
-          //  self.bgView.alpha = 0
-        }
-    }
-    
+       
 
 
 }

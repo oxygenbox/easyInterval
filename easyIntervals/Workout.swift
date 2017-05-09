@@ -14,6 +14,8 @@ protocol WorkoutDelegate {
     func woTick()
     func modeUpdate()
     func percentComplete(pct: CGFloat)
+    
+    func workoutTick(with percent: CGFloat)
 }
 
 class Workout: NSObject, AVAudioPlayerDelegate {
@@ -66,6 +68,56 @@ class Workout: NSObject, AVAudioPlayerDelegate {
         }
     }
     
+    func startTimer() {
+        bgTaskIdentifier = UIApplication.shared.beginBackgroundTask(expirationHandler: {
+            UIApplication.shared.endBackgroundTask(self.bgTaskIdentifier)
+        })
+        
+        timer = Timer.scheduledTimer(timeInterval: tick, target: self, selector: #selector(tickOccured), userInfo: nil, repeats: true)
+        RunLoop.main.add(timer!, forMode: RunLoopMode.commonModes)
+    }
+    
+    func pauseTimer() {
+        if let timer = timer {
+            timer.invalidate()
+            self.timer = nil
+        }
+    }
+
+    func tickOccured() {
+        intervalTick()
+        elapsedSeconds += 1
+        
+        guard let timerViewController = delegate else {
+            return
+        }
+        
+       // timerViewController.woTick()
+        timerViewController.workoutTick(with: currentInterval.intervalPercent())
+        
+//        if let d = delegate {
+//            //            d.woTick()
+//            //            d.percentComplete(pct: currentInterval.intervalPercent())
+//        }
+    }
+    
+    func intervalTick() {
+        currentInterval.remainingSeconds -= 1
+        if currentInterval.countDown {
+            let word = String(currentInterval.remainingSeconds)
+            speak(word: word)
+            vibrate()
+        } else if currentInterval.complete {
+            complete()
+        }
+        
+        if data.workoutOn {
+            // print("WORKOUT \(data.sequenceRepeats * data.sessionIncrement)")
+        }
+    }
+    
+    
+    
     func cadenceCheck() {
         if data.cadenceOn && currentMode == .run {
             if cadenceTracker == data.cadenceFrequency {
@@ -110,35 +162,13 @@ class Workout: NSObject, AVAudioPlayerDelegate {
         }
     }
     
-    func tickOccured() {
-        intervalTick()
-        elapsedSeconds += 1
-     
-        if let d = delegate {
-            d.woTick()
-            d.percentComplete(pct: currentInterval.intervalPercent())
-        }
-    }
+   
     
     func intervalSeconds() -> Int {
         return currentInterval.remainingSeconds
     }
     
-    func intervalTick() {
-        currentInterval.remainingSeconds -= 1
-        
-        if currentInterval.countDown {
-            let word = String(currentInterval.remainingSeconds)
-            speak(word: word)
-            vibrate()
-        } else if currentInterval.complete {
-           complete()
-        }
-        
-        if data.workoutOn {
-            print("WORKOUT \(data.sequenceRepeats * data.sessionIncrement)")
-        }
-    }
+   
     
     func complete() {
         advance()
@@ -156,22 +186,6 @@ class Workout: NSObject, AVAudioPlayerDelegate {
         }
     }
     
-    //MARK:- Timer Methods
-    func startTimer() {
-        bgTaskIdentifier = UIApplication.shared.beginBackgroundTask(expirationHandler: {
-            UIApplication.shared.endBackgroundTask(self.bgTaskIdentifier)
-        })
-        
-        timer = Timer.scheduledTimer(timeInterval: tick, target: self, selector: #selector(tickOccured), userInfo: nil, repeats: true)
-        RunLoop.main.add(timer!, forMode: RunLoopMode.commonModes)
-    }
-    
-    func pauseTimer() {
-        if let timer = timer {
-            timer.invalidate()
-            self.timer = nil
-        }
-    }
     
     
 

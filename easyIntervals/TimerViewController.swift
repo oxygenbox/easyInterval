@@ -174,6 +174,11 @@ extension TimerViewController: WorkoutDelegate {
     func woTick(){
         postTimes()
     }
+    
+    func workoutTick(with percent: CGFloat) {
+        postTimes()
+        modeView.animateHead(pct: 1 - percent)
+    }
 
     func modeUpdate(){
         modeView.mode = workout.currentMode
@@ -184,131 +189,8 @@ extension TimerViewController: WorkoutDelegate {
         modeView.elapsedTimer(percent: 1-pct)
         modeView.intervalTimer(percent: 1-pct)
     }
+    
+    
 }
 
 
-/*
- 
- //
- //  MainViewController.swift
- //  easyIntervals
- //
- //  Created by Michael Schaffner on 1/9/17.
- //  Copyright © 2017 Michael Schaffner. All rights reserved.
- //
- 
- /*
- MainVC
- 1. Access settings
- 2. Respond to gestures
- 3. Play audio
- 4. Start/ Stop-Pause
- 5. Reset/ Restart
- 
- 1. Display remaining seconds of current interval
- - value from Workout - remainingString
- 2. Display current mode
- - value from Workout - modeString
- 3. Display total elapsed time
- - value from Workout - intervalSeconds
- 4. Display remaining woSession time
- - value from Session - sessionSeconds
- 5. Display current settings (states)
- - value from Datatim
- 6. Display progress - interval
- - value from Workout - pctInterval
- 7. Display progress of woSession
- - value from session - pctSession
- 8. Display info - help - instructions
- - value from ?
- 9. Display countdown
- - Local
- 
- Workout
- Session
- Data
- Settings
- 
- //To do
- chec restart
- //stylize navigation bar
- add graphic swap
- look through graphics
- 
- */
-
- 
- func modeName() -> NSMutableAttributedString {
- let attributes =  [NSFontAttributeName: UIFont(name: "AvenirNext-DemiBold", size: 30.0)!]
- let mode = workout.currentMode.name.uppercased()
- let mutableString = NSMutableAttributedString(string: mode, attributes: attributes)
- return mutableString
- }
- }
- 
- extension UIColor
- {
- public class var off: UIColor
- {
- return UIColor(red: 236/255, green: 44/255, blue: 8/255, alpha: 1.0)
- }
- 
- public class var on: UIColor
- {
- return UIColor(red: 250/255, green: 179/255, blue: 0/255, alpha: 1.0)
- }
- 
- public class var myBlue: UIColor
- {
- return UIColor(red: 5/255, green: 85/255, blue: 179/255, alpha: 1.0)
- }
- 
- public class var base: UIColor {
- return UIColor.white
- }
- 
- public class var accent: UIColor {
- return UIColor(red: 5/255, green: 85/255, blue: 179/255, alpha: 1.0)
- }
- 
- public class var blueA: UIColor {
- return UIColor(red: 225/255, green: 252/255, blue: 255/255, alpha: 1.0)
- }
- 
- public class var blueB: UIColor {
- return UIColor(red: 149/255, green: 252/255, blue: 242/255, alpha: 1.0)
- }
- 
- public class var blueC: UIColor {
- return UIColor(red: 114/255, green: 184/255, blue: 253/255, alpha: 1.0)
- }
- 
- public class var blueD: UIColor {
- return UIColor(red: 144/255, green: 153/255, blue: 216/255, alpha: 1.0)
- }
- }
- 
- extension UIImageView {
- func tintImageColor(color : UIColor) {
- self.image = self.image!.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
- self.tintColor = color
- }
- }
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
-
- 
- 
- */
