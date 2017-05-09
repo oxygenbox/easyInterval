@@ -32,6 +32,15 @@ class TimerViewController: UIViewController {
     //MARK - VARIABLES
     var workout = Workout()
     
+    lazy var clockView: ClockView = {
+        let clock = ClockView(frame: self.modeWindow.frame)
+        clock.frame.origin.y += 64
+        self.view.addSubview(clock)
+        return clock
+    }()
+
+    
+    
 
     //MARK:- LIFECYCLE
     override func viewWillAppear(_ animated: Bool) {
@@ -72,9 +81,6 @@ class TimerViewController: UIViewController {
         
         view.backgroundColor = UIColor.base
         
-        let clockView = ClockView(frame: modeWindow.frame)
-        clockView.frame.origin.y += 64
-        view.addSubview(clockView)
         
         initGestures()
         
@@ -194,6 +200,7 @@ extension TimerViewController: WorkoutDelegate {
 
     func modeUpdate(){
         modeWindow.mode = workout.currentMode
+        clockView.begin(with: workout.currentInterval.lengthInSeconds)
        // modeView.mode = workout.currentMode
     }
 
