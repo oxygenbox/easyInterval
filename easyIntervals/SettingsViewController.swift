@@ -265,25 +265,10 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
             picker.selectRow(1, inComponent: 0, animated: false)
         }
         
-        setUpViews()
+        view.backgroundColor = baseColor
         changePreference()
     }
     
-    func setUpViews() {
-        view.backgroundColor = baseColor
-        /*
-        
-        for pref in prefViews {
-            pref.backgroundColor = baseColor
-            pref.layer.borderColor = UIColor.black.cgColor
-            pref.layer.borderWidth = 0.5
-            pref.layer.shadowColor = UIColor.white.cgColor
-            pref.layer.shadowRadius = 1
-            pref.layer.shadowOpacity = 1
-            pref.layer.shadowOffset = CGSize(width: 1, height: -1)
-        }*/
-    }
-   
     func changePreference() {
         if activePreference == .cadence || activePreference == .workout {
             prefSlider.isHidden = false
@@ -291,7 +276,6 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
             revealSlider(show: false)
         } else {
             revealSlider(show: true)
-          
         }
         
         preferenceSwitch.isHidden = activePreference == .info
@@ -311,7 +295,6 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
             break
         }
         revealMessage()
-      //  prefMessage.text = activePreference.desc
     }
     
     func initSlider() {
@@ -339,6 +322,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
            // sliderMessage.text = "\(minutes) MINUTE (\(time)) WORKOUT"
         } else if activePreference == .cadence {
             //sliderMessage.text = cadenceMessage()
+            print(cadenceMessage())
         }
     }
     

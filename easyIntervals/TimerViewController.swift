@@ -32,10 +32,8 @@ class TimerViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setUp()
-        setPreferenceButtons()
-        initGestures()
         initWorkout()
-        view.backgroundColor = UIColor.base
+    
     }
     
     override func viewDidLoad() {
@@ -61,14 +59,15 @@ class TimerViewController: UIViewController {
         
         navigationItem.backBarButtonItem?.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.base, NSFontAttributeName: UIFont(name: "AvenirNextCondensed-Regular", size: 10.0)!], for: .normal)
         
-    }
-    
-    func setPreferenceButtons() {
         audioButton.active = data.audioOn
         vibrateButton.active = data.vibrateOn
         cadenceButton.active = data.cadenceOn
         musicButton.active = data.musicOn
         workoutButton.active = data.workoutOn
+        
+        view.backgroundColor = UIColor.base
+        
+        initGestures()
     }
     
     func postTimes() {
@@ -87,14 +86,12 @@ class TimerViewController: UIViewController {
     }
     
     func toggleSession() {
+        //called on tap gesture
         workout.toggleTimer()
         if(workout.timer == nil) {
-            print("PAUSE")
             modeView.pause()
-           // self.timerView.sink()
         } else {
             modeView.play()
-          //  self.timerView.rise()
         }
     }
     
@@ -167,9 +164,9 @@ class TimerViewController: UIViewController {
     }
     
     func swipeDetected(_ sender : UISwipeGestureRecognizer) {
+        //need to insert music control
         print("swipe")
     }
-    
 }
 
 //MARK:- EXTENSIONS
@@ -186,7 +183,6 @@ extension TimerViewController: WorkoutDelegate {
         modeView.animateHead(pct: 1 - pct)
         modeView.elapsedTimer(percent: 1-pct)
         modeView.intervalTimer(percent: 1-pct)
-        print(pct)
     }
 }
 

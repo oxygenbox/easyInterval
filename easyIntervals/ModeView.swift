@@ -177,9 +177,10 @@ class ModeView: RingsView {
         let center = CGPoint(x:rect.midX, y: rect.midY)
         let radius = min(rect.width, rect.height) / 2-circleLayer.lineWidth/2
         
-        let startAngle = CGFloat(-M_PI_2)
         
-        let endAngle = startAngle + CGFloat(M_PI * 2)
+        //let startAngle = CGFloat(-M_PI_2)
+        let startAngle = CGFloat.pi/2
+        let endAngle = startAngle + (CGFloat.pi * 2)
         let path = UIBezierPath(arcCenter: CGPoint.zero, radius: radius / 2, startAngle: startAngle, endAngle: endAngle, clockwise: true)
         
         headTimerLayer.position = center

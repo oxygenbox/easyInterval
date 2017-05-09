@@ -38,8 +38,10 @@ class RingsView: UIView {
         shapeLayer.lineWidth = lineWidth
         shapeLayer.strokeEnd = end
         
-        let startAngle = CGFloat(-M_PI_2)
-        let endAngle = startAngle + CGFloat(M_PI * 2)
+        //let startAngle = CGFloat(-M_PI_2)
+        let startAngle = -(CGFloat.pi/2)
+        let endAngle = startAngle + (CGFloat.pi * 2)
+        //let endAngle = startAngle + CGFloat(M_PI * 2)
         let center = CGPoint(x: bounds.midX, y: bounds.midY)
         let radius = min(bounds.width, bounds.height) / 2 - (shapeLayer.lineWidth / 2)
         let path = UIBezierPath(arcCenter: CGPoint.zero, radius: radius, startAngle: startAngle, endAngle: endAngle, clockwise: clockwise)
