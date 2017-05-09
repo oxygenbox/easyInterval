@@ -21,6 +21,11 @@ class TimerViewController: UIViewController {
     @IBOutlet weak var musicButton: RoundButton!
     @IBOutlet weak var workoutButton: RoundButton!
     
+    
+    
+    
+    @IBOutlet weak var modeWindow: ModeWindowView!
+    
      @IBOutlet var prefButtons: [UIButton]!
     @IBOutlet weak var modeView: ModeView!
     
@@ -68,6 +73,8 @@ class TimerViewController: UIViewController {
         view.backgroundColor = UIColor.base
         
         initGestures()
+        
+        
     }
     
     func postTimes() {
@@ -76,12 +83,13 @@ class TimerViewController: UIViewController {
         intervalTime.textColor = UIColor.accent
         elapsedTime.textColor = UIColor.accent
         sessionType.textColor = UIColor.accent
-        self.modeUpdate()
+      //  self.modeUpdate()
     }
     
     func initWorkout() {
         workout.delegate = self
         postTimes()
+        modeUpdate()
        // timerView.modeLabel.attributedText = modeName()
     }
     
@@ -89,9 +97,9 @@ class TimerViewController: UIViewController {
         //called on tap gesture
         workout.toggleTimer()
         if(workout.timer == nil) {
-            modeView.pause()
+            //modeView.pause()
         } else {
-            modeView.play()
+            //modeView.play()
         }
     }
     
@@ -177,17 +185,18 @@ extension TimerViewController: WorkoutDelegate {
     
     func workoutTick(with percent: CGFloat) {
         postTimes()
-        modeView.animateHead(pct: 1 - percent)
+       // modeView.animateHead(pct: 1 - percent)
     }
 
     func modeUpdate(){
-        modeView.mode = workout.currentMode
+        modeWindow.mode = workout.currentMode
+       // modeView.mode = workout.currentMode
     }
 
     func percentComplete(pct: CGFloat) {
-        modeView.animateHead(pct: 1 - pct)
-        modeView.elapsedTimer(percent: 1-pct)
-        modeView.intervalTimer(percent: 1-pct)
+        //modeView.animateHead(pct: 1 - pct)
+        //modeView.elapsedTimer(percent: 1-pct)
+        //modeView.intervalTimer(percent: 1-pct)
     }
     
     

@@ -57,7 +57,7 @@
                                             </stackView>
                                         </subviews>
                                     </stackView>
-                                    <view contentMode="scaleToFill" verticalHuggingPriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="FwN-QA-nc7" customClass="ModeView" customModule="easyIntervals" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" verticalHuggingPriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="FwN-QA-nc7" customClass="ModeWindowView" customModule="easyIntervals" customModuleProvider="target">
                                         <rect key="frame" x="8" y="149" width="304" height="295"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -136,7 +136,7 @@
                         <outlet property="elapsedTime" destination="CD3-HI-dbn" id="Jvp-CQ-wVF"/>
                         <outlet property="infoButton" destination="dAF-z7-CFH" id="3iu-2x-RF3"/>
                         <outlet property="intervalTime" destination="R7R-iP-y6O" id="Ucw-5k-5Sg"/>
-                        <outlet property="modeView" destination="FwN-QA-nc7" id="a2L-kf-Nu3"/>
+                        <outlet property="modeWindow" destination="FwN-QA-nc7" id="mac-0K-48c"/>
                         <outlet property="musicButton" destination="6g3-71-4EX" id="Iyl-Mn-OQX"/>
                         <outlet property="sessionType" destination="Bgv-8v-S82" id="ChG-yd-hYh"/>
                         <outlet property="vibrateButton" destination="GXU-qb-VFT" id="XaV-lg-akY"/>

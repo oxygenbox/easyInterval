@@ -108,9 +108,9 @@ class ModeView: RingsView {
         headLayer.fillColor = UIColor.clear.cgColor
         
         //add layers
-        self.layer.addSublayer(backLayer)
-        self.layer.addSublayer(bodyLayer)
-        self.layer.addSublayer(headLayer)
+        //self.layer.addSublayer(backLayer)
+       // self.layer.addSublayer(bodyLayer)
+       // self.layer.addSublayer(headLayer)
         setModePath()
         updateAnimation()
         pauseAnimation(layer: bodyLayer)

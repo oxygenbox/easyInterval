@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		9E0599A11EC0FCEB00E15A34 /* ModeIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0599A01EC0FCEB00E15A34 /* ModeIconView.swift */; };
+		9E0599A51EC21DA900E15A34 /* TimerModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0599A41EC21DA900E15A34 /* TimerModeView.swift */; };
+		9E0599A71EC21F2000E15A34 /* ModeWindowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0599A61EC21F2000E15A34 /* ModeWindowView.swift */; };
 		9E1703FB1E56240E007B2D05 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1703FA1E56240E007B2D05 /* TimerViewController.swift */; };
 		9E2ADA551E535496000F5688 /* Paths.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2ADA541E535496000F5688 /* Paths.swift */; };
 		9E2E77CD1E23D92F0082ED83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2E77CC1E23D92F0082ED83 /* AppDelegate.swift */; };
@@ -53,6 +55,8 @@
 
 /* Begin PBXFileReference section */
 		9E0599A01EC0FCEB00E15A34 /* ModeIconView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModeIconView.swift; sourceTree = "<group>"; };
+		9E0599A41EC21DA900E15A34 /* TimerModeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerModeView.swift; sourceTree = "<group>"; };
+		9E0599A61EC21F2000E15A34 /* ModeWindowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModeWindowView.swift; sourceTree = "<group>"; };
 		9E1703FA1E56240E007B2D05 /* TimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		9E2ADA541E535496000F5688 /* Paths.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Paths.swift; sourceTree = "<group>"; };
 		9E2E77C91E23D92F0082ED83 /* easyIntervals.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = easyIntervals.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -183,6 +187,8 @@
 				9E520DDB1E6756BB00142F85 /* SettingModeView.swift */,
 				9E520DDD1E685DF400142F85 /* RoundButton.swift */,
 				9E0599A01EC0FCEB00E15A34 /* ModeIconView.swift */,
+				9E0599A41EC21DA900E15A34 /* TimerModeView.swift */,
+				9E0599A61EC21F2000E15A34 /* ModeWindowView.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -311,11 +317,13 @@
 				9ED0CF6F1E26B53E0036233A /* Tool.swift in Sources */,
 				9E2E77E61E23D9FE0082ED83 /* Data.swift in Sources */,
 				9EA221821E53554300A79D21 /* ModeView.swift in Sources */,
+				9E0599A51EC21DA900E15A34 /* TimerModeView.swift in Sources */,
 				9E1703FB1E56240E007B2D05 /* TimerViewController.swift in Sources */,
 				9ED0CF731E2982850036233A /* SettingTableViewCell.swift in Sources */,
 				9E2ADA551E535496000F5688 /* Paths.swift in Sources */,
 				9EC7AC511E4B5C1B00C89EA7 /* ToDo.swift in Sources */,
 				9E2E77CF1E23D92F0082ED83 /* ViewController.swift in Sources */,
+				9E0599A71EC21F2000E15A34 /* ModeWindowView.swift in Sources */,
 				9ED0CF6D1E2684320036233A /* Workout.swift in Sources */,
 				9E2E77CD1E23D92F0082ED83 /* AppDelegate.swift in Sources */,
 				9E0599A11EC0FCEB00E15A34 /* ModeIconView.swift in Sources */,
