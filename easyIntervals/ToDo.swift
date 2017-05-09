@@ -28,6 +28,7 @@ import Foundation
 
 /*
  Write preference esciptions
+ a. Session working
  1. Clean up
  2. Test functionality
  3. Test settings

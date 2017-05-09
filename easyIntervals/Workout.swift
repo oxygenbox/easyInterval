@@ -17,7 +17,6 @@ protocol WorkoutDelegate {
 }
 
 class Workout: NSObject, AVAudioPlayerDelegate {
-    
     //MARK: Variables
     let tick: Double = 0.5
     var elapsedSeconds: Int = 0
@@ -54,7 +53,6 @@ class Workout: NSObject, AVAudioPlayerDelegate {
         modeArray.append(mode)
         currentMode = mode
         currentInterval = Interval(mode: currentMode)
-        
         cadenceCheck()
     }
     

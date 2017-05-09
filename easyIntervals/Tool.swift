@@ -43,7 +43,7 @@ class Tool {
     }
     
     class func formatPickerTime(time: String) -> NSMutableAttributedString {
-            let attribute = [NSFontAttributeName: UIFont(name: "AvenirNext-DemiBold", size: 28.0)!]
+        let attribute = [NSFontAttributeName: UIFont(name: "AvenirNext-DemiBold", size: 28.0)!]
         let mutableString = NSMutableAttributedString(string: time, attributes: attribute)
         let myRange = NSRange(location: mutableString.length-3, length: 3)
         mutableString.addAttribute(NSFontAttributeName, value: UIFont(name: "AvenirNext-DemiBold", size: 20.0)!, range: myRange)
@@ -51,6 +51,7 @@ class Tool {
         mutableString.addAttribute(NSBaselineOffsetAttributeName , value: 6, range: myRange)
         return mutableString
     }
-
-
 }
+
+
+
