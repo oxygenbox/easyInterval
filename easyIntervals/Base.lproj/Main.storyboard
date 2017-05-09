@@ -27,10 +27,10 @@
                                 <rect key="frame" x="0.0" y="64" width="320" height="444"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="LKk-Sn-LPb">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="146"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="140"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="R7R-iP-y6O">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="115"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="120" id="Elv-0b-g4P"/>
                                                 </constraints>
@@ -39,16 +39,16 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="DnF-aw-DNt">
-                                                <rect key="frame" x="0.0" y="120" width="320" height="26"/>
+                                                <rect key="frame" x="0.0" y="115" width="320" height="25"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="CD3-HI-dbn">
-                                                        <rect key="frame" x="0.0" y="0.0" width="157.5" height="26"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="157.5" height="25"/>
                                                         <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="28"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="remaining" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Bgv-8v-S82">
-                                                        <rect key="frame" x="162.5" y="0.0" width="157.5" height="26"/>
+                                                        <rect key="frame" x="162.5" y="0.0" width="157.5" height="25"/>
                                                         <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="24"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -58,11 +58,11 @@
                                         </subviews>
                                     </stackView>
                                     <view contentMode="scaleToFill" verticalHuggingPriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="FwN-QA-nc7" customClass="ModeWindowView" customModule="easyIntervals" customModuleProvider="target">
-                                        <rect key="frame" x="8" y="149" width="304" height="295"/>
+                                        <rect key="frame" x="8" y="140" width="304" height="304"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="FwN-QA-nc7" secondAttribute="height" multiplier="36:35" id="RHh-Tg-Brj"/>
-                                            <constraint firstAttribute="width" secondItem="FwN-QA-nc7" secondAttribute="height" multiplier="36:35" id="gTm-F1-ezi"/>
+                                            <constraint firstAttribute="width" secondItem="FwN-QA-nc7" secondAttribute="height" multiplier="1:1" id="RHh-Tg-Brj"/>
+                                            <constraint firstAttribute="width" secondItem="FwN-QA-nc7" secondAttribute="height" multiplier="1:1" id="gTm-F1-ezi"/>
                                         </constraints>
                                     </view>
                                 </subviews>
