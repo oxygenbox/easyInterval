@@ -72,6 +72,9 @@ class TimerViewController: UIViewController {
         
         view.backgroundColor = UIColor.base
         
+        let clockView = ClockView(frame: modeWindow.frame)
+        view.addSubview(clockView)
+        
         initGestures()
         
         

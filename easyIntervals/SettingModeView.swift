@@ -20,6 +20,10 @@ class SettingModeView: UIView {
     }
     
     override func awakeFromNib() {
+        setUp()
+    }
+    
+    func setUp() {
         layer.cornerRadius = bounds.width/2
         layer.borderColor = UIColor.myBlue.cgColor
         layer.borderWidth = 4
@@ -30,7 +34,6 @@ class SettingModeView: UIView {
         imageView.frame = rect
         imageView.contentMode = .scaleAspectFit
         addSubview(imageView)
-
     }
     
     

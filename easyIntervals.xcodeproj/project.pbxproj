@@ -10,6 +10,7 @@
 		9E0599A11EC0FCEB00E15A34 /* ModeIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0599A01EC0FCEB00E15A34 /* ModeIconView.swift */; };
 		9E0599A51EC21DA900E15A34 /* TimerModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0599A41EC21DA900E15A34 /* TimerModeView.swift */; };
 		9E0599A71EC21F2000E15A34 /* ModeWindowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0599A61EC21F2000E15A34 /* ModeWindowView.swift */; };
+		9E0599A91EC2295500E15A34 /* ClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0599A81EC2295500E15A34 /* ClockView.swift */; };
 		9E1703FB1E56240E007B2D05 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1703FA1E56240E007B2D05 /* TimerViewController.swift */; };
 		9E2ADA551E535496000F5688 /* Paths.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2ADA541E535496000F5688 /* Paths.swift */; };
 		9E2E77CD1E23D92F0082ED83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2E77CC1E23D92F0082ED83 /* AppDelegate.swift */; };
@@ -57,6 +58,7 @@
 		9E0599A01EC0FCEB00E15A34 /* ModeIconView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModeIconView.swift; sourceTree = "<group>"; };
 		9E0599A41EC21DA900E15A34 /* TimerModeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerModeView.swift; sourceTree = "<group>"; };
 		9E0599A61EC21F2000E15A34 /* ModeWindowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModeWindowView.swift; sourceTree = "<group>"; };
+		9E0599A81EC2295500E15A34 /* ClockView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClockView.swift; sourceTree = "<group>"; };
 		9E1703FA1E56240E007B2D05 /* TimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		9E2ADA541E535496000F5688 /* Paths.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Paths.swift; sourceTree = "<group>"; };
 		9E2E77C91E23D92F0082ED83 /* easyIntervals.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = easyIntervals.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -189,6 +191,7 @@
 				9E0599A01EC0FCEB00E15A34 /* ModeIconView.swift */,
 				9E0599A41EC21DA900E15A34 /* TimerModeView.swift */,
 				9E0599A61EC21F2000E15A34 /* ModeWindowView.swift */,
+				9E0599A81EC2295500E15A34 /* ClockView.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -327,6 +330,7 @@
 				9ED0CF6D1E2684320036233A /* Workout.swift in Sources */,
 				9E2E77CD1E23D92F0082ED83 /* AppDelegate.swift in Sources */,
 				9E0599A11EC0FCEB00E15A34 /* ModeIconView.swift in Sources */,
+				9E0599A91EC2295500E15A34 /* ClockView.swift in Sources */,
 				9ED0CF5E1E2588510036233A /* Interval.swift in Sources */,
 				9EF51F1F1E651AD700D1B663 /* RingsView.swift in Sources */,
 				9E6789E01E2D6FBC00E1674E /* SettingsCell.swift in Sources */,
