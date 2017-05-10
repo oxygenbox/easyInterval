@@ -36,6 +36,7 @@ class TimerViewController: UIViewController {
         let clock = ClockView(frame: self.modeWindow.frame)
         clock.frame.origin.y += 64
         self.view.addSubview(clock)
+        clock.reset()
         return clock
     }()
 
@@ -80,7 +81,7 @@ class TimerViewController: UIViewController {
         workoutButton.active = data.workoutOn
         
         view.backgroundColor = UIColor.base
-        
+        modeWindow.backgroundColor = UIColor.white
         
         initGestures()
         
@@ -90,6 +91,11 @@ class TimerViewController: UIViewController {
     func postTimes() {
         intervalTime.text = Tool.formatTime(secs: workout.currentInterval.remainingSeconds, withHours: false)
         elapsedTime.text = Tool.formatTime(secs: workout.elapsedSeconds, withHours: true)
+        
+         sessionType.text = "elapsed"
+        
+        
+        
         intervalTime.textColor = UIColor.accent
         elapsedTime.textColor = UIColor.accent
         sessionType.textColor = UIColor.accent
@@ -97,6 +103,7 @@ class TimerViewController: UIViewController {
     }
     
     func initWorkout() {
+        workout = Workout()
         workout.delegate = self
         postTimes()
         modeUpdate()
@@ -107,9 +114,9 @@ class TimerViewController: UIViewController {
         //called on tap gesture
         workout.toggleTimer()
         if(workout.timer == nil) {
-            //modeView.pause()
+            clockView.pause()
         } else {
-            //modeView.play()
+            clockView.resume()
         }
     }
     
@@ -200,8 +207,9 @@ extension TimerViewController: WorkoutDelegate {
 
     func modeUpdate(){
         modeWindow.mode = workout.currentMode
-        clockView.begin(with: workout.currentInterval.lengthInSeconds)
-       // modeView.mode = workout.currentMode
+        if workout.timer != nil {
+            clockView.begin(with: workout.currentInterval.lengthInSeconds)
+        }
     }
 
     func percentComplete(pct: CGFloat) {

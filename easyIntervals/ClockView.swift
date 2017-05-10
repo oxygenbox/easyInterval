@@ -22,7 +22,7 @@ class ClockView: UIView {
     
     var shapeLayer = CAShapeLayer()
     var countDownTimer = Timer()
-    var timerValue = 60
+    var timerValue = 0
     var ticks = 0
     var label = UILabel()
     var firstTimerButton = UIButton()
@@ -39,7 +39,6 @@ class ClockView: UIView {
     override init(frame: CGRect) {
     super.init(frame: frame)
         addCircle()
-        startAnimation()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -56,6 +55,7 @@ class ClockView: UIView {
         self.shapeLayer.fillColor = UIColor.clear.cgColor
         self.shapeLayer.strokeColor = color.cgColor
         self.shapeLayer.lineWidth = lineWidth
+        shapeLayer.lineCap = kCALineCapRound
         self.layer.addSublayer(shapeLayer)
     }
     
@@ -69,70 +69,8 @@ class ClockView: UIView {
         animation.isRemovedOnCompletion = false
         self.shapeLayer.add(animation, forKey: "ani")
     }
+ 
     
-    func updateLabel(value: Int) {
-        self.setLabelText(value: self.timeFormatted(totalSeconds: value))
-        self.addCircle()
-    }
-    
-    func setLabelText(value: String) {
-        self.label.text = value
-    }
-    
-    func timeFormatted(totalSeconds: Int) -> String {
-        return "\(totalSeconds)"
-    }
-    
-    func countDown() {
-        self.timerValue -= 1
-        if timerValue < 0 {
-            timerComplete()
-        } else {
-            self.setLabelText(value: self.timeFormatted(totalSeconds: self.timerValue))
-        }
-    }
-    
-    func setTimer(value: Int) {
-        self.timerValue = value
-        self.ticks = value
-        self.updateLabel(value: value)
-    }
-    
-    func setButtons(value: Int) {
-        doneButton.isHidden = true
-        firstTimerButton.isEnabled = true
-        firstTimerButton.alpha = 1
-        firstTimerButton.setTitle("Start Timer", for: .normal)
-        if value > 0 {
-            secondTimerButton.isHidden = false
-            firstTimerButton.setTitle("Start Rep 1", for: .normal)
-        } else {
-            secondTimerButton.isEnabled = false
-            secondTimerButton.alpha = 1
-            secondTimerButton.isHidden = true
-        }
-    }
-    
-    func startCountDown() {
-        self.countDownTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { (timer) in
-            self.countDown()
-        })
-        self.startAnimation()
-    }
-    
-    func startFirstTimer() {
-        self.startCountDown()
-        firstTimerButton.isEnabled = false
-        firstTimerButton.alpha = 0.7
-    }
-    
-    func startSecondTimer () {
-        secondTimerButton.alpha = 0.7
-        print("Second Tapped")
-        self.timerValue = ticks
-        self.setTimer(value: self.timerValue)
-        self.startCountDown()
-    }
     
     func completeTapped() {
         if let d = delegate {
@@ -140,37 +78,25 @@ class ClockView: UIView {
         }
     }
     
-    func resetTapped() {
-        if doneButton.isHidden {
-            // self.timerValue =
-        }
-    }
-    
-    func timerComplete() {
-        self.countDownTimer.invalidate()
-        if secondTimerButton.isHidden {
-            self.doneButton.isHidden = false
-        } else {
-            if secondTimerButton.alpha == 1 {
-                self.secondTimerButton.isEnabled = true
-            } else {
-                self.doneButton.isHidden = false
-            }
-        }
-    }
     
     func skip() {
-        countDownTimer.invalidate()
         shapeLayer.removeAllAnimations()
     }
     
     
     func pause() {
-        
+        let  pausedTime = layer.convertTime(CACurrentMediaTime(), from: nil)
+        layer.speed = 0.0
+        layer.timeOffset = pausedTime
     }
     
     func resume() {
-        
+        let pausedTime = layer.timeOffset
+        layer.speed = 1.0
+        layer.timeOffset = 0.0
+        layer.beginTime = 0.0
+        let timeSincePause = layer.convertTime(CACurrentMediaTime(), from: nil) - pausedTime
+        layer.beginTime = timeSincePause
     }
     
     
@@ -179,14 +105,10 @@ class ClockView: UIView {
         startAnimation()
     }
     
+    func  reset() {
+        shapeLayer.timeOffset = 0
+    }
+    
 }
-
-
-
-
-
-
-
-
 
 

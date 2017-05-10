@@ -29,9 +29,12 @@ class RoundButton: UIButton {
             tintColor = UIColor.myBlue
             layer.borderColor = UIColor.myBlue.cgColor
         } else {
-            backgroundColor = UIColor.myBlue
-            tintColor = UIColor.blueC
-            layer.borderColor = UIColor.blueC.cgColor
+//            backgroundColor = UIColor.myBlue
+//            tintColor = UIColor.blueC
+//            layer.borderColor = UIColor.blueC.cgColor
+            backgroundColor = UIColor.white
+            tintColor = UIColor.myBlue.withAlphaComponent(0.5)
+            layer.borderColor = UIColor.myBlue.withAlphaComponent(0.5).cgColor
         }
     }
     

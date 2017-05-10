@@ -20,7 +20,7 @@ protocol WorkoutDelegate {
 
 class Workout: NSObject, AVAudioPlayerDelegate {
     //MARK: Variables
-    let tick: Double = 0.5
+    let tick: Double = 1.0
     var elapsedSeconds: Int = 0
     var timer: Timer?
     var cadenceTimer: Timer?
