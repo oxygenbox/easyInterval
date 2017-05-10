@@ -4,6 +4,10 @@
 //
 //  Created by Michael Schaffner on 5/8/17.
 //  Copyright © 2017 Michael Schaffner. All rights reserved.
-//
-
-import Foundation
+/*
+ Replace bar buttions with icons
+ Show counyDown
+ Add Run/ walk in background
+ Drop speed?
+ 
+ */

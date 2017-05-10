@@ -83,6 +83,13 @@ class TimerViewController: UIViewController {
         view.backgroundColor = UIColor.base
         modeWindow.backgroundColor = UIColor.white
         
+       // view.backgroundColor = UIColor.blueB
+        
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = view.bounds
+        gradientLayer.colors = [UIColor.blueB.cgColor, UIColor.blueC.cgColor]
+       // view.layer.addSublayer(gradientLayer)
+        view.layer.insertSublayer(gradientLayer, at: 0)
         initGestures()
         
         
@@ -115,8 +122,10 @@ class TimerViewController: UIViewController {
         workout.toggleTimer()
         if(workout.timer == nil) {
             clockView.pause()
+            navigationItem.rightBarButtonItem?.isEnabled = true
         } else {
             clockView.resume()
+            navigationItem.rightBarButtonItem?.isEnabled = false
         }
     }
     
