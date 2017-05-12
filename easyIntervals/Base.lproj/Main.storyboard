@@ -276,7 +276,7 @@
                                 </constraints>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hzb-Or-ftV">
-                                <rect key="frame" x="0.0" y="632" width="414" height="60"/>
+                                <rect key="frame" x="0.0" y="676" width="414" height="60"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="39w-D5-Da3">
                                         <rect key="frame" x="8" y="8" width="398" height="44"/>
@@ -332,47 +332,18 @@
                                     <constraint firstItem="39w-D5-Da3" firstAttribute="leading" secondItem="Hzb-Or-ftV" secondAttribute="leading" constant="8" id="EgK-E0-XS8"/>
                                     <constraint firstItem="39w-D5-Da3" firstAttribute="top" secondItem="Hzb-Or-ftV" secondAttribute="top" constant="8" id="NKp-gR-ak8"/>
                                     <constraint firstItem="39w-D5-Da3" firstAttribute="leading" secondItem="Hzb-Or-ftV" secondAttribute="leading" constant="8" id="QRX-IL-s0Z"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="amv-rA-scu"/>
                                     <constraint firstAttribute="bottom" secondItem="39w-D5-Da3" secondAttribute="bottom" constant="8" id="tKl-sE-HAZ"/>
                                 </constraints>
                             </view>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q9u-g6-GbV" userLabel="Toolbar c">
-                                <rect key="frame" x="0.0" y="692" width="414" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="q45-4a-8aS"/>
-                                </constraints>
-                                <items>
-                                    <barButtonItem style="plain" id="0hg-vI-fdx">
-                                        <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="IGi-tP-e7q">
-                                            <rect key="frame" x="20" y="7" width="300" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <segments>
-                                                <segment title="" image="icon_help"/>
-                                                <segment title="" image="icon_audio"/>
-                                                <segment title="" image="icon_vibrate"/>
-                                                <segment title="" image="icon_cadence"/>
-                                                <segment title="" image="icon_music"/>
-                                                <segment title="" image="icon_time"/>
-                                            </segments>
-                                            <connections>
-                                                <action selector="segmentChangedWithSender:" destination="weC-Ga-LzU" eventType="valueChanged" id="CVp-B6-olE"/>
-                                            </connections>
-                                        </segmentedControl>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="hA6-ll-trC" firstAttribute="leading" secondItem="X3F-P3-dDh" secondAttribute="leadingMargin" id="8Md-Eb-Xs6"/>
-                            <constraint firstItem="q9u-g6-GbV" firstAttribute="leading" secondItem="X3F-P3-dDh" secondAttribute="leading" id="9xl-bh-thf"/>
                             <constraint firstAttribute="trailingMargin" secondItem="hA6-ll-trC" secondAttribute="trailing" id="L7e-4b-bKC"/>
+                            <constraint firstItem="Ddb-Wh-gg1" firstAttribute="top" secondItem="Hzb-Or-ftV" secondAttribute="bottom" id="TQQ-cp-JWW"/>
                             <constraint firstItem="hA6-ll-trC" firstAttribute="top" secondItem="cxL-gh-ywG" secondAttribute="bottom" constant="10" id="ZVH-ws-Ydn"/>
-                            <constraint firstItem="q9u-g6-GbV" firstAttribute="top" secondItem="Hzb-Or-ftV" secondAttribute="bottom" id="dWs-U9-4BA"/>
                             <constraint firstAttribute="trailing" secondItem="Hzb-Or-ftV" secondAttribute="trailing" id="jjo-Br-ieM"/>
                             <constraint firstItem="Hzb-Or-ftV" firstAttribute="leading" secondItem="X3F-P3-dDh" secondAttribute="leading" id="mrv-X7-AUt"/>
-                            <constraint firstItem="Ddb-Wh-gg1" firstAttribute="top" secondItem="q9u-g6-GbV" secondAttribute="bottom" id="pbq-EW-tPg"/>
-                            <constraint firstAttribute="trailing" secondItem="q9u-g6-GbV" secondAttribute="trailing" id="uKG-ho-aar"/>
                         </constraints>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
@@ -387,7 +358,6 @@
                         <outlet property="prefSlider" destination="lF9-ad-OVV" id="TYW-XX-6gC"/>
                         <outlet property="preferenceSwitch" destination="Po0-0A-e9a" id="BA4-x7-WE3"/>
                         <outlet property="rightModeIcon" destination="uMK-1C-z5V" id="4yQ-hX-Vog"/>
-                        <outlet property="segmentedControl" destination="IGi-tP-e7q" id="I26-va-GaS"/>
                         <outlet property="sessionButton" destination="XKd-rK-WuE" id="ktl-VH-OGs"/>
                         <outlet property="vibrateButton" destination="bQl-nb-PZW" id="Etf-Q0-8rd"/>
                         <outletCollection property="buttonCollection" destination="jJS-yS-qT0" collectionClass="NSMutableArray" id="BQ7-dF-UMN"/>

@@ -72,7 +72,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
 
     //MARK: - IBOutlets
     @IBOutlet weak var picker: UIPickerView!
-    @IBOutlet weak var segmentedControl: UISegmentedControl!
+   // @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var preferenceSwitch: UISwitch!
     
     @IBOutlet weak var prefSlider: UISlider!
@@ -227,11 +227,11 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     }
     
     //MARK: - IBAction
-    @IBAction func segmentChanged(sender: UISegmentedControl) {
-        data.settingsTab = sender.selectedSegmentIndex
-        data.save()
-        changePreference()
-    }
+//    @IBAction func segmentChanged(sender: UISegmentedControl) {
+//        data.settingsTab = sender.selectedSegmentIndex
+//        data.save()
+//        changePreference()
+//    }
     
     @IBAction func switchChanged(sender: UISwitch) {
         switch activePreference {
@@ -288,11 +288,11 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     //MARK: - Methods
     func setUp() {
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "Main", style: .plain, target: nil, action: nil)
-        segmentedControl.tintColor = UIColor.accent
+       // segmentedControl.tintColor = UIColor.accent
         
         title = data.settingTitle
         //init interface
-        segmentedControl.selectedSegmentIndex = data.settingsTab
+       // segmentedControl.selectedSegmentIndex = data.settingsTab
         picker.selectRow(data.runValue, inComponent: runComponent, animated: false)
         picker.selectRow(data.walkValue, inComponent: walkComponent, animated: false)
         if !data.isRunWalk {
