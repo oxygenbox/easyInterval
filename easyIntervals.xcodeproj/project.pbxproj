@@ -11,6 +11,7 @@
 		9E0599A51EC21DA900E15A34 /* TimerModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0599A41EC21DA900E15A34 /* TimerModeView.swift */; };
 		9E0599A71EC21F2000E15A34 /* ModeWindowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0599A61EC21F2000E15A34 /* ModeWindowView.swift */; };
 		9E0599A91EC2295500E15A34 /* ClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0599A81EC2295500E15A34 /* ClockView.swift */; };
+		9E0599AB1EC63D8200E15A34 /* NewSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0599AA1EC63D8200E15A34 /* NewSettingViewController.swift */; };
 		9E1703FB1E56240E007B2D05 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1703FA1E56240E007B2D05 /* TimerViewController.swift */; };
 		9E2ADA551E535496000F5688 /* Paths.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2ADA541E535496000F5688 /* Paths.swift */; };
 		9E2E77CD1E23D92F0082ED83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2E77CC1E23D92F0082ED83 /* AppDelegate.swift */; };
@@ -26,7 +27,6 @@
 		9E520DDC1E6756BB00142F85 /* SettingModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E520DDB1E6756BB00142F85 /* SettingModeView.swift */; };
 		9E520DDE1E685DF400142F85 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E520DDD1E685DF400142F85 /* RoundButton.swift */; };
 		9E6789DC1E2D1F4800E1674E /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6789DB1E2D1F4800E1674E /* TimerView.swift */; };
-		9E6789DE1E2D5C1E00E1674E /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6789DD1E2D5C1E00E1674E /* SettingViewController.swift */; };
 		9E6789E01E2D6FBC00E1674E /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6789DF1E2D6FBC00E1674E /* SettingsCell.swift */; };
 		9EA221821E53554300A79D21 /* ModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA221811E53554300A79D21 /* ModeView.swift */; };
 		9EC7AC511E4B5C1B00C89EA7 /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC7AC501E4B5C1B00C89EA7 /* ToDo.swift */; };
@@ -59,6 +59,7 @@
 		9E0599A41EC21DA900E15A34 /* TimerModeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerModeView.swift; sourceTree = "<group>"; };
 		9E0599A61EC21F2000E15A34 /* ModeWindowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModeWindowView.swift; sourceTree = "<group>"; };
 		9E0599A81EC2295500E15A34 /* ClockView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClockView.swift; sourceTree = "<group>"; };
+		9E0599AA1EC63D8200E15A34 /* NewSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewSettingViewController.swift; sourceTree = "<group>"; };
 		9E1703FA1E56240E007B2D05 /* TimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		9E2ADA541E535496000F5688 /* Paths.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Paths.swift; sourceTree = "<group>"; };
 		9E2E77C91E23D92F0082ED83 /* easyIntervals.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = easyIntervals.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -89,7 +90,6 @@
 		9E520DDB1E6756BB00142F85 /* SettingModeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingModeView.swift; sourceTree = "<group>"; };
 		9E520DDD1E685DF400142F85 /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		9E6789DB1E2D1F4800E1674E /* TimerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
-		9E6789DD1E2D5C1E00E1674E /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		9E6789DF1E2D6FBC00E1674E /* SettingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
 		9EA221811E53554300A79D21 /* ModeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModeView.swift; sourceTree = "<group>"; };
 		9EC7AC501E4B5C1B00C89EA7 /* ToDo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
@@ -155,6 +155,7 @@
 			children = (
 				9E1703FA1E56240E007B2D05 /* TimerViewController.swift */,
 				9E2E77E21E23D9BD0082ED83 /* SettingsViewController.swift */,
+				9E0599AA1EC63D8200E15A34 /* NewSettingViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -164,7 +165,6 @@
 			children = (
 				9E2E77E01E23D9A90082ED83 /* MainViewController.swift */,
 				9ED0CF701E295F600036233A /* OLDSettingViewController.swift */,
-				9E6789DD1E2D5C1E00E1674E /* SettingViewController.swift */,
 			);
 			name = temp;
 			sourceTree = "<group>";
@@ -315,7 +315,7 @@
 				9ED0CFA71E2BE93E0036233A /* PreferenceView.swift in Sources */,
 				9ED0CF711E295F600036233A /* OLDSettingViewController.swift in Sources */,
 				9E2E77E81E23DA0C0082ED83 /* Settings.swift in Sources */,
-				9E6789DE1E2D5C1E00E1674E /* SettingViewController.swift in Sources */,
+				9E0599AB1EC63D8200E15A34 /* NewSettingViewController.swift in Sources */,
 				9E2E77E11E23D9A90082ED83 /* MainViewController.swift in Sources */,
 				9ED0CF6F1E26B53E0036233A /* Tool.swift in Sources */,
 				9E2E77E61E23D9FE0082ED83 /* Data.swift in Sources */,

@@ -184,6 +184,10 @@ class Workout: NSObject, AVAudioPlayerDelegate {
         } else {
             advance()
         }
+        
+        if  let del = delegate  {
+            del.modeUpdate()
+        }
     }
     
     

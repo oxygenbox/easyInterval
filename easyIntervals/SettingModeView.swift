@@ -11,6 +11,7 @@ import UIKit
 class SettingModeView: UIView {
     var imageView: UIImageView!
     var delay: Double = 0
+    var dropDuration: Double = 0.3 // 0.2
     
     var mode: Mode = .run {
         didSet {
@@ -51,13 +52,13 @@ class SettingModeView: UIView {
     func change() {
     
         
-        UIView.animate(withDuration: 0.2, delay: 0, options: .curveLinear, animations: {
+        UIView.animate(withDuration: self.dropDuration, delay: 0, options: .curveLinear, animations: {
             self.imageView.transform = CGAffineTransform(translationX: 0, y: self.bounds.height)
         }) { (true) in
             self.imageView.transform = CGAffineTransform(translationX: 0, y: -self.bounds.height)
             self.setImage()
             
-            UIView.animate(withDuration: 0.2, delay: self.delay, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveLinear, animations: {
+            UIView.animate(withDuration:self.dropDuration, delay: self.delay, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveLinear, animations: {
                 self.imageView.transform = .identity
             }, completion: nil)
             
