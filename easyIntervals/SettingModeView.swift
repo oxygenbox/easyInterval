@@ -25,6 +25,9 @@ class SettingModeView: UIView {
     }
     
     func setUp() {
+        
+        print(frame)
+        
         layer.cornerRadius = bounds.width/2
         layer.borderColor = UIColor.myBlue.cgColor
         layer.borderWidth = 4

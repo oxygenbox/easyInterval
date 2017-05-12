@@ -91,6 +91,18 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     
     @IBOutlet var prefViews: [UIView]!
     
+    @IBOutlet weak var infoButton: RoundButton!
+    @IBOutlet weak var audioButton: RoundButton!
+    @IBOutlet weak var vibrateButton: RoundButton!
+    @IBOutlet weak var cadenceButton: RoundButton!
+    @IBOutlet weak var musicButton: RoundButton!
+    @IBOutlet weak var sessionButton: RoundButton!
+    
+    
+    @IBOutlet var buttonCollection: [RoundButton]!
+    
+    
+    
     let baseColor = UIColor.white
     let higlightColor = UIColor.myBlue
     
@@ -251,6 +263,28 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         data.save()
     }
     
+    
+   
+    func buttonPressed(_ sender: RoundButton) {
+        sender.alpha = 1
+        
+        for button in buttonCollection {
+            if sender == button {
+               button.alpha = 1
+            } else{
+                button.alpha = 0.5
+            }
+        }
+        
+        data.settingsTab = sender.tag
+        data.save()
+        changePreference()
+        
+        
+    }
+    
+    
+    
     //MARK: - Methods
     func setUp() {
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "Main", style: .plain, target: nil, action: nil)
@@ -266,6 +300,26 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         }
         
         view.backgroundColor = baseColor
+        
+        for (index, button) in buttonCollection.enumerated() {
+            button.addTarget(self, action: #selector(buttonPressed(_:)), for: .touchUpInside)
+            button.tag = index
+            
+            if index == data.settingsTab {
+                button.alpha = 1.0
+            } else {
+                button.alpha = 0.5
+            }
+            
+            
+            
+        }
+        
+      //  buttonCollection[data.settingsTab].alpha = 1.0
+        
+        
+        
+        
         changePreference()
     }
     
