@@ -21,8 +21,36 @@ class SettingModeView: UIView {
     }
     
     override func awakeFromNib() {
-        setUp()
+        super.awakeFromNib()
+        //setUp()
+        config()
     }
+    
+    override func didMoveToWindow() {
+        super.didMoveToWindow()
+        //config()
+    }
+    
+    func config() {
+         print(frame)
+        print(bounds.height/2)
+        layer.cornerRadius = self.bounds.height / 2
+        layer.borderWidth = 2
+        layer.borderColor = UIColor.myBlue.cgColor
+        layer.borderWidth = 4
+        clipsToBounds = true
+        
+        let rect = CGRect(x: 10, y: 10, width: bounds.size.width - 20, height: bounds.size.height - 20)
+        imageView = UIImageView(frame: bounds)
+        imageView.frame = rect
+        imageView.contentMode = .scaleAspectFit
+        addSubview(imageView)
+    }
+    /*
+     
+          configure()
+ */
+    
     
     func setUp() {
         
