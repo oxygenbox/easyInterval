@@ -73,6 +73,8 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     //MARK: - IBOutlets
     @IBOutlet weak var picker: UIPickerView!
    // @IBOutlet weak var segmentedControl: UISegmentedControl!
+    @IBOutlet weak var sessionControl: UISegmentedControl!
+    @IBOutlet weak var cadenceControl: UISegmentedControl!
     @IBOutlet weak var preferenceSwitch: UISwitch!
     @IBOutlet weak var messageView: UIView!
     @IBOutlet weak var prefMessage: UILabel!
@@ -224,7 +226,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         data.save()
         data.calcSessionIncrement()
         title = data.settingTitle
-        initSlider()
+        initSegmentedControl()
         
         if component == 0 {
             setModeImages()
@@ -268,6 +270,18 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         data.save()
     }
     
+    
+    @IBAction func controlChanged(_ sender: UISegmentedControl) {
+        let value = sender.selectedSegmentIndex
+        postSliderMessage()
+        
+        if activePreference == .workout {
+            data.sequenceRepeats = value
+        } else {
+            data.cadenceFrequency = value
+        }
+        data.save()
+    }
     
    
     func buttonPressed(_ sender: RoundButton) {
@@ -316,7 +330,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
                 button.alpha = 0.5
             }
             
-            initSlider()
+            initSegmentedControl()
             
         }
         
@@ -330,14 +344,15 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     
     func changePreference() {
         if activePreference == .cadence || activePreference == .workout {
-            segmentedControlView.isHidden = false
-//            initSlider()
-            revealSlider(show: false)
+//            segmentedControl.isHidden = false
+            
+//            revealSegmentedControl(show: false)
             print("showSlider")
         } else {
-            revealSlider(show: true)
+           // revealSegmentedControl(show: true)
             print("hideSlider")
         }
+        initSegmentedControl()
         preferenceSwitch.isHidden = activePreference == .info
         
         switch activePreference {
@@ -363,19 +378,41 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         revealMessage()
     }
     
-    func initSlider() {
+    /*
+     // Initialize
+     let items = ["Purple", "Green", "Blue"]
+     let customSC = UISegmentedControl(items: items)
+     customSC.selectedSegmentIndex = 0
+ */
+    
+    
+    
+    func initSegmentedControl() {
         if activePreference == .workout {
-            prefSlider.minimumValue = 1
-            prefSlider.maximumValue  = 6
-            let value = Float(data.sequenceRepeats)
-            prefSlider.setValue(value, animated: false)
-            postSliderMessage()
+            sessionControl.isHidden = false
+            cadenceControl.isHidden = true
+//            let f = segmentedControl.frame
+//            let items = ["Purple", "Green", "Blue"]
+//            let customSC = UISegmentedControl(items: items)
+//            `customSC.frame = f
+            //segmentedControl = customSC
+//            prefSlider.minimumValue = 1
+//            prefSlider.maximumValue  = 6
+//            let value = Float(data.sequenceRepeats)
+//            prefSlider.setValue(value, animated: false)
+//            postSliderMessage()
         } else if activePreference == .cadence {
-            prefSlider.minimumValue = 1
-            prefSlider.maximumValue = 4
-            let value = Float(data.cadenceFrequency)
-            prefSlider.setValue(value, animated: false)
-            //postSliderMessage()
+            sessionControl.isHidden = true
+            cadenceControl.isHidden = false
+//            prefSlider.minimumValue = 1
+//            prefSlider.maximumValue = 4
+           let value = Float(data.cadenceFrequency)
+          // prefSlider.setValue(value, animated: false)
+            print(value)
+//            //postSliderMessage()
+        } else {
+            sessionControl.isHidden = true
+            cadenceControl.isHidden = true
         }
     }
     
@@ -406,14 +443,14 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     }
     
     
-    func revealSlider(show: Bool) {
-        if segmentedControlView.isHidden != show {
-            UIView.transition(with: segmentedControlView, duration: 1.0, options: [.transitionFlipFromLeft], animations: {
-                self.segmentedControlView.isHidden = show
-           }, completion: { (success: Bool) in
-                
-            })
-        }
+    func revealSegmentedControl(show: Bool) {
+//        if segmentedControl.isHidden != show {
+//            UIView.transition(with: segmentedControl, duration: 1.0, options: [.transitionFlipFromLeft], animations: {
+//                self.segmentedControl.isHidden = show
+//           }, completion: { (success: Bool) in
+//                
+//            })
+//        }
     }
     
     func revealMessage() {

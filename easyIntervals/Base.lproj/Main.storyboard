@@ -270,21 +270,41 @@ df</string>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xwO-f6-CHB">
                                                 <rect key="frame" x="0.0" y="174" width="272" height="40"/>
                                                 <subviews>
-                                                    <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="g1t-CG-kda">
-                                                        <rect key="frame" x="36" y="8" width="200" height="31"/>
-                                                        <color key="minimumTrackTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <color key="maximumTrackTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <color key="thumbTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="o71-28-4C2">
+                                                        <rect key="frame" x="10" y="6" width="252" height="29"/>
+                                                        <segments>
+                                                            <segment title="Every run"/>
+                                                            <segment title="Every Other"/>
+                                                            <segment title="Every 2nd"/>
+                                                            <segment title="Every 3rd"/>
+                                                        </segments>
                                                         <connections>
-                                                            <action selector="sliderChangedWithSender:" destination="weC-Ga-LzU" eventType="valueChanged" id="Y5p-QP-RRY"/>
+                                                            <action selector="controlChanged:" destination="weC-Ga-LzU" eventType="valueChanged" id="6TK-oZ-GD0"/>
                                                         </connections>
-                                                    </slider>
+                                                    </segmentedControl>
+                                                    <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="cbH-69-T5B">
+                                                        <rect key="frame" x="10" y="5" width="252" height="29"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <segments>
+                                                            <segment title="15"/>
+                                                            <segment title="30"/>
+                                                            <segment title="45"/>
+                                                            <segment title="60"/>
+                                                            <segment title="75"/>
+                                                            <segment title="90"/>
+                                                        </segments>
+                                                        <connections>
+                                                            <action selector="controlChanged:" destination="weC-Ga-LzU" eventType="valueChanged" id="IYN-xl-T4D"/>
+                                                        </connections>
+                                                    </segmentedControl>
                                                 </subviews>
                                                 <color key="backgroundColor" red="1" green="1" blue="0.1358506944" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
+                                                    <constraint firstItem="o71-28-4C2" firstAttribute="top" secondItem="xwO-f6-CHB" secondAttribute="top" constant="6" id="DX4-kN-yeB"/>
                                                     <constraint firstAttribute="height" constant="40" id="MMx-tw-he4"/>
-                                                    <constraint firstItem="g1t-CG-kda" firstAttribute="centerY" secondItem="xwO-f6-CHB" secondAttribute="centerY" id="n7A-xR-QiN"/>
-                                                    <constraint firstItem="g1t-CG-kda" firstAttribute="centerX" secondItem="xwO-f6-CHB" secondAttribute="centerX" id="w6k-6C-Q2w"/>
+                                                    <constraint firstAttribute="bottom" secondItem="o71-28-4C2" secondAttribute="bottom" constant="6" id="Tfv-Yl-2ej"/>
+                                                    <constraint firstItem="o71-28-4C2" firstAttribute="leading" secondItem="xwO-f6-CHB" secondAttribute="leading" constant="10" id="Vmm-0E-0cl"/>
+                                                    <constraint firstAttribute="trailing" secondItem="o71-28-4C2" secondAttribute="trailing" constant="10" id="ayd-4e-x1N"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -377,6 +397,7 @@ df</string>
                     <connections>
                         <outlet property="audioButton" destination="xxe-f3-sd9" id="RY9-Kw-d0t"/>
                         <outlet property="cadenceButton" destination="0cg-mn-mpz" id="6hJ-Nn-CKj"/>
+                        <outlet property="cadenceControl" destination="o71-28-4C2" id="1eV-F0-vhH"/>
                         <outlet property="descStack" destination="b6w-qa-ezr" id="6v6-Ib-NJM"/>
                         <outlet property="infoButton" destination="jJS-yS-qT0" id="2gu-Gk-dSC"/>
                         <outlet property="leftModeIcon" destination="ePy-Rr-Rt3" id="8ll-fo-i8e"/>
@@ -385,11 +406,11 @@ df</string>
                         <outlet property="musicButton" destination="6fa-mg-S31" id="bB8-6d-gFh"/>
                         <outlet property="picker" destination="rx0-NX-pSQ" id="S3d-VV-6Pf"/>
                         <outlet property="prefMessage" destination="Kzq-jA-TpL" id="JaJ-tI-xa0"/>
-                        <outlet property="prefSlider" destination="g1t-CG-kda" id="NMy-r5-Gbe"/>
                         <outlet property="preferenceSwitch" destination="6gq-1r-F8H" id="xWO-Fw-q99"/>
                         <outlet property="rightModeIcon" destination="p6r-rD-Dsb" id="Rlc-8b-btX"/>
                         <outlet property="segmentedControlView" destination="xwO-f6-CHB" id="NOP-7m-LZR"/>
                         <outlet property="sessionButton" destination="XKd-rK-WuE" id="ktl-VH-OGs"/>
+                        <outlet property="sessionControl" destination="cbH-69-T5B" id="Fld-5e-a0P"/>
                         <outlet property="vibrateButton" destination="bQl-nb-PZW" id="Etf-Q0-8rd"/>
                         <outletCollection property="buttonCollection" destination="jJS-yS-qT0" collectionClass="NSMutableArray" id="BQ7-dF-UMN"/>
                         <outletCollection property="buttonCollection" destination="xxe-f3-sd9" collectionClass="NSMutableArray" id="O7a-mi-gBh"/>
