@@ -75,21 +75,21 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
    // @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var preferenceSwitch: UISwitch!
     
-    @IBOutlet weak var prefSlider: UISlider!
+   // @IBOutlet weak var prefSlider: UISlider!
     @IBOutlet weak var prefMessage: UILabel!
-    @IBOutlet weak var message1: UILabel!
-    @IBOutlet weak var message2: UILabel!
+   // @IBOutlet weak var message1: UILabel!
+   // @IBOutlet weak var message2: UILabel!
     
-    @IBOutlet weak var iconView: UIView!
-    @IBOutlet weak var switchView: UIView!
+   // @IBOutlet weak var iconView: UIView!
+   // @IBOutlet weak var switchView: UIView!
     
     
-    @IBOutlet weak var modeDivider: UIView!
+   // @IBOutlet weak var modeDivider: UIView!
     
     @IBOutlet weak var leftModeIcon: SettingModeView!
     @IBOutlet weak var rightModeIcon: SettingModeView!
     
-    @IBOutlet var prefViews: [UIView]!
+  //  @IBOutlet var prefViews: [UIView]!
     
     @IBOutlet weak var infoButton: RoundButton!
     @IBOutlet weak var audioButton: RoundButton!
@@ -251,16 +251,16 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     }
     
     @IBAction func sliderChanged(sender: UISlider) {
-        let value  = Int(sender.value)
-        prefSlider.setValue(Float(value), animated: false)
-        postSliderMessage()
-        if activePreference == .workout {
-            data.sequenceRepeats = value
-            
-        } else {
-            data.cadenceFrequency = value
-        }
-        data.save()
+//        let value  = Int(sender.value)
+//        prefSlider.setValue(Float(value), animated: false)
+//        postSliderMessage()
+//        if activePreference == .workout {
+//            data.sequenceRepeats = value
+//            
+//        } else {
+//            data.cadenceFrequency = value
+//        }
+//        data.save()
     }
     
     
@@ -324,47 +324,47 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     }
     
     func changePreference() {
-        if activePreference == .cadence || activePreference == .workout {
-            prefSlider.isHidden = false
-            initSlider()
-            revealSlider(show: false)
-        } else {
-            revealSlider(show: true)
-        }
-        
-        preferenceSwitch.isHidden = activePreference == .info
-        
-        switch activePreference {
-        case .audio:
-            preferenceSwitch.isOn = data.audioOn
-        case .vibrate:
-            preferenceSwitch.isOn = data.vibrateOn
-        case .cadence:
-            preferenceSwitch.isOn = data.cadenceOn
-        case .music:
-            preferenceSwitch.isOn = data.musicOn
-        case .workout:
-            preferenceSwitch.isOn = data.workoutOn
-        default:
-            break
-        }
-        revealMessage()
+//        if activePreference == .cadence || activePreference == .workout {
+//            prefSlider.isHidden = false
+//            initSlider()
+//            revealSlider(show: false)
+//        } else {
+//            revealSlider(show: true)
+//        }
+//        
+//        preferenceSwitch.isHidden = activePreference == .info
+//        
+//        switch activePreference {
+//        case .audio:
+//            preferenceSwitch.isOn = data.audioOn
+//        case .vibrate:
+//            preferenceSwitch.isOn = data.vibrateOn
+//        case .cadence:
+//            preferenceSwitch.isOn = data.cadenceOn
+//        case .music:
+//            preferenceSwitch.isOn = data.musicOn
+//        case .workout:
+//            preferenceSwitch.isOn = data.workoutOn
+//        default:
+//            break
+//        }
+//        revealMessage()
     }
     
     func initSlider() {
-        if activePreference == .workout {
-            prefSlider.minimumValue = 1
-            prefSlider.maximumValue  = 6
-            let value = Float(data.sequenceRepeats)
-            prefSlider.setValue(value, animated: false)
-            postSliderMessage()
-        } else if activePreference == .cadence {
-            prefSlider.minimumValue = 1
-            prefSlider.maximumValue = 4
-            let value = Float(data.cadenceFrequency)
-            prefSlider.setValue(value, animated: false)
-            //postSliderMessage()
-        }
+//        if activePreference == .workout {
+//            prefSlider.minimumValue = 1
+//            prefSlider.maximumValue  = 6
+//            let value = Float(data.sequenceRepeats)
+//            prefSlider.setValue(value, animated: false)
+//            postSliderMessage()
+//        } else if activePreference == .cadence {
+//            prefSlider.minimumValue = 1
+//            prefSlider.maximumValue = 4
+//            let value = Float(data.cadenceFrequency)
+//            prefSlider.setValue(value, animated: false)
+//            //postSliderMessage()
+//        }
     }
     
     func postSliderMessage() {
@@ -395,21 +395,21 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     
     
     func revealSlider(show: Bool) {
-        if prefSlider.isHidden != show {
-            UIView.transition(with: prefSlider, duration: 1.0, options: [.transitionFlipFromLeft], animations: {
-                self.prefSlider.isHidden = show
-            }, completion: { (success: Bool) in
-                
-            })
-        }
+//        if prefSlider.isHidden != show {
+//            UIView.transition(with: prefSlider, duration: 1.0, options: [.transitionFlipFromLeft], animations: {
+//                self.prefSlider.isHidden = show
+//            }, completion: { (success: Bool) in
+//                
+//            })
+//        }
     }
     
     func revealMessage() {
-        UIView.transition(with: prefMessage, duration: 1.0, options: [.transitionFlipFromLeft], animations: {
-            self.prefMessage.text = self.activePreference.desc
-        }, completion: { (success: Bool) in
-            
-        })
+//        UIView.transition(with: prefMessage, duration: 1.0, options: [.transitionFlipFromLeft], animations: {
+//            self.prefMessage.text = self.activePreference.desc
+//        }, completion: { (success: Bool) in
+//            
+//        })
     }
     
     func setModeImages() {

@@ -179,98 +179,65 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hA6-ll-trC" userLabel="main Stack View c">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="7DC-q2-hvZ">
                                 <rect key="frame" x="24" y="72" width="272" height="428"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="WJI-Ck-KUZ">
-                                        <rect key="frame" x="11" y="0.0" width="250" height="170"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="C4Q-gi-Yiq">
+                                        <rect key="frame" x="0.0" y="0.0" width="272" height="210"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="hno-cI-zcN">
-                                                <rect key="frame" x="0.0" y="0.0" width="250" height="120"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="b4N-Js-LoE">
+                                                <rect key="frame" x="6" y="0.0" width="260" height="120"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gtj-Vl-jic" customClass="SettingModeView" customModule="easyIntervals" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ePy-Rr-Rt3" customClass="SettingModeView" customModule="easyIntervals" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="120" id="gQq-LH-2LK"/>
+                                                            <constraint firstAttribute="height" constant="120" id="Pgg-hb-VuK"/>
+                                                            <constraint firstAttribute="width" constant="120" id="QIg-vQ-unx"/>
                                                         </constraints>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uMK-1C-z5V" customClass="SettingModeView" customModule="easyIntervals" customModuleProvider="target">
-                                                        <rect key="frame" x="130" y="0.0" width="120" height="120"/>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p6r-rD-Dsb" customClass="SettingModeView" customModule="easyIntervals" customModuleProvider="target">
+                                                        <rect key="frame" x="140" y="0.0" width="120" height="120"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" secondItem="uMK-1C-z5V" secondAttribute="height" multiplier="1:1" id="8QB-wF-R6g"/>
-                                                        </constraints>
                                                     </view>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstItem="uMK-1C-z5V" firstAttribute="height" secondItem="gtj-Vl-jic" secondAttribute="height" id="aOl-Yc-j5c"/>
+                                                    <constraint firstItem="p6r-rD-Dsb" firstAttribute="height" secondItem="ePy-Rr-Rt3" secondAttribute="height" id="MAw-N9-eZH"/>
+                                                    <constraint firstItem="p6r-rD-Dsb" firstAttribute="width" secondItem="ePy-Rr-Rt3" secondAttribute="width" id="pka-1z-fa2"/>
                                                 </constraints>
                                             </stackView>
-                                            <view clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EPt-3f-U6W" userLabel="Picker View c">
-                                                <rect key="frame" x="0.0" y="120" width="250" height="50"/>
-                                                <subviews>
-                                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dgE-IG-F5x">
-                                                        <rect key="frame" x="-35" y="-82.5" width="320" height="216"/>
-                                                        <connections>
-                                                            <outlet property="dataSource" destination="weC-Ga-LzU" id="DFt-lP-S0X"/>
-                                                            <outlet property="delegate" destination="weC-Ga-LzU" id="rQ7-3j-rUG"/>
-                                                        </connections>
-                                                    </pickerView>
-                                                </subviews>
-                                                <constraints>
-                                                    <constraint firstItem="dgE-IG-F5x" firstAttribute="centerY" secondItem="EPt-3f-U6W" secondAttribute="centerY" id="aAa-U7-fbi"/>
-                                                    <constraint firstItem="dgE-IG-F5x" firstAttribute="centerX" secondItem="EPt-3f-U6W" secondAttribute="centerX" id="cEI-FA-SZ5"/>
-                                                    <constraint firstAttribute="height" constant="50" id="hlg-dG-hJc"/>
-                                                </constraints>
-                                            </view>
-                                        </subviews>
-                                    </stackView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w4e-r2-zn1" userLabel="View - prefwindow" customClass="PreferenceView" customModule="easyIntervals" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="224.5" width="272" height="203.5"/>
-                                        <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="285-nn-kwX" userLabel="Stack View pref">
-                                                <rect key="frame" x="30" y="30.5" width="212" height="143.5"/>
-                                                <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="audio_panel" translatesAutoresizingMaskIntoConstraints="NO" id="HZa-ob-3c5">
-                                                        <rect key="frame" x="62" y="0.0" width="88" height="80"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" secondItem="HZa-ob-3c5" secondAttribute="height" multiplier="135:122" id="QX7-N7-ytB"/>
-                                                            <constraint firstAttribute="width" constant="50" id="QrX-tq-CPa"/>
-                                                            <constraint firstAttribute="height" constant="80" id="fw5-Ik-bqf"/>
-                                                        </constraints>
-                                                    </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Here is a bit of descriptive text to figure out the layout" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OPO-Eh-n22">
-                                                        <rect key="frame" x="106" y="80" width="0.0" height="24.5"/>
-                                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Po0-0A-e9a">
-                                                        <rect key="frame" x="81.5" y="104.5" width="51" height="20"/>
-                                                        <connections>
-                                                            <action selector="switchChangedWithSender:" destination="weC-Ga-LzU" eventType="valueChanged" id="Hg5-pU-3MP"/>
-                                                        </connections>
-                                                    </switch>
-                                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="lF9-ad-OVV">
-                                                        <rect key="frame" x="54" y="124.5" width="104" height="20"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="100" id="shO-Y7-Qhh"/>
-                                                        </constraints>
-                                                        <color key="maximumTrackTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <connections>
-                                                            <action selector="sliderChangedWithSender:" destination="weC-Ga-LzU" eventType="valueChanged" id="CQR-8I-F2c"/>
-                                                        </connections>
-                                                    </slider>
-                                                </subviews>
-                                            </stackView>
+                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rx0-NX-pSQ">
+                                                <rect key="frame" x="0.0" y="120" width="272" height="90"/>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="weC-Ga-LzU" id="kcI-UW-iyu"/>
+                                                    <outlet property="delegate" destination="weC-Ga-LzU" id="HkP-XT-KMa"/>
+                                                </connections>
+                                            </pickerView>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="285-nn-kwX" firstAttribute="top" secondItem="w4e-r2-zn1" secondAttribute="top" constant="30" id="0lp-hU-2OR"/>
-                                            <constraint firstItem="285-nn-kwX" firstAttribute="leading" secondItem="w4e-r2-zn1" secondAttribute="leading" constant="30" id="Xce-Lw-7Uq"/>
-                                            <constraint firstAttribute="bottom" secondItem="285-nn-kwX" secondAttribute="bottom" constant="30" id="ZoL-Ns-h3d"/>
-                                            <constraint firstAttribute="trailing" secondItem="285-nn-kwX" secondAttribute="trailing" constant="30" id="f10-iv-rve"/>
+                                            <constraint firstAttribute="height" constant="180" id="vs6-xi-n7p"/>
                                         </constraints>
+                                    </stackView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kKb-VH-59Q">
+                                        <rect key="frame" x="16" y="218" width="240" height="210"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mUa-hh-DDv">
+                                                <rect key="frame" x="0.0" y="0.0" width="240" height="70"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xwO-f6-CHB">
+                                                <rect key="frame" x="0.0" y="70" width="240" height="70"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qQb-7S-lu5">
+                                                <rect key="frame" x="0.0" y="140" width="240" height="70"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" red="1" green="1" blue="0.1358506944" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </view>
                                 </subviews>
                             </stackView>
@@ -337,13 +304,13 @@
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="hA6-ll-trC" firstAttribute="leading" secondItem="X3F-P3-dDh" secondAttribute="leadingMargin" constant="8" id="8Md-Eb-Xs6"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="hA6-ll-trC" secondAttribute="trailing" constant="8" id="L7e-4b-bKC"/>
+                            <constraint firstItem="7DC-q2-hvZ" firstAttribute="leading" secondItem="X3F-P3-dDh" secondAttribute="leadingMargin" constant="8" id="PLA-4O-Bi2"/>
+                            <constraint firstItem="Hzb-Or-ftV" firstAttribute="top" secondItem="7DC-q2-hvZ" secondAttribute="bottom" constant="8" id="SIr-yF-nXh"/>
                             <constraint firstItem="Ddb-Wh-gg1" firstAttribute="top" secondItem="Hzb-Or-ftV" secondAttribute="bottom" id="TQQ-cp-JWW"/>
-                            <constraint firstItem="hA6-ll-trC" firstAttribute="top" secondItem="cxL-gh-ywG" secondAttribute="bottom" constant="8" id="ZVH-ws-Ydn"/>
+                            <constraint firstItem="7DC-q2-hvZ" firstAttribute="top" secondItem="cxL-gh-ywG" secondAttribute="bottom" constant="8" id="efa-eH-Df0"/>
                             <constraint firstAttribute="trailing" secondItem="Hzb-Or-ftV" secondAttribute="trailing" id="jjo-Br-ieM"/>
                             <constraint firstItem="Hzb-Or-ftV" firstAttribute="leading" secondItem="X3F-P3-dDh" secondAttribute="leading" id="mrv-X7-AUt"/>
-                            <constraint firstAttribute="bottom" secondItem="hA6-ll-trC" secondAttribute="bottom" constant="68" id="xAV-3l-jYx"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="7DC-q2-hvZ" secondAttribute="trailing" constant="8" id="tt7-TL-a5z"/>
                         </constraints>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
@@ -351,13 +318,10 @@
                         <outlet property="audioButton" destination="xxe-f3-sd9" id="RY9-Kw-d0t"/>
                         <outlet property="cadenceButton" destination="0cg-mn-mpz" id="6hJ-Nn-CKj"/>
                         <outlet property="infoButton" destination="jJS-yS-qT0" id="2gu-Gk-dSC"/>
-                        <outlet property="leftModeIcon" destination="gtj-Vl-jic" id="nXe-Nl-NYr"/>
+                        <outlet property="leftModeIcon" destination="ePy-Rr-Rt3" id="8ll-fo-i8e"/>
                         <outlet property="musicButton" destination="6fa-mg-S31" id="bB8-6d-gFh"/>
-                        <outlet property="picker" destination="dgE-IG-F5x" id="t3j-7x-Wrm"/>
-                        <outlet property="prefMessage" destination="OPO-Eh-n22" id="Y3U-vV-B4h"/>
-                        <outlet property="prefSlider" destination="lF9-ad-OVV" id="TYW-XX-6gC"/>
-                        <outlet property="preferenceSwitch" destination="Po0-0A-e9a" id="BA4-x7-WE3"/>
-                        <outlet property="rightModeIcon" destination="uMK-1C-z5V" id="4yQ-hX-Vog"/>
+                        <outlet property="picker" destination="rx0-NX-pSQ" id="S3d-VV-6Pf"/>
+                        <outlet property="rightModeIcon" destination="p6r-rD-Dsb" id="Rlc-8b-btX"/>
                         <outlet property="sessionButton" destination="XKd-rK-WuE" id="ktl-VH-OGs"/>
                         <outlet property="vibrateButton" destination="bQl-nb-PZW" id="Etf-Q0-8rd"/>
                         <outletCollection property="buttonCollection" destination="jJS-yS-qT0" collectionClass="NSMutableArray" id="BQ7-dF-UMN"/>
@@ -370,7 +334,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ixP-l7-aOV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3701.5999999999999" y="-406.14692653673166"/>
+            <point key="canvasLocation" x="3701.25" y="-406.6901408450704"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="ZYo-FG-HTc">
@@ -620,7 +584,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="audio_panel" width="135" height="125"/>
         <image name="icon_audio" width="22" height="22"/>
         <image name="icon_cadence" width="22" height="22"/>
         <image name="icon_help" width="22" height="22"/>
