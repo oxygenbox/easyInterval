@@ -330,12 +330,12 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     
     func changePreference() {
         if activePreference == .cadence || activePreference == .workout {
-//            prefSlider.isHidden = false
+            segmentedControlView.isHidden = false
 //            initSlider()
-//            revealSlider(show: false)
+            revealSlider(show: false)
             print("showSlider")
         } else {
-//            revealSlider(show: true)
+            revealSlider(show: true)
             print("hideSlider")
         }
         preferenceSwitch.isHidden = activePreference == .info
@@ -407,13 +407,13 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     
     
     func revealSlider(show: Bool) {
-//        if prefSlider.isHidden != show {
-//            UIView.transition(with: prefSlider, duration: 1.0, options: [.transitionFlipFromLeft], animations: {
-//                self.prefSlider.isHidden = show
-//            }, completion: { (success: Bool) in
-//                
-//            })
-//        }
+        if segmentedControlView.isHidden != show {
+            UIView.transition(with: segmentedControlView, duration: 1.0, options: [.transitionFlipFromLeft], animations: {
+                self.segmentedControlView.isHidden = show
+           }, completion: { (success: Bool) in
+                
+            })
+        }
     }
     
     func revealMessage() {
