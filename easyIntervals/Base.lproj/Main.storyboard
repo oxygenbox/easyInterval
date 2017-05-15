@@ -273,7 +273,7 @@ df</string>
                                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="o71-28-4C2">
                                                         <rect key="frame" x="10" y="6" width="252" height="29"/>
                                                         <segments>
-                                                            <segment title="Every run"/>
+                                                            <segment title="Every Run"/>
                                                             <segment title="Every Other"/>
                                                             <segment title="Every 2nd"/>
                                                             <segment title="Every 3rd"/>

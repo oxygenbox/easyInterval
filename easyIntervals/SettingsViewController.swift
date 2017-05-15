@@ -352,7 +352,20 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
            // revealSegmentedControl(show: true)
             print("hideSlider")
         }
+        
+        
         initSegmentedControl()
+        
+        //let font = UIFont.systemFont(ofSize: 3)
+        let sessionFont = UIFont(name: "AvenirNextCondensed-Medium", size: 16.0)!
+        let cadenceFont = UIFont(name: "AvenirNextCondensed-Medium", size: 12.0)!
+        
+        cadenceControl.setTitleTextAttributes([NSFontAttributeName: cadenceFont],
+                                                for: .normal)
+        sessionControl.setTitleTextAttributes([NSFontAttributeName: sessionFont],
+                                              for: .normal)
+        
+        
         preferenceSwitch.isHidden = activePreference == .info
         
         switch activePreference {
