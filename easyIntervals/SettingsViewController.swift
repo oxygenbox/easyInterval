@@ -78,6 +78,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     @IBOutlet weak var prefMessage: UILabel!
     @IBOutlet weak var sliderView: UIView!
     @IBOutlet weak var prefSlider: UISlider!
+    @IBOutlet weak var modeImageView: UIImageView!
    
    // @IBOutlet weak var message1: UILabel!
    // @IBOutlet weak var message2: UILabel!
@@ -326,29 +327,37 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     
     func changePreference() {
         if activePreference == .cadence || activePreference == .workout {
-            prefSlider.isHidden = false
-            initSlider()
-            revealSlider(show: false)
+//            prefSlider.isHidden = false
+//            initSlider()
+//            revealSlider(show: false)
+            print("showSlider")
         } else {
-            revealSlider(show: true)
+//            revealSlider(show: true)
+            print("hideSlider")
         }
         preferenceSwitch.isHidden = activePreference == .info
         
         switch activePreference {
         case .audio:
             preferenceSwitch.isOn = data.audioOn
+            modeImageView.image = UIImage(named: "audio_panel")
         case .vibrate:
             preferenceSwitch.isOn = data.vibrateOn
+            modeImageView.image = UIImage(named: "vibrate_panel")
         case .cadence:
             preferenceSwitch.isOn = data.cadenceOn
+            modeImageView.image = UIImage(named: "cadence_panel")
         case .music:
             preferenceSwitch.isOn = data.musicOn
+            modeImageView.image = UIImage(named: "music_panel")
         case .workout:
             preferenceSwitch.isOn = data.workoutOn
+            modeImageView.image = UIImage(named: "session_panel")
         default:
+            modeImageView.image = nil
             break
         }
-//        revealMessage()
+        revealMessage()
     }
     
     func initSlider() {

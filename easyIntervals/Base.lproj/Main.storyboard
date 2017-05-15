@@ -372,6 +372,7 @@
                         <outlet property="infoButton" destination="jJS-yS-qT0" id="2gu-Gk-dSC"/>
                         <outlet property="leftModeIcon" destination="ePy-Rr-Rt3" id="8ll-fo-i8e"/>
                         <outlet property="messageView" destination="mUa-hh-DDv" id="SjT-2o-fEC"/>
+                        <outlet property="modeImageView" destination="f01-71-wBn" id="NfP-lZ-XcL"/>
                         <outlet property="musicButton" destination="6fa-mg-S31" id="bB8-6d-gFh"/>
                         <outlet property="picker" destination="rx0-NX-pSQ" id="S3d-VV-6Pf"/>
                         <outlet property="prefMessage" destination="Kzq-jA-TpL" id="JaJ-tI-xa0"/>
