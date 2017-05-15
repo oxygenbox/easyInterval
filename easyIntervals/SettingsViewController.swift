@@ -80,11 +80,14 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     @IBOutlet weak var prefSlider: UISlider!
     @IBOutlet weak var modeImageView: UIImageView!
    
+    
+    
    // @IBOutlet weak var message1: UILabel!
    // @IBOutlet weak var message2: UILabel!
     
    // @IBOutlet weak var iconView: UIView!
-   // @IBOutlet weak var switchView: UIView!
+    @IBOutlet weak var descStack: UIStackView!
+    @IBOutlet weak var switchView: UIView!
     
     
    

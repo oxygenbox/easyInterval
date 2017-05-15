@@ -222,19 +222,19 @@
                                         <rect key="frame" x="0.0" y="214" width="272" height="214"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="center" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="b6w-qa-ezr">
-                                                <rect key="frame" x="0.0" y="0.0" width="272" height="126"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="272" height="96"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cadence_panel" translatesAutoresizingMaskIntoConstraints="NO" id="f01-71-wBn">
-                                                        <rect key="frame" x="0.0" y="23" width="80" height="80"/>
+                                                        <rect key="frame" x="0.0" y="8" width="80" height="80"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="80" id="LBX-P4-g4D"/>
                                                             <constraint firstAttribute="width" constant="80" id="exa-0S-tCP"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kzq-jA-TpL">
-                                                        <rect key="frame" x="88" y="8" width="184" height="110"/>
+                                                        <rect key="frame" x="88" y="8" width="184" height="80"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="110" id="EWN-dR-Y5l"/>
+                                                            <constraint firstAttribute="height" constant="80" id="EWN-dR-Y5l"/>
                                                         </constraints>
                                                         <string key="text">df
 df
@@ -245,14 +245,13 @@ df</string>
                                                     </label>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstAttribute="bottom" secondItem="Kzq-jA-TpL" secondAttribute="bottom" constant="8" id="GVF-wY-n1o"/>
                                                     <constraint firstItem="Kzq-jA-TpL" firstAttribute="top" secondItem="b6w-qa-ezr" secondAttribute="top" constant="8" id="WSD-zX-hcg"/>
                                                     <constraint firstItem="Kzq-jA-TpL" firstAttribute="leading" secondItem="f01-71-wBn" secondAttribute="trailing" constant="8" id="eq2-qq-oJb"/>
                                                     <constraint firstAttribute="trailing" secondItem="Kzq-jA-TpL" secondAttribute="trailing" constant="8" id="oBr-kC-lcY"/>
                                                 </constraints>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mUa-hh-DDv">
-                                                <rect key="frame" x="0.0" y="126" width="272" height="48"/>
+                                                <rect key="frame" x="0.0" y="111" width="272" height="48"/>
                                                 <subviews>
                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6gq-1r-F8H">
                                                         <rect key="frame" x="112" y="9" width="51" height="31"/>
@@ -378,6 +377,7 @@ df</string>
                     <connections>
                         <outlet property="audioButton" destination="xxe-f3-sd9" id="RY9-Kw-d0t"/>
                         <outlet property="cadenceButton" destination="0cg-mn-mpz" id="6hJ-Nn-CKj"/>
+                        <outlet property="descStack" destination="b6w-qa-ezr" id="6v6-Ib-NJM"/>
                         <outlet property="infoButton" destination="jJS-yS-qT0" id="2gu-Gk-dSC"/>
                         <outlet property="leftModeIcon" destination="ePy-Rr-Rt3" id="8ll-fo-i8e"/>
                         <outlet property="messageView" destination="mUa-hh-DDv" id="SjT-2o-fEC"/>
