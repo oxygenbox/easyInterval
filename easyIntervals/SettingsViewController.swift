@@ -248,10 +248,12 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
                 data.vibrateOn = sender.isOn
             case .cadence:
                 data.cadenceOn = sender.isOn
+                cadenceControl.isEnabled = sender.isOn
             case .music:
                 data.musicOn = sender.isOn
             case .workout:
                 data.workoutOn = sender.isOn
+                sessionControl.isEnabled = sender.isOn
             default:
                 break
         }
@@ -331,7 +333,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
             }
             
             initSegmentedControl()
-            
+            segmentedControlView.backgroundColor = UIColor.white
         }
         
       //  buttonCollection[data.settingsTab].alpha = 1.0
@@ -404,6 +406,9 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         if activePreference == .workout {
             sessionControl.isHidden = false
             cadenceControl.isHidden = true
+
+            sessionControl.isEnabled = data.workoutOn
+            sessionControl.selectedSegmentIndex = data.sequenceRepeats
 //            let f = segmentedControl.frame
 //            let items = ["Purple", "Green", "Blue"]
 //            let customSC = UISegmentedControl(items: items)
@@ -417,6 +422,9 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         } else if activePreference == .cadence {
             sessionControl.isHidden = true
             cadenceControl.isHidden = false
+            cadenceControl.isEnabled = data.cadenceOn
+            cadenceControl.selectedSegmentIndex = data.cadenceFrequency
+            
 //            prefSlider.minimumValue = 1
 //            prefSlider.maximumValue = 4
            let value = Float(data.cadenceFrequency)

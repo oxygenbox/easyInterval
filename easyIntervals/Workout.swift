@@ -119,14 +119,14 @@ class Workout: NSObject, AVAudioPlayerDelegate {
     
     
     func cadenceCheck() {
-        if data.cadenceOn && currentMode == .run {
-            if cadenceTracker == data.cadenceFrequency {
-                cadenceTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(playCadence), userInfo: nil, repeats: false)
-                RunLoop.main.add(timer!, forMode: RunLoopMode.commonModes)
-                cadenceTracker = 0
-            }
-            cadenceTracker += 1
-        }
+//        if data.cadenceOn && currentMode == .run {
+//            if cadenceTracker == data.cadenceFrequency {
+//                cadenceTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(playCadence), userInfo: nil, repeats: false)
+//                RunLoop.main.add(timer!, forMode: RunLoopMode.commonModes)
+//                cadenceTracker = 0
+//            }
+//            cadenceTracker += 1
+//        }
     }
     
     func playCadence() {
