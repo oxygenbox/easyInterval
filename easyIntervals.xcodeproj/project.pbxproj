@@ -28,6 +28,7 @@
 		9E520DDE1E685DF400142F85 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E520DDD1E685DF400142F85 /* RoundButton.swift */; };
 		9E6789DC1E2D1F4800E1674E /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6789DB1E2D1F4800E1674E /* TimerView.swift */; };
 		9E6789E01E2D6FBC00E1674E /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6789DF1E2D6FBC00E1674E /* SettingsCell.swift */; };
+		9E957F261ECA504200CBFC1F /* TimerWindowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E957F251ECA504200CBFC1F /* TimerWindowView.swift */; };
 		9EA221821E53554300A79D21 /* ModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA221811E53554300A79D21 /* ModeView.swift */; };
 		9EC7AC511E4B5C1B00C89EA7 /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC7AC501E4B5C1B00C89EA7 /* ToDo.swift */; };
 		9EC7AC531E4B5EF700C89EA7 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC7AC521E4B5EF700C89EA7 /* ProgressView.swift */; };
@@ -91,6 +92,7 @@
 		9E520DDD1E685DF400142F85 /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		9E6789DB1E2D1F4800E1674E /* TimerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		9E6789DF1E2D6FBC00E1674E /* SettingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
+		9E957F251ECA504200CBFC1F /* TimerWindowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerWindowView.swift; sourceTree = "<group>"; };
 		9EA221811E53554300A79D21 /* ModeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModeView.swift; sourceTree = "<group>"; };
 		9EC7AC501E4B5C1B00C89EA7 /* ToDo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
 		9EC7AC521E4B5EF700C89EA7 /* ProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 				9E0599A41EC21DA900E15A34 /* TimerModeView.swift */,
 				9E0599A61EC21F2000E15A34 /* ModeWindowView.swift */,
 				9E0599A81EC2295500E15A34 /* ClockView.swift */,
+				9E957F251ECA504200CBFC1F /* TimerWindowView.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -323,6 +326,7 @@
 				9E0599A51EC21DA900E15A34 /* TimerModeView.swift in Sources */,
 				9E1703FB1E56240E007B2D05 /* TimerViewController.swift in Sources */,
 				9ED0CF731E2982850036233A /* SettingTableViewCell.swift in Sources */,
+				9E957F261ECA504200CBFC1F /* TimerWindowView.swift in Sources */,
 				9E2ADA551E535496000F5688 /* Paths.swift in Sources */,
 				9EC7AC511E4B5C1B00C89EA7 /* ToDo.swift in Sources */,
 				9E2E77CF1E23D92F0082ED83 /* ViewController.swift in Sources */,

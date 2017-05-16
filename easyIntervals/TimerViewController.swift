@@ -21,16 +21,22 @@ class TimerViewController: UIViewController {
     @IBOutlet weak var musicButton: RoundButton!
     @IBOutlet weak var workoutButton: RoundButton!
     
-    
-    
-    
     @IBOutlet weak var modeWindow: ModeWindowView!
-    
-     @IBOutlet var prefButtons: [UIButton]!
+    @IBOutlet var prefButtons: [UIButton]!
     @IBOutlet weak var modeView: ModeView!
     
     //MARK - VARIABLES
     var workout = Workout()
+    var timerWindow :TimerWindowView {
+        var h = view.frame.size.height
+        h -= 120 // header + footer
+        h -= 10 //margin
+        h/=2
+        let x = view.frame.width - h
+        let frame = CGRect(x: x/2, y: h + 60, width: h, height: h)
+        return TimerWindowView(frame: frame)
+    }
+    
     
     lazy var clockView: ClockView = {
         let clock = ClockView(frame: self.modeWindow.frame)
@@ -92,7 +98,21 @@ class TimerViewController: UIViewController {
         view.layer.insertSublayer(gradientLayer, at: 0)
         initGestures()
         
+//        
+//        var h = view.frame.size.height
+//        h -= 120 // header + footer
+//        h -= 10 //marging
+//        h/=2
+//        
+//      // let  w = view.frame.width
+//        let x = view.frame.width - h
+//        
+//        let frame = CGRect(x: x/2, y: h + 60, width: h, height: h)
+//        
+//        let timerWindow = TimerWindowView(frame: frame)
         
+        view.addSubview(timerWindow)
+       // timerWindow.center = timerWindow.center
     }
     
     func postTimes() {
