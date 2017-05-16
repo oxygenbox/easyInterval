@@ -27,15 +27,25 @@ class TimerViewController: UIViewController {
     
     //MARK - VARIABLES
     var workout = Workout()
-    var timerWindow :TimerWindowView {
-        var h = view.frame.size.height
+    
+    lazy var timerWindow: TimerWindowView = {
+        var h = self.view.frame.size.height
         h -= 120 // header + footer
         h -= 10 //margin
         h/=2
-        let x = view.frame.width - h
+        let x = self.view.frame.width - h
         let frame = CGRect(x: x/2, y: h + 60, width: h, height: h)
         return TimerWindowView(frame: frame)
-    }
+    }()
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     lazy var clockView: ClockView = {
@@ -46,7 +56,7 @@ class TimerViewController: UIViewController {
         return clock
     }()
 
-    
+   // var clock = Clock()
     
 
     //MARK:- LIFECYCLE
@@ -98,22 +108,15 @@ class TimerViewController: UIViewController {
         view.layer.insertSublayer(gradientLayer, at: 0)
         initGestures()
         
-//        
-//        var h = view.frame.size.height
-//        h -= 120 // header + footer
-//        h -= 10 //marging
-//        h/=2
-//        
-//      // let  w = view.frame.width
-//        let x = view.frame.width - h
-//        
-//        let frame = CGRect(x: x/2, y: h + 60, width: h, height: h)
-//        
-//        let timerWindow = TimerWindowView(frame: frame)
+       // clock = Clock(frame: CGRect(x: 100, y: 100, width: 100, height: 100))
+        
+        
+       // view.addSubview(clock)
         
         view.addSubview(timerWindow)
-       // timerWindow.center = timerWindow.center
     }
+    
+    
     
     func postTimes() {
         intervalTime.text = Tool.formatTime(secs: workout.currentInterval.remainingSeconds, withHours: false)
@@ -126,6 +129,9 @@ class TimerViewController: UIViewController {
         intervalTime.textColor = UIColor.accent
         elapsedTime.textColor = UIColor.accent
         sessionType.textColor = UIColor.accent
+        
+        timerWindow.tick(second: workout.currentInterval.remainingSeconds)
+        
       //  self.modeUpdate()
     }
     
@@ -231,11 +237,13 @@ extension TimerViewController: WorkoutDelegate {
     
     func workoutTick(with percent: CGFloat) {
         postTimes()
+        //clock.addPulse()
        // modeView.animateHead(pct: 1 - percent)
     }
 
     func modeUpdate(){
         modeWindow.mode = workout.currentMode
+        timerWindow.mode = workout.currentMode
         if workout.timer != nil {
             clockView.begin(with: workout.currentInterval.lengthInSeconds)
         }

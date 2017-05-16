@@ -41,7 +41,7 @@ class TimerWindowView: UIView {
         layer.borderColor = UIColor.myBlue.cgColor
         layer.borderWidth = 4
         clipsToBounds = true
-       
+       backgroundColor = UIColor.white
         config()
         
     }
@@ -68,7 +68,6 @@ class TimerWindowView: UIView {
         }
     }
 
-    
     func setImage() {
         var imageName = "walk_solid"
         if mode == .run {
@@ -77,9 +76,25 @@ class TimerWindowView: UIView {
         
         imageView.image = UIImage(named: imageName)
         imageView.tintImageColor(color: UIColor.myBlue)
-        
+    }
+    
+    func tick(second: Int) {
+        if second < 5 {
+            
+            let pulse = Pulsing(numberOfPulses: 1, radius: frame.size.width/3, position: center)
+            pulse.animationDuration = 0.8
+           // pulse.backgroundColor = UIColor.blueD.cgColor
+            layer.insertSublayer(pulse, at: 0)
+        }
     }
 }
+
+
+
+
+
+
+
 
 
 
