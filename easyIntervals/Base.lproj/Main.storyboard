@@ -308,7 +308,6 @@ df</string>
                                                         </connections>
                                                     </segmentedControl>
                                                 </subviews>
-                                                <color key="backgroundColor" red="1" green="1" blue="0.1358506944" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstItem="o71-28-4C2" firstAttribute="top" secondItem="xwO-f6-CHB" secondAttribute="top" constant="6" id="DX4-kN-yeB"/>
                                                     <constraint firstAttribute="height" constant="40" id="MMx-tw-he4"/>

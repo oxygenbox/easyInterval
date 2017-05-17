@@ -155,9 +155,9 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
             default:
                 break
         }
+        
     }
     
-
     @IBAction func controlChanged(_ sender: UISegmentedControl) {
         let value = sender.selectedSegmentIndex
         postSliderMessage()
@@ -185,24 +185,30 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         changePreference()
     }
     
-    
-    
     //MARK: - Methods
     func setUp() {
+        //NAVBAR
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "Main", style: .plain, target: nil, action: nil)
-       // segmentedControl.tintColor = UIColor.accent
-        
         title = data.settingTitle
+        
         //init interface
-       // segmentedControl.selectedSegmentIndex = data.settingsTab
+        view.backgroundColor = baseColor
+        sessionControl.tintColor = UIColor.accent
+        cadenceControl.tintColor = UIColor.accent
+        let sessionFont = UIFont(name: "AvenirNextCondensed-Medium", size: 16.0)!
+        let cadenceFont = UIFont(name: "AvenirNextCondensed-Medium", size: 12.0)!
+        cadenceControl.setTitleTextAttributes([NSFontAttributeName: cadenceFont],
+                                              for: .normal)
+        sessionControl.setTitleTextAttributes([NSFontAttributeName: sessionFont],
+                                              for: .normal)
+        
         picker.selectRow(data.runValue, inComponent: runComponent, animated: false)
         picker.selectRow(data.walkValue, inComponent: walkComponent, animated: false)
         if !data.isRunWalk {
             picker.selectRow(1, inComponent: 0, animated: false)
         }
         
-        view.backgroundColor = baseColor
-        
+        //buttons
         for (index, button) in buttonCollection.enumerated() {
             button.addTarget(self, action: #selector(buttonPressed(_:)), for: .touchUpInside)
             button.tag = index
@@ -212,103 +218,66 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
             } else {
                 button.alpha = 0.5
             }
-            
-            initSegmentedControl()
-            segmentedControlView.backgroundColor = UIColor.white
         }
-        
-      //  buttonCollection[data.settingsTab].alpha = 1.0
-        
-        
-        
-        
         changePreference()
     }
     
-    func changePreference() {
+    
+     func changePreference() {
+        switch activePreference {
+            case .audio:
+                preferenceSwitch.isOn = data.audioOn
+                modeImageView.image = UIImage(named: "audio_panel")
+            
+            
+            case .vibrate:
+                preferenceSwitch.isOn = data.vibrateOn
+                modeImageView.image = UIImage(named: "vibrate_panel")
+            case .cadence:
+                preferenceSwitch.isOn = data.cadenceOn
+                modeImageView.image = UIImage(named: "cadence_panel")
+            case .music:
+                preferenceSwitch.isOn = data.musicOn
+                modeImageView.image = UIImage(named: "music_panel")
+            case .workout:
+                preferenceSwitch.isOn = data.workoutOn
+                modeImageView.image = UIImage(named: "session_panel")
+            default:
+                modeImageView.image = nil
+                break
+        }
+        
+        UIView.transition(with: switchView, duration: 0.8, options: [.transitionFlipFromLeft], animations: {
+           
+        }, completion: { (success: Bool) in
+            
+        })
+        
+        
+
         if activePreference == .cadence || activePreference == .workout {
             revealSegmentedControl(show: false)
         } else {
            revealSegmentedControl(show: true)
-        
         }
-        
-        
-        initSegmentedControl()
-        
-        //let font = UIFont.systemFont(ofSize: 3)
-        let sessionFont = UIFont(name: "AvenirNextCondensed-Medium", size: 16.0)!
-        let cadenceFont = UIFont(name: "AvenirNextCondensed-Medium", size: 12.0)!
-        
-        cadenceControl.setTitleTextAttributes([NSFontAttributeName: cadenceFont],
-                                                for: .normal)
-        sessionControl.setTitleTextAttributes([NSFontAttributeName: sessionFont],
-                                              for: .normal)
-        
-        
-        preferenceSwitch.isHidden = activePreference == .info
-        
-        switch activePreference {
-        case .audio:
-            preferenceSwitch.isOn = data.audioOn
-            modeImageView.image = UIImage(named: "audio_panel")
-        case .vibrate:
-            preferenceSwitch.isOn = data.vibrateOn
-            modeImageView.image = UIImage(named: "vibrate_panel")
-        case .cadence:
-            preferenceSwitch.isOn = data.cadenceOn
-            modeImageView.image = UIImage(named: "cadence_panel")
-        case .music:
-            preferenceSwitch.isOn = data.musicOn
-            modeImageView.image = UIImage(named: "music_panel")
-        case .workout:
-            preferenceSwitch.isOn = data.workoutOn
-            modeImageView.image = UIImage(named: "session_panel")
-        default:
-            modeImageView.image = nil
-            break
-        }
+       
         revealMessage()
+        prefMessage.text = activePreference.desc
+        preferenceSwitch.isHidden = activePreference == .info
     }
-    
-    /*
-     // Initialize
-     let items = ["Purple", "Green", "Blue"]
-     let customSC = UISegmentedControl(items: items)
-     customSC.selectedSegmentIndex = 0
- */
-    
     
     
     func initSegmentedControl() {
         if activePreference == .workout {
             sessionControl.isHidden = false
             cadenceControl.isHidden = true
-
             sessionControl.isEnabled = data.workoutOn
             sessionControl.selectedSegmentIndex = data.sequenceRepeats
-//            let f = segmentedControl.frame
-//            let items = ["Purple", "Green", "Blue"]
-//            let customSC = UISegmentedControl(items: items)
-//            `customSC.frame = f
-            //segmentedControl = customSC
-//            prefSlider.minimumValue = 1
-//            prefSlider.maximumValue  = 6
-//            let value = Float(data.sequenceRepeats)
-//            prefSlider.setValue(value, animated: false)
-//            postSliderMessage()
         } else if activePreference == .cadence {
             sessionControl.isHidden = true
             cadenceControl.isHidden = false
             cadenceControl.isEnabled = data.cadenceOn
             cadenceControl.selectedSegmentIndex = data.cadenceFrequency
-            
-//            prefSlider.minimumValue = 1
-//            prefSlider.maximumValue = 4
-           let value = Float(data.cadenceFrequency)
-          // prefSlider.setValue(value, animated: false)
-            print(value)
-//            //postSliderMessage()
         } else {
             sessionControl.isHidden = true
             cadenceControl.isHidden = true
@@ -341,10 +310,20 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         }
     }
     
-    
+    //
     func revealSegmentedControl(show: Bool) {
-//        if segmentedControl.isHidden != show {
-//            UIView.transition(with: segmentedControl, duration: 1.0, options: [.transitionFlipFromLeft], animations: {
+        UIView.transition(with: segmentedControlView, duration: 0.8, options: [.transitionFlipFromBottom], animations: {
+            self.initSegmentedControl()
+        }, completion: { (success: Bool) in
+            
+        })
+        
+        
+        
+        
+        
+     //   if segmentedControlView.isHidden != show {
+//            UIView.transition(with: segmentedControl, duration: 1.0, options: [.transitionFlipFromBottom], animations: {
 //                self.segmentedControl.isHidden = show
 //           }, completion: { (success: Bool) in
 //                
@@ -353,11 +332,18 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     }
     
     func revealMessage() {
-        UIView.transition(with: descStack, duration: 1.0, options: [.transitionFlipFromLeft], animations: {
-            self.prefMessage.text = self.activePreference.desc
-        }, completion: { (success: Bool) in
-            
-        })
+        
+        
+    UIView.transition(with: descriptionView, duration: 0.8, options: [.transitionFlipFromBottom], animations: {
+        //                self.segmentedControl.isHidden = show
+                   }, completion: { (success: Bool) in
+        
+                   })
+               // }
+        
+        
+        
+       
     }
     
     func setModeImages() {
