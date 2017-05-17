@@ -30,7 +30,7 @@ class ClockView: UIView {
     var doneButton: UIButton = UIButton()
     var resetButton: UIButton = UIButton()
     var delegate: ClockViewDelegate?
-    var color = UIColor.black
+    var color = UIColor.gray
     var homeY: CGFloat = 0
     
     
@@ -49,10 +49,10 @@ class ClockView: UIView {
 //    }
     
     func addCircle() {
-        let h = frame.size.height/2 
-        let cRadius = frame.size.height/2
+        let dim = frame.size.height/2
+        let cRadius = frame.size.height/2 - lineWidth
        
-        let circlePath = UIBezierPath(arcCenter: CGPoint(x: h, y: cRadius), radius: cRadius, startAngle: -CGFloat.pi/2, endAngle: 2*CGFloat.pi-CGFloat.pi/2, clockwise: true)
+        let circlePath = UIBezierPath(arcCenter: CGPoint(x: dim, y: dim), radius: cRadius, startAngle: -CGFloat.pi/2, endAngle: 2*CGFloat.pi-CGFloat.pi/2, clockwise: true)
         
         self.shapeLayer.path = circlePath.cgPath
         self.shapeLayer.fillColor = UIColor.clear.cgColor

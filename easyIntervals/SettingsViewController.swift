@@ -72,7 +72,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
 
     //MARK: - IBOutlets
     @IBOutlet weak var picker: UIPickerView!
-   // @IBOutlet weak var segmentedControl: UISegmentedControl!
+   
     @IBOutlet weak var sessionControl: UISegmentedControl!
     @IBOutlet weak var cadenceControl: UISegmentedControl!
     @IBOutlet weak var preferenceSwitch: UISwitch!
@@ -83,11 +83,6 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     @IBOutlet weak var modeImageView: UIImageView!
    
     @IBOutlet weak var segmentedControlView: UIView!
-    
-   // @IBOutlet weak var message1: UILabel!
-   // @IBOutlet weak var message2: UILabel!
-    
-   // @IBOutlet weak var iconView: UIView!
     @IBOutlet weak var descStack: UIStackView!
     @IBOutlet weak var switchView: UIView!
     
@@ -346,13 +341,10 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     
     func changePreference() {
         if activePreference == .cadence || activePreference == .workout {
-//            segmentedControl.isHidden = false
-            
-//            revealSegmentedControl(show: false)
-            print("showSlider")
+            revealSegmentedControl(show: false)
         } else {
-           // revealSegmentedControl(show: true)
-            print("hideSlider")
+           revealSegmentedControl(show: true)
+        
         }
         
         
@@ -475,7 +467,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     }
     
     func revealMessage() {
-        UIView.transition(with: messageView, duration: 1.0, options: [.transitionFlipFromLeft], animations: {
+        UIView.transition(with: descStack, duration: 1.0, options: [.transitionFlipFromLeft], animations: {
             self.prefMessage.text = self.activePreference.desc
         }, completion: { (success: Bool) in
             

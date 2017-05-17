@@ -31,6 +31,14 @@ class TimerWindowView: UIView {
             change()
         }
     }
+    
+    lazy var countDownLabel: UILabel = {
+        let label = UILabel(frame: self.frame)
+        label.backgroundColor = UIColor.yellow
+        label.font = UIFont.boldSystemFont(ofSize: 120)
+        label.text = "5"
+        return label
+    }()
 
     var intervalSeconds: Int = 0 {
         didSet {
@@ -55,7 +63,7 @@ class TimerWindowView: UIView {
         layer.borderColor = UIColor.myBlue.cgColor
         layer.borderWidth = 4
         clipsToBounds = true
-       backgroundColor = UIColor.white
+        backgroundColor = UIColor.white
         config()
         
     }
@@ -66,8 +74,19 @@ class TimerWindowView: UIView {
        let rect = CGRect(x: m, y: m, width: bounds.size.width - m*2, height: bounds.size.height - m*2)
         imageView = UIImageView(frame: rect)
         imageView.contentMode = .scaleAspectFit
-        imageView.image = UIImage(named: "walk_solid")
+       // imageView.image = UIImage(named: "walk_solid")
+        
         addSubview(imageView)
+        intervalClock.frame = self.bounds
+        addSubview(intervalClock)
+       // addSubview(countDownLabel)
+//        
+//        let box = UIView(frame: CGRect(x: 100, y: 100, width: 100, height: 100))
+//        box.backgroundColor = UIColor.orange
+//        addSubview(box)
+//        let c = ClockView()
+//        c.frame = box.frame
+//        addSubview(c)
     }
     
     func change() {
@@ -107,7 +126,7 @@ class TimerWindowView: UIView {
     }
     
     func beginClocks(intervalSeconds: Int, sessionSeconds: Int?) {
-        
+        intervalClock.begin(with: intervalSeconds)
     }
     
     func reset() {
