@@ -8,7 +8,7 @@
 
 import Foundation
 
-
-class ModeWindowView: SettingModeView {
-    
-}
+//
+//class ModeWindowView: SettingModeView {
+//    
+//}
