@@ -145,7 +145,6 @@
 				9E2E77E41E23D9D40082ED83 /* Classes */,
 				9E2E77DF1E23D9850082ED83 /* temp */,
 				9E2E77CC1E23D92F0082ED83 /* AppDelegate.swift */,
-				9E2E77CE1E23D92F0082ED83 /* ViewController.swift */,
 				9E2E77D01E23D92F0082ED83 /* Main.storyboard */,
 				9E2E77D31E23D92F0082ED83 /* Assets.xcassets */,
 				9E2E77D51E23D92F0082ED83 /* LaunchScreen.storyboard */,
@@ -167,6 +166,8 @@
 		9E2E77DF1E23D9850082ED83 /* temp */ = {
 			isa = PBXGroup;
 			children = (
+				9E2E77CE1E23D92F0082ED83 /* ViewController.swift */,
+				9E0599A41EC21DA900E15A34 /* TimerModeView.swift */,
 				9E0599A61EC21F2000E15A34 /* ModeWindowView.swift */,
 				9E2E77E01E23D9A90082ED83 /* MainViewController.swift */,
 				9ED0CF701E295F600036233A /* OLDSettingViewController.swift */,
@@ -194,7 +195,6 @@
 				9E520DDB1E6756BB00142F85 /* SettingModeView.swift */,
 				9E520DDD1E685DF400142F85 /* RoundButton.swift */,
 				9E0599A01EC0FCEB00E15A34 /* ModeIconView.swift */,
-				9E0599A41EC21DA900E15A34 /* TimerModeView.swift */,
 				9E0599A81EC2295500E15A34 /* ClockView.swift */,
 				9E957F251ECA504200CBFC1F /* TimerWindowView.swift */,
 				9EAA94DF1ECB6B0300D77A2C /* Pulsing.swift */,

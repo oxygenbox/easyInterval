@@ -38,14 +38,6 @@ class TimerViewController: UIViewController {
         return TimerWindowView(frame: frame)
     }()
     
-//    lazy var clockView: ClockView = {
-//        let clock = ClockView(frame: self.modeWindow.frame)
-//        clock.frame.origin.y += 64
-//        self.view.addSubview(clock)
-//        clock.reset()
-//        return clock
-//    }()
-
     //MARK:- LIFECYCLE
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

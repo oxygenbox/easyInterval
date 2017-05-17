@@ -35,7 +35,6 @@ class ClockView: UIView {
     
     
     //MARK:- LifeCycle
-    
     override init(frame: CGRect) {
     super.init(frame: frame)
         addCircle()
@@ -44,6 +43,10 @@ class ClockView: UIView {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+//    init(numberOfPulses: Float = Float.infinity, radius: CGFloat, position: CGPoint) {
+//        super.init()
+//    }
     
     func addCircle() {
         let h = frame.size.height/2 

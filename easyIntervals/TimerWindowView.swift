@@ -17,13 +17,21 @@ import UIKit
 class TimerWindowView: UIView {
 
     //MARK:- Variables
+    lazy var intervalClock: ClockView = {
+        let clock = ClockView(frame: self.frame)
+        return clock
+    }()
+    
+    lazy var sessionClock: ClockView = {
+        let clock = ClockView(frame: self.frame)
+        return clock
+    }()
     var mode: Mode = .run {
         didSet {
-            // setImage()
             change()
         }
     }
-    
+
     var intervalSeconds: Int = 0 {
         didSet {
             tick()
@@ -85,7 +93,9 @@ class TimerWindowView: UIView {
     }
     
     func tick() {
-       print(intervalSeconds)
+        if intervalSeconds > 0 && intervalSeconds < 6 {
+            addPulse()
+        }
     }
     
     func pause() {
@@ -101,6 +111,17 @@ class TimerWindowView: UIView {
     }
     
     func reset() {
+        
+    }
+    
+    func addPulse() {
+        
+        let radius = imageView.frame.width //* 0.8
+        
+        let pulse = Pulsing(numberOfPulses: 1, radius: radius/2, position: imageView.center)
+        pulse.animationDuration = 0.5
+        pulse.backgroundColor = UIColor.myBlue.cgColor
+        layer.insertSublayer(pulse, below: imageView.layer)
         
     }
 }
