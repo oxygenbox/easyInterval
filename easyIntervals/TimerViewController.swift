@@ -21,7 +21,7 @@ class TimerViewController: UIViewController {
     @IBOutlet weak var musicButton: RoundButton!
     @IBOutlet weak var workoutButton: RoundButton!
     
-    @IBOutlet weak var modeWindow: ModeWindowView!
+    
     @IBOutlet var prefButtons: [UIButton]!
     @IBOutlet weak var modeView: ModeView!
     
@@ -38,24 +38,19 @@ class TimerViewController: UIViewController {
         return TimerWindowView(frame: frame)
     }()
     
-    
-    lazy var clockView: ClockView = {
-        let clock = ClockView(frame: self.modeWindow.frame)
-        clock.frame.origin.y += 64
-        self.view.addSubview(clock)
-        clock.reset()
-        return clock
-    }()
-
-   
-    
+//    lazy var clockView: ClockView = {
+//        let clock = ClockView(frame: self.modeWindow.frame)
+//        clock.frame.origin.y += 64
+//        self.view.addSubview(clock)
+//        clock.reset()
+//        return clock
+//    }()
 
     //MARK:- LIFECYCLE
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setUp()
         initWorkout()
-    
     }
     
     override func viewDidLoad() {
@@ -88,9 +83,9 @@ class TimerViewController: UIViewController {
         workoutButton.active = data.workoutOn
         
         view.backgroundColor = UIColor.base
-        modeWindow.backgroundColor = UIColor.white
+       
         
-       // view.backgroundColor = UIColor.blueB
+      
         
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = view.bounds
@@ -99,10 +94,10 @@ class TimerViewController: UIViewController {
         view.layer.insertSublayer(gradientLayer, at: 0)
         initGestures()
         
-       // clock = Clock(frame: CGRect(x: 100, y: 100, width: 100, height: 100))
+      
         
         
-       // view.addSubview(clock)
+    
         
         view.addSubview(timerWindowView)
     }
@@ -139,10 +134,11 @@ class TimerViewController: UIViewController {
         //called on tap gesture
         workout.toggleTimer()
         if(workout.timer == nil) {
-            clockView.pause()
+            timerWindowView.pause()
+            
             navigationItem.rightBarButtonItem?.isEnabled = true
         } else {
-            clockView.resume()
+            timerWindowView.resume()
             navigationItem.rightBarButtonItem?.isEnabled = false
         }
     }
@@ -234,10 +230,10 @@ extension TimerViewController: WorkoutDelegate {
     }
 
     func modeUpdate(){
-        //modeWindow.mode = workout.currentMode
         timerWindowView.mode = workout.currentMode
         if workout.timer != nil {
-            clockView.begin(with: workout.currentInterval.lengthInSeconds)
+            let intervalSecs = workout.currentInterval.lengthInSeconds
+            timerWindowView.beginClocks(intervalSeconds: intervalSecs, sessionSeconds: nil)
         }
     }
 

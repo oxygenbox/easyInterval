@@ -87,6 +87,22 @@ class TimerWindowView: UIView {
     func tick() {
        print(intervalSeconds)
     }
+    
+    func pause() {
+        
+    }
+    
+    func resume() {
+        
+    }
+    
+    func beginClocks(intervalSeconds: Int, sessionSeconds: Int?) {
+        
+    }
+    
+    func reset() {
+        
+    }
 }
 
 
