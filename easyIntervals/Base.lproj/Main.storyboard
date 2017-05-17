@@ -219,35 +219,47 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Vwm-al-s8y">
                                         <rect key="frame" x="0.0" y="214" width="272" height="214"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="center" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="b6w-qa-ezr">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aBT-Rr-uvm">
                                                 <rect key="frame" x="0.0" y="0.0" width="272" height="96"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cadence_panel" translatesAutoresizingMaskIntoConstraints="NO" id="f01-71-wBn">
-                                                        <rect key="frame" x="0.0" y="8" width="80" height="80"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="80" id="LBX-P4-g4D"/>
-                                                            <constraint firstAttribute="width" constant="80" id="exa-0S-tCP"/>
-                                                        </constraints>
-                                                    </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kzq-jA-TpL">
-                                                        <rect key="frame" x="88" y="8" width="184" height="80"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="80" id="EWN-dR-Y5l"/>
-                                                        </constraints>
-                                                        <string key="text">df
+                                                    <stackView opaque="NO" contentMode="center" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="b6w-qa-ezr">
+                                                        <rect key="frame" x="0.0" y="0.0" width="272" height="96"/>
+                                                        <subviews>
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cadence_panel" translatesAutoresizingMaskIntoConstraints="NO" id="f01-71-wBn">
+                                                                <rect key="frame" x="0.0" y="8" width="80" height="80"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="80" id="LBX-P4-g4D"/>
+                                                                    <constraint firstAttribute="width" constant="80" id="exa-0S-tCP"/>
+                                                                </constraints>
+                                                            </imageView>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kzq-jA-TpL">
+                                                                <rect key="frame" x="88" y="8" width="184" height="80"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="80" id="EWN-dR-Y5l"/>
+                                                                </constraints>
+                                                                <string key="text">df
 df
 df</string>
-                                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
+                                                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstItem="Kzq-jA-TpL" firstAttribute="top" secondItem="b6w-qa-ezr" secondAttribute="top" constant="8" id="WSD-zX-hcg"/>
+                                                            <constraint firstItem="Kzq-jA-TpL" firstAttribute="leading" secondItem="f01-71-wBn" secondAttribute="trailing" constant="8" id="eq2-qq-oJb"/>
+                                                            <constraint firstAttribute="trailing" secondItem="Kzq-jA-TpL" secondAttribute="trailing" constant="8" id="oBr-kC-lcY"/>
+                                                        </constraints>
+                                                    </stackView>
                                                 </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstItem="Kzq-jA-TpL" firstAttribute="top" secondItem="b6w-qa-ezr" secondAttribute="top" constant="8" id="WSD-zX-hcg"/>
-                                                    <constraint firstItem="Kzq-jA-TpL" firstAttribute="leading" secondItem="f01-71-wBn" secondAttribute="trailing" constant="8" id="eq2-qq-oJb"/>
-                                                    <constraint firstAttribute="trailing" secondItem="Kzq-jA-TpL" secondAttribute="trailing" constant="8" id="oBr-kC-lcY"/>
+                                                    <constraint firstAttribute="trailing" secondItem="b6w-qa-ezr" secondAttribute="trailing" id="6K8-8h-EBb"/>
+                                                    <constraint firstAttribute="bottom" secondItem="b6w-qa-ezr" secondAttribute="bottom" id="Csc-vk-o5S"/>
+                                                    <constraint firstItem="b6w-qa-ezr" firstAttribute="top" secondItem="aBT-Rr-uvm" secondAttribute="top" id="X2p-uy-HMU"/>
+                                                    <constraint firstItem="b6w-qa-ezr" firstAttribute="leading" secondItem="aBT-Rr-uvm" secondAttribute="leading" id="f06-Rn-yED"/>
                                                 </constraints>
-                                            </stackView>
+                                            </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mUa-hh-DDv">
                                                 <rect key="frame" x="0.0" y="111" width="272" height="48"/>
                                                 <subviews>
@@ -397,6 +409,7 @@ df</string>
                         <outlet property="cadenceButton" destination="0cg-mn-mpz" id="6hJ-Nn-CKj"/>
                         <outlet property="cadenceControl" destination="o71-28-4C2" id="1eV-F0-vhH"/>
                         <outlet property="descStack" destination="b6w-qa-ezr" id="6v6-Ib-NJM"/>
+                        <outlet property="descriptionView" destination="aBT-Rr-uvm" id="Sf3-sZ-YRT"/>
                         <outlet property="infoButton" destination="jJS-yS-qT0" id="2gu-Gk-dSC"/>
                         <outlet property="leftModeIcon" destination="ePy-Rr-Rt3" id="8ll-fo-i8e"/>
                         <outlet property="modeImageView" destination="f01-71-wBn" id="NfP-lZ-XcL"/>

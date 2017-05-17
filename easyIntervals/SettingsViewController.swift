@@ -76,7 +76,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     @IBOutlet weak var sessionControl: UISegmentedControl!
     @IBOutlet weak var cadenceControl: UISegmentedControl!
     @IBOutlet weak var preferenceSwitch: UISwitch!
-    @IBOutlet weak var messageView: UIView!
+    @IBOutlet weak var descriptionView: UIView!
     @IBOutlet weak var prefMessage: UILabel!
     @IBOutlet weak var sliderView: UIView!
     @IBOutlet weak var prefSlider: UISlider!
