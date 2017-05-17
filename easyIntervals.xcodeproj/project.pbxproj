@@ -158,7 +158,6 @@
 			children = (
 				9E1703FA1E56240E007B2D05 /* TimerViewController.swift */,
 				9E2E77E21E23D9BD0082ED83 /* SettingsViewController.swift */,
-				9E0599AA1EC63D8200E15A34 /* NewSettingViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -166,6 +165,7 @@
 		9E2E77DF1E23D9850082ED83 /* temp */ = {
 			isa = PBXGroup;
 			children = (
+				9E0599AA1EC63D8200E15A34 /* NewSettingViewController.swift */,
 				9E2E77CE1E23D92F0082ED83 /* ViewController.swift */,
 				9E0599A41EC21DA900E15A34 /* TimerModeView.swift */,
 				9E0599A61EC21F2000E15A34 /* ModeWindowView.swift */,

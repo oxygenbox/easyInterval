@@ -78,38 +78,23 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     @IBOutlet weak var preferenceSwitch: UISwitch!
     @IBOutlet weak var descriptionView: UIView!
     @IBOutlet weak var prefMessage: UILabel!
-    @IBOutlet weak var sliderView: UIView!
-    @IBOutlet weak var prefSlider: UISlider!
     @IBOutlet weak var modeImageView: UIImageView!
-   
     @IBOutlet weak var segmentedControlView: UIView!
     @IBOutlet weak var descStack: UIStackView!
     @IBOutlet weak var switchView: UIView!
-    
-    
-   
-    
     @IBOutlet weak var leftModeIcon: SettingModeView!
     @IBOutlet weak var rightModeIcon: SettingModeView!
-    
-  //  @IBOutlet var prefViews: [UIView]!
-    
     @IBOutlet weak var infoButton: RoundButton!
     @IBOutlet weak var audioButton: RoundButton!
     @IBOutlet weak var vibrateButton: RoundButton!
     @IBOutlet weak var cadenceButton: RoundButton!
     @IBOutlet weak var musicButton: RoundButton!
     @IBOutlet weak var sessionButton: RoundButton!
-    
-    
     @IBOutlet var buttonCollection: [RoundButton]!
     
-    
-    
+    //MARK: - Variables
     let baseColor = UIColor.white
     let higlightColor = UIColor.myBlue
-    
-    //variables
     var preferences: [Preference] =  [.info, .audio, .vibrate, .cadence, .music, .workout]
 
     var runComponent: Int {
@@ -151,89 +136,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         super.didReceiveMemoryWarning()
     }
     
-    //MARK: - PickerViewMethods
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 3
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        if component == 0 {
-            return Data.modeNameArray.count
-        } else {
-            return Data.timeArray.count
-        }
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
-        if component == 0 {
-            return Picker.mode.width
-        } else {
-            return Picker.time.width
-        }
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
-        if component == 0 {
-            return Picker.mode.height
-        } else {
-            return Picker.time.height
-        }
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        if component == 0 {
-            return Data.modeNameArray[row]
-        } else {
-            return Data.timeArray[row]
-        }
-    }
-        
-    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: Picker.time.width, height: 50))
-        label.textAlignment = .center
-        label.textColor = higlightColor
-        label.font = UIFont(name: "Avenir Next", size: 24.0)!
-        label.backgroundColor = UIColor.clear
-        label.isOpaque = false
-        
-        if component == Picker.mode.rawValue {
-            
-            label.frame.size.height = Picker.mode.height
-            label.frame.size.width = Picker.mode.width
-            label.attributedText = Tool.formatPickerMode(mode: Data.modeNameArray[row])
-            label.layer.cornerRadius = label.frame.size.height / 2
-            label.clipsToBounds = true
-            label.layer.borderWidth = 2
-            label.layer.borderColor = higlightColor.cgColor
-            
-        } else {
-             label.attributedText = Tool.formatPickerTime(time: Data.timeArray[row])
-        }
-        
-        return label
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-       
-        data.isRunWalk = picker.selectedRow(inComponent: 0) == 0
-        data.runValue = picker.selectedRow(inComponent: runComponent)
-        data.walkValue = picker.selectedRow(inComponent: walkComponent)
-        data.save()
-        data.calcSessionIncrement()
-        title = data.settingTitle
-        initSegmentedControl()
-        
-        if component == 0 {
-            setModeImages()
-        }
-    }
-    
-    //MARK: - IBAction
-//    @IBAction func segmentChanged(sender: UISegmentedControl) {
-//        data.settingsTab = sender.selectedSegmentIndex
-//        data.save()
-//        changePreference()
-//    }
+    //MARK: - IBACTIONS
     
     @IBAction func switchChanged(sender: UISwitch) {
         switch activePreference {
@@ -254,20 +157,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         }
     }
     
-    @IBAction func sliderChanged(sender: UISlider) {
-        let value  = Int(sender.value)
-        prefSlider.setValue(Float(value), animated: false)
-        postSliderMessage()
-        if activePreference == .workout {
-            data.sequenceRepeats = value
-            
-        } else {
-            data.cadenceFrequency = value
-        }
-        data.save()
-    }
-    
-    
+
     @IBAction func controlChanged(_ sender: UISegmentedControl) {
         let value = sender.selectedSegmentIndex
         postSliderMessage()
@@ -280,7 +170,6 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         data.save()
     }
     
-   
     func buttonPressed(_ sender: RoundButton) {
         sender.alpha = 1
         
@@ -291,12 +180,9 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
                 button.alpha = 0.5
             }
         }
-        
         data.settingsTab = sender.tag
         data.save()
         changePreference()
-        
-        
     }
     
     
@@ -487,6 +373,82 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     }
     
     
+    //MARK: - PickerView Methods
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 3
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        if component == 0 {
+            return Data.modeNameArray.count
+        } else {
+            return Data.timeArray.count
+        }
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
+        if component == 0 {
+            return Picker.mode.width
+        } else {
+            return Picker.time.width
+        }
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+        if component == 0 {
+            return Picker.mode.height
+        } else {
+            return Picker.time.height
+        }
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        if component == 0 {
+            return Data.modeNameArray[row]
+        } else {
+            return Data.timeArray[row]
+        }
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: Picker.time.width, height: 50))
+        label.textAlignment = .center
+        label.textColor = higlightColor
+        label.font = UIFont(name: "Avenir Next", size: 24.0)!
+        label.backgroundColor = UIColor.clear
+        label.isOpaque = false
+        
+        if component == Picker.mode.rawValue {
+            
+            label.frame.size.height = Picker.mode.height
+            label.frame.size.width = Picker.mode.width
+            label.attributedText = Tool.formatPickerMode(mode: Data.modeNameArray[row])
+            label.layer.cornerRadius = label.frame.size.height / 2
+            label.clipsToBounds = true
+            label.layer.borderWidth = 2
+            label.layer.borderColor = higlightColor.cgColor
+            
+        } else {
+            label.attributedText = Tool.formatPickerTime(time: Data.timeArray[row])
+        }
+        
+        return label
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
+        data.isRunWalk = picker.selectedRow(inComponent: 0) == 0
+        data.runValue = picker.selectedRow(inComponent: runComponent)
+        data.walkValue = picker.selectedRow(inComponent: walkComponent)
+        data.save()
+        data.calcSessionIncrement()
+        title = data.settingTitle
+        initSegmentedControl()
+        
+        if component == 0 {
+            setModeImages()
+        }
+    }
 }
 
 

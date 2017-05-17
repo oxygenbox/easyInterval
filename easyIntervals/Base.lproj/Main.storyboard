@@ -421,6 +421,7 @@ df</string>
                         <outlet property="segmentedControlView" destination="xwO-f6-CHB" id="NOP-7m-LZR"/>
                         <outlet property="sessionButton" destination="XKd-rK-WuE" id="ktl-VH-OGs"/>
                         <outlet property="sessionControl" destination="cbH-69-T5B" id="Fld-5e-a0P"/>
+                        <outlet property="switchView" destination="mUa-hh-DDv" id="J0W-DE-WM8"/>
                         <outlet property="vibrateButton" destination="bQl-nb-PZW" id="Etf-Q0-8rd"/>
                         <outletCollection property="buttonCollection" destination="jJS-yS-qT0" collectionClass="NSMutableArray" id="BQ7-dF-UMN"/>
                         <outletCollection property="buttonCollection" destination="xxe-f3-sd9" collectionClass="NSMutableArray" id="O7a-mi-gBh"/>
