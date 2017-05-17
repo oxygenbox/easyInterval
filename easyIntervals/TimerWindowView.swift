@@ -24,6 +24,12 @@ class TimerWindowView: UIView {
         }
     }
     
+    var intervalSeconds: Int = 0 {
+        didSet {
+            tick()
+        }
+    }
+    
     var imageView: UIImageView!
     var dropDuration: Double = 0.4
     var delay: Double = 0
@@ -78,14 +84,8 @@ class TimerWindowView: UIView {
         imageView.tintImageColor(color: UIColor.myBlue)
     }
     
-    func tick(second: Int) {
-        if second < 5 {
-            
-            let pulse = Pulsing(numberOfPulses: 1, radius: frame.size.width/3, position: center)
-            pulse.animationDuration = 0.8
-           // pulse.backgroundColor = UIColor.blueD.cgColor
-            layer.insertSublayer(pulse, at: 0)
-        }
+    func tick() {
+       print(intervalSeconds)
     }
 }
 

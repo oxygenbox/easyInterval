@@ -28,7 +28,7 @@ class TimerViewController: UIViewController {
     //MARK - VARIABLES
     var workout = Workout()
     
-    lazy var timerWindow: TimerWindowView = {
+    lazy var timerWindowView: TimerWindowView = {
         var h = self.view.frame.size.height
         h -= 120 // header + footer
         h -= 10 //margin
@@ -39,15 +39,6 @@ class TimerViewController: UIViewController {
     }()
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
     lazy var clockView: ClockView = {
         let clock = ClockView(frame: self.modeWindow.frame)
         clock.frame.origin.y += 64
@@ -56,7 +47,7 @@ class TimerViewController: UIViewController {
         return clock
     }()
 
-   // var clock = Clock()
+   
     
 
     //MARK:- LIFECYCLE
@@ -113,7 +104,7 @@ class TimerViewController: UIViewController {
         
        // view.addSubview(clock)
         
-        view.addSubview(timerWindow)
+        view.addSubview(timerWindowView)
     }
     
     
@@ -130,7 +121,8 @@ class TimerViewController: UIViewController {
         elapsedTime.textColor = UIColor.accent
         sessionType.textColor = UIColor.accent
         
-        timerWindow.tick(second: workout.currentInterval.remainingSeconds)
+        timerWindowView.intervalSeconds = workout.currentInterval.remainingSeconds
+        
         
       //  self.modeUpdate()
     }
@@ -242,8 +234,8 @@ extension TimerViewController: WorkoutDelegate {
     }
 
     func modeUpdate(){
-        modeWindow.mode = workout.currentMode
-        timerWindow.mode = workout.currentMode
+        //modeWindow.mode = workout.currentMode
+        timerWindowView.mode = workout.currentMode
         if workout.timer != nil {
             clockView.begin(with: workout.currentInterval.lengthInSeconds)
         }
