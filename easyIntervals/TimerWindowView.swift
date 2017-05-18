@@ -75,10 +75,10 @@ class TimerWindowView: UIView {
         imageView = UIImageView(frame: rect)
         imageView.contentMode = .scaleAspectFit
        
-        
+        addSubview(intervalClock)
         addSubview(imageView)
         intervalClock.frame = self.bounds
-        addSubview(intervalClock)
+        
         
         createLabel()
         
@@ -133,6 +133,8 @@ class TimerWindowView: UIView {
     }
     
     func beginClocks(intervalSeconds: Int, sessionSeconds: Int?) {
+        intervalClock.shapeLayer.strokeColor = UIColor.green.cgColor
+        intervalClock.shapeLayer.lineWidth = frame.size.height - 12
         intervalClock.begin(with: intervalSeconds)
     }
     
