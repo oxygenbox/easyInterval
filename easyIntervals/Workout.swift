@@ -123,6 +123,8 @@ class Workout: NSObject, AVAudioPlayerDelegate {
                 print("skip cadenceCheck")
             } else {
                 print("play cadenceCheck")
+               let cadenceTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(playCadence), userInfo: nil, repeats: false) 
+                RunLoop.main.add(cadenceTimer, forMode: RunLoopMode.commonModes)
                 cadenceTracker = 0
             }
             

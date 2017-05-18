@@ -79,14 +79,8 @@ class TimerViewController: UIViewController {
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = view.bounds
         gradientLayer.colors = [UIColor.blueB.cgColor, UIColor.blueC.cgColor]
-       // view.layer.addSublayer(gradientLayer)
         view.layer.insertSublayer(gradientLayer, at: 0)
         initGestures()
-        
-      
-        
-        
-    
         
         view.addSubview(timerWindowView)
     }
@@ -96,15 +90,10 @@ class TimerViewController: UIViewController {
     func postTimes() {
         intervalTime.text = Tool.formatTime(secs: workout.currentInterval.remainingSeconds, withHours: false)
         elapsedTime.text = Tool.formatTime(secs: workout.elapsedSeconds, withHours: true)
-        
-         sessionType.text = "elapsed"
-        
-        
-        
+        sessionType.text = "elapsed"
         intervalTime.textColor = UIColor.accent
         elapsedTime.textColor = UIColor.accent
         sessionType.textColor = UIColor.accent
-        
         timerWindowView.intervalSeconds = workout.currentInterval.remainingSeconds
         
         

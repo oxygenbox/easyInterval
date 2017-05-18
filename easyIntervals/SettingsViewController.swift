@@ -319,25 +319,6 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         }
     }
     
-    
-    
-    
-    
-    
-//    func cadenceMessage() -> String {
-//        switch data.cadenceFrequency {
-//            case 0:
-//               return "Every Run Interval"
-//            case 1:
-//               return "Every Other Run Interval"
-//            case 2:
-//                return "Every Third Run Interval"
-//            default:
-//                return "Every Fourth Run Interval"
-//        }
-//    }
-    
-    //
     func revealSegmentedControl(show: Bool) {
         UIView.transition(with: segmentedControlView, duration: 1.0, options: [.transitionFlipFromTop], animations: {
             self.initSegmentedControl()
