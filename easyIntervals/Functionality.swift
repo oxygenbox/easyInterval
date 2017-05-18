@@ -8,7 +8,7 @@
 /*
 
  Add Run/Walk Message (make obvious)
- Show count down
+ 
  Improve main screen layour
  Session - get working
  Cadence = get working

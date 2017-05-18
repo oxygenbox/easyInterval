@@ -160,14 +160,13 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     
     @IBAction func controlChanged(_ sender: UISegmentedControl) {
         let value = sender.selectedSegmentIndex
-        postSliderMessage()
-        
         if activePreference == .workout {
             data.sequenceRepeats = value
         } else {
             data.cadenceFrequency = value
         }
         data.save()
+        postControlMessage()
     }
     
     func buttonPressed(_ sender: RoundButton) {
@@ -284,7 +283,10 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         }
     }
     
-    func postSliderMessage() {
+    
+    
+    
+    func postControlMessage() {
         if activePreference == .workout {
            // let minutes = data.sessionIncrement * data.sequenceRepeats
            // let h = minutes / 60
@@ -293,7 +295,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
            // sliderMessage.text = "\(minutes) MINUTE (\(time)) WORKOUT"
         } else if activePreference == .cadence {
             //sliderMessage.text = cadenceMessage()
-            print(cadenceMessage())
+           // print(cadenceMessage())
         }
     }
     
