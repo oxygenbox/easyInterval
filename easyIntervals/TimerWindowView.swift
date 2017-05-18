@@ -49,7 +49,7 @@ class TimerWindowView: UIView {
     var imageView: UIImageView!
     var dropDuration: Double = 0.4
     var delay: Double = 0
-    
+    var label = UILabel()
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
     //override func draw(_ rect: CGRect) {
@@ -87,6 +87,14 @@ class TimerWindowView: UIView {
 //        let c = ClockView()
 //        c.frame = box.frame
 //        addSubview(c)
+        
+        createLabel()
+        
+        
+        
+        
+        
+        
     }
     
     func change() {
@@ -114,11 +122,21 @@ class TimerWindowView: UIView {
     func tick() {
         if intervalSeconds > 0 && intervalSeconds < 6 {
             addPulse()
-        }
+            label.text = "\(intervalSeconds)"
+                self.label.transform = CGAffineTransform.identity
+                self.label.alpha = 1
+            UIView.animate(withDuration: 0.5, animations: {
+                self.label.alpha = 0
+                self.label.transform = CGAffineTransform(scaleX: 2.0, y: 2.0)
+            })
+        } else {
+             label.text = ""
+      }
+        
     }
     
     func pause() {
-        
+        intervalClock.pause()
     }
     
     func resume() {
@@ -130,7 +148,7 @@ class TimerWindowView: UIView {
     }
     
     func reset() {
-        
+        intervalClock.resume()
     }
     
     func addPulse() {
@@ -143,6 +161,21 @@ class TimerWindowView: UIView {
         layer.insertSublayer(pulse, below: imageView.layer)
         
     }
+    
+    
+    func createLabel() {
+        let h: CGFloat = 70
+        let w = frame.size.width
+        let y  = frame.height/2 - h/2
+        self.label = UILabel(frame: CGRect(x: 0, y: y-20, width: w, height: h))
+        self.label.frame = self.bounds
+        self.label.font = UIFont(name: "AvenirNext-Bold", size: h)
+        self.label.textAlignment = .center
+        //self.label.textColor = color
+        self.label.text = ""
+        self.addSubview(self.label)
+    }
+
 }
 
 
