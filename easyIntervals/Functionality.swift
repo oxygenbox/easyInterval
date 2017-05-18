@@ -6,7 +6,7 @@
 //  Copyright © 2017 Michael Schaffner. All rights reserved.
 
 /*
- Clean out old code
+
  Add Run/Walk Message (make obvious)
  Show count down
  Improve main screen layour

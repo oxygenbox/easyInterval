@@ -74,27 +74,16 @@ class TimerWindowView: UIView {
        let rect = CGRect(x: m, y: m, width: bounds.size.width - m*2, height: bounds.size.height - m*2)
         imageView = UIImageView(frame: rect)
         imageView.contentMode = .scaleAspectFit
-       // imageView.image = UIImage(named: "walk_solid")
+       
         
         addSubview(imageView)
         intervalClock.frame = self.bounds
         addSubview(intervalClock)
-       // addSubview(countDownLabel)
-//        
-//        let box = UIView(frame: CGRect(x: 100, y: 100, width: 100, height: 100))
-//        box.backgroundColor = UIColor.orange
-//        addSubview(box)
-//        let c = ClockView()
-//        c.frame = box.frame
-//        addSubview(c)
         
         createLabel()
         
         
-        
-        
-        
-        
+
     }
     
     func change() {
@@ -132,7 +121,7 @@ class TimerWindowView: UIView {
         } else {
              label.text = ""
       }
-        
+        //intervalClock.addCircle()
     }
     
     func pause() {
@@ -186,61 +175,3 @@ class TimerWindowView: UIView {
 
 
 
-
-/*
- //
- //  SettingModeView.swift
- //  easyIntervals
- //
- //  Created by Michael Schaffner on 3/1/17.
- //  Copyright © 2017 Michael Schaffner. All rights reserved.
- //
- 
- import UIKit
- 
- class SettingModeView: UIView {
- var imageView: UIImageView!
- 
- 
- 
- 
- 
- 
- func config() {
- 
- 
- let rect = CGRect(x: 10, y: 10, width: bounds.size.width - 20, height: bounds.size.height - 20)
- imageView = UIImageView(frame: bounds)
- imageView.frame = rect
- imageView.contentMode = .scaleAspectFit
- addSubview(imageView)
- }
- /*
- 
- configure()
- */
- 
- 
- func setUp() {
- 
- print(frame)
- 
- layer.cornerRadius = bounds.width/2
- layer.borderColor = UIColor.myBlue.cgColor
- layer.borderWidth = 4
- clipsToBounds = true
- 
- let rect = CGRect(x: 10, y: 10, width: bounds.size.width - 20, height: bounds.size.height - 20)
- imageView = UIImageView(frame: bounds)
- imageView.frame = rect
- imageView.contentMode = .scaleAspectFit
- addSubview(imageView)
- }
- 
- imageView.image = UIImage(named: imageName)
- imageView.tintImageColor(color: UIColor.myBlue)
- 
- }
-
-
- */
