@@ -129,7 +129,7 @@ class TimerWindowView: UIView {
     }
     
     func resume() {
-        
+        intervalClock.resume()
     }
     
     func beginClocks(intervalSeconds: Int, sessionSeconds: Int?) {

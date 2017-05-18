@@ -33,6 +33,9 @@ class ClockView: UIView {
     var color = UIColor.gray
     var homeY: CGFloat = 0
     
+    var hasStarted:Bool {
+        return self.layer.timeOffset > 0
+    }
     
     //MARK:- LifeCycle
     override init(frame: CGRect) {
@@ -106,6 +109,8 @@ class ClockView: UIView {
     func  reset() {
         shapeLayer.timeOffset = 0
     }
+    
+    
     
 }
 
