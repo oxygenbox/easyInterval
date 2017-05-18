@@ -132,6 +132,24 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         }
     }
     
+    
+    var sessionMessage: String {
+    // switch data.cadenceFrequency {
+//    case 0:
+//    return "Every Run Interval"
+//    case 1:
+//    return "Every Other Run Interval"
+//    case 2:
+//    return "Every Third Run Interval"
+//    default:
+//    return "Every Fourth Run Interval"
+//    }
+       
+        let minutes = data.sessionMinuteArray[data.sequenceRepeats]
+        return "\(minutes)"
+    }
+
+    
     //MARK: - Lifecycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -289,6 +307,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
             cadenceControl.isHidden = true
             sessionControl.isEnabled = data.workoutOn
             sessionControl.selectedSegmentIndex = data.sequenceRepeats
+            sessionArray()
         } else if activePreference == .cadence {
             sessionControl.isHidden = true
             cadenceControl.isHidden = false
@@ -301,17 +320,9 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         postControlMessage()
     }
     
-    
-    
-    
     func postControlMessage() {
-        
         if activePreference == .workout {
-           // let minutes = data.sessionIncrement * data.sequenceRepeats
-           // let h = minutes / 60
-           // let m = minutes - h * 60
-           // let time = "\(h):\(Tool.numberToString(value: m))"
-           // sliderMessage.text = "\(minutes) MINUTE (\(time)) WORKOUT"
+            controlLabel.text = sessionMessage
         } else if activePreference == .cadence {
             controlLabel.text = "Play cadence check \(cadenceMessage)"
         } else {
@@ -345,6 +356,19 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
             leftModeIcon.mode = .walk
             rightModeIcon.mode = .run
         }
+    }
+    
+    
+    func sessionArray() -> [Int] {
+        var times = [Int]()
+        for (index, goal) in [30, 45, 60, 75, 90, 120].enumerated() {
+            print(data.sessionSeconds)
+            let s = (goal) % (data.sessionSeconds/60)
+            //print(m)
+            times.append(goal+s)
+            sessionControl.setTitle("\(goal+s) mins", forSegmentAt: index)
+        }
+         return times
     }
     
     
