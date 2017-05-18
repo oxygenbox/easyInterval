@@ -90,7 +90,9 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     @IBOutlet weak var cadenceButton: RoundButton!
     @IBOutlet weak var musicButton: RoundButton!
     @IBOutlet weak var sessionButton: RoundButton!
+    @IBOutlet weak var controlLabel: UILabel!
     @IBOutlet var buttonCollection: [RoundButton]!
+  
     
     //MARK: - Variables
     let baseColor = UIColor.white
@@ -115,6 +117,19 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
 
     var activePreference : Preference {
         return preferences[data.settingsTab]
+    }
+    
+    var cadenceMessage: String {
+        switch data.cadenceFrequency {
+        case 0:
+            return "Every Run Interval"
+        case 1:
+            return "Every Other Run Interval"
+        case 2:
+            return "Every Third Run Interval"
+        default:
+            return "Every Fourth Run Interval"
+        }
     }
     
     //MARK: - Lifecycle
@@ -194,12 +209,14 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         view.backgroundColor = baseColor
         sessionControl.tintColor = UIColor.accent
         cadenceControl.tintColor = UIColor.accent
+        controlLabel.textColor = UIColor.accent
         let sessionFont = UIFont(name: "AvenirNextCondensed-Medium", size: 16.0)!
         let cadenceFont = UIFont(name: "AvenirNextCondensed-Medium", size: 12.0)!
         cadenceControl.setTitleTextAttributes([NSFontAttributeName: cadenceFont],
                                               for: .normal)
         sessionControl.setTitleTextAttributes([NSFontAttributeName: sessionFont],
                                               for: .normal)
+        controlLabel.font = cadenceFont
         
         picker.selectRow(data.runValue, inComponent: runComponent, animated: false)
         picker.selectRow(data.walkValue, inComponent: walkComponent, animated: false)
@@ -281,12 +298,14 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
             sessionControl.isHidden = true
             cadenceControl.isHidden = true
         }
+        postControlMessage()
     }
     
     
     
     
     func postControlMessage() {
+        
         if activePreference == .workout {
            // let minutes = data.sessionIncrement * data.sequenceRepeats
            // let h = minutes / 60
@@ -294,23 +313,29 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
            // let time = "\(h):\(Tool.numberToString(value: m))"
            // sliderMessage.text = "\(minutes) MINUTE (\(time)) WORKOUT"
         } else if activePreference == .cadence {
-            //sliderMessage.text = cadenceMessage()
-           // print(cadenceMessage())
+            controlLabel.text = "Play cadence check \(cadenceMessage)"
+        } else {
+            controlLabel.text = ""
         }
     }
     
-    func cadenceMessage() -> String {
-        switch data.cadenceFrequency {
-            case 1:
-               return "Every Run Interval"
-            case 2:
-               return "Every Other Run Interval"
-            case 3:
-                return "Every Third Run Interval"
-            default:
-                return "Every Fourth Run Interval"
-        }
-    }
+    
+    
+    
+    
+    
+//    func cadenceMessage() -> String {
+//        switch data.cadenceFrequency {
+//            case 0:
+//               return "Every Run Interval"
+//            case 1:
+//               return "Every Other Run Interval"
+//            case 2:
+//                return "Every Third Run Interval"
+//            default:
+//                return "Every Fourth Run Interval"
+//        }
+//    }
     
     //
     func revealSegmentedControl(show: Bool) {

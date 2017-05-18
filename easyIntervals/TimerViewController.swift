@@ -26,7 +26,7 @@ class TimerViewController: UIViewController {
     @IBOutlet weak var modeView: ModeView!
     
     //MARK - VARIABLES
-    var workout = Workout()
+    var workout: Workout!
     
     lazy var timerWindowView: TimerWindowView = {
         var h = self.view.frame.size.height
@@ -76,9 +76,6 @@ class TimerViewController: UIViewController {
         
         view.backgroundColor = UIColor.base
        
-        
-      
-        
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = view.bounds
         gradientLayer.colors = [UIColor.blueB.cgColor, UIColor.blueC.cgColor]
