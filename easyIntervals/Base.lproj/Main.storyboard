@@ -391,7 +391,7 @@ df</string>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="7DC-q2-hvZ" firstAttribute="leading" secondItem="X3F-P3-dDh" secondAttribute="leadingMargin" constant="8" id="PLA-4O-Bi2"/>
                             <constraint firstItem="Hzb-Or-ftV" firstAttribute="top" secondItem="7DC-q2-hvZ" secondAttribute="bottom" constant="8" id="SIr-yF-nXh"/>

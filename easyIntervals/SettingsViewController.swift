@@ -247,7 +247,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
                 break
         }
         
-        UIView.transition(with: switchView, duration: 0.8, options: [.transitionFlipFromLeft], animations: {
+        UIView.transition(with: switchView, duration: 0.8, options: [.transitionFlipFromTop], animations: {
            
         }, completion: { (success: Bool) in
             
@@ -312,38 +312,19 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     
     //
     func revealSegmentedControl(show: Bool) {
-        UIView.transition(with: segmentedControlView, duration: 0.8, options: [.transitionFlipFromBottom], animations: {
+        UIView.transition(with: segmentedControlView, duration: 1.0, options: [.transitionFlipFromTop], animations: {
             self.initSegmentedControl()
         }, completion: { (success: Bool) in
             
         })
-        
-        
-        
-        
-        
-     //   if segmentedControlView.isHidden != show {
-//            UIView.transition(with: segmentedControl, duration: 1.0, options: [.transitionFlipFromBottom], animations: {
-//                self.segmentedControl.isHidden = show
-//           }, completion: { (success: Bool) in
-//                
-//            })
-//        }
     }
     
     func revealMessage() {
-        
-        
-    UIView.transition(with: descriptionView, duration: 0.8, options: [.transitionFlipFromBottom], animations: {
-        //                self.segmentedControl.isHidden = show
+        UIView.transition(with: descriptionView, duration: 0.8, options: [.transitionFlipFromTop], animations: {
                    }, completion: { (success: Bool) in
         
                    })
-               // }
-        
-        
-        
-       
+
     }
     
     func setModeImages() {
