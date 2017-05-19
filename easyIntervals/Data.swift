@@ -73,31 +73,7 @@ class Data: Settings {
         let minute = data.walkValue + 1
         return "\(minute):00"
     }
-    
-//    var sessionSecondsArray: [Int] {
-//        let sessionLength = [30, 45, 60, 75, 90, 120]
-//        var times = [Int]()
-//        
-//        for target in sessionLength {
-//            let seconds = target * 60
-//            let mod = seconds % sessionSeconds
-//            times.append(seconds + mod)
-//        }
-//        return times
-//    }
-//
-//    var sessionMinuteArray: [Int] {
-//        let sessionLength = [30, 45, 60, 75, 90, 120]
-//        var times = [Int]()
-//        
-//        for target in sessionLength {
-//            let seconds = target
-//            let mod = seconds % sessionSeconds/60
-//            times.append(seconds + mod)
-//        }
-//        return times
-//    }
-    
+        
     var sessionArray: [Int] {
         var times = [Int]()
         for target in [30, 45, 60, 75, 90, 120] {

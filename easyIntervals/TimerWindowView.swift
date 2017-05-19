@@ -78,12 +78,10 @@ class TimerWindowView: UIView {
         addSubview(intervalClock)
         addSubview(imageView)
         intervalClock.frame = self.bounds
-        
-        
         createLabel()
-        
-        
-
+        sessionClock.frame = self.bounds
+        sessionClock.isHidden = true
+        addSubview(sessionClock)
     }
     
     func change() {
@@ -121,25 +119,34 @@ class TimerWindowView: UIView {
         } else {
              label.text = ""
       }
-        //intervalClock.addCircle()
     }
     
     func pause() {
         intervalClock.pause()
+        sessionClock.pause()
     }
     
     func resume() {
         intervalClock.resume()
+        sessionClock.resume()
     }
     
     func beginClocks(intervalSeconds: Int, sessionSeconds: Int?) {
         intervalClock.shapeLayer.strokeColor = UIColor.green.cgColor
         intervalClock.shapeLayer.lineWidth = frame.size.height - 12
         intervalClock.begin(with: intervalSeconds)
+        
+        
+        guard let t = sessionSeconds else {
+            return
+        }
+        sessionClock.isHidden = false
+        sessionClock.begin(with: t)
     }
     
     func reset() {
-        intervalClock.resume()
+        intervalClock.reset()
+        sessionClock.reset()
     }
     
     func addPulse() {

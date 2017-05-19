@@ -125,7 +125,14 @@ class TimerViewController: UIViewController {
                 timerWindowView.resume()
             } else {
                 let intervalSecs = workout.currentInterval.lengthInSeconds
-                timerWindowView.beginClocks(intervalSeconds: intervalSecs, sessionSeconds: nil)
+                var sessionSecs: Int?
+                if workout.woSession != nil {
+                    sessionSecs = data.totalSessionSeconds
+                }
+                
+                
+                
+                timerWindowView.beginClocks(intervalSeconds: intervalSecs, sessionSeconds: sessionSecs)
             }
             navigationItem.rightBarButtonItem?.isEnabled = false
         }
