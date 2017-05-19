@@ -9,15 +9,12 @@
 
  Add Run/Walk Message (make obvious)
  
- Improve main screen layour
- Session - get working
- Cadence = get working
- Animated interval clock
- Animated session clock
+ Improve main screen layout
  Color Palette
  Get reset working
  Setting screen animation
  Intro/ Instruction screen
+ Handle session completion
  
  
 
@@ -63,6 +60,30 @@
  
 
  */
+
+
+/*
+ 227, 242, 253
+ 187, 222, 251
+ 144, 202, 249
+ 100, 181, 246
+ 66, 165, 245
+ 33, 150, 243
+ 30, 136, 229
+ 25, 118, 210
+ 21, 101, 192
+ 13, 71, 161
+ 
+ 
+ 
+ 
+ */
+
+
+
+
+
+
 
 
 

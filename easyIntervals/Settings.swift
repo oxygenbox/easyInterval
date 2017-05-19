@@ -128,7 +128,70 @@ extension UIColor
     public class var blueD: UIColor {
         return UIColor(red: 144/255, green: 153/255, blue: 216/255, alpha: 1.0)
     }
+    
+    //
+    public class var b50: UIColor {
+        return UIColor(red: 227/255, green: 242/255, blue: 253/255, alpha: 1.0)
+    }
+    
+    public class var b100: UIColor {
+        return UIColor(red: 187/255, green: 222/255, blue: 251/255, alpha: 1.0)
+    }
+    
+    public class var b200: UIColor {
+        return UIColor(red: 144/255, green: 202/255, blue: 249/255, alpha: 1.0)
+    }
+    
+    public class var b300: UIColor {
+        return UIColor(red: 100/255, green: 181/255, blue: 246/255, alpha: 1.0)
+    }
+    
+    public class var b400: UIColor {
+        return UIColor(red: 66/255, green: 165/255, blue: 245/255, alpha: 1.0)
+    }
+    
+    public class var b500: UIColor {
+        return UIColor(red: 33/255, green: 150/255, blue: 243/255, alpha: 1.0)
+    }
+    
+    public class var b600: UIColor {
+        return UIColor(red: 30/255, green: 136/255, blue: 229/255, alpha: 1.0)
+    }
+    
+    public class var b700: UIColor {
+        return UIColor(red: 25/255, green: 118/255, blue: 210/255, alpha: 1.0)
+    }
+    
+    public class var b800: UIColor {
+        return UIColor(red: 21/255, green: 101/255, blue: 192/255, alpha: 1.0)
+    }
+    
+    public class var b900: UIColor {
+        return UIColor(red: 13/255, green: 71/255, blue: 161/255, alpha: 1.0)
+    }
 }
+
+
+
+/*
+ 227, 242, 253
+ 187, 222, 251
+ 144, 202, 249
+ 100, 181, 246
+ 66, 165, 245
+ 33, 150, 243
+ 30, 136, 229
+ 25, 118, 210
+ 21, 101, 192
+ 13, 71, 161
+
+ 
+ */
+
+
+
+
+
 
 extension UIImageView {
     func tintImageColor(color : UIColor) {
