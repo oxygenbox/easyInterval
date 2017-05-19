@@ -6,24 +6,24 @@
 //  Copyright © 2017 Michael Schaffner. All rights reserved.
 //
 
-import UIKit
-import AVFoundation
-
-protocol SessionDelegate {
-    
-}
-
-class Session: Workout {
-    
-    override func advance() {
-        
-        if modeArray.count > 0 {
-            currentMode = modeArray.remove(at: 0)
-            currentInterval  = Interval(mode: currentMode)
-        } else {
-            print("SESSION COMPLETE")
-        }
-    }
+//import UIKit
+//import AVFoundation
+//
+//protocol SessionDelegate {
+//    
+//}
+//
+//class Session: Workout {
+//    
+//    override func advance() {
+//        
+//        if modeArray.count > 0 {
+//            currentMode = modeArray.remove(at: 0)
+//            currentInterval  = Interval(mode: currentMode)
+//        } else {
+//            print("SESSION COMPLETE")
+//        }
+//    }
     /*
      class Workout: NSObject, AVAudioPlayerDelegate {
      
@@ -146,7 +146,7 @@ class Session: Workout {
 
 
     */
-}
+//}
 
 
 

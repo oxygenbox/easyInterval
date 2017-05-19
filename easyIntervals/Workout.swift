@@ -10,6 +10,16 @@ import Foundation
 import UIKit
 import AVFoundation
 
+struct Session {
+    var totalSeconds: Int
+    var remainingSeconds: Int
+    
+    mutating func tick() {
+        print("tick \(remainingSeconds)")
+        remainingSeconds -= 1
+    }
+}
+
 protocol WorkoutDelegate {
     func woTick()
     func modeUpdate()
@@ -32,12 +42,19 @@ class Workout: NSObject, AVAudioPlayerDelegate {
     var currentInterval: Interval!
     var modeArray = [Mode]()
     var cadenceTracker = 1
+    var woSession:Session?
+    
     
     //MARK:- Lifecycle
     override init() {
         super.init()
         cadenceTracker = 0
         setUp()
+        
+        if data.workoutOn {
+            let secs = data.totalSessionSeconds
+            woSession = Session(totalSeconds: secs, remainingSeconds: secs)
+        }
     }
     
     //MARK:- Methods
@@ -92,13 +109,12 @@ class Workout: NSObject, AVAudioPlayerDelegate {
             return
         }
         
-       // timerViewController.woTick()
         timerViewController.workoutTick(with: currentInterval.intervalPercent())
         
-//        if let d = delegate {
-//            //            d.woTick()
-//            //            d.percentComplete(pct: currentInterval.intervalPercent())
-//        }
+        if woSession != nil {
+            woSession!.tick()
+        }
+        
     }
     
     func intervalTick() {
@@ -135,22 +151,22 @@ class Workout: NSObject, AVAudioPlayerDelegate {
         }
     }
     
-    func OLDcadenceCheck() {
-        if data.cadenceOn && currentMode == .run {
-            
-            print("cadenceTracker \(cadenceTracker) : data \(data.cadenceFrequency)")
-            if cadenceTracker >= data.cadenceFrequency {
-                cadenceTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(playCadence), userInfo: nil, repeats: false)
-               
-                    RunLoop.main.add(cadenceTimer!, forMode: RunLoopMode.commonModes)
-                
-                cadenceTracker = 0
-            }
-            
-            print("cadenceTracker \(cadenceTracker) : data \(data.cadenceFrequency)")
-            cadenceTracker += 1
-        }
-    }
+//    func OLDcadenceCheck() {
+//        if data.cadenceOn && currentMode == .run {
+//            
+//            print("cadenceTracker \(cadenceTracker) : data \(data.cadenceFrequency)")
+//            if cadenceTracker >= data.cadenceFrequency {
+//                cadenceTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(playCadence), userInfo: nil, repeats: false)
+//               
+//                    RunLoop.main.add(cadenceTimer!, forMode: RunLoopMode.commonModes)
+//                
+//                cadenceTracker = 0
+//            }
+//            
+//            print("cadenceTracker \(cadenceTracker) : data \(data.cadenceFrequency)")
+//            cadenceTracker += 1
+//        }
+//    }
     
     func playCadence() {
         print("playCadence")

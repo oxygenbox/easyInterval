@@ -74,29 +74,45 @@ class Data: Settings {
         return "\(minute):00"
     }
     
-    var sessionSecondsArray: [Int] {
-        let sessionLength = [30, 45, 60, 75, 90, 120]
+//    var sessionSecondsArray: [Int] {
+//        let sessionLength = [30, 45, 60, 75, 90, 120]
+//        var times = [Int]()
+//        
+//        for target in sessionLength {
+//            let seconds = target * 60
+//            let mod = seconds % sessionSeconds
+//            times.append(seconds + mod)
+//        }
+//        return times
+//    }
+//
+//    var sessionMinuteArray: [Int] {
+//        let sessionLength = [30, 45, 60, 75, 90, 120]
+//        var times = [Int]()
+//        
+//        for target in sessionLength {
+//            let seconds = target
+//            let mod = seconds % sessionSeconds/60
+//            times.append(seconds + mod)
+//        }
+//        return times
+//    }
+    
+    var sessionArray: [Int] {
         var times = [Int]()
-        
-        for target in sessionLength {
-            let seconds = target * 60
-            let mod = seconds % sessionSeconds
-            times.append(seconds + mod)
+        for target in [30, 45, 60, 75, 90, 120] {
+            let remainder = target % (sessionSeconds/60)
+            times.append(target+remainder)
         }
         return times
     }
-
-    var sessionMinuteArray: [Int] {
-        let sessionLength = [30, 45, 60, 75, 90, 120]
-        var times = [Int]()
-        
-        for target in sessionLength {
-            let seconds = target
-            let mod = seconds % sessionSeconds/60
-            times.append(seconds + mod)
-        }
-        return times
+    
+    var totalSessionSeconds: Int {
+        let minutes = sessionArray[sequenceRepeats]
+        return minutes*60
     }
+    
+    
 
     func calcSessionIncrement() {
         var i = 0

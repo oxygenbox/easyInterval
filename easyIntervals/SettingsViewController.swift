@@ -31,7 +31,6 @@ enum Picker: Int {
 
 enum Preference: Int {
     case info, audio, vibrate, cadence, music, workout
-    
     var name: String {
         switch self {
             case .info:
@@ -134,19 +133,8 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     
     
     var sessionMessage: String {
-    // switch data.cadenceFrequency {
-//    case 0:
-//    return "Every Run Interval"
-//    case 1:
-//    return "Every Other Run Interval"
-//    case 2:
-//    return "Every Third Run Interval"
-//    default:
-//    return "Every Fourth Run Interval"
-//    }
-       
-        let minutes = data.sessionMinuteArray[data.sequenceRepeats]
-        return "\(minutes)"
+        let minutes = data.sessionArray[data.sequenceRepeats]
+        return "Ready for a \(minutes) minute workout"
     }
 
     
@@ -228,7 +216,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         sessionControl.tintColor = UIColor.accent
         cadenceControl.tintColor = UIColor.accent
         controlLabel.textColor = UIColor.accent
-        let sessionFont = UIFont(name: "AvenirNextCondensed-Medium", size: 16.0)!
+        let sessionFont = UIFont(name: "AvenirNextCondensed-Medium", size: 14.0)!
         let cadenceFont = UIFont(name: "AvenirNextCondensed-Medium", size: 12.0)!
         cadenceControl.setTitleTextAttributes([NSFontAttributeName: cadenceFont],
                                               for: .normal)
@@ -307,7 +295,13 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
             cadenceControl.isHidden = true
             sessionControl.isEnabled = data.workoutOn
             sessionControl.selectedSegmentIndex = data.sequenceRepeats
-            sessionArray()
+            
+            for (index, minutes) in data.sessionArray.enumerated() {
+                sessionControl.setTitle("\(minutes)m", forSegmentAt: index)
+            }
+            
+            
+            //sessionArray()
         } else if activePreference == .cadence {
             sessionControl.isHidden = true
             cadenceControl.isHidden = false
@@ -359,17 +353,17 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     }
     
     
-    func sessionArray() -> [Int] {
-        var times = [Int]()
-        for (index, goal) in [30, 45, 60, 75, 90, 120].enumerated() {
-            print(data.sessionSeconds)
-            let s = (goal) % (data.sessionSeconds/60)
-            //print(m)
-            times.append(goal+s)
-            sessionControl.setTitle("\(goal+s) mins", forSegmentAt: index)
-        }
-         return times
-    }
+//    func sessionArray() -> [Int] {
+//        var times = [Int]()
+//        for (index, goal) in [30, 45, 60, 75, 90, 120].enumerated() {
+//            
+//            let s = (goal) % (data.sessionSeconds/60)
+//            
+//            times.append(goal+s)
+//            sessionControl.setTitle("\(goal+s) mins", forSegmentAt: index)
+//        }
+//         return times
+//    }
     
     
     //MARK: - PickerView Methods
