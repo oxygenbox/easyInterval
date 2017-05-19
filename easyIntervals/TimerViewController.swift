@@ -88,14 +88,25 @@ class TimerViewController: UIViewController {
     
     
     func postTimes() {
-        intervalTime.text = Tool.formatTime(secs: workout.currentInterval.remainingSeconds, withHours: false)
-        elapsedTime.text = Tool.formatTime(secs: workout.elapsedSeconds, withHours: true)
-        sessionType.text = "elapsed"
         intervalTime.textColor = UIColor.accent
         elapsedTime.textColor = UIColor.accent
         sessionType.textColor = UIColor.accent
+        
+        intervalTime.text = Tool.formatTime(secs: workout.currentInterval.remainingSeconds, withHours: false)
+        
+        
+        
+        elapsedTime.text = Tool.formatTime(secs: workout.elapsedSeconds, withHours: true)
+        sessionType.text = "elapsed"
+        
         timerWindowView.intervalSeconds = workout.currentInterval.remainingSeconds
         
+        print("postTimes")
+        
+        if let session = workout.woSession {
+            let time = Tool.formatTime(secs: session.remainingSeconds, withHours: true)
+            sessionType.text = "remaining \(time)"
+        }
         
       //  self.modeUpdate()
     }
