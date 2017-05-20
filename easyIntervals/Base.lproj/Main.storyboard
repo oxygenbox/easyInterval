@@ -145,6 +145,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="audioButton" destination="LaX-mj-V9q" id="WRs-eT-Ong"/>
+                        <outlet property="buttonView" destination="k2X-af-jKr" id="8uT-bT-py2"/>
                         <outlet property="cadenceButton" destination="zRP-8L-l9d" id="xvY-W3-ppL"/>
                         <outlet property="elapsedTime" destination="CD3-HI-dbn" id="Jvp-CQ-wVF"/>
                         <outlet property="infoButton" destination="dAF-z7-CFH" id="3iu-2x-RF3"/>

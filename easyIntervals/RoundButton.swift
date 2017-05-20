@@ -19,22 +19,22 @@ class RoundButton: UIButton {
     override func awakeFromNib() {
         super.awakeFromNib()
         layer.cornerRadius = self.bounds.height / 2
-        layer.borderWidth = 2
+        layer.borderWidth = 1
         configure()
     }
     
     func configure() {
         if active {
-            backgroundColor = UIColor.white
-            tintColor = UIColor.myBlue
-            layer.borderColor = UIColor.myBlue.cgColor
+            backgroundColor = UIColor.b200
+            tintColor = UIColor.b50
+            layer.borderColor = UIColor.b50.cgColor
         } else {
 //            backgroundColor = UIColor.myBlue
 //            tintColor = UIColor.blueC
 //            layer.borderColor = UIColor.blueC.cgColor
-            backgroundColor = UIColor.white
-            tintColor = UIColor.myBlue.withAlphaComponent(0.5)
-            layer.borderColor = UIColor.myBlue.withAlphaComponent(0.5).cgColor
+            backgroundColor = UIColor.b200
+            tintColor = UIColor.b500
+            layer.borderColor = UIColor.b200.cgColor
         }
     }
     

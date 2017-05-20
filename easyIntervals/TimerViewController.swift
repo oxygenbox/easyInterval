@@ -23,7 +23,7 @@ class TimerViewController: UIViewController {
     
     
     @IBOutlet var prefButtons: [UIButton]!
-    @IBOutlet weak var modeView: ModeView!
+    @IBOutlet weak var buttonView: UIView!
     
     //MARK - VARIABLES
     var workout: Workout!
@@ -75,7 +75,7 @@ class TimerViewController: UIViewController {
         workoutButton.active = data.workoutOn
         
         view.backgroundColor = UIColor.base
-       
+       buttonView.backgroundColor = UIColor.b200
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = view.bounds
         gradientLayer.colors = [UIColor.blueB.cgColor, UIColor.blueC.cgColor]
@@ -83,7 +83,13 @@ class TimerViewController: UIViewController {
         initGestures()
         
         view.addSubview(timerWindowView)
+
     }
+    
+   
+    
+    
+    
     
     
     
