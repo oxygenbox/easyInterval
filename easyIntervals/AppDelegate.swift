@@ -46,7 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navigationBarAppearace = UINavigationBar.appearance()
         
         navigationBarAppearace.tintColor = UIColor.base
-        navigationBarAppearace.barTintColor = UIColor.accent
+        navigationBarAppearace.barTintColor = UIColor.b500
         navigationBarAppearace.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.base, NSFontAttributeName: UIFont(name: "AvenirNextCondensed-DemiBold", size: 18.0)!]
         
     

@@ -74,11 +74,11 @@ class TimerViewController: UIViewController {
         musicButton.active = data.musicOn
         workoutButton.active = data.workoutOn
         
-        view.backgroundColor = UIColor.base
-       buttonView.backgroundColor = UIColor.b200
+        view.backgroundColor = UIColor.b300
+        buttonView.backgroundColor = UIColor.b500
         let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = view.bounds
-        gradientLayer.colors = [UIColor.blueB.cgColor, UIColor.blueC.cgColor]
+        //gradientLayer.frame = view.bounds
+        //gradientLayer.colors = [UIColor.blueB.cgColor, UIColor.blueC.cgColor]
         view.layer.insertSublayer(gradientLayer, at: 0)
         initGestures()
         
