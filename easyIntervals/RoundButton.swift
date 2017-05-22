@@ -10,7 +10,7 @@ import UIKit
 
 class RoundButton: UIButton {
     var foreground_on = UIColor.b500
-    var background_on = UIColor.b200
+    var background_on = UIColor.b300
     var foreground_off = UIColor.b500
     var background_off = UIColor.b600
     
@@ -18,6 +18,17 @@ class RoundButton: UIButton {
     var active: Bool = true {
         didSet {
             configure()
+        }
+    }
+    
+    var isOn: Bool = false {
+        didSet{
+            if isOn {
+                self.tintColor = UIColor.b400
+            } else {
+                self.tintColor = UIColor.b800
+            }
+            print("DDDDD")
         }
     }
     
@@ -44,14 +55,15 @@ class RoundButton: UIButton {
         active = true
         configure()
         layer.borderWidth = 1
-        tintColor = UIColor.b50
-        layer.borderColor = UIColor.b50.cgColor
+        tintColor = UIColor.b100
+        layer.borderColor = UIColor.b100.cgColor
     }
     
     func deselect() {
         active = false
         configure()
         layer.borderWidth = 0
+        tintColor = UIColor.b800
         layer.borderColor = UIColor.clear.cgColor
     }
     

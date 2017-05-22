@@ -148,6 +148,18 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         super.viewDidLoad()
     }
     
+//    func temp() {
+//        UIView.animate(withDuration: 2.0, delay: 9, options: [.repeat, .autoreverse], animations: {
+//            self.view.backgroundColor = UIColor.black
+//            self.view.backgroundColor = UIColor.green
+//            self.view.backgroundColor = UIColor.gray
+//            self.view.backgroundColor = UIColor.red
+//        }) { (success) in
+//            
+//        }
+//       
+//    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
          setModeImages()
@@ -176,6 +188,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
             default:
                 break
         }
+        setBackground()
         
     }
     
@@ -198,6 +211,25 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
                button.select()
             } else{
                 button.deselect()
+                
+                switch button {
+                case audioButton:
+                    button.isOn = data.audioOn
+                case vibrateButton:
+                    button.isOn = data.vibrateOn
+                case cadenceButton:
+                    button.isOn = data.cadenceOn
+                case musicButton:
+                    button.isOn = data.musicOn
+                case sessionButton:
+                    button.isOn = data.workoutOn
+                default:
+                    print("MISSED")
+                }
+
+                
+                
+                
             }
         }
         data.settingsTab = sender.tag
@@ -239,6 +271,21 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
                 button.select()
             } else {
                 button.deselect()
+                
+                switch button {
+                    case audioButton:
+                        button.isOn = data.audioOn
+                    case vibrateButton:
+                        button.isOn = data.vibrateOn
+                    case cadenceButton:
+                        button.isOn = data.cadenceOn
+                    case musicButton:
+                        button.isOn = data.musicOn
+                case sessionButton:
+                        button.isOn = data.workoutOn
+                    default:
+                        print("MISSED")
+                }
             }
         }
         changePreference()
@@ -250,8 +297,6 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
             case .audio:
                 preferenceSwitch.isOn = data.audioOn
                 modeImageView.image = UIImage(named: "audio_panel")
-            
-            
             case .vibrate:
                 preferenceSwitch.isOn = data.vibrateOn
                 modeImageView.image = UIImage(named: "vibrate_panel")
@@ -269,14 +314,6 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
                 break
         }
         
-        UIView.transition(with: switchView, duration: 0.8, options: [.transitionFlipFromTop], animations: {
-           
-        }, completion: { (success: Bool) in
-            
-        })
-        
-        
-
         if activePreference == .cadence || activePreference == .workout {
             revealSegmentedControl(show: false)
         } else {
@@ -286,6 +323,8 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         revealMessage()
         prefMessage.text = activePreference.desc
         preferenceSwitch.isHidden = activePreference == .info
+        setBackground()
+        
     }
     
     
@@ -353,18 +392,17 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     }
     
     
-//    func sessionArray() -> [Int] {
-//        var times = [Int]()
-//        for (index, goal) in [30, 45, 60, 75, 90, 120].enumerated() {
-//            
-//            let s = (goal) % (data.sessionSeconds/60)
-//            
-//            times.append(goal+s)
-//            sessionControl.setTitle("\(goal+s) mins", forSegmentAt: index)
-//        }
-//         return times
-//    }
-    
+   
+    func setBackground() {
+        var color =  UIColor.b700
+        if preferenceSwitch.isOn {
+            color = UIColor.b400
+        }
+        
+        UIView.animate(withDuration: 0.2) { 
+            self.view.backgroundColor = color
+        }
+    }
     
     //MARK: - PickerView Methods
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

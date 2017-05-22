@@ -216,7 +216,7 @@
                                             <constraint firstAttribute="height" constant="180" id="vs6-xi-n7p"/>
                                         </constraints>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Vwm-al-s8y">
+                                    <stackView opaque="NO" contentMode="top" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Vwm-al-s8y">
                                         <rect key="frame" x="0.0" y="214" width="272" height="214"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aBT-Rr-uvm">
@@ -226,14 +226,14 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="272" height="104"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cadence_panel" translatesAutoresizingMaskIntoConstraints="NO" id="f01-71-wBn">
-                                                                <rect key="frame" x="0.0" y="0.0" width="80" height="104"/>
+                                                                <rect key="frame" x="0.0" y="12" width="80" height="80"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="80" id="LBX-P4-g4D"/>
                                                                     <constraint firstAttribute="width" constant="80" id="exa-0S-tCP"/>
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kzq-jA-TpL">
-                                                                <rect key="frame" x="88" y="17" width="184" height="70"/>
+                                                                <rect key="frame" x="88" y="12" width="184" height="80"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="80" id="EWN-dR-Y5l"/>
                                                                 </constraints>
@@ -252,12 +252,13 @@ df</string>
                                                         </constraints>
                                                     </stackView>
                                                 </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="b6w-qa-ezr" secondAttribute="trailing" id="6K8-8h-EBb"/>
                                                     <constraint firstAttribute="bottom" secondItem="b6w-qa-ezr" secondAttribute="bottom" id="Csc-vk-o5S"/>
                                                     <constraint firstItem="b6w-qa-ezr" firstAttribute="top" secondItem="aBT-Rr-uvm" secondAttribute="top" id="X2p-uy-HMU"/>
                                                     <constraint firstItem="b6w-qa-ezr" firstAttribute="leading" secondItem="aBT-Rr-uvm" secondAttribute="leading" id="f06-Rn-yED"/>
+                                                    <constraint firstAttribute="height" constant="96" id="x6K-YN-5cl"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mUa-hh-DDv">
@@ -270,7 +271,7 @@ df</string>
                                                         </connections>
                                                     </switch>
                                                 </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="backgroundColor" red="0.50980392159999999" green="0.57647058819999997" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstItem="6gq-1r-F8H" firstAttribute="centerX" secondItem="mUa-hh-DDv" secondAttribute="centerX" id="0Oc-Zp-VNU"/>
                                                     <constraint firstAttribute="height" constant="48" id="1YD-eH-XNm"/>
@@ -313,6 +314,7 @@ df</string>
                                                         </connections>
                                                     </segmentedControl>
                                                 </subviews>
+                                                <color key="backgroundColor" red="0.87058823529999996" green="0.91764705879999997" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstItem="ZCC-z4-lHL" firstAttribute="top" secondItem="xwO-f6-CHB" secondAttribute="top" constant="6" id="Erd-3L-Afu"/>
                                                     <constraint firstAttribute="height" constant="62" id="MMx-tw-he4"/>
@@ -330,6 +332,8 @@ df</string>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="mUa-hh-DDv" secondAttribute="trailing" id="Gox-Fi-H0U"/>
                                             <constraint firstItem="mUa-hh-DDv" firstAttribute="leading" secondItem="Vwm-al-s8y" secondAttribute="leading" id="a52-T2-2PB"/>
+                                            <constraint firstItem="xwO-f6-CHB" firstAttribute="top" secondItem="mUa-hh-DDv" secondAttribute="bottom" id="bIR-7x-XQQ"/>
+                                            <constraint firstItem="mUa-hh-DDv" firstAttribute="top" secondItem="aBT-Rr-uvm" secondAttribute="bottom" id="e6h-AP-m2h"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>
