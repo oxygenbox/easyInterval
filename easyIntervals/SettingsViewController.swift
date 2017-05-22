@@ -191,13 +191,13 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     }
     
     func buttonPressed(_ sender: RoundButton) {
-        sender.alpha = 1
+        sender.select()
         
         for button in buttonCollection {
             if sender == button {
-               button.alpha = 1
+               button.select()
             } else{
-                button.alpha = 0.5
+                button.deselect()
             }
         }
         data.settingsTab = sender.tag
@@ -236,9 +236,9 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
             button.tag = index
             
             if index == data.settingsTab {
-                button.alpha = 1.0
+                button.select()
             } else {
-                button.alpha = 0.5
+                button.deselect()
             }
         }
         changePreference()

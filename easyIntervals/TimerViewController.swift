@@ -20,10 +20,8 @@ class TimerViewController: UIViewController {
     @IBOutlet weak var cadenceButton: RoundButton!
     @IBOutlet weak var musicButton: RoundButton!
     @IBOutlet weak var workoutButton: RoundButton!
-    
-    
     @IBOutlet var prefButtons: [UIButton]!
-    @IBOutlet weak var buttonView: UIView!
+    
     
     //MARK - VARIABLES
     var workout: Workout!
@@ -75,7 +73,7 @@ class TimerViewController: UIViewController {
         workoutButton.active = data.workoutOn
         
         view.backgroundColor = UIColor.b300
-        buttonView.backgroundColor = UIColor.b500
+      
         let gradientLayer = CAGradientLayer()
         //gradientLayer.frame = view.bounds
         //gradientLayer.colors = [UIColor.blueB.cgColor, UIColor.blueC.cgColor]
