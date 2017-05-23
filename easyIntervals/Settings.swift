@@ -176,6 +176,11 @@ extension UIColor
         static var on: UIColor {return .b200}
         static var borderOn: UIColor {return .b50}
         static var borderOff: UIColor {return .b900}
+        static var textLight: UIColor {return .b50}
+    }
+    
+    struct Fonts {
+        static var avenirNextCondMed: String {return "AvenirNextCondensed-Medium"}
     }
     
     

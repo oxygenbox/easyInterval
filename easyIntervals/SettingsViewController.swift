@@ -230,7 +230,8 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         title = data.settingTitle
         
         //init interface
-        view.backgroundColor = baseColor
+        //view.backgroundColor = baseColor
+        
         sessionControl.tintColor = UIColor.accent
         cadenceControl.tintColor = UIColor.accent
         controlLabel.textColor = UIColor.accent

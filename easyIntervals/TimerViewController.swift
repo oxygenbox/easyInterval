@@ -77,6 +77,7 @@ class TimerViewController: UIViewController {
       
         initGestures()
         view.addSubview(timerWindowView)
+        addBackgroundGradient()
     }
     
    
@@ -253,12 +254,15 @@ extension TimerViewController: WorkoutDelegate {
         attributedString.addAttribute(NSForegroundColorAttributeName, value: UIColor.black, range: NSMakeRange(0, message.characters.count))
             
         return attributedString
-            
-            
-    
     }
     
-    
+    func addBackgroundGradient() {
+        let gradient = CAGradientLayer()
+        gradient.colors = [UIColor.Theme.bar.cgColor, UIColor.Theme.base.cgColor, UIColor.Theme.base.cgColor, UIColor.Theme.bar.cgColor]
+        gradient.colors = [UIColor.green.cgColor, UIColor.yellow.cgColor, UIColor.red.cgColor, UIColor.orange.cgColor]
+        // gradient.locations = [0.0, 0.25, 0.5, 0.75, 1]
+        view.layer.addSublayer(gradient)
+    }
     
     
 }

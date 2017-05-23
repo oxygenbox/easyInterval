@@ -45,17 +45,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func styleNavigationBar() {
         let navigationBarAppearace = UINavigationBar.appearance()
         
-        navigationBarAppearace.tintColor = UIColor.base
-        navigationBarAppearace.barTintColor = UIColor.b500
-        navigationBarAppearace.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.base, NSFontAttributeName: UIFont(name: "AvenirNextCondensed-DemiBold", size: 18.0)!]
+        navigationBarAppearace.tintColor = UIColor.Theme.textLight
+        navigationBarAppearace.barTintColor = UIColor.Theme.bar
+        navigationBarAppearace.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.Theme.textLight, NSFontAttributeName: UIFont(name: "AvenirNextCondensed-DemiBold", size: 18.0)!]
         
-    
         UIBarButtonItem.appearance().setTitleTextAttributes([NSFontAttributeName: UIFont(name: "AvenirNextCondensed-Medium", size: 18.0)!], for: .normal)
-        
-        //
-       // let navigationFontAttributes = [NSFontAttributeName: navigationFont]
-       // navigationBarAppearace
-       //
     }
 
 
