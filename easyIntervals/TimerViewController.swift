@@ -98,6 +98,15 @@ class TimerViewController: UIViewController {
         
         intervalTime.text = Tool.formatTime(secs: workout.currentInterval.remainingSeconds, withHours: false)
         
+        let t = Tool.formatTime(secs: workout.currentInterval.remainingSeconds, withHours: false)
+        intervalTime.attributedText = test(message: t)
+       // mylabel.text = "Hello World!" // this should be set to 1.5 by default but what if i am setting my label dynamically?
+     // intervalTime.setKerning(kern: -10.0) // Here i am passing the value so if the label is set dynamically set it will have correct spacing
+
+        
+        
+        
+        
         timerWindowView.intervalSeconds = workout.currentInterval.remainingSeconds
         
         if let session = workout.woSession {
@@ -242,7 +251,30 @@ extension TimerViewController: WorkoutDelegate {
         //modeView.intervalTimer(percent: 1-pct)
     }
     
+    func test(message: String) -> NSMutableAttributedString {
+       let attributedString = NSMutableAttributedString(string: message)
+        attributedString.addAttribute(NSKernAttributeName, value: -10, range: NSMakeRange(0, message.characters.count))
+       // attributedString.addAttribute(NSFontAttributeName, value: font, range: NSMakeRange(0, count(message)))
+        attributedString.addAttribute(NSForegroundColorAttributeName, value: UIColor.black, range: NSMakeRange(0, message.characters.count))
+            
+        return attributedString
+            
+            
+    
+    }
+    
+    
+    
     
 }
 
+extension UILabel {
+    func setKerning(kern: CGFloat) {
+        let text = self.text ?? ""
+        let range = NSRange(location: 0, length: text.characters.count)
+        let mutableString = NSMutableAttributedString(attributedString: attributedText ?? NSAttributedString())
+        mutableString.addAttribute(NSKernAttributeName, value: kern, range: range)
+        attributedText = mutableString
+    }
+}
 
