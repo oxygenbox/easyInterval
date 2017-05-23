@@ -71,7 +71,6 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
 
     //MARK: - IBOutlets
     @IBOutlet weak var picker: UIPickerView!
-   
     @IBOutlet weak var sessionControl: UISegmentedControl!
     @IBOutlet weak var cadenceControl: UISegmentedControl!
     @IBOutlet weak var preferenceSwitch: UISwitch!
@@ -148,18 +147,6 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         super.viewDidLoad()
     }
     
-//    func temp() {
-//        UIView.animate(withDuration: 2.0, delay: 9, options: [.repeat, .autoreverse], animations: {
-//            self.view.backgroundColor = UIColor.black
-//            self.view.backgroundColor = UIColor.green
-//            self.view.backgroundColor = UIColor.gray
-//            self.view.backgroundColor = UIColor.red
-//        }) { (success) in
-//            
-//        }
-//       
-//    }
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
          setModeImages()
@@ -170,7 +157,6 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     }
     
     //MARK: - IBACTIONS
-    
     @IBAction func switchChanged(sender: UISwitch) {
         switch activePreference {
             case .audio:
@@ -188,8 +174,8 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
             default:
                 break
         }
+        setButtonState()
         setBackground()
-        
     }
     
     @IBAction func controlChanged(_ sender: UISegmentedControl) {
@@ -271,24 +257,19 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
                 button.select()
             } else {
                 button.deselect()
-                
-                switch button {
-                    case audioButton:
-                        button.isOn = data.audioOn
-                    case vibrateButton:
-                        button.isOn = data.vibrateOn
-                    case cadenceButton:
-                        button.isOn = data.cadenceOn
-                    case musicButton:
-                        button.isOn = data.musicOn
-                case sessionButton:
-                        button.isOn = data.workoutOn
-                    default:
-                        print("MISSED")
-                }
             }
         }
         changePreference()
+        setButtonState()
+        infoButton.makeInfo()
+    }
+    
+    func setButtonState() {
+        audioButton.isOn = data.audioOn
+        vibrateButton.isOn = data.vibrateOn
+        cadenceButton.isOn = data.cadenceOn
+        musicButton.isOn = data.musicOn
+        sessionButton.isOn = data.workoutOn
     }
     
     
@@ -338,9 +319,6 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
             for (index, minutes) in data.sessionArray.enumerated() {
                 sessionControl.setTitle("\(minutes)m", forSegmentAt: index)
             }
-            
-            
-            //sessionArray()
         } else if activePreference == .cadence {
             sessionControl.isHidden = true
             cadenceControl.isHidden = false

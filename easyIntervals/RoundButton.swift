@@ -30,7 +30,7 @@ class RoundButton: UIButton {
     
     
     func select() {
-        layer.borderWidth = 3
+        layer.borderWidth = 2
         layer.borderColor = UIColor.Theme.borderOn.cgColor
     }
     

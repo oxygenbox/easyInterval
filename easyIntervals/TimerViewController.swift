@@ -75,14 +75,8 @@ class TimerViewController: UIViewController {
         
         view.backgroundColor = UIColor.b300
       
-        let gradientLayer = CAGradientLayer()
-        //gradientLayer.frame = view.bounds
-        //gradientLayer.colors = [UIColor.blueB.cgColor, UIColor.blueC.cgColor]
-        view.layer.insertSublayer(gradientLayer, at: 0)
         initGestures()
-        
         view.addSubview(timerWindowView)
-
     }
     
    
