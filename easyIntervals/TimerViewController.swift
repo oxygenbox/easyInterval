@@ -202,6 +202,16 @@ class TimerViewController: UIViewController {
         //need to insert music control
         print("swipe")
     }
+    
+    func addBackgroundGradient() {
+        let gradient = CAGradientLayer()
+        gradient.frame = view.bounds
+        gradient.locations = [0.33, 1]
+        gradient.colors = [UIColor.Theme.bar.cgColor, UIColor.Theme.base.cgColor]
+        view.layer.insertSublayer(gradient, at: 0)
+    }
+
+    
 }
 
 //MARK:- EXTENSIONS
@@ -227,27 +237,15 @@ extension TimerViewController: WorkoutDelegate {
         //modeView.elapsedTimer(percent: 1-pct)
         //modeView.intervalTimer(percent: 1-pct)
     }
-    
-    
-    
-    func addBackgroundGradient() {
-        let gradient = CAGradientLayer()
-        gradient.colors = [UIColor.Theme.bar.cgColor, UIColor.Theme.base.cgColor, UIColor.Theme.base.cgColor, UIColor.Theme.bar.cgColor]
-        gradient.colors = [UIColor.green.cgColor, UIColor.yellow.cgColor, UIColor.red.cgColor, UIColor.orange.cgColor]
-        // gradient.locations = [0.0, 0.25, 0.5, 0.75, 1]
-        view.layer.addSublayer(gradient)
-    }
-    
-    
 }
 
-extension UILabel {
-    func setKerning(kern: CGFloat) {
-        let text = self.text ?? ""
-        let range = NSRange(location: 0, length: text.characters.count)
-        let mutableString = NSMutableAttributedString(attributedString: attributedText ?? NSAttributedString())
-        mutableString.addAttribute(NSKernAttributeName, value: kern, range: range)
-        attributedText = mutableString
-    }
-}
+//extension UILabel {
+//    func setKerning(kern: CGFloat) {
+//        let text = self.text ?? ""
+//        let range = NSRange(location: 0, length: text.characters.count)
+//        let mutableString = NSMutableAttributedString(attributedString: attributedText ?? NSAttributedString())
+//        mutableString.addAttribute(NSKernAttributeName, value: kern, range: range)
+//        attributedText = mutableString
+//    }
+//}
 
