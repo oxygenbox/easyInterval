@@ -39,7 +39,7 @@ class TimerViewController: UIViewController {
     //MARK:- LIFECYCLE
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setUp()
+        configScreen()
         initWorkout()
     }
     
@@ -53,19 +53,12 @@ class TimerViewController: UIViewController {
     }
 
     //MARK:- Methods
-    func setUp() {
-        title = data.settingTitle
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Settings", style: .plain, target: self, action: #selector(settingTapped))
-        
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "reset"), style: .plain, target: self, action: #selector(resetTapped))
-        
-         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "setting"), style: .plain, target: self, action: #selector(settingTapped))
-        
-        
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Main", style: .plain, target: nil, action: nil)
-        
-        navigationItem.backBarButtonItem?.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.base, NSFontAttributeName: UIFont(name: "AvenirNextCondensed-Regular", size: 10.0)!], for: .normal)
-        
+    func configScreen() {
+        initNavigationBar()
+        view.backgroundColor = UIColor.Theme.base
+        addBackgroundGradient()
+        initlabels()
+    
         audioButton.isOn = data.audioOn
         vibrateButton.isOn = data.vibrateOn
         cadenceButton.isOn = data.cadenceOn
@@ -73,36 +66,29 @@ class TimerViewController: UIViewController {
         workoutButton.isOn = data.workoutOn
         infoButton.makeInfo()
         
-        view.backgroundColor = UIColor.b300
-      
         initGestures()
         view.addSubview(timerWindowView)
-        addBackgroundGradient()
     }
     
-   
+    func initNavigationBar() {
+       title = data.settingTitle
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "reset"), style: .plain, target: self, action: #selector(resetTapped))
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "setting"), style: .plain, target: self, action: #selector(settingTapped))
+        
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Main", style: .plain, target: nil, action: nil)
+        
+         navigationItem.backBarButtonItem?.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.Theme.textLight, NSFontAttributeName: UIFont(name: "AvenirNextCondensed-Regular", size: 10.0)!], for: .normal)
+    }
     
-    
-    
-    
-    
+    func initlabels() {
+        intervalTime.textColor = UIColor.Theme.textLight
+        elapsedTime.textColor = UIColor.Theme.textLight
+        sessionType.textColor = UIColor.Theme.textLight
+    }
     
     func postTimes() {
-        intervalTime.textColor = UIColor.accent
-        elapsedTime.textColor = UIColor.accent
-        sessionType.textColor = UIColor.accent
-        
-        intervalTime.text = Tool.formatTime(secs: workout.currentInterval.remainingSeconds, withHours: false)
-        
-        let t = Tool.formatTime(secs: workout.currentInterval.remainingSeconds, withHours: false)
-        intervalTime.attributedText = test(message: t)
-       // mylabel.text = "Hello World!" // this should be set to 1.5 by default but what if i am setting my label dynamically?
-     // intervalTime.setKerning(kern: -10.0) // Here i am passing the value so if the label is set dynamically set it will have correct spacing
-
-        
-        
-        
-        
+        intervalTime.attributedText = Tool.intervalTimeFormatted(seconds: workout.currentInterval.remainingSeconds)
         timerWindowView.intervalSeconds = workout.currentInterval.remainingSeconds
         
         if let session = workout.woSession {
@@ -119,7 +105,6 @@ class TimerViewController: UIViewController {
         workout.delegate = self
         postTimes()
         modeUpdate()
-       // timerView.modeLabel.attributedText = modeName()
     }
     
     func toggleSession() {
@@ -138,8 +123,6 @@ class TimerViewController: UIViewController {
                 if workout.woSession != nil {
                     sessionSecs = data.totalSessionSeconds
                 }
-                
-                
                 
                 timerWindowView.beginClocks(intervalSeconds: intervalSecs, sessionSeconds: sessionSecs)
             }
@@ -229,8 +212,6 @@ extension TimerViewController: WorkoutDelegate {
     
     func workoutTick(with percent: CGFloat) {
         postTimes()
-        //clock.addPulse()
-       // modeView.animateHead(pct: 1 - percent)
     }
 
     func modeUpdate(){
@@ -247,14 +228,7 @@ extension TimerViewController: WorkoutDelegate {
         //modeView.intervalTimer(percent: 1-pct)
     }
     
-    func test(message: String) -> NSMutableAttributedString {
-       let attributedString = NSMutableAttributedString(string: message)
-        attributedString.addAttribute(NSKernAttributeName, value: -10, range: NSMakeRange(0, message.characters.count))
-       // attributedString.addAttribute(NSFontAttributeName, value: font, range: NSMakeRange(0, count(message)))
-        attributedString.addAttribute(NSForegroundColorAttributeName, value: UIColor.black, range: NSMakeRange(0, message.characters.count))
-            
-        return attributedString
-    }
+    
     
     func addBackgroundGradient() {
         let gradient = CAGradientLayer()

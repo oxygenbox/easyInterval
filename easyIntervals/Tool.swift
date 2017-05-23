@@ -12,6 +12,18 @@ import  UIKit
 //let tool = Tool()
 
 class Tool {
+    class  func intervalTimeFormatted(seconds:Int) -> NSMutableAttributedString {
+        let timeString = formatTime(secs: seconds, withHours: false)
+        let charCount = timeString.characters.count
+        let font = UIFont(name: "AvenirNext-Bold", size: 120)
+        
+        let attributedString = NSMutableAttributedString(string: timeString)
+        attributedString.addAttribute(NSKernAttributeName, value: -4, range: NSMakeRange(0, charCount))
+        attributedString.addAttribute(NSForegroundColorAttributeName, value: UIColor.Theme.textLight, range: NSMakeRange(0, charCount))
+        attributedString.addAttribute(NSFontAttributeName, value: font!, range: NSMakeRange(0, charCount))
+        return attributedString
+    }
+    
     class func formatTime(secs: Int, withHours: Bool) -> String {
         var seconds = secs
         var minutes = seconds / 60
