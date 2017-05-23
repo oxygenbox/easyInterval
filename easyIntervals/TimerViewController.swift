@@ -66,11 +66,12 @@ class TimerViewController: UIViewController {
         
         navigationItem.backBarButtonItem?.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.base, NSFontAttributeName: UIFont(name: "AvenirNextCondensed-Regular", size: 10.0)!], for: .normal)
         
-        audioButton.active = data.audioOn
-        vibrateButton.active = data.vibrateOn
-        cadenceButton.active = data.cadenceOn
-        musicButton.active = data.musicOn
-        workoutButton.active = data.workoutOn
+        audioButton.isOn = data.audioOn
+        vibrateButton.isOn = data.vibrateOn
+        cadenceButton.isOn = data.cadenceOn
+        musicButton.isOn = data.musicOn
+        workoutButton.isOn = data.workoutOn
+        infoButton.makeInfo()
         
         view.backgroundColor = UIColor.b300
       

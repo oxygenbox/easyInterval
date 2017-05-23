@@ -9,26 +9,14 @@
 import UIKit
 
 class RoundButton: UIButton {
-    var foreground_on = UIColor.b500
-    var background_on = UIColor.b300
-    var foreground_off = UIColor.b500
-    var background_off = UIColor.b600
-    
-    
-    var active: Bool = true {
-        didSet {
-            configure()
-        }
-    }
     
     var isOn: Bool = false {
         didSet{
             if isOn {
-                self.tintColor = UIColor.b400
+                backgroundColor = UIColor.Theme.on
             } else {
-                self.tintColor = UIColor.b800
+                backgroundColor = UIColor.Theme.base
             }
-            print("DDDDD")
         }
     }
     
@@ -36,35 +24,23 @@ class RoundButton: UIButton {
         super.awakeFromNib()
         layer.cornerRadius = self.bounds.height / 2
         layer.borderWidth = 0
-        configure()
+        tintColor = UIColor.Theme.bar
     }
     
-    func configure() {
-        if active {
-            backgroundColor = background_on
-            tintColor = foreground_on
-            layer.borderColor = foreground_on.cgColor
-        } else {
-            backgroundColor = background_off
-            tintColor = foreground_off
-            layer.borderColor = foreground_off.cgColor
-        }
-    }
+    
     
     func select() {
-        active = true
-        configure()
-        layer.borderWidth = 1
-        tintColor = UIColor.b100
-        layer.borderColor = UIColor.b100.cgColor
+        layer.borderWidth = 3
+        layer.borderColor = UIColor.Theme.borderOn.cgColor
     }
     
     func deselect() {
-        active = false
-        configure()
-        layer.borderWidth = 0
-        tintColor = UIColor.b800
-        layer.borderColor = UIColor.clear.cgColor
+        layer.borderWidth = 1
+        layer.borderColor = UIColor.Theme.borderOff.cgColor
+    }
+    
+    func makeInfo() {
+        tintColor = UIColor.Theme.on
     }
     
 

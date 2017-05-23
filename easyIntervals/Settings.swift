@@ -169,6 +169,16 @@ extension UIColor
     public class var b900: UIColor {
         return UIColor(red: 13/255, green: 71/255, blue: 161/255, alpha: 1.0)
     }
+    
+    struct Theme {
+        static var base: UIColor {return .b500}
+        static var bar: UIColor {return .b700}
+        static var on: UIColor {return .b200}
+        static var borderOn: UIColor {return .b50}
+        static var borderOff: UIColor {return .b900}
+    }
+    
+    
 }
 
 
