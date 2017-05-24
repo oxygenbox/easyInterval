@@ -78,11 +78,9 @@ class ClockView: UIView {
         }
     }
     
-    
     func skip() {
         shapeLayer.removeAllAnimations()
     }
-    
     
     func pause() {
         let  pausedTime = layer.convertTime(CACurrentMediaTime(), from: nil)
@@ -104,10 +102,13 @@ class ClockView: UIView {
         timerValue = seconds
         ticks = seconds
         startAnimation()
+        print("begin")
     }
     
     func  reset() {
         shapeLayer.timeOffset = 0
+        startAnimation()
+        
     }
     
     

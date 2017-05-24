@@ -16,6 +16,7 @@
  Intro/ Instruction screen
  Handle session completion
  Write setting screen text
+ self.modeUpdate
  
 
  IS IT SIMPLE
@@ -29,7 +30,7 @@
  Reset Elapsed Timer
  Reset All
  //Cancel
- 
+ x
  Remaining time
  Elapsed time
  currentMode - Run - Walk - Paused

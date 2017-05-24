@@ -130,6 +130,9 @@ class TimerWindowView: UIView {
     }
     
     func beginClocks(intervalSeconds: Int, sessionSeconds: Int?) {
+        
+        print("beginClocks")
+        
         intervalClock.shapeLayer.strokeColor = UIColor.Theme.on.cgColor
         intervalClock.shapeLayer.lineWidth = frame.size.height - 12
         intervalClock.begin(with: intervalSeconds)
@@ -142,9 +145,14 @@ class TimerWindowView: UIView {
         sessionClock.begin(with: t)
     }
     
-    func reset() {
-        intervalClock.reset()
-        sessionClock.reset()
+    func reset(interval: Bool, session: Bool) {
+        if interval {
+            intervalClock.reset()
+        }
+        
+        if session {
+            sessionClock.reset()
+        }
     }
     
     func addPulse() {

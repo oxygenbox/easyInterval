@@ -105,6 +105,7 @@ class TimerViewController: UIViewController {
         workout.delegate = self
         updateTimeLabels()
         modeUpdate()
+        print("initWorkout")
     }
     
     func toggleSession() {
@@ -141,11 +142,13 @@ class TimerViewController: UIViewController {
     func resetTapped() {
         let ac = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
         let runAction = UIAlertAction(title: "Restart Run Interval", style: .default) { [unowned self] (action) in
+            self.timerWindowView.reset(interval: true, session: false)
             self.workout.restart(mode: .run)
             self.updateTimeLabels()
         }
         
         let walkAction = UIAlertAction(title: "Restart Walk Interval", style: .default) { [unowned self] (action) in
+            self.timerWindowView.reset(interval: true, session: false)
             self.workout.restart(mode: .walk)
             self.updateTimeLabels()
         }
@@ -162,6 +165,7 @@ class TimerViewController: UIViewController {
         }
         
         let workoutAction = UIAlertAction(title: "Restart Workout", style: .default) { (action) in
+            self.timerWindowView.reset(interval: true, session: true)
             // updateTimeLabels()
         }
         
@@ -239,14 +243,4 @@ extension TimerViewController: WorkoutDelegate {
         //modeView.intervalTimer(percent: 1-pct)
     }
 }
-
-//extension UILabel {
-//    func setKerning(kern: CGFloat) {
-//        let text = self.text ?? ""
-//        let range = NSRange(location: 0, length: text.characters.count)
-//        let mutableString = NSMutableAttributedString(attributedString: attributedText ?? NSAttributedString())
-//        mutableString.addAttribute(NSKernAttributeName, value: kern, range: range)
-//        attributedText = mutableString
-//    }
-//}
 
