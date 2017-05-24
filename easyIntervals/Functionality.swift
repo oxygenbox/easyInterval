@@ -16,7 +16,7 @@
  Intro/ Instruction screen
  Handle session completion
  Write setting screen text
- self.modeUpdate
+
  
 
  IS IT SIMPLE

@@ -33,6 +33,7 @@
 		9EAA750F1ECFC59B0026EA6F /* PreferenceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EAA750E1ECFC59B0026EA6F /* PreferenceButton.swift */; };
 		9EAA94E01ECB6B0300D77A2C /* Pulsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EAA94DF1ECB6B0300D77A2C /* Pulsing.swift */; };
 		9EAEA5941ED3446B005E3F63 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EAEA5931ED3446B005E3F63 /* ButtonView.swift */; };
+		9EB3FD641ED606EF00B9319F /* Tutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB3FD631ED606EF00B9319F /* Tutorial.swift */; };
 		9EC7AC511E4B5C1B00C89EA7 /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC7AC501E4B5C1B00C89EA7 /* ToDo.swift */; };
 		9EC7AC531E4B5EF700C89EA7 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC7AC521E4B5EF700C89EA7 /* ProgressView.swift */; };
 		9ED0CF5E1E2588510036233A /* Interval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED0CF5D1E2588510036233A /* Interval.swift */; };
@@ -100,6 +101,7 @@
 		9EAA750E1ECFC59B0026EA6F /* PreferenceButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceButton.swift; sourceTree = "<group>"; };
 		9EAA94DF1ECB6B0300D77A2C /* Pulsing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pulsing.swift; sourceTree = "<group>"; };
 		9EAEA5931ED3446B005E3F63 /* ButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
+		9EB3FD631ED606EF00B9319F /* Tutorial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tutorial.swift; sourceTree = "<group>"; };
 		9EC7AC501E4B5C1B00C89EA7 /* ToDo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
 		9EC7AC521E4B5EF700C89EA7 /* ProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		9ED0CF5D1E2588510036233A /* Interval.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interval.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 				9E957F251ECA504200CBFC1F /* TimerWindowView.swift */,
 				9E520DDD1E685DF400142F85 /* RoundButton.swift */,
 				9EAEA5931ED3446B005E3F63 /* ButtonView.swift */,
+				9EB3FD631ED606EF00B9319F /* Tutorial.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -338,6 +341,7 @@
 				9E1703FB1E56240E007B2D05 /* TimerViewController.swift in Sources */,
 				9EAEA5941ED3446B005E3F63 /* ButtonView.swift in Sources */,
 				9ED0CF731E2982850036233A /* SettingTableViewCell.swift in Sources */,
+				9EB3FD641ED606EF00B9319F /* Tutorial.swift in Sources */,
 				9E957F261ECA504200CBFC1F /* TimerWindowView.swift in Sources */,
 				9E2ADA551E535496000F5688 /* Paths.swift in Sources */,
 				9EC7AC511E4B5C1B00C89EA7 /* ToDo.swift in Sources */,

@@ -80,6 +80,9 @@ class TimerWindowView: UIView {
         sessionClock.frame = self.bounds
         sessionClock.isHidden = true
         addSubview(sessionClock)
+        
+        
+       
     }
     
     func change() {

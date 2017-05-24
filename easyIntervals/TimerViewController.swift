@@ -68,6 +68,8 @@ class TimerViewController: UIViewController {
         
         initGestures()
         view.addSubview(timerWindowView)
+        
+        addTutorial()
     }
     
     func initNavigationBar() {
@@ -216,6 +218,11 @@ class TimerViewController: UIViewController {
         view.layer.insertSublayer(gradient, at: 0)
     }
 
+    
+    func addTutorial() {
+        let instructView = Tutorial(frame: timerWindowView.frame)
+        view.addSubview(instructView)
+    }
     
 }
 
