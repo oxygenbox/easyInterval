@@ -91,10 +91,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     @IBOutlet weak var controlLabel: UILabel!
     @IBOutlet var buttonCollection: [RoundButton]!
   
-    
     //MARK: - Variables
-    let baseColor = UIColor.white
-    let higlightColor = UIColor.myBlue
     var preferences: [Preference] =  [.info, .audio, .vibrate, .cadence, .music, .workout]
 
     var runComponent: Int {
@@ -130,28 +127,28 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         }
     }
     
-    
     var sessionMessage: String {
         let minutes = data.sessionArray[data.sequenceRepeats]
         return "Ready for a \(minutes) minute workout"
     }
 
-    
     //MARK: - Lifecycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setUp()
+        config()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        updateModeWindows()
+    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-         setModeImages()
-    }
-
+   
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -212,10 +209,6 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
                 default:
                     print("MISSED")
                 }
-
-                
-                
-                
             }
         }
         data.settingsTab = sender.tag
@@ -224,32 +217,34 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     }
     
     //MARK: - Methods
-    func setUp() {
+    
+    
+    
+    
+    
+    func config() {
         //NAVBAR
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "Main", style: .plain, target: nil, action: nil)
         title = data.settingTitle
         
-        //init interface
-        //view.backgroundColor = baseColor
-        
-        sessionControl.tintColor = UIColor.accent
-        cadenceControl.tintColor = UIColor.accent
-        controlLabel.textColor = UIColor.accent
-        let sessionFont = UIFont(name: "AvenirNextCondensed-Medium", size: 14.0)!
-        let cadenceFont = UIFont(name: "AvenirNextCondensed-Medium", size: 12.0)!
-        cadenceControl.setTitleTextAttributes([NSFontAttributeName: cadenceFont],
-                                              for: .normal)
-        sessionControl.setTitleTextAttributes([NSFontAttributeName: sessionFont],
-                                              for: .normal)
-        controlLabel.font = cadenceFont
-        
+        //initPicker
         picker.selectRow(data.runValue, inComponent: runComponent, animated: false)
         picker.selectRow(data.walkValue, inComponent: walkComponent, animated: false)
         if !data.isRunWalk {
             picker.selectRow(1, inComponent: 0, animated: false)
         }
         
-        //buttons
+        //init segmentelControls
+        sessionControl.tintColor = UIColor.Theme.base
+        cadenceControl.tintColor = UIColor.Theme.base
+        cadenceControl.setTitleTextAttributes([NSFontAttributeName: UIFont.cadence],
+                                              for: .normal)
+        sessionControl.setTitleTextAttributes([NSFontAttributeName: UIFont.session],
+                                              for: .normal)
+        controlLabel.font = UIFont.cadence
+        controlLabel.textColor = UIColor.Theme.base
+        
+        //initButtons
         for (index, button) in buttonCollection.enumerated() {
             button.addTarget(self, action: #selector(buttonPressed(_:)), for: .touchUpInside)
             button.tag = index
@@ -260,6 +255,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
                 button.deselect()
             }
         }
+        
         changePreference()
         setButtonState()
         infoButton.makeInfo()
@@ -273,8 +269,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         sessionButton.isOn = data.workoutOn
     }
     
-    
-     func changePreference() {
+    func changePreference() {
         switch activePreference {
             case .audio:
                 preferenceSwitch.isOn = data.audioOn
@@ -308,7 +303,6 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         setBackground()
         
     }
-    
     
     func initSegmentedControl() {
         if activePreference == .workout {
@@ -358,7 +352,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
 
     }
     
-    func setModeImages() {
+    func updateModeWindows() {
         rightModeIcon.delay = 0.2
         
         if data.isRunWalk {
@@ -373,9 +367,9 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     
    
     func setBackground() {
-        var color =  UIColor.b700
+        var color =  UIColor.Theme.bar
         if preferenceSwitch.isOn {
-            color = UIColor.b400
+            color = UIColor.Theme.base
         }
         
         UIView.animate(withDuration: 0.2) { 
@@ -423,7 +417,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: Picker.time.width, height: 50))
         label.textAlignment = .center
-        label.textColor = higlightColor
+        label.textColor = UIColor.Theme.base
         label.font = UIFont(name: "Avenir Next", size: 24.0)!
         label.backgroundColor = UIColor.clear
         label.isOpaque = false
@@ -436,7 +430,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
             label.layer.cornerRadius = label.frame.size.height / 2
             label.clipsToBounds = true
             label.layer.borderWidth = 2
-            label.layer.borderColor = higlightColor.cgColor
+            label.layer.borderColor = UIColor.Theme.base.cgColor
             
         } else {
             label.attributedText = Tool.formatPickerTime(time: Data.timeArray[row])
@@ -456,7 +450,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         initSegmentedControl()
         
         if component == 0 {
-            setModeImages()
+            updateModeWindows()
         }
     }
 }

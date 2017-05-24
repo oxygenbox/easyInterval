@@ -15,7 +15,7 @@
  Setting screen animation
  Intro/ Instruction screen
  Handle session completion
- 
+ Write setting screen text
  
 
  IS IT SIMPLE

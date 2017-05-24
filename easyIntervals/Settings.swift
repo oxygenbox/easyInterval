@@ -194,28 +194,18 @@ extension UIColor
     struct Fonts {
         static var avenirNextCondMed: String {return "AvenirNextCondensed-Medium"}
     }
-    
-    
 }
 
 
-
-/*
- 227, 242, 253
- 187, 222, 251
- 144, 202, 249
- 100, 181, 246
- 66, 165, 245
- 33, 150, 243
- 30, 136, 229
- 25, 118, 210
- 21, 101, 192
- 13, 71, 161
-
- 
- */
-
-
+extension UIFont {
+    public class var session: UIFont {
+        return UIFont(name: "AvenirNextCondensed-Medium", size: 14.0)!
+    }
+    
+    public class var cadence: UIFont {
+        return UIFont(name: "AvenirNextCondensed-Medium", size: 12.0)!
+    }
+}
 
 
 
