@@ -200,8 +200,8 @@
 				9EAA750E1ECFC59B0026EA6F /* PreferenceButton.swift */,
 				9E0599A01EC0FCEB00E15A34 /* ModeIconView.swift */,
 				9E0599A81EC2295500E15A34 /* ClockView.swift */,
-				9E957F251ECA504200CBFC1F /* TimerWindowView.swift */,
 				9EAA94DF1ECB6B0300D77A2C /* Pulsing.swift */,
+				9E957F251ECA504200CBFC1F /* TimerWindowView.swift */,
 				9E520DDD1E685DF400142F85 /* RoundButton.swift */,
 				9EAEA5931ED3446B005E3F63 /* ButtonView.swift */,
 			);

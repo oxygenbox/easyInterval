@@ -34,8 +34,8 @@ class TimerWindowView: UIView {
     
     lazy var countDownLabel: UILabel = {
         let label = UILabel(frame: self.frame)
-        label.backgroundColor = UIColor.yellow
-        label.font = UIFont.boldSystemFont(ofSize: 120)
+        label.font = UIFont(name: "AvenirNext-Bold", size: 120)
+        label.textColor = UIColor.orange
         label.text = "5"
         return label
     }()
@@ -50,22 +50,20 @@ class TimerWindowView: UIView {
     var dropDuration: Double = 0.4
     var delay: Double = 0
     var label = UILabel()
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
+
     //override func draw(_ rect: CGRect) {
         // Drawing code
-        
   //  }
     
     override func didMoveToSuperview() {
         super.didMoveToSuperview()
         layer.cornerRadius = frame.size.height/2
-        layer.borderColor = UIColor.myBlue.cgColor
-        layer.borderWidth = 4
+        layer.borderColor = UIColor.Theme.bar.cgColor
+        layer.borderWidth = 1
         clipsToBounds = true
-        backgroundColor = UIColor.white
-        config()
+        addBackgroundGradient()
         
+        config()
     }
     
     func config() {
@@ -74,7 +72,7 @@ class TimerWindowView: UIView {
        let rect = CGRect(x: m, y: m, width: bounds.size.width - m*2, height: bounds.size.height - m*2)
         imageView = UIImageView(frame: rect)
         imageView.contentMode = .scaleAspectFit
-       
+    
         addSubview(intervalClock)
         addSubview(imageView)
         intervalClock.frame = self.bounds
@@ -103,7 +101,7 @@ class TimerWindowView: UIView {
         }
         
         imageView.image = UIImage(named: imageName)
-        imageView.tintImageColor(color: UIColor.myBlue)
+        imageView.tintImageColor(color: UIColor.Theme.bar)
     }
     
     func tick() {
@@ -132,7 +130,7 @@ class TimerWindowView: UIView {
     }
     
     func beginClocks(intervalSeconds: Int, sessionSeconds: Int?) {
-        intervalClock.shapeLayer.strokeColor = UIColor.green.cgColor
+        intervalClock.shapeLayer.strokeColor = UIColor.Theme.on.cgColor
         intervalClock.shapeLayer.lineWidth = frame.size.height - 12
         intervalClock.begin(with: intervalSeconds)
         
@@ -150,16 +148,12 @@ class TimerWindowView: UIView {
     }
     
     func addPulse() {
-        
         let radius = imageView.frame.width //* 0.8
-        
         let pulse = Pulsing(numberOfPulses: 1, radius: radius/2, position: imageView.center)
         pulse.animationDuration = 0.5
-        pulse.backgroundColor = UIColor.myBlue.cgColor
+        pulse.backgroundColor = UIColor.Theme.ibase.cgColor
         layer.insertSublayer(pulse, below: imageView.layer)
-        
     }
-    
     
     func createLabel() {
         let h: CGFloat = 70
@@ -169,9 +163,17 @@ class TimerWindowView: UIView {
         self.label.frame = self.bounds
         self.label.font = UIFont(name: "AvenirNext-Bold", size: h)
         self.label.textAlignment = .center
-        //self.label.textColor = color
+        self.label.textColor = UIColor.Theme.ibar
         self.label.text = ""
         self.addSubview(self.label)
+    }
+    
+    func addBackgroundGradient() {
+        let gradient = CAGradientLayer()
+        gradient.frame = bounds
+        gradient.colors = [UIColor.Theme.windowStart.cgColor, UIColor.Theme.windowEnd.cgColor]
+        gradient.locations = [0.5, 1]
+        layer.insertSublayer(gradient, at: 0)
     }
 
 }

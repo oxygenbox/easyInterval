@@ -154,12 +154,20 @@ extension UIColor
         return UIColor(red: 33/255, green: 150/255, blue: 243/255, alpha: 1.0)
     }
     
+    public class var o500: UIColor {
+        return UIColor(red: 222/255, green: 105/255, blue: 12/255, alpha: 1.0)
+    }
+    
     public class var b600: UIColor {
         return UIColor(red: 30/255, green: 136/255, blue: 229/255, alpha: 1.0)
     }
     
     public class var b700: UIColor {
         return UIColor(red: 25/255, green: 118/255, blue: 210/255, alpha: 1.0)
+    }
+    
+    public class var o700: UIColor {
+        return UIColor(red: 230/255, green: 137/255, blue: 45/255, alpha: 1.0)
     }
     
     public class var b800: UIColor {
@@ -172,11 +180,15 @@ extension UIColor
     
     struct Theme {
         static var base: UIColor {return .b500}
+        static var ibase: UIColor {return .o500}
         static var bar: UIColor {return .b700}
+        static var ibar: UIColor {return .o700}
         static var on: UIColor {return .b200}
         static var borderOn: UIColor {return .b50}
         static var borderOff: UIColor {return .b900}
         static var textLight: UIColor {return .b50}
+        static var windowStart: UIColor {return .b50}
+        static var windowEnd: UIColor {return .b200}
     }
     
     struct Fonts {
