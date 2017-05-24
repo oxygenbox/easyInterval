@@ -87,7 +87,7 @@ class TimerViewController: UIViewController {
         sessionType.textColor = UIColor.Theme.textLight
     }
     
-    func postTimes() {
+    func updateTimeLabels() {
         intervalTime.attributedText = Tool.intervalTimeFormatted(seconds: workout.currentInterval.remainingSeconds)
         timerWindowView.intervalSeconds = workout.currentInterval.remainingSeconds
         
@@ -103,7 +103,7 @@ class TimerViewController: UIViewController {
     func initWorkout() {
         workout = Workout()
         workout.delegate = self
-        postTimes()
+        updateTimeLabels()
         modeUpdate()
     }
     
@@ -142,30 +142,31 @@ class TimerViewController: UIViewController {
         let ac = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
         let runAction = UIAlertAction(title: "Restart Run Interval", style: .default) { [unowned self] (action) in
             self.workout.restart(mode: .run)
+            self.updateTimeLabels()
         }
         
         let walkAction = UIAlertAction(title: "Restart Walk Interval", style: .default) { [unowned self] (action) in
             self.workout.restart(mode: .walk)
-            self.postTimes()
+            self.updateTimeLabels()
         }
         
         let elapsedAction = UIAlertAction(title: "Restart Elapsed Time", style: .default) { [unowned self] (action) in
             self.workout.elapsedSeconds = 0
-            self.postTimes()
+            self.updateTimeLabels()
         }
         
         let allAction = UIAlertAction(title: "Restart Interval & Elapsed Time", style: .default) { [unowned self] (action) in
             self.workout.restart(mode: self.workout.currentMode)
             self.workout.elapsedSeconds = 0
-            self.postTimes()
+            self.updateTimeLabels()
         }
         
         let workoutAction = UIAlertAction(title: "Restart Workout", style: .default) { (action) in
-            // postTimes()
+            // updateTimeLabels()
         }
         
         let endWOAction = UIAlertAction(title: "End Workout", style: .default) { (action) in
-            //  postTimes()
+            //  updateTimeLabels()
         }
         
         let cancelActions = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
@@ -217,11 +218,11 @@ class TimerViewController: UIViewController {
 //MARK:- EXTENSIONS
 extension TimerViewController: WorkoutDelegate {
     func woTick(){
-        postTimes()
+        updateTimeLabels()
     }
     
     func workoutTick(with percent: CGFloat) {
-        postTimes()
+        updateTimeLabels()
     }
 
     func modeUpdate(){
