@@ -174,7 +174,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
                 break
         }
         setButtonState()
-        setBackground()
+        setApperanceBasedOnPreferenceSetting()
     }
     
     @IBAction func controlChanged(_ sender: UISegmentedControl) {
@@ -232,6 +232,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     func config() {
         //NAVBAR
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "Main", style: .plain, target: nil, action: nil)
+        titleLabel.font = UIFont.title
         titleLabel.textColor = UIColor.Theme.base
         titleLabel.text = data.settingTitle
         doneButton.tintColor = UIColor.Theme.base
@@ -309,7 +310,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         revealMessage()
         prefMessage.text = activePreference.desc
         preferenceSwitch.isHidden = activePreference == .info
-        setBackground()
+        setApperanceBasedOnPreferenceSetting()
         
     }
     
@@ -373,7 +374,22 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         }
     }
     
-    
+    func setApperanceBasedOnPreferenceSetting() {
+        var imageColor = UIColor.red
+        var bgColor = UIColor.b100
+        
+        if preferenceSwitch.isOn {
+            imageColor = UIColor.white
+            bgColor = UIColor.green
+        }
+        
+        UIView.animate(withDuration: 0.2) {
+            self.modeImageView.tintColor = imageColor
+            self.view.backgroundColor = bgColor
+        }
+        
+        
+    }
    
     func setBackground() {
         var color =  UIColor.white

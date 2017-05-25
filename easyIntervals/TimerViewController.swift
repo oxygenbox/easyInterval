@@ -61,9 +61,9 @@ class TimerViewController: UIViewController{
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let settingsVC = segue.destination as! SettingsViewController
-        settingsVC.transitioningDelegate = self
-        self.modalPresentationStyle = .custom
+      //  let settingsVC = segue.destination as! SettingsViewController
+      //  settingsVC.transitioningDelegate = self
+      //  self.modalPresentationStyle = .custom
     }
 
     //MARK:- Methods
@@ -170,7 +170,11 @@ class TimerViewController: UIViewController{
     
     //MARK:- NAVBAR BUTTON ACTIONS
     @IBAction func settingsTapped(_ sender: UIButton) {
-        
+        var storyboard = UIStoryboard(name: "Main", bundle: nil)
+        var ivc = storyboard.instantiateViewController(withIdentifier: "Settings")
+        ivc.modalTransitionStyle = .crossDissolve
+        self.present(ivc, animated: true, completion: { _ in })
+
     }
     
     @IBAction func resetTapped(_ sender: UIButton) {
@@ -179,10 +183,17 @@ class TimerViewController: UIViewController{
 
     
     func settingTapped() {
-        if let vc = storyboard?.instantiateViewController(withIdentifier: "Settings") as? SettingsViewController {
-            self.navigationController?.pushViewController(vc, animated: true)
-            self.modeUpdate()
-        }
+        var storyboard = UIStoryboard(name: "Main", bundle: nil)
+        var ivc = storyboard.instantiateViewController(withIdentifier: "Settings")
+        ivc.modalTransitionStyle = .crossDissolve
+        self.present(ivc, animated: true, completion: { _ in })
+        
+        
+        
+       // if let vc = storyboard?.instantiateViewController(withIdentifier: "Settings") as? SettingsViewController {
+        //    self.navigationController?.pushViewController(vc, animated: true)
+        //    self.modeUpdate()
+       // }
     }
     
     func openResetAlert() {
