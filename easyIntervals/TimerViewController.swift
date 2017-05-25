@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TimerViewController: UIViewController {
+class TimerViewController: UIViewController{
     //MARK:- IBOUTLET
     @IBOutlet weak var intervalTime: UILabel!
     @IBOutlet weak var elapsedTime: UILabel!
@@ -20,11 +20,16 @@ class TimerViewController: UIViewController {
     @IBOutlet weak var cadenceButton: RoundButton!
     @IBOutlet weak var musicButton: RoundButton!
     @IBOutlet weak var workoutButton: RoundButton!
-    @IBOutlet var prefButtons: [UIButton]!
+    @IBOutlet weak var settingsButton:UIButton!
+    @IBOutlet weak var resetButton:UIButton!
+    @IBOutlet weak var titleLabel:UILabel!
     
+    @IBOutlet var prefButtons: [UIButton]!
+   
     
     //MARK - VARIABLES
     var workout: Workout!
+    var transition = CircularTansition()
     
     lazy var timerWindowView: TimerWindowView = {
         var h = self.view.frame.size.height
@@ -51,10 +56,16 @@ class TimerViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let settingsVC = segue.destination as! SettingsViewController
+        settingsVC.transitioningDelegate = self
+        self.modalPresentationStyle = .custom
+    }
 
     //MARK:- Methods
     func configScreen() {
-        initNavigationBar()
+        //initNavigationBar()
         view.backgroundColor = UIColor.Theme.base
         addBackgroundGradient()
         initlabels()
@@ -68,7 +79,9 @@ class TimerViewController: UIViewController {
         
         initGestures()
         view.addSubview(timerWindowView)
-        
+        titleLabel.font = UIFont.title
+        titleLabel.textColor = UIColor.white
+        titleLabel.text = data.settingTitle
         addTutorial()
     }
     
@@ -134,6 +147,15 @@ class TimerViewController: UIViewController {
     }
     
     //MARK:- NAVBAR BUTTON ACTIONS
+    @IBAction func settingsTapped(_ sender: UIButton) {
+        
+    }
+    
+    @IBAction func resetTapped(_ sender: UIButton) {
+        openResetAlert()
+    }
+
+    
     func settingTapped() {
         if let vc = storyboard?.instantiateViewController(withIdentifier: "Settings") as? SettingsViewController {
             self.navigationController?.pushViewController(vc, animated: true)
@@ -141,7 +163,7 @@ class TimerViewController: UIViewController {
         }
     }
     
-    func resetTapped() {
+    func openResetAlert() {
         let ac = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
         let runAction = UIAlertAction(title: "Restart Run Interval", style: .default) { [unowned self] (action) in
             self.timerWindowView.reset(interval: true, session: false)
@@ -250,4 +272,24 @@ extension TimerViewController: WorkoutDelegate {
         //modeView.intervalTimer(percent: 1-pct)
     }
 }
+
+
+extension TimerViewController:  UIViewControllerTransitioningDelegate  {
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition.transitionMode = .present
+        transition.startingPoint = timerWindowView.center
+        transition.circleColor = UIColor.orange
+        return transition
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition.transitionMode = .dismiss
+        transition.startingPoint = timerWindowView.center
+        transition.circleColor = UIColor.orange
+        return transition
+    }
+}
+
+
+
 

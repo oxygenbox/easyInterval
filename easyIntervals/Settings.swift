@@ -205,10 +205,11 @@ extension UIFont {
     public class var cadence: UIFont {
         return UIFont(name: "AvenirNextCondensed-Medium", size: 12.0)!
     }
+    
+    public class var title: UIFont {
+        return UIFont(name: "AvenirNextCondensed-Regular", size: 20.0)!
+    }
 }
-
-
-
 
 extension UIImageView {
     func tintImageColor(color : UIColor) {

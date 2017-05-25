@@ -88,7 +88,9 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     @IBOutlet weak var cadenceButton: RoundButton!
     @IBOutlet weak var musicButton: RoundButton!
     @IBOutlet weak var sessionButton: RoundButton!
+    @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var controlLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet var buttonCollection: [RoundButton]!
   
     //MARK: - Variables
@@ -214,6 +216,11 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         data.settingsTab = sender.tag
         data.save()
         changePreference()
+    }
+    
+    
+    @IBAction func doneTapped(_ sender: UIButton) {
+       dismiss(animated: true, completion: nil)
     }
     
     //MARK: - Methods
