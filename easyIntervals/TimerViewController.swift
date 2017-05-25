@@ -30,6 +30,7 @@ class TimerViewController: UIViewController{
     //MARK - VARIABLES
     var workout: Workout!
     var transition = CircularTansition()
+    var intervalClock = ClockView()
     
     lazy var timerWindowView: TimerWindowView = {
         var h = self.view.frame.size.height
@@ -40,6 +41,8 @@ class TimerViewController: UIViewController{
         let frame = CGRect(x: x/2, y: h + 60, width: h, height: h)
         return TimerWindowView(frame: frame)
     }()
+    
+   
     
     //MARK:- LIFECYCLE
     override func viewWillAppear(_ animated: Bool) {
@@ -84,8 +87,25 @@ class TimerViewController: UIViewController{
         titleLabel.text = data.settingTitle
         resetButton.tintColor = UIColor.Theme.base
         settingsButton.tintColor = UIColor.Theme.base
+        
+       // initIntervalClock()
+        
       //  addTutorial()
     }
+    
+    func initIntervalClock() {
+            let dim = self.view.frame.size.width/2
+            intervalClock = ClockView(frame: CGRect(x: 0, y: 0, width: dim, height: dim))
+            intervalClock.shapeLayer.strokeColor = UIColor.b100.cgColor
+            intervalClock.shapeLayer.lineWidth = dim
+            //bclock.begin(with: intervalSeconds)
+            intervalClock.center = timerWindowView.center
+           // view.addSubview(intervalClock)
+            view.insertSubview(intervalClock, at: 0)
+        
+    }
+    
+    
     
     func initNavigationBar() {
        title = data.settingTitle
@@ -265,6 +285,7 @@ extension TimerViewController: WorkoutDelegate {
         if workout.timer != nil {
             let intervalSecs = workout.currentInterval.lengthInSeconds
             timerWindowView.beginClocks(intervalSeconds: intervalSecs, sessionSeconds: nil)
+            //intervalClock.begin(with: intervalSecs)
         }
     }
 

@@ -30,7 +30,7 @@ class ClockView: UIView {
     var doneButton: UIButton = UIButton()
     var resetButton: UIButton = UIButton()
     var delegate: ClockViewDelegate?
-    var color = UIColor.gray
+    var color = UIColor.clear
     var homeY: CGFloat = 0
     
     var hasStarted:Bool {

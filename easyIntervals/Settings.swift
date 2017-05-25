@@ -188,10 +188,10 @@ extension UIColor
         static var off: UIColor {return .white}
         
         
+        
         static var bar: UIColor {return .b700}
         static var ibar: UIColor {return .o700}
-        static var on: UIColor {return .b200}
-         static var off: UIColor {return .white}
+        
         static var borderOn: UIColor {return .b50}
         static var borderOff: UIColor {return .b900}
         static var textLight: UIColor {return .b50}

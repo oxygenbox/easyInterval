@@ -35,7 +35,7 @@ class TimerWindowView: UIView {
     lazy var countDownLabel: UILabel = {
         let label = UILabel(frame: self.frame)
         label.font = UIFont(name: "AvenirNext-Bold", size: 120)
-        label.textColor = UIColor.orange
+        label.textColor = UIColor.Theme.ibase
         label.text = "5"
         return label
     }()
@@ -58,31 +58,27 @@ class TimerWindowView: UIView {
     override func didMoveToSuperview() {
         super.didMoveToSuperview()
         layer.cornerRadius = frame.size.height/2
-        layer.borderColor = UIColor.Theme.bar.cgColor
-        layer.borderWidth = 1
         clipsToBounds = true
-        addBackgroundGradient()
-        
+        layer.borderColor = UIColor.Theme.base.cgColor
+        layer.borderWidth = 1
+       // addBackgroundGradient()
         config()
     }
     
     func config() {
+        backgroundColor = UIColor.Theme.on
         let m = 0.10 * frame.size.height
-        
-       let rect = CGRect(x: m, y: m, width: bounds.size.width - m*2, height: bounds.size.height - m*2)
+        let rect = CGRect(x: m, y: m, width: bounds.size.width - m*2, height: bounds.size.height - m*2)
         imageView = UIImageView(frame: rect)
         imageView.contentMode = .scaleAspectFit
     
         addSubview(intervalClock)
-        addSubview(imageView)
         intervalClock.frame = self.bounds
+        addSubview(imageView)
         createLabel()
         sessionClock.frame = self.bounds
         sessionClock.isHidden = true
         addSubview(sessionClock)
-        
-        
-       
     }
     
     func change() {
@@ -104,7 +100,7 @@ class TimerWindowView: UIView {
         }
         
         imageView.image = UIImage(named: imageName)
-        imageView.tintImageColor(color: UIColor.Theme.bar)
+        imageView.tintImageColor(color: UIColor.base)
     }
     
     func tick() {
@@ -133,19 +129,19 @@ class TimerWindowView: UIView {
     }
     
     func beginClocks(intervalSeconds: Int, sessionSeconds: Int?) {
-        
-        print("beginClocks")
-        
-        intervalClock.shapeLayer.strokeColor = UIColor.Theme.on.cgColor
+        intervalClock.shapeLayer.strokeColor = UIColor.orange.cgColor
         intervalClock.shapeLayer.lineWidth = frame.size.height - 12
         intervalClock.begin(with: intervalSeconds)
-        
         
         guard let t = sessionSeconds else {
             return
         }
+        
+        sessionClock.shapeLayer.strokeColor = UIColor.b800.cgColor
+        sessionClock.shapeLayer.lineWidth = 2
         sessionClock.isHidden = false
         sessionClock.begin(with: t)
+        
     }
     
     func reset(interval: Bool, session: Bool) {
