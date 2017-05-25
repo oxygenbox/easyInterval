@@ -14,8 +14,10 @@ class RoundButton: UIButton {
         didSet{
             if isOn {
                 backgroundColor = UIColor.Theme.on
+                tintColor = UIColor.Theme.off
             } else {
-                backgroundColor = UIColor.Theme.base
+                backgroundColor = UIColor.Theme.off
+                tintColor = UIColor.Theme.on
             }
         }
     }
@@ -24,7 +26,7 @@ class RoundButton: UIButton {
         super.awakeFromNib()
         layer.cornerRadius = self.bounds.height / 2
         layer.borderWidth = 0
-        tintColor = UIColor.Theme.bar
+        tintColor = UIColor.Theme.base
     }
     
     

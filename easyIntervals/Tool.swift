@@ -19,7 +19,7 @@ class Tool {
         
         let attributedString = NSMutableAttributedString(string: timeString)
         attributedString.addAttribute(NSKernAttributeName, value: -4, range: NSMakeRange(0, charCount))
-        attributedString.addAttribute(NSForegroundColorAttributeName, value: UIColor.Theme.textLight, range: NSMakeRange(0, charCount))
+        attributedString.addAttribute(NSForegroundColorAttributeName, value: UIColor.Theme.text, range: NSMakeRange(0, charCount))
         attributedString.addAttribute(NSFontAttributeName, value: font!, range: NSMakeRange(0, charCount))
         return attributedString
     }

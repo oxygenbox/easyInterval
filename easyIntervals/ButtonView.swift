@@ -20,7 +20,7 @@ class ButtonView: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        backgroundColor = UIColor.Theme.bar
+        backgroundColor = UIColor.Theme.buttonBar
     }
 
 }

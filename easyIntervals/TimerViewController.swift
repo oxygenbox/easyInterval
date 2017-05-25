@@ -66,8 +66,8 @@ class TimerViewController: UIViewController{
     //MARK:- Methods
     func configScreen() {
         //initNavigationBar()
-        view.backgroundColor = UIColor.Theme.base
-        addBackgroundGradient()
+        view.backgroundColor = UIColor.Theme.back
+      //  addBackgroundGradient()
         initlabels()
     
         audioButton.isOn = data.audioOn
@@ -80,9 +80,11 @@ class TimerViewController: UIViewController{
         initGestures()
         view.addSubview(timerWindowView)
         titleLabel.font = UIFont.title
-        titleLabel.textColor = UIColor.white
+        titleLabel.textColor = UIColor.Theme.base
         titleLabel.text = data.settingTitle
-        addTutorial()
+        resetButton.tintColor = UIColor.Theme.base
+        settingsButton.tintColor = UIColor.Theme.base
+      //  addTutorial()
     }
     
     func initNavigationBar() {
@@ -97,9 +99,9 @@ class TimerViewController: UIViewController{
     }
     
     func initlabels() {
-        intervalTime.textColor = UIColor.Theme.textLight
-        elapsedTime.textColor = UIColor.Theme.textLight
-        sessionType.textColor = UIColor.Theme.textLight
+        //intervalTime.textColor = UIColor.Theme.textLight
+        elapsedTime.textColor = UIColor.Theme.base
+        sessionType.textColor = UIColor.Theme.base
     }
     
     func updateTimeLabels() {

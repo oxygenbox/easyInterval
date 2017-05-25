@@ -181,15 +181,39 @@ extension UIColor
     struct Theme {
         static var base: UIColor {return .b500}
         static var ibase: UIColor {return .o500}
+        static var back: UIColor { return .white}
+        static var buttonBar: UIColor {return .clear}
+        static var text: UIColor {return .b700}
+        static var on: UIColor {return .b200}
+        static var off: UIColor {return .white}
+        
+        
         static var bar: UIColor {return .b700}
         static var ibar: UIColor {return .o700}
         static var on: UIColor {return .b200}
+         static var off: UIColor {return .white}
         static var borderOn: UIColor {return .b50}
         static var borderOff: UIColor {return .b900}
         static var textLight: UIColor {return .b50}
         static var windowStart: UIColor {return .b50}
         static var windowEnd: UIColor {return .b200}
     }
+    
+    struct OLDTheme {
+        static var base: UIColor {return .b500}
+        static var ibase: UIColor {return .o500}
+        static var bar: UIColor {return .b700}
+        static var ibar: UIColor {return .o700}
+        static var on: UIColor {return .b200}
+       
+        static var borderOn: UIColor {return .b50}
+        static var borderOff: UIColor {return .b900}
+        static var textLight: UIColor {return .b50}
+        static var windowStart: UIColor {return .b50}
+        static var windowEnd: UIColor {return .b200}
+    }
+    
+    
     
     struct Fonts {
         static var avenirNextCondMed: String {return "AvenirNextCondensed-Medium"}
