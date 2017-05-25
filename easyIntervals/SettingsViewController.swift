@@ -232,7 +232,9 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     func config() {
         //NAVBAR
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "Main", style: .plain, target: nil, action: nil)
-        title = data.settingTitle
+        titleLabel.textColor = UIColor.Theme.base
+        titleLabel.text = data.settingTitle
+        doneButton.tintColor = UIColor.Theme.base
         
         //initPicker
         picker.selectRow(data.runValue, inComponent: runComponent, animated: false)
@@ -374,9 +376,9 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     
    
     func setBackground() {
-        var color =  UIColor.Theme.bar
+        var color =  UIColor.white
         if preferenceSwitch.isOn {
-            color = UIColor.Theme.base
+            color = UIColor.white
         }
         
         UIView.animate(withDuration: 0.2) { 
