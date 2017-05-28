@@ -375,12 +375,12 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     }
     
     func setApperanceBasedOnPreferenceSetting() {
-        var imageColor = UIColor.red
+        var imageColor = UIColor.b50
         var bgColor = UIColor.b100
         
         if preferenceSwitch.isOn {
-            imageColor = UIColor.white
-            bgColor = UIColor.green
+            imageColor = UIColor.b100
+            bgColor = UIColor.b50
         }
         
         UIView.animate(withDuration: 0.2) {
@@ -389,17 +389,6 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         }
         
         
-    }
-   
-    func setBackground() {
-        var color =  UIColor.white
-        if preferenceSwitch.isOn {
-            color = UIColor.white
-        }
-        
-        UIView.animate(withDuration: 0.2) { 
-            self.view.backgroundColor = color
-        }
     }
     
     //MARK: - PickerView Methods
@@ -476,6 +465,12 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         
         if component == 0 {
             updateModeWindows()
+        }
+    }
+    
+    func loadPref() {
+        if let prefView = Bundle.main.loadNibNamed("PreferenceWindow", owner: self, options: nil)?.first as? PreferenceWindow {
+            view.addSubview(prefView)
         }
     }
 }

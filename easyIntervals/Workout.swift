@@ -14,8 +14,11 @@ struct Session {
     var totalSeconds: Int
     var remainingSeconds: Int
     
+    var complete: Bool {
+        return remainingSeconds < 1
+    }
+    
     mutating func tick() {
-        print("tick \(remainingSeconds)")
         remainingSeconds -= 1
     }
 }
@@ -103,7 +106,11 @@ class Workout: NSObject, AVAudioPlayerDelegate {
 
     func tickOccured() {
         intervalTick()
-        elapsedSeconds += 1
+        //elapsedSeconds += 1
+        
+        if woSession != nil {
+            woSession!.tick()
+        }
         
         guard let timerViewController = delegate else {
             return
@@ -111,24 +118,19 @@ class Workout: NSObject, AVAudioPlayerDelegate {
         
         timerViewController.workoutTick(with: currentInterval.intervalPercent())
         
-        if woSession != nil {
-            woSession!.tick()
-        }
-        
+
     }
     
     func intervalTick() {
         currentInterval.remainingSeconds -= 1
+        elapsedSeconds += 1
+        
         if currentInterval.countDown {
             let word = String(currentInterval.remainingSeconds)
             speak(word: word)
             vibrate()
         } else if currentInterval.complete {
             complete()
-        }
-        
-        if data.workoutOn {
-            // print("WORKOUT \(data.sequenceRepeats * data.sessionIncrement)")
         }
     }
     
@@ -151,23 +153,6 @@ class Workout: NSObject, AVAudioPlayerDelegate {
         }
     }
     
-//    func OLDcadenceCheck() {
-//        if data.cadenceOn && currentMode == .run {
-//            
-//            print("cadenceTracker \(cadenceTracker) : data \(data.cadenceFrequency)")
-//            if cadenceTracker >= data.cadenceFrequency {
-//                cadenceTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(playCadence), userInfo: nil, repeats: false)
-//               
-//                    RunLoop.main.add(cadenceTimer!, forMode: RunLoopMode.commonModes)
-//                
-//                cadenceTracker = 0
-//            }
-//            
-//            print("cadenceTracker \(cadenceTracker) : data \(data.cadenceFrequency)")
-//            cadenceTracker += 1
-//        }
-//    }
-    
     func playCadence() {
         print("playCadence")
         speak(word: "cadenceBeat")
@@ -178,7 +163,6 @@ class Workout: NSObject, AVAudioPlayerDelegate {
             AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
         }
     }
-    
     
     func speak(word: String){
         if data.audioOn {
@@ -202,21 +186,36 @@ class Workout: NSObject, AVAudioPlayerDelegate {
         }
     }
     
-   
-    
     func intervalSeconds() -> Int {
         return currentInterval.remainingSeconds
     }
     
-   
-    
-    func complete() {
+    func startNewInterval() {
         advance()
         speak(word: currentInterval.mode.name.lowercased())
         if let d = delegate {
             d.modeUpdate()
         }
     }
+    
+    func complete() {
+        if let session = woSession {
+            if session.complete {
+                self.sessionComplete()
+                return
+            }
+        }
+
+         startNewInterval()
+    
+    }
+    
+    func sessionComplete() {
+        pauseTimer()
+        speak(word: "complete")
+    }
+    
+    
     
     func restart(mode: Mode) {
         if mode == currentMode {

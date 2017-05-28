@@ -54,7 +54,7 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Jq-Xo-b97">
                                                         <rect key="frame" x="260" y="0.0" width="44" height="44"/>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <state key="normal" image="setting"/>
+                                                        <state key="normal" image="Gear2"/>
                                                         <connections>
                                                             <segue destination="weC-Ga-LzU" kind="popoverPresentation" popoverAnchorView="8Jq-Xo-b97" id="pe7-Y5-lmg">
                                                                 <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
@@ -327,14 +327,14 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="272" height="100"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cadence_panel" translatesAutoresizingMaskIntoConstraints="NO" id="f01-71-wBn">
-                                                                <rect key="frame" x="0.0" y="10" width="80" height="80"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="80" height="100"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="80" id="LBX-P4-g4D"/>
                                                                     <constraint firstAttribute="width" constant="80" id="exa-0S-tCP"/>
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kzq-jA-TpL">
-                                                                <rect key="frame" x="88" y="10" width="184" height="80"/>
+                                                                <rect key="frame" x="88" y="15" width="184" height="70"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="80" id="EWN-dR-Y5l"/>
                                                                 </constraints>
@@ -554,6 +554,7 @@ df</string>
         </scene>
     </scenes>
     <resources>
+        <image name="Gear2" width="22" height="22"/>
         <image name="cadence_panel" width="135" height="125"/>
         <image name="icon_audio" width="22" height="22"/>
         <image name="icon_cadence" width="22" height="22"/>
@@ -562,6 +563,5 @@ df</string>
         <image name="icon_time" width="22" height="22"/>
         <image name="icon_vibrate" width="22" height="22"/>
         <image name="reset" width="22" height="22"/>
-        <image name="setting" width="22" height="22"/>
     </resources>
 </document>

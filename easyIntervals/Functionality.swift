@@ -18,6 +18,18 @@
  Write setting screen text
 
  
+ 
+ 
+ 
+ 
+ 
+ xib round
+ BG Icont slid in with spring and rotate
+ Round
+ Delegate
+ 
+ 
+ 
 
  IS IT SIMPLE
  IS IT CLEAN
