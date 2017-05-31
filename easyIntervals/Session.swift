@@ -6,14 +6,44 @@
 //  Copyright © 2017 Michael Schaffner. All rights reserved.
 //
 
-//import UIKit
-//import AVFoundation
+import UIKit
+import AVFoundation
 //
-//protocol SessionDelegate {
-//    
-//}
+protocol SessionDelegate {
+
+}
 //
-//class Session: Workout {
+class Session: NSObject {
+    var totalSeconds: Int = 0
+    var remainingSeconds: Int = 0
+    var elapsedSeconds: Int = 0
+    
+    var complete: Bool {
+        return remainingSeconds <= 1
+    }
+    
+     func tick() {
+        remainingSeconds -= 1
+        elapsedSeconds += 1
+        
+        print("total \(totalSeconds)")
+        print("remain \(remainingSeconds)")
+        print("elpsed \(elapsedSeconds)")
+    }
+
+    override init() {
+        super.init()
+    }
+    
+    convenience init(totalSecs: Int) {
+       self.init()
+        self.totalSeconds = totalSecs
+        remainingSeconds = totalSecs
+    }
+    
+    
+    
+}
 //    
 //    override func advance() {
 //        

@@ -32,7 +32,6 @@
 		9E6789E01E2D6FBC00E1674E /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6789DF1E2D6FBC00E1674E /* SettingsCell.swift */; };
 		9E957F261ECA504200CBFC1F /* TimerWindowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E957F251ECA504200CBFC1F /* TimerWindowView.swift */; };
 		9EA221821E53554300A79D21 /* ModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA221811E53554300A79D21 /* ModeView.swift */; };
-		9EA63C271ED6715D00C1D5FB /* CircularTansition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA63C261ED6715D00C1D5FB /* CircularTansition.swift */; };
 		9EAA750F1ECFC59B0026EA6F /* PreferenceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EAA750E1ECFC59B0026EA6F /* PreferenceButton.swift */; };
 		9EAA94E01ECB6B0300D77A2C /* Pulsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EAA94DF1ECB6B0300D77A2C /* Pulsing.swift */; };
 		9EAEA5941ED3446B005E3F63 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EAEA5931ED3446B005E3F63 /* ButtonView.swift */; };
@@ -104,7 +103,6 @@
 		9E6789DF1E2D6FBC00E1674E /* SettingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
 		9E957F251ECA504200CBFC1F /* TimerWindowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerWindowView.swift; sourceTree = "<group>"; };
 		9EA221811E53554300A79D21 /* ModeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModeView.swift; sourceTree = "<group>"; };
-		9EA63C261ED6715D00C1D5FB /* CircularTansition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularTansition.swift; sourceTree = "<group>"; };
 		9EAA750E1ECFC59B0026EA6F /* PreferenceButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceButton.swift; sourceTree = "<group>"; };
 		9EAA94DF1ECB6B0300D77A2C /* Pulsing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pulsing.swift; sourceTree = "<group>"; };
 		9EAEA5931ED3446B005E3F63 /* ButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
@@ -225,7 +223,6 @@
 				9EAEA5931ED3446B005E3F63 /* ButtonView.swift */,
 				9EB3FD631ED606EF00B9319F /* Tutorial.swift */,
 				9EB3FD651ED64B9000B9319F /* ScaleSegue.swift */,
-				9EA63C261ED6715D00C1D5FB /* CircularTansition.swift */,
 				9E119FDB1ED87C78009B4D67 /* PreferenceWindow.swift */,
 			);
 			name = Classes;
@@ -351,7 +348,6 @@
 				9ED0CFA71E2BE93E0036233A /* PreferenceView.swift in Sources */,
 				9ED0CF711E295F600036233A /* OLDSettingViewController.swift in Sources */,
 				9E2E77E81E23DA0C0082ED83 /* Settings.swift in Sources */,
-				9EA63C271ED6715D00C1D5FB /* CircularTansition.swift in Sources */,
 				9E0599AB1EC63D8200E15A34 /* NewSettingViewController.swift in Sources */,
 				9E2E77E11E23D9A90082ED83 /* MainViewController.swift in Sources */,
 				9EAA94E01ECB6B0300D77A2C /* Pulsing.swift in Sources */,

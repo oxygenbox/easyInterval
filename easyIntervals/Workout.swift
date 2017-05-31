@@ -10,18 +10,18 @@ import Foundation
 import UIKit
 import AVFoundation
 
-struct Session {
-    var totalSeconds: Int
-    var remainingSeconds: Int
-    
-    var complete: Bool {
-        return remainingSeconds < 1
-    }
-    
-    mutating func tick() {
-        remainingSeconds -= 1
-    }
-}
+//struct Session {
+//    var totalSeconds: Int
+//    var remainingSeconds: Int
+//    
+//    var complete: Bool {
+//        return remainingSeconds <= 1
+//    }
+//    
+//    mutating func tick() {
+//        remainingSeconds -= 1
+//    }
+//}
 
 protocol WorkoutDelegate {
     func woTick()
@@ -55,8 +55,9 @@ class Workout: NSObject, AVAudioPlayerDelegate {
         setUp()
         
         if data.workoutOn {
-            let secs = data.totalSessionSeconds
-            woSession = Session(totalSeconds: secs, remainingSeconds: secs)
+            //let secs = data.totalSessionSeconds
+           // woSession = Session(totalSecs: secs)
+            startSession()
         }
     }
     
@@ -86,6 +87,11 @@ class Workout: NSObject, AVAudioPlayerDelegate {
             pauseTimer()
             speak(word: "stop")
         }
+    }
+    
+    func startSession() {
+        let secs = data.totalSessionSeconds
+        woSession = Session(totalSecs: secs)
     }
     
     func startTimer() {
@@ -201,7 +207,11 @@ class Workout: NSObject, AVAudioPlayerDelegate {
     func complete() {
         if let session = woSession {
             if session.complete {
+                print("complete \(session.remainingSeconds)")
+                session.remainingSeconds = session.totalSeconds
+                session.elapsedSeconds = 0
                 self.sessionComplete()
+                
                 return
             }
         }
@@ -213,6 +223,7 @@ class Workout: NSObject, AVAudioPlayerDelegate {
     func sessionComplete() {
         pauseTimer()
         speak(word: "complete")
+        
     }
     
     

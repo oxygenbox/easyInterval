@@ -42,7 +42,4 @@ import Foundation
  
  9. Implement music
  10. Countdown to start
- 
- // TEset but rested
-1.Test reset
  */

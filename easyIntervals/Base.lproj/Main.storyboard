@@ -56,9 +56,7 @@
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" image="Gear2"/>
                                                         <connections>
-                                                            <segue destination="weC-Ga-LzU" kind="popoverPresentation" popoverAnchorView="8Jq-Xo-b97" id="pe7-Y5-lmg">
-                                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                                            </segue>
+                                                            <action selector="settingsTapped:" destination="FgG-fg-luk" eventType="touchUpInside" id="93O-YE-3kn"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -327,14 +325,14 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="272" height="100"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cadence_panel" translatesAutoresizingMaskIntoConstraints="NO" id="f01-71-wBn">
-                                                                <rect key="frame" x="0.0" y="0.0" width="80" height="100"/>
+                                                                <rect key="frame" x="0.0" y="10" width="80" height="80"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="80" id="LBX-P4-g4D"/>
                                                                     <constraint firstAttribute="width" constant="80" id="exa-0S-tCP"/>
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kzq-jA-TpL">
-                                                                <rect key="frame" x="88" y="15" width="184" height="70"/>
+                                                                <rect key="frame" x="88" y="10" width="184" height="80"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="80" id="EWN-dR-Y5l"/>
                                                                 </constraints>
