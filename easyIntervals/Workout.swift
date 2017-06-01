@@ -10,19 +10,6 @@ import Foundation
 import UIKit
 import AVFoundation
 
-//struct Session {
-//    var totalSeconds: Int
-//    var remainingSeconds: Int
-//    
-//    var complete: Bool {
-//        return remainingSeconds <= 1
-//    }
-//    
-//    mutating func tick() {
-//        remainingSeconds -= 1
-//    }
-//}
-
 protocol WorkoutDelegate {
     func woTick()
     func modeUpdate()
@@ -55,8 +42,6 @@ class Workout: NSObject, AVAudioPlayerDelegate {
         setUp()
         
         if data.workoutOn {
-            //let secs = data.totalSessionSeconds
-           // woSession = Session(totalSecs: secs)
             startSession()
         }
     }
@@ -123,8 +108,6 @@ class Workout: NSObject, AVAudioPlayerDelegate {
         }
         
         timerViewController.workoutTick(with: currentInterval.intervalPercent())
-        
-
     }
     
     func intervalTick() {

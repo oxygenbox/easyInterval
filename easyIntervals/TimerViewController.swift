@@ -192,7 +192,12 @@ class TimerViewController: UIViewController{
         }
         
         let workoutAction = UIAlertAction(title: "Restart Workout", style: .default) { (action) in
-           self.workout.startSession()
+            self.workout.startSession()
+            if data.isRunWalk {
+                self.workout.restart(mode: .run)
+            } else {
+                 self.workout.restart(mode: .walk)
+            }
             self.timerWindowView.reset(interval: true, session: true)
         }
         
