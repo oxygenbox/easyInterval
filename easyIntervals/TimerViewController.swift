@@ -156,9 +156,11 @@ class TimerViewController: UIViewController{
     //MARK:- NAVBAR BUTTON ACTIONS
     @IBAction func settingsTapped(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let ivc = storyboard.instantiateViewController(withIdentifier: "Settings")
-        ivc.modalTransitionStyle = .crossDissolve
-        self.present(ivc, animated: true, completion: { _ in })
+        if let ivc = storyboard.instantiateViewController(withIdentifier: "Settings") as? SettingsViewController {
+            ivc.settingHome = timerWindowView.frame
+            ivc.modalTransitionStyle = .crossDissolve
+            self.present(ivc, animated: true, completion: { _ in })
+        }
 
     }
     

@@ -64,6 +64,8 @@ enum Preference: Int {
             return "Run a session for the length of:"
         }
     }
+    
+   
 }
 
 import UIKit
@@ -133,6 +135,10 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         let minutes = data.sessionArray[data.sequenceRepeats]
         return "Ready for a \(minutes) minute workout"
     }
+    
+    var settingHome = CGRect.zero
+    var settingOn = SettingWindow()
+    var settingOff = SettingWindow()
 
     //MARK: - Lifecycle
     override func viewWillAppear(_ animated: Bool) {
@@ -269,6 +275,17 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         changePreference()
         setButtonState()
         infoButton.makeInfo()
+        
+        loadPreference()
+//        let p = PreferenceWindow()
+//        
+//        p.frame = CGRect(x: 70, y: 70, width: 200, height: 200)
+//        if let i = UIImage(named: "cadence_panel") {
+//            p.iconImage.image = i
+//        }
+//        p.backgroundColor = UIColor.yellow
+//        
+//        view.addSubview(p)
     }
     
     func setButtonState() {
@@ -311,6 +328,8 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         prefMessage.text = activePreference.desc
         preferenceSwitch.isHidden = activePreference == .info
         setApperanceBasedOnPreferenceSetting()
+        
+        
         
     }
     
@@ -468,14 +487,83 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         }
     }
     
-    func loadPref() {
-        if let prefView = Bundle.main.loadNibNamed("PreferenceWindow", owner: self, options: nil)?.first as? PreferenceWindow {
-            view.addSubview(prefView)
+   
+    
+    func loadPreference() {
+//        if let new = newSettings {
+//            oldSettings = new
+//        }
+        
+        
+        if let settingWindow = Bundle.main.loadNibNamed("SettingWindow", owner: self, options: nil)?.first as? SettingWindow {
+            self.settingOn = settingWindow
+            settingOn.frame = settingHome
+          
+            
+            //settingOn.iconImage.image = UIImage(named: "cadence_panel")
+            settingOn.preference = activePreference
+            
+            
+            view.addSubview(settingOn)
         }
+        
+//        
+//     
+//           // nextSetting.titleLabel.text = activePreference.rawValue
+//           // nextSetting.layer.cornerRadius = nextSetting.frame.size.height/2
+//           // nextSetting.frame.origin.x = view.frame.width
+//           // nextSetting.transform = CGAffineTransform(rotationAngle: -0.90)
+//           // nextSetting.preferenceSwitch.addTarget(self, action: #selector(switchChanged), for: .valueChanged)
+//            self.view.addSubview(nextSetting)
+//            
+//         //   animateOn()
+//         //   animateOff()
+//        }
     }
+    
+    
+    
+    
 }
 
+/*
+ 
+ func changePreference() {
+ switch activePreference {
+ case .audio:
+ preferenceSwitch.isOn = data.audioOn
+ modeImageView.image = UIImage(named: "audio_panel")
+ case .vibrate:
+ preferenceSwitch.isOn = data.vibrateOn
+ modeImageView.image = UIImage(named: "vibrate_panel")
+ case .cadence:
+ preferenceSwitch.isOn = data.cadenceOn
+ modeImageView.image = UIImage(named: "cadence_panel")
+ case .music:
+ preferenceSwitch.isOn = data.musicOn
+ modeImageView.image = UIImage(named: "music_panel")
+ case .workout:
+ preferenceSwitch.isOn = data.workoutOn
+ modeImageView.image = UIImage(named: "session_panel")
+ default:
+ modeImageView.image = nil
+ break
+ }
+ 
+ if activePreference == .cadence || activePreference == .workout {
+ revealSegmentedControl(show: false)
+ } else {
+ revealSegmentedControl(show: true)
+ }
+ 
+ revealMessage()
+ prefMessage.text = activePreference.desc
+ preferenceSwitch.isHidden = activePreference == .info
+ setApperanceBasedOnPreferenceSetting()
+ 
+ }
 
+ */
 
 
 
