@@ -36,11 +36,17 @@
                                 </label>
                             </subviews>
                         </stackView>
-                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Flv-pw-IXI">
-                            <rect key="frame" x="0.0" y="126.5" width="258" height="56"/>
+                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Flv-pw-IXI">
+                            <rect key="frame" x="0.0" y="116.5" width="258" height="76.5"/>
                             <subviews>
-                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="5Pj-v2-4cI">
-                                    <rect key="frame" x="0.0" y="0.0" width="258" height="29"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rkH-bm-uLR">
+                                    <rect key="frame" x="0.0" y="0.0" width="258" height="20.5"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="5Pj-v2-4cI">
+                                    <rect key="frame" x="0.0" y="20.5" width="258" height="29"/>
                                     <segments>
                                         <segment title="Every"/>
                                         <segment title="Every other"/>
@@ -48,8 +54,8 @@
                                         <segment title="every 3rd"/>
                                     </segments>
                                 </segmentedControl>
-                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="2Re-X9-Pjv">
-                                    <rect key="frame" x="0.0" y="28" width="258" height="29"/>
+                                <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="2Re-X9-Pjv">
+                                    <rect key="frame" x="0.0" y="48.5" width="258" height="29"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="28" id="nWT-3j-6Zq"/>
                                     </constraints>
@@ -64,7 +70,7 @@
                                 </segmentedControl>
                             </subviews>
                         </stackView>
-                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8SS-I6-2w0">
+                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8SS-I6-2w0">
                             <rect key="frame" x="104.5" y="229" width="51" height="31"/>
                         </switch>
                     </subviews>
@@ -80,6 +86,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="cadenceControl" destination="5Pj-v2-4cI" id="eMe-Ps-FK0"/>
+                <outlet property="controlLabel" destination="rkH-bm-uLR" id="jM6-xc-u86"/>
                 <outlet property="descLabel" destination="caZ-MS-ZN5" id="r9W-xC-gdc"/>
                 <outlet property="iconImage" destination="kuw-hv-xYq" id="9iU-oE-LqW"/>
                 <outlet property="prefSwitch" destination="8SS-I6-2w0" id="84o-Pa-biq"/>

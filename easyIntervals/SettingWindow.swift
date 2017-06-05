@@ -12,6 +12,7 @@ class SettingWindow: UIView {
     @IBOutlet weak var iconImage: UIImageView!
     @IBOutlet weak var descLabel: UILabel!
     @IBOutlet weak var prefSwitch: UISwitch!
+    @IBOutlet weak var controlLabel: UILabel!
     @IBOutlet weak var cadenceControl: UISegmentedControl!
     @IBOutlet weak var sessionControl: UISegmentedControl!
 

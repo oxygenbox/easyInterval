@@ -77,8 +77,8 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     @IBOutlet weak var cadenceControl: UISegmentedControl!
     @IBOutlet weak var preferenceSwitch: UISwitch!
     @IBOutlet weak var descriptionView: UIView!
-    @IBOutlet weak var prefMessage: UILabel!
-    @IBOutlet weak var modeImageView: UIImageView!
+    //@IBOutlet weak var prefMessage: UILabel!
+    //@IBOutlet weak var modeImageView: UIImageView!
     @IBOutlet weak var segmentedControlView: UIView!
     @IBOutlet weak var descStack: UIStackView!
     @IBOutlet weak var switchView: UIView!
@@ -305,21 +305,21 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         switch activePreference {
             case .audio:
                 preferenceSwitch.isOn = data.audioOn
-                modeImageView.image = UIImage(named: "audio_panel")
+                //modeImageView.image = UIImage(named: "audio_panel")
             case .vibrate:
                 preferenceSwitch.isOn = data.vibrateOn
-                modeImageView.image = UIImage(named: "vibrate_panel")
+                //modeImageView.image = UIImage(named: "vibrate_panel")
             case .cadence:
                 preferenceSwitch.isOn = data.cadenceOn
-                modeImageView.image = UIImage(named: "cadence_panel")
+               // modeImageView.image = UIImage(named: "cadence_panel")
             case .music:
                 preferenceSwitch.isOn = data.musicOn
-                modeImageView.image = UIImage(named: "music_panel")
+               // modeImageView.image = UIImage(named: "music_panel")
             case .workout:
                 preferenceSwitch.isOn = data.workoutOn
-                modeImageView.image = UIImage(named: "session_panel")
+               // modeImageView.image = UIImage(named: "session_panel")
             default:
-                modeImageView.image = nil
+               // modeImageView.image = nil
                 break
         }
         
@@ -330,7 +330,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         }
        
         revealMessage()
-        prefMessage.text = activePreference.desc
+       // prefMessage.text = activePreference.desc
         preferenceSwitch.isHidden = activePreference == .info
         setApperanceBasedOnPreferenceSetting()
         
@@ -408,7 +408,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         }
         
         UIView.animate(withDuration: 0.2) {
-            self.modeImageView.tintColor = imageColor
+           // self.modeImageView.tintColor = imageColor
             self.view.backgroundColor = bgColor
         }
         

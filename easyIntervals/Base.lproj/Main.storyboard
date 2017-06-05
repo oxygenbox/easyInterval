@@ -325,14 +325,14 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="272" height="100"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cadence_panel" translatesAutoresizingMaskIntoConstraints="NO" id="f01-71-wBn">
-                                                                <rect key="frame" x="0.0" y="10" width="80" height="80"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="80" height="100"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="80" id="LBX-P4-g4D"/>
                                                                     <constraint firstAttribute="width" constant="80" id="exa-0S-tCP"/>
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kzq-jA-TpL">
-                                                                <rect key="frame" x="88" y="10" width="184" height="80"/>
+                                                                <rect key="frame" x="88" y="15" width="184" height="70"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="80" id="EWN-dR-Y5l"/>
                                                                 </constraints>
@@ -526,10 +526,8 @@ df</string>
                         <outlet property="doneButton" destination="rC7-lb-Egk" id="Qkx-0B-tBx"/>
                         <outlet property="infoButton" destination="jJS-yS-qT0" id="2gu-Gk-dSC"/>
                         <outlet property="leftModeIcon" destination="ePy-Rr-Rt3" id="8ll-fo-i8e"/>
-                        <outlet property="modeImageView" destination="f01-71-wBn" id="NfP-lZ-XcL"/>
                         <outlet property="musicButton" destination="6fa-mg-S31" id="bB8-6d-gFh"/>
                         <outlet property="picker" destination="rx0-NX-pSQ" id="S3d-VV-6Pf"/>
-                        <outlet property="prefMessage" destination="Kzq-jA-TpL" id="JaJ-tI-xa0"/>
                         <outlet property="preferenceSwitch" destination="6gq-1r-F8H" id="xWO-Fw-q99"/>
                         <outlet property="rightModeIcon" destination="p6r-rD-Dsb" id="Rlc-8b-btX"/>
                         <outlet property="segmentedControlView" destination="xwO-f6-CHB" id="NOP-7m-LZR"/>
