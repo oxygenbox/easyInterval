@@ -49,15 +49,17 @@ class SettingWindow: UIView {
         
         backgroundColor = UIColor.Theme.on
         controlLabel.font = UIFont.cadence
-        controlLabel.textColor = UIColor.Theme.base
+        controlLabel.textColor = UIColor.Theme.borderOn
         
         //init segmentedControls
-        sessionControl.tintColor = UIColor.Theme.base
-        cadenceControl.tintColor = UIColor.Theme.base
+        sessionControl.tintColor = UIColor.Theme.borderOn
+        cadenceControl.tintColor = UIColor.Theme.borderOn
         cadenceControl.setTitleTextAttributes([NSFontAttributeName: UIFont.cadence],
                                               for: .normal)
         sessionControl.setTitleTextAttributes([NSFontAttributeName: UIFont.session],
                                               for: .normal)
+        
+        descLabel.textColor = UIColor.Theme.borderOn
 
     }
     
@@ -110,6 +112,8 @@ class SettingWindow: UIView {
         } else {
             controlLabel.isHidden = true
         }
+        
+        setAppearance()
     }
     
     func initSegmentedControl() {
@@ -144,7 +148,15 @@ class SettingWindow: UIView {
         }
     }
 
-    
+    func setAppearance(){
+        if prefSwitch.isOn {
+            backgroundColor = UIColor.Theme.on
+            iconImage.tintColor = UIColor.Theme.off
+        }else {
+            backgroundColor = UIColor.Theme.off
+            iconImage.tintColor = UIColor.Theme.on
+        }
+    }
     
     
 

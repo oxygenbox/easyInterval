@@ -153,6 +153,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
             default:
                 break
         }
+        settingOn.setAppearance()
         setButtonState()
     }
     
@@ -248,11 +249,9 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     func changePreference() {
 
     }
-    
-    
+
     func updateModeWindows() {
         rightModeIcon.delay = 0.2
-        
         if data.isRunWalk {
             leftModeIcon.mode = .run
             rightModeIcon.mode = .walk
