@@ -223,7 +223,7 @@ extension UIColor
 
 extension UIFont {
     public class var session: UIFont {
-        return UIFont(name: "AvenirNextCondensed-Medium", size: 14.0)!
+        return UIFont(name: "AvenirNextCondensed-Medium", size: 12.0)!
     }
     
     public class var cadence: UIFont {

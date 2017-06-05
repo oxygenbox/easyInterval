@@ -124,7 +124,7 @@ class SettingWindow: UIView {
             sessionControl.selectedSegmentIndex = data.sequenceRepeats
             
             for (index, minutes) in data.sessionArray.enumerated() {
-                sessionControl.setTitle("\(minutes)m", forSegmentAt: index)
+                sessionControl.setTitle("\(minutes)", forSegmentAt: index)
             }
         } else if preference == .cadence {
             sessionControl.isHidden = true
