@@ -64,8 +64,6 @@ enum Preference: Int {
             return "Run a session for the length of:"
         }
     }
-    
-   
 }
 
 import UIKit
@@ -107,25 +105,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     var activePreference : Preference {
         return preferences[data.settingsTab]
     }
-    
-//    var cadenceMessage: String {
-//        switch data.cadenceFrequency {
-//        case 0:
-//            return "Every Run Interval"
-//        case 1:
-//            return "Every Other Run Interval"
-//        case 2:
-//            return "Every Third Run Interval"
-//        default:
-//            return "Every Fourth Run Interval"
-//        }
-//    }
-//    
-//    var sessionMessage: String {
-//        let minutes = data.sessionArray[data.sequenceRepeats]
-//        return "Ready for a \(minutes) minute workout"
-//    }
-    
+        
     var settingHome = CGRect.zero
     var settingOn = SettingWindow()
     var settingOff = SettingWindow()
@@ -359,12 +339,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         }
     }
     
-   
-    
     func loadPreference() {
-//        if let new = newSettings {
-//            oldSettings = newr
-//        }
         
         if let settingWindow = Bundle.main.loadNibNamed("SettingWindow", owner: self, options: nil)?.first as? SettingWindow {
             self.settingOn = settingWindow
@@ -376,7 +351,6 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
             settingOn.cadenceControl.addTarget(self, action: #selector(controlChanged(_:)), for: .valueChanged)
             settingOn.sessionControl.addTarget(self, action: #selector(controlChanged(_:)), for: .valueChanged)
             settingOn.preference = activePreference
-            
             
             view.addSubview(settingOn)
         }

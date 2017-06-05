@@ -83,6 +83,8 @@ class SettingWindow: UIView {
             prefSwitch.isOn = data.cadenceOn
             iconImage.image = UIImage(named: "cadence_panel")
             cadenceControl.isEnabled = data.cadenceOn
+            cadenceControl.selectedSegmentIndex = data.cadenceFrequency
+            initSegmentedControl()
         case .music:
             prefSwitch.isOn = data.musicOn
             iconImage.image = UIImage(named: "music_panel")
@@ -90,6 +92,8 @@ class SettingWindow: UIView {
             prefSwitch.isOn = data.workoutOn
             iconImage.image = UIImage(named: "session_panel")
             sessionControl.isEnabled = data.workoutOn
+            sessionControl.selectedSegmentIndex = data.sequenceRepeats
+            initSegmentedControl()
         default:
             iconImage.image = nil
             break
