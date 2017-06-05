@@ -12,7 +12,6 @@
 		9E0599A71EC21F2000E15A34 /* ModeWindowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0599A61EC21F2000E15A34 /* ModeWindowView.swift */; };
 		9E0599A91EC2295500E15A34 /* ClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0599A81EC2295500E15A34 /* ClockView.swift */; };
 		9E0599AB1EC63D8200E15A34 /* NewSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0599AA1EC63D8200E15A34 /* NewSettingViewController.swift */; };
-		9E119FDC1ED87C78009B4D67 /* PreferenceWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E119FDB1ED87C78009B4D67 /* PreferenceWindow.swift */; };
 		9E1703FB1E56240E007B2D05 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1703FA1E56240E007B2D05 /* TimerViewController.swift */; };
 		9E2ADA551E535496000F5688 /* Paths.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2ADA541E535496000F5688 /* Paths.swift */; };
 		9E2E77CD1E23D92F0082ED83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2E77CC1E23D92F0082ED83 /* AppDelegate.swift */; };
@@ -69,7 +68,6 @@
 		9E0599A61EC21F2000E15A34 /* ModeWindowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModeWindowView.swift; sourceTree = "<group>"; };
 		9E0599A81EC2295500E15A34 /* ClockView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClockView.swift; sourceTree = "<group>"; };
 		9E0599AA1EC63D8200E15A34 /* NewSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewSettingViewController.swift; sourceTree = "<group>"; };
-		9E119FDB1ED87C78009B4D67 /* PreferenceWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceWindow.swift; sourceTree = "<group>"; };
 		9E1703FA1E56240E007B2D05 /* TimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		9E2ADA541E535496000F5688 /* Paths.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Paths.swift; sourceTree = "<group>"; };
 		9E2E77C91E23D92F0082ED83 /* easyIntervals.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = easyIntervals.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -224,7 +222,6 @@
 				9EAEA5931ED3446B005E3F63 /* ButtonView.swift */,
 				9EB3FD631ED606EF00B9319F /* Tutorial.swift */,
 				9EB3FD651ED64B9000B9319F /* ScaleSegue.swift */,
-				9E119FDB1ED87C78009B4D67 /* PreferenceWindow.swift */,
 				9E8FCDE61EE0A1EF003D2175 /* SettingWindow.swift */,
 				9E8FCDE41EE0A0E8003D2175 /* SettingWindow.xib */,
 			);
@@ -363,7 +360,6 @@
 				9EAEA5941ED3446B005E3F63 /* ButtonView.swift in Sources */,
 				9ED0CF731E2982850036233A /* SettingTableViewCell.swift in Sources */,
 				9EB3FD641ED606EF00B9319F /* Tutorial.swift in Sources */,
-				9E119FDC1ED87C78009B4D67 /* PreferenceWindow.swift in Sources */,
 				9E957F261ECA504200CBFC1F /* TimerWindowView.swift in Sources */,
 				9E2ADA551E535496000F5688 /* Paths.swift in Sources */,
 				9EC7AC511E4B5C1B00C89EA7 /* ToDo.swift in Sources */,

@@ -139,6 +139,12 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     var settingHome = CGRect.zero
     var settingOn = SettingWindow()
     var settingOff = SettingWindow()
+    var currentWindow: SettingWindow?
+    var previousWindow: SettingWindow?
+    
+    var settingFrame: UIView {
+        return UIView(frame: settingHome)
+    }
 
     //MARK: - Lifecycle
     override func viewWillAppear(_ animated: Bool) {
@@ -218,10 +224,14 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
                     print("MISSED")
                 }
             }
+           
         }
+        
         data.settingsTab = sender.tag
         data.save()
         changePreference()
+        // loadSetting()
+        flip()
     }
     
     
@@ -230,11 +240,6 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     }
     
     //MARK: - Methods
-    
-    
-    
-    
-    
     func config() {
         //NAVBAR
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "Main", style: .plain, target: nil, action: nil)
@@ -491,14 +496,14 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     
     func loadPreference() {
 //        if let new = newSettings {
-//            oldSettings = new
+//            oldSettings = newr
 //        }
-        
         
         if let settingWindow = Bundle.main.loadNibNamed("SettingWindow", owner: self, options: nil)?.first as? SettingWindow {
             self.settingOn = settingWindow
             settingOn.frame = settingHome
-          
+            settingFrame.layer.cornerRadius = settingFrame.frame.width/2
+            settingFrame.clipsToBounds = true
             
             //settingOn.iconImage.image = UIImage(named: "cadence_panel")
             settingOn.preference = activePreference
@@ -506,65 +511,79 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
             
             view.addSubview(settingOn)
         }
+    }
+    
+    func loadSetting() {
+        if let current = currentWindow {
+            previousWindow = current
+        }
         
-//        
-//     
-//           // nextSetting.titleLabel.text = activePreference.rawValue
-//           // nextSetting.layer.cornerRadius = nextSetting.frame.size.height/2
-//           // nextSetting.frame.origin.x = view.frame.width
-//           // nextSetting.transform = CGAffineTransform(rotationAngle: -0.90)
-//           // nextSetting.preferenceSwitch.addTarget(self, action: #selector(switchChanged), for: .valueChanged)
-//            self.view.addSubview(nextSetting)
-//            
-//         //   animateOn()
-//         //   animateOff()
-//        }
+        if let nextWindow = Bundle.main.loadNibNamed("SettingWindow", owner: self, options: nil)?.first as? SettingWindow {
+            currentWindow = nextWindow
+            
+            
+            nextWindow.frame = settingFrame.frame
+           // nextSetting.titleLabel.text = activePreference.rawValue
+          //  nextSetting.layer.cornerRadius = nextSetting.frame.size.height/2
+            currentWindow!.frame.origin.x = view.frame.width
+            currentWindow!.transform = CGAffineTransform(rotationAngle: -0.90)
+            currentWindow!.prefSwitch.addTarget(self, action: #selector(switchChanged), for: .valueChanged)
+           // nextWindow.layer.cornerRadius = nextWindow.frame.height/2
+            currentWindow!.preference = activePreference
+            currentWindow!.layer.borderWidth = 1
+            currentWindow!.layer.borderColor = UIColor.black.cgColor
+            
+            self.view.addSubview(nextWindow)
+            
+            animateOn()
+            animateOff()
+
+            
+            
+            
+        }
+        
+    }
+    
+    func animateOn() {
+        guard let current = currentWindow else {
+            return
+        }
+        
+        UIView.animate(withDuration: 2.0, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.2, options: .curveEaseOut, animations: {
+            current.center = self.settingFrame.center
+            current.transform = CGAffineTransform.identity
+        }) { (success) in
+            
+        }
+    }
+    
+    func animateOff() {
+        guard  let previous = previousWindow else {
+            return
+        }
+        
+        
+        UIView.animate(withDuration: 1.0, animations: {
+            previous.frame.origin.x =  -previous.frame.size.width
+        }) { (success) in
+            previous.removeFromSuperview()
+            self.previousWindow = nil
+        }
+        
+    }
+    
+    func flip() {
+        let transitionOptions: UIViewAnimationOptions = [.transitionFlipFromRight, .showHideTransitionViews]
+        self.settingOn.preference = self.activePreference
+        UIView.transition(with: settingOn, duration: 0.5, options: transitionOptions, animations: {
+          
+        })
+        
     }
     
     
-    
-    
 }
-
-/*
- 
- func changePreference() {
- switch activePreference {
- case .audio:
- preferenceSwitch.isOn = data.audioOn
- modeImageView.image = UIImage(named: "audio_panel")
- case .vibrate:
- preferenceSwitch.isOn = data.vibrateOn
- modeImageView.image = UIImage(named: "vibrate_panel")
- case .cadence:
- preferenceSwitch.isOn = data.cadenceOn
- modeImageView.image = UIImage(named: "cadence_panel")
- case .music:
- preferenceSwitch.isOn = data.musicOn
- modeImageView.image = UIImage(named: "music_panel")
- case .workout:
- preferenceSwitch.isOn = data.workoutOn
- modeImageView.image = UIImage(named: "session_panel")
- default:
- modeImageView.image = nil
- break
- }
- 
- if activePreference == .cadence || activePreference == .workout {
- revealSegmentedControl(show: false)
- } else {
- revealSegmentedControl(show: true)
- }
- 
- revealMessage()
- prefMessage.text = activePreference.desc
- preferenceSwitch.isHidden = activePreference == .info
- setApperanceBasedOnPreferenceSetting()
- 
- }
-
- */
-
 
 
 
