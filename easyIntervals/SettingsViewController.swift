@@ -73,11 +73,6 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
 
     //MARK: - IBOutlets
     @IBOutlet weak var picker: UIPickerView!
-    @IBOutlet weak var sessionControl: UISegmentedControl!
-   
-    @IBOutlet weak var segmentedControlView: UIView!
-    @IBOutlet weak var descStack: UIStackView!
-   
     @IBOutlet weak var leftModeIcon: SettingModeView!
     @IBOutlet weak var rightModeIcon: SettingModeView!
     @IBOutlet weak var infoButton: RoundButton!
@@ -87,7 +82,6 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     @IBOutlet weak var musicButton: RoundButton!
     @IBOutlet weak var sessionButton: RoundButton!
     @IBOutlet weak var doneButton: UIButton!
-    //@IBOutlet weak var controlLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet var buttonCollection: [RoundButton]!
   
@@ -114,23 +108,23 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         return preferences[data.settingsTab]
     }
     
-    var cadenceMessage: String {
-        switch data.cadenceFrequency {
-        case 0:
-            return "Every Run Interval"
-        case 1:
-            return "Every Other Run Interval"
-        case 2:
-            return "Every Third Run Interval"
-        default:
-            return "Every Fourth Run Interval"
-        }
-    }
-    
-    var sessionMessage: String {
-        let minutes = data.sessionArray[data.sequenceRepeats]
-        return "Ready for a \(minutes) minute workout"
-    }
+//    var cadenceMessage: String {
+//        switch data.cadenceFrequency {
+//        case 0:
+//            return "Every Run Interval"
+//        case 1:
+//            return "Every Other Run Interval"
+//        case 2:
+//            return "Every Third Run Interval"
+//        default:
+//            return "Every Fourth Run Interval"
+//        }
+//    }
+//    
+//    var sessionMessage: String {
+//        let minutes = data.sessionArray[data.sequenceRepeats]
+//        return "Ready for a \(minutes) minute workout"
+//    }
     
     var settingHome = CGRect.zero
     var settingOn = SettingWindow()
@@ -152,13 +146,11 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         super.viewDidAppear(animated)
         updateModeWindows()
     }
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-   
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -177,12 +169,11 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
                 data.musicOn = sender.isOn
             case .workout:
                 data.workoutOn = sender.isOn
-                sessionControl.isEnabled = sender.isOn
+                settingOn.sessionControl.isEnabled = sender.isOn
             default:
                 break
         }
         setButtonState()
-        //setApperanceBasedOnPreferenceSetting()
     }
     
     @IBAction func controlChanged(_ sender: UISegmentedControl) {
@@ -193,7 +184,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
             data.cadenceFrequency = value
         }
         data.save()
-        postControlMessage()
+        settingOn.postControlMessage()
     }
     
     func buttonPressed(_ sender: RoundButton) {
@@ -275,54 +266,9 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     }
     
     func changePreference() {
-        if activePreference == .cadence || activePreference == .workout {
-            revealSegmentedControl(show: false)
-        } else {
-           revealSegmentedControl(show: true)
-        }
-       
-       // revealMessage()
+
     }
     
-    func initSegmentedControl() {
-//        if activePreference == .workout {
-//            sessionControl.isHidden = false
-//            cadenceControl.isHidden = true
-//            sessionControl.isEnabled = data.workoutOn
-//            sessionControl.selectedSegmentIndex = data.sequenceRepeats
-//            
-//            for (index, minutes) in data.sessionArray.enumerated() {
-//                sessionControl.setTitle("\(minutes)m", forSegmentAt: index)
-//            }
-//        } else if activePreference == .cadence {
-//            sessionControl.isHidden = true
-//            cadenceControl.isHidden = false
-//            cadenceControl.isEnabled = data.cadenceOn
-//            cadenceControl.selectedSegmentIndex = data.cadenceFrequency
-//        } else {
-//            sessionControl.isHidden = true
-//            cadenceControl.isHidden = true
-//        }
-//        settingOn.postControlMessage()
-    }
-    
-    func postControlMessage() {
-//        if activePreference == .workout {
-//            controlLabel.text = sessionMessage
-//        } else if activePreference == .cadence {
-//            controlLabel.text = "Play cadence check \(cadenceMessage)"
-//        } else {
-//            controlLabel.text = ""
-//        }
-    }
-    
-    func revealSegmentedControl(show: Bool) {
-//        UIView.transition(with: segmentedControlView, duration: 1.0, options: [.transitionFlipFromTop], animations: {
-//            self.initSegmentedControl()
-//        }, completion: { (success: Bool) in
-//            
-//        })
-    }
     
     func updateModeWindows() {
         rightModeIcon.delay = 0.2
@@ -406,7 +352,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         data.save()
         data.calcSessionIncrement()
         title = data.settingTitle
-        initSegmentedControl()
+        settingOn.initSegmentedControl()
         
         if component == 0 {
             updateModeWindows()
@@ -427,6 +373,8 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
             settingFrame.clipsToBounds = true
             
             settingOn.prefSwitch.addTarget(self, action: #selector(switchChanged), for: .valueChanged)
+            settingOn.cadenceControl.addTarget(self, action: #selector(controlChanged(_:)), for: .valueChanged)
+            settingOn.sessionControl.addTarget(self, action: #selector(controlChanged(_:)), for: .valueChanged)
             settingOn.preference = activePreference
             
             

@@ -82,12 +82,14 @@ class SettingWindow: UIView {
         case .cadence:
             prefSwitch.isOn = data.cadenceOn
             iconImage.image = UIImage(named: "cadence_panel")
+            cadenceControl.isEnabled = data.cadenceOn
         case .music:
             prefSwitch.isOn = data.musicOn
             iconImage.image = UIImage(named: "music_panel")
         case .workout:
             prefSwitch.isOn = data.workoutOn
             iconImage.image = UIImage(named: "session_panel")
+            sessionControl.isEnabled = data.workoutOn
         default:
             iconImage.image = nil
             break
