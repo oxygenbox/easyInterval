@@ -75,13 +75,13 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     @IBOutlet weak var picker: UIPickerView!
     @IBOutlet weak var sessionControl: UISegmentedControl!
     @IBOutlet weak var cadenceControl: UISegmentedControl!
-    @IBOutlet weak var preferenceSwitch: UISwitch!
-    @IBOutlet weak var descriptionView: UIView!
+   // @IBOutlet weak var preferenceSwitch: UISwitch!
+    //@IBOutlet weak var descriptionView: UIView!
     //@IBOutlet weak var prefMessage: UILabel!
     //@IBOutlet weak var modeImageView: UIImageView!
     @IBOutlet weak var segmentedControlView: UIView!
     @IBOutlet weak var descStack: UIStackView!
-    @IBOutlet weak var switchView: UIView!
+   // @IBOutlet weak var switchView: UIView!
     @IBOutlet weak var leftModeIcon: SettingModeView!
     @IBOutlet weak var rightModeIcon: SettingModeView!
     @IBOutlet weak var infoButton: RoundButton!
@@ -186,7 +186,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
                 break
         }
         setButtonState()
-        setApperanceBasedOnPreferenceSetting()
+        //setApperanceBasedOnPreferenceSetting()
     }
     
     @IBAction func controlChanged(_ sender: UISegmentedControl) {
@@ -302,40 +302,13 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     }
     
     func changePreference() {
-        switch activePreference {
-            case .audio:
-                preferenceSwitch.isOn = data.audioOn
-                //modeImageView.image = UIImage(named: "audio_panel")
-            case .vibrate:
-                preferenceSwitch.isOn = data.vibrateOn
-                //modeImageView.image = UIImage(named: "vibrate_panel")
-            case .cadence:
-                preferenceSwitch.isOn = data.cadenceOn
-               // modeImageView.image = UIImage(named: "cadence_panel")
-            case .music:
-                preferenceSwitch.isOn = data.musicOn
-               // modeImageView.image = UIImage(named: "music_panel")
-            case .workout:
-                preferenceSwitch.isOn = data.workoutOn
-               // modeImageView.image = UIImage(named: "session_panel")
-            default:
-               // modeImageView.image = nil
-                break
-        }
-        
         if activePreference == .cadence || activePreference == .workout {
             revealSegmentedControl(show: false)
         } else {
            revealSegmentedControl(show: true)
         }
        
-        revealMessage()
-       // prefMessage.text = activePreference.desc
-        preferenceSwitch.isHidden = activePreference == .info
-        setApperanceBasedOnPreferenceSetting()
-        
-        
-        
+       // revealMessage()
     }
     
     func initSegmentedControl() {
@@ -378,13 +351,13 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         })
     }
     
-    func revealMessage() {
-        UIView.transition(with: descriptionView, duration: 0.8, options: [.transitionFlipFromTop], animations: {
-                   }, completion: { (success: Bool) in
-        
-                   })
-
-    }
+//    func revealMessage() {
+//        UIView.transition(with: descriptionView, duration: 0.8, options: [.transitionFlipFromTop], animations: {
+//                   }, completion: { (success: Bool) in
+//        
+//                   })
+//
+//    }
     
     func updateModeWindows() {
         rightModeIcon.delay = 0.2
@@ -398,22 +371,22 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         }
     }
     
-    func setApperanceBasedOnPreferenceSetting() {
-        var imageColor = UIColor.b50
-        var bgColor = UIColor.b100
-        
-        if preferenceSwitch.isOn {
-            imageColor = UIColor.b100
-            bgColor = UIColor.b50
-        }
-        
-        UIView.animate(withDuration: 0.2) {
-           // self.modeImageView.tintColor = imageColor
-            self.view.backgroundColor = bgColor
-        }
-        
-        
-    }
+//    func setApperanceBasedOnPreferenceSetting() {
+//        var imageColor = UIColor.b50
+//        var bgColor = UIColor.b100
+//        
+//        if preferenceSwitch.isOn {
+//            imageColor = UIColor.b100
+//            bgColor = UIColor.b50
+//        }
+//        
+//        UIView.animate(withDuration: 0.2) {
+//           // self.modeImageView.tintColor = imageColor
+//            self.view.backgroundColor = bgColor
+//        }
+//        
+//        
+//    }
     
     //MARK: - PickerView Methods
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

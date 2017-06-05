@@ -324,15 +324,8 @@
                                                     <stackView opaque="NO" contentMode="center" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="b6w-qa-ezr">
                                                         <rect key="frame" x="0.0" y="0.0" width="272" height="100"/>
                                                         <subviews>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cadence_panel" translatesAutoresizingMaskIntoConstraints="NO" id="f01-71-wBn">
-                                                                <rect key="frame" x="0.0" y="0.0" width="80" height="100"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="80" id="LBX-P4-g4D"/>
-                                                                    <constraint firstAttribute="width" constant="80" id="exa-0S-tCP"/>
-                                                                </constraints>
-                                                            </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kzq-jA-TpL">
-                                                                <rect key="frame" x="88" y="15" width="184" height="70"/>
+                                                                <rect key="frame" x="0.0" y="10" width="272" height="80"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="80" id="EWN-dR-Y5l"/>
                                                                 </constraints>
@@ -346,7 +339,6 @@ df</string>
                                                         </subviews>
                                                         <constraints>
                                                             <constraint firstItem="Kzq-jA-TpL" firstAttribute="top" secondItem="b6w-qa-ezr" secondAttribute="top" constant="8" id="WSD-zX-hcg"/>
-                                                            <constraint firstItem="Kzq-jA-TpL" firstAttribute="leading" secondItem="f01-71-wBn" secondAttribute="trailing" constant="8" id="eq2-qq-oJb"/>
                                                             <constraint firstAttribute="trailing" secondItem="Kzq-jA-TpL" secondAttribute="trailing" constant="8" id="oBr-kC-lcY"/>
                                                         </constraints>
                                                     </stackView>
@@ -361,18 +353,8 @@ df</string>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mUa-hh-DDv">
                                                 <rect key="frame" x="0.0" y="100" width="272" height="48"/>
-                                                <subviews>
-                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6gq-1r-F8H">
-                                                        <rect key="frame" x="112" y="9" width="51" height="31"/>
-                                                        <connections>
-                                                            <action selector="switchChangedWithSender:" destination="weC-Ga-LzU" eventType="valueChanged" id="gt5-Gm-1fa"/>
-                                                        </connections>
-                                                    </switch>
-                                                </subviews>
                                                 <constraints>
-                                                    <constraint firstItem="6gq-1r-F8H" firstAttribute="centerX" secondItem="mUa-hh-DDv" secondAttribute="centerX" id="0Oc-Zp-VNU"/>
                                                     <constraint firstAttribute="height" constant="48" id="1YD-eH-XNm"/>
-                                                    <constraint firstItem="6gq-1r-F8H" firstAttribute="centerY" secondItem="mUa-hh-DDv" secondAttribute="centerY" id="fPV-4r-Id4"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xwO-f6-CHB">
@@ -444,7 +426,7 @@ df</string>
                                 <rect key="frame" x="0.0" y="508" width="320" height="60"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="39w-D5-Da3">
-                                        <rect key="frame" x="8" y="8" width="304" height="44"/>
+                                        <rect key="frame" x="20" y="8" width="280" height="44"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jJS-yS-qT0" customClass="RoundButton" customModule="easyIntervals" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
@@ -455,23 +437,23 @@ df</string>
                                                 <state key="normal" image="icon_help"/>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xxe-f3-sd9" customClass="RoundButton" customModule="easyIntervals" customModuleProvider="target">
-                                                <rect key="frame" x="52" y="0.0" width="44" height="44"/>
+                                                <rect key="frame" x="47" y="0.0" width="44" height="44"/>
                                                 <state key="normal" image="icon_audio"/>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bQl-nb-PZW" customClass="RoundButton" customModule="easyIntervals" customModuleProvider="target">
-                                                <rect key="frame" x="104" y="0.0" width="44" height="44"/>
+                                                <rect key="frame" x="94.5" y="0.0" width="44" height="44"/>
                                                 <state key="normal" image="icon_vibrate"/>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0cg-mn-mpz" customClass="RoundButton" customModule="easyIntervals" customModuleProvider="target">
-                                                <rect key="frame" x="156" y="0.0" width="44" height="44"/>
+                                                <rect key="frame" x="141.5" y="0.0" width="44" height="44"/>
                                                 <state key="normal" image="icon_cadence"/>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6fa-mg-S31" customClass="RoundButton" customModule="easyIntervals" customModuleProvider="target">
-                                                <rect key="frame" x="208" y="0.0" width="44" height="44"/>
+                                                <rect key="frame" x="189" y="0.0" width="44" height="44"/>
                                                 <state key="normal" image="icon_music"/>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XKd-rK-WuE" customClass="RoundButton" customModule="easyIntervals" customModuleProvider="target">
-                                                <rect key="frame" x="260" y="0.0" width="44" height="44"/>
+                                                <rect key="frame" x="236" y="0.0" width="44" height="44"/>
                                                 <state key="normal" image="icon_time"/>
                                             </button>
                                         </subviews>
@@ -491,13 +473,11 @@ df</string>
                                 </subviews>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="39w-D5-Da3" secondAttribute="trailing" constant="8" id="67r-Ex-5a6"/>
-                                    <constraint firstAttribute="trailing" secondItem="39w-D5-Da3" secondAttribute="trailing" constant="8" id="8j2-ew-V6T"/>
+                                    <constraint firstAttribute="bottom" secondItem="39w-D5-Da3" secondAttribute="bottom" constant="8" id="Ack-DG-5Fg"/>
                                     <constraint firstAttribute="height" constant="60" id="C5X-gG-ENh"/>
-                                    <constraint firstItem="39w-D5-Da3" firstAttribute="leading" secondItem="Hzb-Or-ftV" secondAttribute="leading" constant="8" id="EgK-E0-XS8"/>
-                                    <constraint firstItem="39w-D5-Da3" firstAttribute="top" secondItem="Hzb-Or-ftV" secondAttribute="top" constant="8" id="NKp-gR-ak8"/>
-                                    <constraint firstItem="39w-D5-Da3" firstAttribute="leading" secondItem="Hzb-Or-ftV" secondAttribute="leading" constant="8" id="QRX-IL-s0Z"/>
-                                    <constraint firstAttribute="bottom" secondItem="39w-D5-Da3" secondAttribute="bottom" constant="8" id="tKl-sE-HAZ"/>
+                                    <constraint firstItem="39w-D5-Da3" firstAttribute="top" secondItem="Hzb-Or-ftV" secondAttribute="top" constant="8" id="Ky8-IU-T8G"/>
+                                    <constraint firstAttribute="trailing" secondItem="39w-D5-Da3" secondAttribute="trailing" constant="20" id="SO6-1a-sdE"/>
+                                    <constraint firstItem="39w-D5-Da3" firstAttribute="leading" secondItem="Hzb-Or-ftV" secondAttribute="leading" constant="20" id="hrJ-jk-0AA"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -522,18 +502,15 @@ df</string>
                         <outlet property="cadenceControl" destination="o71-28-4C2" id="1eV-F0-vhH"/>
                         <outlet property="controlLabel" destination="ZCC-z4-lHL" id="XAe-nj-WrK"/>
                         <outlet property="descStack" destination="b6w-qa-ezr" id="6v6-Ib-NJM"/>
-                        <outlet property="descriptionView" destination="aBT-Rr-uvm" id="Sf3-sZ-YRT"/>
                         <outlet property="doneButton" destination="rC7-lb-Egk" id="Qkx-0B-tBx"/>
                         <outlet property="infoButton" destination="jJS-yS-qT0" id="2gu-Gk-dSC"/>
                         <outlet property="leftModeIcon" destination="ePy-Rr-Rt3" id="8ll-fo-i8e"/>
                         <outlet property="musicButton" destination="6fa-mg-S31" id="bB8-6d-gFh"/>
                         <outlet property="picker" destination="rx0-NX-pSQ" id="S3d-VV-6Pf"/>
-                        <outlet property="preferenceSwitch" destination="6gq-1r-F8H" id="xWO-Fw-q99"/>
                         <outlet property="rightModeIcon" destination="p6r-rD-Dsb" id="Rlc-8b-btX"/>
                         <outlet property="segmentedControlView" destination="xwO-f6-CHB" id="NOP-7m-LZR"/>
                         <outlet property="sessionButton" destination="XKd-rK-WuE" id="ktl-VH-OGs"/>
                         <outlet property="sessionControl" destination="cbH-69-T5B" id="Fld-5e-a0P"/>
-                        <outlet property="switchView" destination="mUa-hh-DDv" id="J0W-DE-WM8"/>
                         <outlet property="titleLabel" destination="Dcc-Ay-s1s" id="zZ3-yl-cgQ"/>
                         <outlet property="vibrateButton" destination="bQl-nb-PZW" id="Etf-Q0-8rd"/>
                         <outletCollection property="buttonCollection" destination="jJS-yS-qT0" collectionClass="NSMutableArray" id="BQ7-dF-UMN"/>
@@ -551,7 +528,6 @@ df</string>
     </scenes>
     <resources>
         <image name="Gear2" width="22" height="22"/>
-        <image name="cadence_panel" width="135" height="125"/>
         <image name="icon_audio" width="22" height="22"/>
         <image name="icon_cadence" width="22" height="22"/>
         <image name="icon_help" width="22" height="22"/>
