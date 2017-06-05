@@ -91,7 +91,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     @IBOutlet weak var musicButton: RoundButton!
     @IBOutlet weak var sessionButton: RoundButton!
     @IBOutlet weak var doneButton: UIButton!
-    @IBOutlet weak var controlLabel: UILabel!
+    //@IBOutlet weak var controlLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet var buttonCollection: [RoundButton]!
   
@@ -221,16 +221,14 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
                 case sessionButton:
                     button.isOn = data.workoutOn
                 default:
-                    print("MISSED")
+                    break
                 }
             }
-           
         }
         
         data.settingsTab = sender.tag
         data.save()
         changePreference()
-        // loadSetting()
         flip()
     }
     
@@ -262,8 +260,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
                                               for: .normal)
         sessionControl.setTitleTextAttributes([NSFontAttributeName: UIFont.session],
                                               for: .normal)
-        controlLabel.font = UIFont.cadence
-        controlLabel.textColor = UIColor.Theme.base
+        
         
         //initButtons
         for (index, button) in buttonCollection.enumerated() {
@@ -330,17 +327,17 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
             sessionControl.isHidden = true
             cadenceControl.isHidden = true
         }
-        postControlMessage()
+        settingOn.postControlMessage()
     }
     
     func postControlMessage() {
-        if activePreference == .workout {
-            controlLabel.text = sessionMessage
-        } else if activePreference == .cadence {
-            controlLabel.text = "Play cadence check \(cadenceMessage)"
-        } else {
-            controlLabel.text = ""
-        }
+//        if activePreference == .workout {
+//            controlLabel.text = sessionMessage
+//        } else if activePreference == .cadence {
+//            controlLabel.text = "Play cadence check \(cadenceMessage)"
+//        } else {
+//            controlLabel.text = ""
+//        }
     }
     
     func revealSegmentedControl(show: Bool) {
@@ -350,14 +347,6 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
             
         })
     }
-    
-//    func revealMessage() {
-//        UIView.transition(with: descriptionView, duration: 0.8, options: [.transitionFlipFromTop], animations: {
-//                   }, completion: { (success: Bool) in
-//        
-//                   })
-//
-//    }
     
     func updateModeWindows() {
         rightModeIcon.delay = 0.2
@@ -370,24 +359,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
             rightModeIcon.mode = .run
         }
     }
-    
-//    func setApperanceBasedOnPreferenceSetting() {
-//        var imageColor = UIColor.b50
-//        var bgColor = UIColor.b100
-//        
-//        if preferenceSwitch.isOn {
-//            imageColor = UIColor.b100
-//            bgColor = UIColor.b50
-//        }
-//        
-//        UIView.animate(withDuration: 0.2) {
-//           // self.modeImageView.tintColor = imageColor
-//            self.view.backgroundColor = bgColor
-//        }
-//        
-//        
-//    }
-    
+        
     //MARK: - PickerView Methods
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 3

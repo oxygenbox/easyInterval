@@ -23,6 +23,24 @@ class SettingWindow: UIView {
         }
     }
     
+    var cadenceMessage: String {
+        switch data.cadenceFrequency {
+        case 0:
+            return "Every Run Interval"
+        case 1:
+            return "Every Other Run Interval"
+        case 2:
+            return "Every Third Run Interval"
+        default:
+            return "Every Fourth Run Interval"
+        }
+    }
+    
+    var sessionMessage: String {
+        let minutes = data.sessionArray[data.sequenceRepeats]
+        return "Ready for a \(minutes) minute workout"
+    }
+    
     override func didMoveToWindow() {
         super.didMoveToWindow()
         layer.cornerRadius = frame.size.width/2
@@ -30,6 +48,17 @@ class SettingWindow: UIView {
         layer.borderWidth = 1
         
         backgroundColor = UIColor.Theme.on
+        controlLabel.font = UIFont.cadence
+        controlLabel.textColor = UIColor.Theme.base
+        
+        //init segmentedControls
+        sessionControl.tintColor = UIColor.Theme.base
+        cadenceControl.tintColor = UIColor.Theme.base
+        cadenceControl.setTitleTextAttributes([NSFontAttributeName: UIFont.cadence],
+                                              for: .normal)
+        sessionControl.setTitleTextAttributes([NSFontAttributeName: UIFont.session],
+                                              for: .normal)
+
     }
     
     override init(frame: CGRect) {
@@ -69,8 +98,52 @@ class SettingWindow: UIView {
         prefSwitch.isHidden = preference == .info
         sessionControl.isHidden = preference != .workout
         cadenceControl.isHidden = preference != .cadence
+        
+        if !sessionControl.isHidden || !cadenceControl.isHidden {
+            controlLabel.isHidden = false
+        } else {
+            controlLabel.isHidden = true
+        }
+        
+        
 
     }
+    
+    func initSegmentedControl() {
+        if preference == .workout {
+            sessionControl.isHidden = false
+            cadenceControl.isHidden = true
+            sessionControl.isEnabled = data.workoutOn
+            sessionControl.selectedSegmentIndex = data.sequenceRepeats
+            
+            for (index, minutes) in data.sessionArray.enumerated() {
+                sessionControl.setTitle("\(minutes)m", forSegmentAt: index)
+            }
+        } else if preference == .cadence {
+            sessionControl.isHidden = true
+            cadenceControl.isHidden = false
+            cadenceControl.isEnabled = data.cadenceOn
+            cadenceControl.selectedSegmentIndex = data.cadenceFrequency
+        } else {
+            sessionControl.isHidden = true
+            cadenceControl.isHidden = true
+        }
+        postControlMessage()
+    }
+    
+    func postControlMessage() {
+        if preference == .workout {
+            controlLabel.text = sessionMessage
+        } else if preference == .cadence {
+            controlLabel.text = "Play cadence check \(cadenceMessage)"
+        } else {
+          //  controlLabel.text = ""
+        }
+    }
+
+    
+    
+    
 
 }
 
