@@ -233,6 +233,11 @@ extension UIFont {
     public class var title: UIFont {
         return UIFont(name: "AvenirNextCondensed-Regular", size: 20.0)!
     }
+    
+    
+    public class var setting: UIFont {
+        return UIFont(name: "AvenirNextCondensed-Regular", size: 15.0)!
+    }
 }
 
 extension UIImageView {

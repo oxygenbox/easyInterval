@@ -59,6 +59,8 @@ class SettingWindow: UIView {
         sessionControl.setTitleTextAttributes([NSFontAttributeName: UIFont.session],
                                               for: .normal)
         
+        descLabel.font = UIFont.setting
+        descLabel.textAlignment = .center
         descLabel.textColor = UIColor.Theme.borderOn
 
     }
@@ -109,6 +111,7 @@ class SettingWindow: UIView {
         
         if !sessionControl.isHidden || !cadenceControl.isHidden {
             controlLabel.isHidden = false
+            controlLabel.isHidden = true
         } else {
             controlLabel.isHidden = true
         }
