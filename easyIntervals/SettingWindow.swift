@@ -104,9 +104,6 @@ class SettingWindow: UIView {
         } else {
             controlLabel.isHidden = true
         }
-        
-        
-
     }
     
     func initSegmentedControl() {

@@ -74,7 +74,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     //MARK: - IBOutlets
     @IBOutlet weak var picker: UIPickerView!
     @IBOutlet weak var sessionControl: UISegmentedControl!
-    @IBOutlet weak var cadenceControl: UISegmentedControl!
+   // @IBOutlet weak var cadenceControl: UISegmentedControl!
    // @IBOutlet weak var preferenceSwitch: UISwitch!
     //@IBOutlet weak var descriptionView: UIView!
     //@IBOutlet weak var prefMessage: UILabel!
@@ -176,7 +176,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
                 data.vibrateOn = sender.isOn
             case .cadence:
                 data.cadenceOn = sender.isOn
-                cadenceControl.isEnabled = sender.isOn
+                settingOn.cadenceControl.isEnabled = sender.isOn
             case .music:
                 data.musicOn = sender.isOn
             case .workout:
@@ -253,16 +253,6 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
             picker.selectRow(1, inComponent: 0, animated: false)
         }
         
-        //init segmentelControls
-        sessionControl.tintColor = UIColor.Theme.base
-        cadenceControl.tintColor = UIColor.Theme.base
-        cadenceControl.setTitleTextAttributes([NSFontAttributeName: UIFont.cadence],
-                                              for: .normal)
-        sessionControl.setTitleTextAttributes([NSFontAttributeName: UIFont.session],
-                                              for: .normal)
-        
-        
-        //initButtons
         for (index, button) in buttonCollection.enumerated() {
             button.addTarget(self, action: #selector(buttonPressed(_:)), for: .touchUpInside)
             button.tag = index
@@ -277,17 +267,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         changePreference()
         setButtonState()
         infoButton.makeInfo()
-        
         loadPreference()
-//        let p = PreferenceWindow()
-//        
-//        p.frame = CGRect(x: 70, y: 70, width: 200, height: 200)
-//        if let i = UIImage(named: "cadence_panel") {
-//            p.iconImage.image = i
-//        }
-//        p.backgroundColor = UIColor.yellow
-//        
-//        view.addSubview(p)
     }
     
     func setButtonState() {
@@ -309,25 +289,25 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     }
     
     func initSegmentedControl() {
-        if activePreference == .workout {
-            sessionControl.isHidden = false
-            cadenceControl.isHidden = true
-            sessionControl.isEnabled = data.workoutOn
-            sessionControl.selectedSegmentIndex = data.sequenceRepeats
-            
-            for (index, minutes) in data.sessionArray.enumerated() {
-                sessionControl.setTitle("\(minutes)m", forSegmentAt: index)
-            }
-        } else if activePreference == .cadence {
-            sessionControl.isHidden = true
-            cadenceControl.isHidden = false
-            cadenceControl.isEnabled = data.cadenceOn
-            cadenceControl.selectedSegmentIndex = data.cadenceFrequency
-        } else {
-            sessionControl.isHidden = true
-            cadenceControl.isHidden = true
-        }
-        settingOn.postControlMessage()
+//        if activePreference == .workout {
+//            sessionControl.isHidden = false
+//            cadenceControl.isHidden = true
+//            sessionControl.isEnabled = data.workoutOn
+//            sessionControl.selectedSegmentIndex = data.sequenceRepeats
+//            
+//            for (index, minutes) in data.sessionArray.enumerated() {
+//                sessionControl.setTitle("\(minutes)m", forSegmentAt: index)
+//            }
+//        } else if activePreference == .cadence {
+//            sessionControl.isHidden = true
+//            cadenceControl.isHidden = false
+//            cadenceControl.isEnabled = data.cadenceOn
+//            cadenceControl.selectedSegmentIndex = data.cadenceFrequency
+//        } else {
+//            sessionControl.isHidden = true
+//            cadenceControl.isHidden = true
+//        }
+//        settingOn.postControlMessage()
     }
     
     func postControlMessage() {
@@ -341,11 +321,11 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     }
     
     func revealSegmentedControl(show: Bool) {
-        UIView.transition(with: segmentedControlView, duration: 1.0, options: [.transitionFlipFromTop], animations: {
-            self.initSegmentedControl()
-        }, completion: { (success: Bool) in
-            
-        })
+//        UIView.transition(with: segmentedControlView, duration: 1.0, options: [.transitionFlipFromTop], animations: {
+//            self.initSegmentedControl()
+//        }, completion: { (success: Bool) in
+//            
+//        })
     }
     
     func updateModeWindows() {
@@ -450,7 +430,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
             settingFrame.layer.cornerRadius = settingFrame.frame.width/2
             settingFrame.clipsToBounds = true
             
-            //settingOn.iconImage.image = UIImage(named: "cadence_panel")
+            settingOn.prefSwitch.addTarget(self, action: #selector(switchChanged), for: .valueChanged)
             settingOn.preference = activePreference
             
             

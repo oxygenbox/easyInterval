@@ -321,12 +321,6 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xwO-f6-CHB">
                                                 <rect key="frame" x="0.0" y="0.0" width="272" height="210"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZCC-z4-lHL">
-                                                        <rect key="frame" x="10" y="6" width="252" height="20.5"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
                                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="o71-28-4C2">
                                                         <rect key="frame" x="10" y="176" width="252" height="29"/>
                                                         <segments>
@@ -335,9 +329,6 @@
                                                             <segment title="Every 2nd"/>
                                                             <segment title="Every 3rd"/>
                                                         </segments>
-                                                        <connections>
-                                                            <action selector="controlChanged:" destination="weC-Ga-LzU" eventType="valueChanged" id="6TK-oZ-GD0"/>
-                                                        </connections>
                                                     </segmentedControl>
                                                     <segmentedControl hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="cbH-69-T5B">
                                                         <rect key="frame" x="10" y="176" width="252" height="29"/>
@@ -355,13 +346,10 @@
                                                     </segmentedControl>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstItem="ZCC-z4-lHL" firstAttribute="top" secondItem="xwO-f6-CHB" secondAttribute="top" constant="6" id="Erd-3L-Afu"/>
                                                     <constraint firstAttribute="height" constant="62" id="MMx-tw-he4"/>
                                                     <constraint firstAttribute="trailing" secondItem="cbH-69-T5B" secondAttribute="trailing" constant="10" id="Ppj-hn-1Z4"/>
                                                     <constraint firstItem="o71-28-4C2" firstAttribute="leading" secondItem="xwO-f6-CHB" secondAttribute="leading" constant="10" id="Vmm-0E-0cl"/>
-                                                    <constraint firstAttribute="trailing" secondItem="ZCC-z4-lHL" secondAttribute="trailing" constant="10" id="X5Z-jq-87W"/>
                                                     <constraint firstAttribute="trailing" secondItem="o71-28-4C2" secondAttribute="trailing" constant="10" id="ayd-4e-x1N"/>
-                                                    <constraint firstItem="ZCC-z4-lHL" firstAttribute="leading" secondItem="xwO-f6-CHB" secondAttribute="leading" constant="10" id="b6L-yw-XBk"/>
                                                     <constraint firstItem="cbH-69-T5B" firstAttribute="leading" secondItem="xwO-f6-CHB" secondAttribute="leading" constant="10" id="dXA-Ye-HVE"/>
                                                     <constraint firstAttribute="bottom" secondItem="cbH-69-T5B" secondAttribute="bottom" constant="6" id="qWi-lE-Aa9"/>
                                                     <constraint firstAttribute="bottom" secondItem="o71-28-4C2" secondAttribute="bottom" constant="6" id="ye4-o6-Zql"/>
@@ -454,7 +442,6 @@
                     <connections>
                         <outlet property="audioButton" destination="xxe-f3-sd9" id="RY9-Kw-d0t"/>
                         <outlet property="cadenceButton" destination="0cg-mn-mpz" id="6hJ-Nn-CKj"/>
-                        <outlet property="cadenceControl" destination="o71-28-4C2" id="1eV-F0-vhH"/>
                         <outlet property="doneButton" destination="rC7-lb-Egk" id="Qkx-0B-tBx"/>
                         <outlet property="infoButton" destination="jJS-yS-qT0" id="2gu-Gk-dSC"/>
                         <outlet property="leftModeIcon" destination="ePy-Rr-Rt3" id="8ll-fo-i8e"/>
