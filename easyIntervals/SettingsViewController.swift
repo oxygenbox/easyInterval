@@ -74,14 +74,10 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     //MARK: - IBOutlets
     @IBOutlet weak var picker: UIPickerView!
     @IBOutlet weak var sessionControl: UISegmentedControl!
-   // @IBOutlet weak var cadenceControl: UISegmentedControl!
-   // @IBOutlet weak var preferenceSwitch: UISwitch!
-    //@IBOutlet weak var descriptionView: UIView!
-    //@IBOutlet weak var prefMessage: UILabel!
-    //@IBOutlet weak var modeImageView: UIImageView!
+   
     @IBOutlet weak var segmentedControlView: UIView!
     @IBOutlet weak var descStack: UIStackView!
-   // @IBOutlet weak var switchView: UIView!
+   
     @IBOutlet weak var leftModeIcon: SettingModeView!
     @IBOutlet weak var rightModeIcon: SettingModeView!
     @IBOutlet weak var infoButton: RoundButton!
