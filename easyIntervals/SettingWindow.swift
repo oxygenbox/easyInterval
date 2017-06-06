@@ -77,7 +77,7 @@ class SettingWindow: UIView {
         layer.cornerRadius = frame.size.width/2
         layer.borderColor = UIColor.Theme.base.cgColor
         layer.borderWidth = 1
-        
+        clipsToBounds = true
         backgroundColor = UIColor.Theme.on
      //   controlLabel.font = UIFont.cadence
       //  controlLabel.textColor = UIColor.Theme.borderOn
