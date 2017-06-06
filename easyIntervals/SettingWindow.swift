@@ -111,11 +111,11 @@ class SettingWindow: UIView {
         case .audio:
             prefSwitch.isOn = data.audioOn
             iconImage.image = UIImage(named: "audio_panel")
-            descLabel.text = preference.desc
+            descLabel.attributedText = makeAttributed(stringValue: preference.desc)
         case .vibrate:
             prefSwitch.isOn = data.vibrateOn
             iconImage.image = UIImage(named: "vibrate_panel")
-            descLabel.text = preference.desc
+            descLabel.attributedText = makeAttributed(stringValue: preference.desc)
         case .cadence:
             prefSwitch.isOn = data.cadenceOn
             iconImage.image = UIImage(named: "cadence_panel")
@@ -127,7 +127,7 @@ class SettingWindow: UIView {
         case .music:
             prefSwitch.isOn = data.musicOn
             iconImage.image = UIImage(named: "music_panel")
-            descLabel.text = preference.desc
+             descLabel.attributedText = makeAttributed(stringValue: preference.desc)
         case .workout:
             prefSwitch.isOn = data.workoutOn
             iconImage.image = UIImage(named: "session_panel")
@@ -138,7 +138,7 @@ class SettingWindow: UIView {
             descLabel.attributedText = workoutString
         default:
             iconImage.image = nil
-            descLabel.text = preference.desc
+            descLabel.attributedText = makeAttributed(stringValue: preference.desc)
             break
         }
         
@@ -202,7 +202,14 @@ class SettingWindow: UIView {
         }
     }
     
-    
+    func makeAttributed(stringValue: String) -> NSMutableAttributedString {
+        let attrString = NSMutableAttributedString(string: stringValue)
+        let style = NSMutableParagraphStyle()
+        style.lineSpacing = 0 // change line spacing between paragraph like 36 or 48
+        style.minimumLineHeight = 8 // change line spacing between each line like 30 or 40
+        attrString.addAttribute(NSParagraphStyleAttributeName, value: style, range: NSRange(location: 0, length: stringValue.characters.count))
+        return attrString
+    }
 
 }
 
