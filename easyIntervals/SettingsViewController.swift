@@ -153,7 +153,6 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
             default:
                 break
         }
-        settingOn.setAppearance()
         setButtonState()
     }
     

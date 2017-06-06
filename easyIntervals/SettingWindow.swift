@@ -12,7 +12,7 @@ class SettingWindow: UIView {
     @IBOutlet weak var iconImage: UIImageView!
     @IBOutlet weak var descLabel: UILabel!
     @IBOutlet weak var prefSwitch: UISwitch!
-    @IBOutlet weak var controlLabel: UILabel!
+    //@IBOutlet weak var controlLabel: UILabel!
     @IBOutlet weak var cadenceControl: UISegmentedControl!
     @IBOutlet weak var sessionControl: UISegmentedControl!
 
@@ -23,18 +23,49 @@ class SettingWindow: UIView {
         }
     }
     
-    var cadenceMessage: String {
+    
+    var cadenceString: NSMutableAttributedString {
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = -3
+        var string: String
         switch data.cadenceFrequency {
-        case 0:
-            return "Every Run Interval"
-        case 1:
-            return "Every Other Run Interval"
-        case 2:
-            return "Every Third Run Interval"
-        default:
-            return "Every Fourth Run Interval"
+            case 0:
+                string = ""
+            case 1:
+                string =  "Other"
+            case 2:
+            string  = "Third"
+            default:
+             string = "Fourth"
         }
+        
+        let attributedString = NSMutableAttributedString(string: "Play Cadence Check Every \(string) Run Interval")
+         attributedString.addAttribute(NSParagraphStyleAttributeName, value:paragraphStyle, range:NSMakeRange(0, attributedString.length))
+        
+        return attributedString
+
     }
+
+    
+    var workoutString: NSMutableAttributedString {
+        let minutes = data.sessionArray[data.sequenceRepeats]
+       // return "Ready for a \(minutes) minute workout"
+        
+         let attributedString = NSMutableAttributedString(string: "Ready for a \(minutes) minute workout")
+         
+         // *** Create instance of `NSMutableParagraphStyle`
+         let paragraphStyle = NSMutableParagraphStyle()
+         
+         // *** set LineSpacing property in points ***
+         paragraphStyle.lineSpacing = -5
+         
+         // *** Apply attribute to string ***
+         attributedString.addAttribute(NSParagraphStyleAttributeName, value:paragraphStyle, range:NSMakeRange(0, attributedString.length))
+         
+         // *** Set Attributed String to your label ***
+         return attributedString
+    }
+    
     
     var sessionMessage: String {
         let minutes = data.sessionArray[data.sequenceRepeats]
@@ -48,8 +79,8 @@ class SettingWindow: UIView {
         layer.borderWidth = 1
         
         backgroundColor = UIColor.Theme.on
-        controlLabel.font = UIFont.cadence
-        controlLabel.textColor = UIColor.Theme.borderOn
+     //   controlLabel.font = UIFont.cadence
+      //  controlLabel.textColor = UIColor.Theme.borderOn
         
         //init segmentedControls
         sessionControl.tintColor = UIColor.Theme.borderOn
@@ -80,40 +111,50 @@ class SettingWindow: UIView {
         case .audio:
             prefSwitch.isOn = data.audioOn
             iconImage.image = UIImage(named: "audio_panel")
+            descLabel.text = preference.desc
         case .vibrate:
             prefSwitch.isOn = data.vibrateOn
             iconImage.image = UIImage(named: "vibrate_panel")
+            descLabel.text = preference.desc
         case .cadence:
             prefSwitch.isOn = data.cadenceOn
             iconImage.image = UIImage(named: "cadence_panel")
             cadenceControl.isEnabled = data.cadenceOn
             cadenceControl.selectedSegmentIndex = data.cadenceFrequency
             initSegmentedControl()
+            descLabel.attributedText = cadenceString
+            
         case .music:
             prefSwitch.isOn = data.musicOn
             iconImage.image = UIImage(named: "music_panel")
+            descLabel.text = preference.desc
         case .workout:
             prefSwitch.isOn = data.workoutOn
             iconImage.image = UIImage(named: "session_panel")
             sessionControl.isEnabled = data.workoutOn
             sessionControl.selectedSegmentIndex = data.sequenceRepeats
             initSegmentedControl()
+            descLabel.text = sessionMessage
+            descLabel.attributedText = workoutString
         default:
             iconImage.image = nil
+            descLabel.text = preference.desc
             break
         }
         
-        descLabel.text = preference.desc
+        
+        
+    
         
         prefSwitch.isHidden = preference == .info
         sessionControl.isHidden = preference != .workout
         cadenceControl.isHidden = preference != .cadence
         
         if !sessionControl.isHidden || !cadenceControl.isHidden {
-            controlLabel.isHidden = false
-            controlLabel.isHidden = true
+          //  controlLabel.isHidden = false
+          //  controlLabel.isHidden = true
         } else {
-            controlLabel.isHidden = true
+          //  controlLabel.isHidden = true
         }
         
         setAppearance()
@@ -143,9 +184,9 @@ class SettingWindow: UIView {
     
     func postControlMessage() {
         if preference == .workout {
-            controlLabel.text = sessionMessage
+            descLabel.attributedText = workoutString
         } else if preference == .cadence {
-            controlLabel.text = "Play cadence check \(cadenceMessage)"
+            descLabel.attributedText = cadenceString
         } else {
           //  controlLabel.text = ""
         }

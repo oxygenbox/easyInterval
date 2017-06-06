@@ -236,7 +236,7 @@ extension UIFont {
     
     
     public class var setting: UIFont {
-        return UIFont(name: "AvenirNextCondensed-Regular", size: 15.0)!
+        return UIFont(name: "AvenirNextCondensed-Regular", size: 17.0)!
     }
 }
 
