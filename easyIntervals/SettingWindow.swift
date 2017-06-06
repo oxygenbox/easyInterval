@@ -128,6 +128,7 @@ class SettingWindow: UIView {
             prefSwitch.isOn = data.musicOn
             iconImage.image = UIImage(named: "music_panel")
              descLabel.attributedText = makeAttributed(stringValue: preference.desc)
+           
         case .workout:
             prefSwitch.isOn = data.workoutOn
             iconImage.image = UIImage(named: "session_panel")
@@ -158,6 +159,7 @@ class SettingWindow: UIView {
         }
         
         setAppearance()
+         descLabel.setLineHeight(lineHeight: 2)
     }
     
     func initSegmentedControl() {
