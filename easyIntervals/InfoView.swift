@@ -14,27 +14,40 @@ class InfoView: UIView {
     @IBOutlet weak var twoFingerImage: UIImageView!
     @IBOutlet weak var fingerA: UIView!
     @IBOutlet weak var fingerB: UIView!
+    @IBOutlet weak var descLabel:UILabel!
+    @IBOutlet weak var handBaseConstraint: NSLayoutConstraint!
     
     var fingerATimer: Timer!
     var fingerBTimer: Timer!
     /*
+     
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
     override func draw(_ rect: CGRect) {
         // Drawing code
     }
     */
-    
+    var handsOn: CGFloat = 8
+    var handsOff: CGFloat = -200
     
     override func didMoveToWindow() {
         super.didMoveToWindow()
         config()
-        initTwoFingerPulse()
+        
     }
     
     func config() {
         backgroundColor = UIColor.Theme.borderOn
         twoFingerImage.tintColor = UIColor.Theme.on
+        descLabel.textColor = UIColor.Theme.on
+        isHidden = true
+        
+        
+        handBaseConstraint.constant = handsOff
+        
+      
+        
+        
         
     }
     
@@ -48,9 +61,12 @@ class InfoView: UIView {
             self.addPulse(target: self.fingerA, duration: 0.75)
             self.addPulse(target: self.fingerB, duration: 0.75)
         })
-
     }
     
+    func stopPulse() {
+        fingerATimer.invalidate()
+        fingerBTimer.invalidate()
+    }
     
     func addPulse(target: UIView, duration: Double) {
         let radius = target.frame.width * 2.5
@@ -68,18 +84,39 @@ class InfoView: UIView {
             isHidden = false
             UIView.animate(withDuration: 0.5, animations: {
                 self.alpha = 1
+            }, completion: { (success) in
+               self.animateTwoFingerOn()
+            
             })
             
+            
         } else {
+            stopPulse()
             UIView.animate(withDuration: 0.5, animations: {
                 self.alpha = 0
             }, completion: { (success) in
                 self.isHidden = true
+                self.handBaseConstraint.constant = self.handsOff
             })
         }
     }
+    
+    func animateTwoFingerOn() {
+        
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.5, options: [.curveEaseOut], animations: {
+            self.handBaseConstraint.constant = self.handsOn
+            self.layoutIfNeeded()
+        }) { (success) in
+            self.initTwoFingerPulse()
+        }
+        
+        
+        
+        
+    }
 
 }
+
 
 
 

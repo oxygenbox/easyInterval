@@ -26,7 +26,7 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LbK-nX-CKv">
-                            <rect key="frame" x="63" y="0.0" width="30" height="30"/>
+                            <rect key="frame" x="43" y="0.0" width="30" height="30"/>
                         </view>
                         <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="twoFingers" translatesAutoresizingMaskIntoConstraints="NO" id="f1U-Dd-FaP">
                             <rect key="frame" x="0.0" y="0.0" width="105" height="163"/>
@@ -39,22 +39,35 @@
                         <constraint firstItem="LbK-nX-CKv" firstAttribute="width" secondItem="5Mh-mH-7wZ" secondAttribute="width" id="Mei-nW-cBE"/>
                         <constraint firstItem="5Mh-mH-7wZ" firstAttribute="leading" secondItem="saN-bj-Xoa" secondAttribute="leading" constant="3" id="NKT-o7-Jwd"/>
                         <constraint firstItem="LbK-nX-CKv" firstAttribute="top" secondItem="5Mh-mH-7wZ" secondAttribute="top" id="WfL-VO-0WR"/>
-                        <constraint firstItem="LbK-nX-CKv" firstAttribute="leading" secondItem="5Mh-mH-7wZ" secondAttribute="trailing" constant="30" id="hbf-l2-6Ro"/>
+                        <constraint firstItem="LbK-nX-CKv" firstAttribute="leading" secondItem="5Mh-mH-7wZ" secondAttribute="trailing" constant="10" id="hbf-l2-6Ro"/>
                         <constraint firstItem="LbK-nX-CKv" firstAttribute="height" secondItem="5Mh-mH-7wZ" secondAttribute="height" id="kjw-oo-sd5"/>
                         <constraint firstAttribute="trailing" secondItem="f1U-Dd-FaP" secondAttribute="trailing" id="mRF-ZD-8GF"/>
                         <constraint firstItem="5Mh-mH-7wZ" firstAttribute="top" secondItem="saN-bj-Xoa" secondAttribute="top" id="ngr-pQ-UUR"/>
                     </constraints>
                 </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rse-yg-1rE">
+                    <rect key="frame" x="30" y="30" width="240" height="46.5"/>
+                    <string key="text">Tap with two fingers 
+to Start and Stop</string>
+                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="Rse-yg-1rE" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="30" id="LL8-b0-rUA"/>
+                <constraint firstItem="Rse-yg-1rE" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="30" id="UYK-be-PT9"/>
                 <constraint firstItem="saN-bj-Xoa" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="YV5-gc-iyJ"/>
                 <constraint firstAttribute="bottom" secondItem="saN-bj-Xoa" secondAttribute="bottom" constant="8" id="c5f-S2-kNh"/>
+                <constraint firstAttribute="trailing" secondItem="Rse-yg-1rE" secondAttribute="trailing" constant="30" id="sX2-n7-I69"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="descLabel" destination="Rse-yg-1rE" id="zgE-0m-MYQ"/>
                 <outlet property="fingerA" destination="5Mh-mH-7wZ" id="Epa-4A-MQa"/>
                 <outlet property="fingerB" destination="LbK-nX-CKv" id="2pF-GU-831"/>
+                <outlet property="handBaseConstraint" destination="c5f-S2-kNh" id="uZS-um-Quw"/>
                 <outlet property="twoFingerImage" destination="f1U-Dd-FaP" id="sGs-ts-Vlk"/>
                 <outlet property="twoFingerView" destination="saN-bj-Xoa" id="sxY-Lr-KN9"/>
             </connections>
