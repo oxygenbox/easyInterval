@@ -45,7 +45,7 @@ class TimerWindowView: UIView {
             tick()
         }
     }
-    var infoView =  InstructionView()
+    var instructions =  InstructionView()
     var imageView: UIImageView!
     var dropDuration: Double = 0.4
     var delay: Double = 0
@@ -80,7 +80,7 @@ class TimerWindowView: UIView {
         sessionClock.frame = self.bounds
         sessionClock.isHidden = true
         addSubview(sessionClock)
-        loadInfo()
+        loadInstructions()
     }
     
     func change() {
@@ -123,6 +123,7 @@ class TimerWindowView: UIView {
     func pause() {
         intervalClock.pause()
         sessionClock.pause()
+        
     }
     
     func resume() {
@@ -186,14 +187,20 @@ class TimerWindowView: UIView {
     }
     
     
-    func loadInfo() {
+    func loadInstructions() {
         
         if let infoWindow = Bundle.main.loadNibNamed("InstructionView", owner: self, options: nil)?.first as? InstructionView {
-            self.infoView = infoWindow
+            self.instructions = infoWindow
             infoWindow.frame = bounds
             infoWindow.layer.cornerRadius = frame.width/2
             
             addSubview(infoWindow)
+        }
+    }
+    
+    func hideInstructions() {
+        if !instructions.isHidden {
+            instructions.toggle()
         }
     }
 

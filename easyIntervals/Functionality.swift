@@ -25,7 +25,11 @@ Improve descpription text (Title-desc)
  Handle session completion
  Write setting screen text
 
+ MUSIC MIC PLY
  
+ STYLE TH PREFE SWITCH 
+ 
+ PLAY IN BACKGROUND
  
  
  

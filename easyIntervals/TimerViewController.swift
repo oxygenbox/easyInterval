@@ -55,14 +55,31 @@ class TimerViewController: UIViewController{
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    //MARK:- IBACTIONS
+    @IBAction func settingsTapped(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let ivc = storyboard.instantiateViewController(withIdentifier: "Settings") as? SettingsViewController {
+            ivc.settingHome = timerWindowView.frame
+            ivc.modalTransitionStyle = .crossDissolve
+            self.present(ivc, animated: true, completion: { _ in })
+        }
 
-    //MARK:- Methods
+    }
+    
+    @IBAction func resetTapped(_ sender: UIButton) {
+        openResetAlert()
+    }
+
+    @IBAction func infoButtonTapped(_ sender: RoundButton) {
+        timerWindowView.instructions.toggle()
+    }
+    
+    //MARK:- METHODS
     func configureScreen() {
         view.backgroundColor = UIColor.Theme.back
-        initlabels()
-    
-       
-        configireLabels()
+        
+        configureLabels()
         configureButtons()
         
         initGestures()
@@ -87,27 +104,10 @@ class TimerViewController: UIViewController{
         settingsButton.tintColor = UIColor.Theme.base
     }
     
-    func configireLabels() {
+    func configureLabels() {
         titleLabel.font = UIFont.title
         titleLabel.textColor = UIColor.Theme.base
         titleLabel.text = data.settingTitle
-    }
-    
-    
-//    
-//    func initIntervalClock() {
-//            let dim = self.view.frame.size.width/2
-//            intervalClock = ClockView(frame: CGRect(x: 0, y: 0, width: dim, height: dim))
-//            intervalClock.shapeLayer.strokeColor = UIColor.b100.cgColor
-//            intervalClock.shapeLayer.lineWidth = dim
-//        
-//            intervalClock.center = timerWindowView.center
-//            view.insertSubview(intervalClock, at: 0)
-//    }
-    
-    
-    func initlabels() {
-        //intervalTime.textColor = UIColor.Theme.textLight
         elapsedTime.textColor = UIColor.Theme.base
         sessionType.textColor = UIColor.Theme.base
     }
@@ -130,7 +130,6 @@ class TimerViewController: UIViewController{
         workout.delegate = self
         updateTimeLabels()
         modeUpdate()
-        print("initWorkout")
     }
     
     func toggleSession() {
@@ -138,9 +137,10 @@ class TimerViewController: UIViewController{
         workout.toggleTimer()
         if(workout.timer == nil) {
             timerWindowView.pause()
+            settingsButton.isEnabled = true
             
-            navigationItem.rightBarButtonItem?.isEnabled = true
         } else {
+            timerWindowView.hideInstructions()
             if timerWindowView.intervalClock.hasStarted {
                 timerWindowView.resume()
             } else {
@@ -149,28 +149,12 @@ class TimerViewController: UIViewController{
                 if workout.woSession != nil {
                     sessionSecs = data.totalSessionSeconds
                 }
-                
                 timerWindowView.beginClocks(intervalSeconds: intervalSecs, sessionSeconds: sessionSecs)
             }
-            navigationItem.rightBarButtonItem?.isEnabled = false
+            settingsButton.isEnabled = false
         }
     }
     
-    //MARK:- NAVBAR BUTTON ACTIONS
-    @IBAction func settingsTapped(_ sender: UIButton) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        if let ivc = storyboard.instantiateViewController(withIdentifier: "Settings") as? SettingsViewController {
-            ivc.settingHome = timerWindowView.frame
-            ivc.modalTransitionStyle = .crossDissolve
-            self.present(ivc, animated: true, completion: { _ in })
-        }
-
-    }
-    
-    @IBAction func resetTapped(_ sender: UIButton) {
-        openResetAlert()
-    }
-
     func openResetAlert() {
         let ac = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
         let runAction = UIAlertAction(title: "Restart Run Interval", style: .default) { [unowned self] (action) in
@@ -201,7 +185,7 @@ class TimerViewController: UIViewController{
             if data.isRunWalk {
                 self.workout.restart(mode: .run)
             } else {
-                 self.workout.restart(mode: .walk)
+                self.workout.restart(mode: .walk)
             }
             self.timerWindowView.reset(interval: true, session: true)
         }
@@ -226,13 +210,7 @@ class TimerViewController: UIViewController{
         ac.addAction(cancelActions)
         present(ac, animated: true, completion: nil)
     }
-    
-    
-    @IBAction func infoButtonTapped(_ sender: RoundButton) {
-        print("INFO")
-        timerWindowView.infoView.toggle()
-    }
-    
+
     //MARK: - GESTURES
     func initGestures() {
         let twoFingerTap = UITapGestureRecognizer(target: self, action: #selector(twoTapDetected(_:)))
@@ -251,21 +229,6 @@ class TimerViewController: UIViewController{
         //need to insert music control
         print("swipe")
     }
-    
-    func addBackgroundGradient() {
-        let gradient = CAGradientLayer()
-        gradient.frame = view.bounds
-        gradient.locations = [0.33, 1]
-        gradient.colors = [UIColor.Theme.bar.cgColor, UIColor.Theme.base.cgColor]
-        view.layer.insertSublayer(gradient, at: 0)
-    }
-
-    
-    func addTutorial() {
-        let instructView = Tutorial(frame: timerWindowView.frame)
-        view.addSubview(instructView)
-    }
-    
 }
 
 //MARK:- EXTENSIONS
@@ -283,14 +246,11 @@ extension TimerViewController: WorkoutDelegate {
         if workout.timer != nil {
             let intervalSecs = workout.currentInterval.lengthInSeconds
             timerWindowView.beginClocks(intervalSeconds: intervalSecs, sessionSeconds: nil)
-            //intervalClock.begin(with: intervalSecs)
         }
     }
 
     func percentComplete(pct: CGFloat) {
-        //modeView.animateHead(pct: 1 - pct)
-        //modeView.elapsedTimer(percent: 1-pct)
-        //modeView.intervalTimer(percent: 1-pct)
+        
     }
 }
 
