@@ -45,11 +45,12 @@ class TimerWindowView: UIView {
             tick()
         }
     }
-    
+    var infoView =  InfoView()
     var imageView: UIImageView!
     var dropDuration: Double = 0.4
     var delay: Double = 0
     var label = UILabel()
+    
 
     //override func draw(_ rect: CGRect) {
         // Drawing code
@@ -79,6 +80,7 @@ class TimerWindowView: UIView {
         sessionClock.frame = self.bounds
         sessionClock.isHidden = true
         addSubview(sessionClock)
+        loadInfo()
     }
     
     func change() {
@@ -182,6 +184,19 @@ class TimerWindowView: UIView {
         gradient.locations = [0.5, 1]
         layer.insertSublayer(gradient, at: 0)
     }
+    
+    
+    func loadInfo() {
+        
+        if let infoWindow = Bundle.main.loadNibNamed("InfoView", owner: self, options: nil)?.first as? InfoView {
+            self.infoView = infoWindow
+            infoWindow.frame = bounds
+            infoWindow.layer.cornerRadius = frame.width/2
+            
+            addSubview(infoWindow)
+        }
+    }
+
 
 }
 

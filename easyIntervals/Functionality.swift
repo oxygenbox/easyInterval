@@ -6,7 +6,15 @@
 //  Copyright © 2017 Michael Schaffner. All rights reserved.
 
 /*
-
+Improve descpription text (Title-desc)
+ Mai screen clarify/ run- walk
+ Main screen clearify session (show clock)
+ Fic colors
+ info screem complete screen
+ 
+ 
+ 
+ 
  Add Run/Walk Message (make obvious)
  
  Improve main screen layout

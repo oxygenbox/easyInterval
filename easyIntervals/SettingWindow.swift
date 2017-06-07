@@ -72,6 +72,9 @@ class SettingWindow: UIView {
         return "Ready for a \(minutes) minute workout"
     }
     
+    var shapeLayer = CAShapeLayer()
+    let lineWidth: CGFloat = 10
+    
     override func didMoveToWindow() {
         super.didMoveToWindow()
         layer.cornerRadius = frame.size.width/2
@@ -93,6 +96,7 @@ class SettingWindow: UIView {
         descLabel.font = UIFont.setting
         descLabel.textAlignment = .center
         descLabel.textColor = UIColor.Theme.borderOn
+    addCircle()
 
     }
     
@@ -198,9 +202,11 @@ class SettingWindow: UIView {
         if prefSwitch.isOn {
             backgroundColor = UIColor.Theme.on
             iconImage.tintColor = UIColor.Theme.off
+            animationOn()
         }else {
             backgroundColor = UIColor.Theme.off
             iconImage.tintColor = UIColor.Theme.on
+            animationOff()
         }
     }
     
@@ -212,6 +218,42 @@ class SettingWindow: UIView {
         attrString.addAttribute(NSParagraphStyleAttributeName, value: style, range: NSRange(location: 0, length: stringValue.characters.count))
         return attrString
     }
+    
+    func addCircle() {
+        let dim = frame.size.height/2
+        let cRadius = frame.size.height/2 //- lineWidth
+        
+        let circlePath = UIBezierPath(arcCenter: CGPoint(x: dim, y: dim), radius: cRadius, startAngle: -CGFloat.pi/2, endAngle: 2*CGFloat.pi-CGFloat.pi/2, clockwise: true)
+        
+        self.shapeLayer.path = circlePath.cgPath
+        self.shapeLayer.fillColor = UIColor.clear.cgColor
+        self.shapeLayer.strokeColor = UIColor.Theme.borderOn.cgColor
+        self.shapeLayer.lineWidth = lineWidth
+        shapeLayer.lineCap = kCALineCapButt
+        self.layer.addSublayer(shapeLayer)
+    }
+    
+    func animationOn() {
+        let animation = CABasicAnimation(keyPath: "strokeEnd")
+        animation.fromValue = 0
+        animation.toValue = 1
+        animation.duration = Double(0.5)
+        animation.fillMode = kCAFillModeForwards
+        animation.isRemovedOnCompletion = false
+        self.shapeLayer.add(animation, forKey: "ani")
+    }
+    
+    func animationOff() {
+        let animation = CABasicAnimation(keyPath: "strokeEnd")
+        animation.fromValue = 1
+        animation.toValue = 0
+        animation.duration = Double(0.5)
+        animation.fillMode = kCAFillModeForwards
+        animation.isRemovedOnCompletion = false
+        self.shapeLayer.add(animation, forKey: "ani")
+    }
+
+
 
 }
 

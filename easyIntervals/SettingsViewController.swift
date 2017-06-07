@@ -154,6 +154,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
                 break
         }
         setButtonState()
+        settingOn.setAppearance()
     }
     
     @IBAction func controlChanged(_ sender: UISegmentedControl) {

@@ -224,6 +224,12 @@ class TimerViewController: UIViewController{
         present(ac, animated: true, completion: nil)
     }
     
+    
+    @IBAction func infoButtonTapped(_ sender: RoundButton) {
+        print("INFO")
+        timerWindowView.infoView.toggle()
+    }
+    
     //MARK: - GESTURES
     func initGestures() {
         let twoFingerTap = UITapGestureRecognizer(target: self, action: #selector(twoTapDetected(_:)))
