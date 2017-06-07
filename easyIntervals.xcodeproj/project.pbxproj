@@ -28,8 +28,8 @@
 		9E520DDE1E685DF400142F85 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E520DDD1E685DF400142F85 /* RoundButton.swift */; };
 		9E6789DC1E2D1F4800E1674E /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6789DB1E2D1F4800E1674E /* TimerView.swift */; };
 		9E6789E01E2D6FBC00E1674E /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6789DF1E2D6FBC00E1674E /* SettingsCell.swift */; };
-		9E7F19551EE70F83004350D2 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7F19541EE70F83004350D2 /* InfoView.swift */; };
-		9E7F19571EE70FA6004350D2 /* InfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E7F19561EE70FA6004350D2 /* InfoView.xib */; };
+		9E7F19551EE70F83004350D2 /* IntructionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7F19541EE70F83004350D2 /* IntructionView.swift */; };
+		9E7F19571EE70FA6004350D2 /* InstructionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E7F19561EE70FA6004350D2 /* InstructionView.xib */; };
 		9E8FCDE51EE0A0E8003D2175 /* SettingWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E8FCDE41EE0A0E8003D2175 /* SettingWindow.xib */; };
 		9E8FCDE71EE0A1EF003D2175 /* SettingWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8FCDE61EE0A1EF003D2175 /* SettingWindow.swift */; };
 		9E957F261ECA504200CBFC1F /* TimerWindowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E957F251ECA504200CBFC1F /* TimerWindowView.swift */; };
@@ -101,8 +101,8 @@
 		9E520DDD1E685DF400142F85 /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		9E6789DB1E2D1F4800E1674E /* TimerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		9E6789DF1E2D6FBC00E1674E /* SettingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
-		9E7F19541EE70F83004350D2 /* InfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
-		9E7F19561EE70FA6004350D2 /* InfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoView.xib; sourceTree = "<group>"; };
+		9E7F19541EE70F83004350D2 /* IntructionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntructionView.swift; sourceTree = "<group>"; };
+		9E7F19561EE70FA6004350D2 /* InstructionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InstructionView.xib; sourceTree = "<group>"; };
 		9E8FCDE41EE0A0E8003D2175 /* SettingWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingWindow.xib; sourceTree = "<group>"; };
 		9E8FCDE61EE0A1EF003D2175 /* SettingWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingWindow.swift; sourceTree = "<group>"; };
 		9E957F251ECA504200CBFC1F /* TimerWindowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerWindowView.swift; sourceTree = "<group>"; };
@@ -228,8 +228,8 @@
 				9EB3FD651ED64B9000B9319F /* ScaleSegue.swift */,
 				9E8FCDE61EE0A1EF003D2175 /* SettingWindow.swift */,
 				9E8FCDE41EE0A0E8003D2175 /* SettingWindow.xib */,
-				9E7F19541EE70F83004350D2 /* InfoView.swift */,
-				9E7F19561EE70FA6004350D2 /* InfoView.xib */,
+				9E7F19541EE70F83004350D2 /* IntructionView.swift */,
+				9E7F19561EE70FA6004350D2 /* InstructionView.xib */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -319,7 +319,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9E7F19571EE70FA6004350D2 /* InfoView.xib in Resources */,
+				9E7F19571EE70FA6004350D2 /* InstructionView.xib in Resources */,
 				9ED0CF611E2671520036233A /* 3.caf in Resources */,
 				9ED0CF691E2671520036233A /* start.caf in Resources */,
 				9ED0CF601E2671520036233A /* 2.caf in Resources */,
@@ -375,7 +375,7 @@
 				9ED0CF6D1E2684320036233A /* Workout.swift in Sources */,
 				9E8FCDE71EE0A1EF003D2175 /* SettingWindow.swift in Sources */,
 				9E2E77CD1E23D92F0082ED83 /* AppDelegate.swift in Sources */,
-				9E7F19551EE70F83004350D2 /* InfoView.swift in Sources */,
+				9E7F19551EE70F83004350D2 /* IntructionView.swift in Sources */,
 				9E0599A11EC0FCEB00E15A34 /* ModeIconView.swift in Sources */,
 				9E0599A91EC2295500E15A34 /* ClockView.swift in Sources */,
 				9ED0CF5E1E2588510036233A /* Interval.swift in Sources */,

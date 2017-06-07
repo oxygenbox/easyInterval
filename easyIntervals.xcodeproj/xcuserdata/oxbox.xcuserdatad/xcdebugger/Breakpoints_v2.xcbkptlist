@@ -44,11 +44,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "easyIntervals/InfoView.swift"
-            timestampString = "518556016.650798"
+            timestampString = "518556665.469418"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "109"
-            endingLineNumber = "109"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
             landmarkName = "animateTwoFingerOn()"
             landmarkType = "7">
          </BreakpointContent>

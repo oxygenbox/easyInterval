@@ -45,7 +45,7 @@ class TimerWindowView: UIView {
             tick()
         }
     }
-    var infoView =  InfoView()
+    var infoView =  InstructionView()
     var imageView: UIImageView!
     var dropDuration: Double = 0.4
     var delay: Double = 0
@@ -188,7 +188,7 @@ class TimerWindowView: UIView {
     
     func loadInfo() {
         
-        if let infoWindow = Bundle.main.loadNibNamed("InfoView", owner: self, options: nil)?.first as? InfoView {
+        if let infoWindow = Bundle.main.loadNibNamed("InstructionView", owner: self, options: nil)?.first as? InstructionView {
             self.infoView = infoWindow
             infoWindow.frame = bounds
             infoWindow.layer.cornerRadius = frame.width/2

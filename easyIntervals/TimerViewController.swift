@@ -26,11 +26,9 @@ class TimerViewController: UIViewController{
     
     @IBOutlet var prefButtons: [UIButton]!
    
-    
     //MARK - VARIABLES
     var workout: Workout!
-    
-    var intervalClock = ClockView()
+   // var intervalClock = ClockView()
     
     lazy var timerWindowView: TimerWindowView = {
         var h = self.view.frame.size.height
@@ -42,12 +40,10 @@ class TimerViewController: UIViewController{
         return TimerWindowView(frame: frame)
     }()
     
-   
-    
     //MARK:- LIFECYCLE
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        configScreen()
+        configureScreen()
         initWorkout()
     }
     
@@ -59,48 +55,55 @@ class TimerViewController: UIViewController{
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//      //  let settingsVC = segue.destination as! SettingsViewController
-//      //  settingsVC.transitioningDelegate = self
-//      //  self.modalPresentationStyle = .custom
-//    }
 
     //MARK:- Methods
-    func configScreen() {
-       
+    func configureScreen() {
         view.backgroundColor = UIColor.Theme.back
         initlabels()
     
+       
+        configireLabels()
+        configureButtons()
+        
+        initGestures()
+        view.addSubview(timerWindowView)
+    }
+    
+    func configureButtons() {
         audioButton.isOn = data.audioOn
         vibrateButton.isOn = data.vibrateOn
         cadenceButton.isOn = data.cadenceOn
         musicButton.isOn = data.musicOn
         workoutButton.isOn = data.workoutOn
-        infoButton.makeInfo()
         
-        initGestures()
-        view.addSubview(timerWindowView)
+        audioButton.isUserInteractionEnabled = false
+        vibrateButton.isUserInteractionEnabled = false
+        cadenceButton.isUserInteractionEnabled = data.cadenceOn
+        musicButton.isUserInteractionEnabled = data.musicOn
+        workoutButton.isUserInteractionEnabled = false
+        
+        infoButton.makeInfo()
+        resetButton.tintColor = UIColor.Theme.base
+        settingsButton.tintColor = UIColor.Theme.base
+    }
+    
+    func configireLabels() {
         titleLabel.font = UIFont.title
         titleLabel.textColor = UIColor.Theme.base
         titleLabel.text = data.settingTitle
-        resetButton.tintColor = UIColor.Theme.base
-        settingsButton.tintColor = UIColor.Theme.base
-        
-       
-        
-      //  addTutorial()
     }
     
-    func initIntervalClock() {
-            let dim = self.view.frame.size.width/2
-            intervalClock = ClockView(frame: CGRect(x: 0, y: 0, width: dim, height: dim))
-            intervalClock.shapeLayer.strokeColor = UIColor.b100.cgColor
-            intervalClock.shapeLayer.lineWidth = dim
-        
-            intervalClock.center = timerWindowView.center
-            view.insertSubview(intervalClock, at: 0)
-    }
+    
+//    
+//    func initIntervalClock() {
+//            let dim = self.view.frame.size.width/2
+//            intervalClock = ClockView(frame: CGRect(x: 0, y: 0, width: dim, height: dim))
+//            intervalClock.shapeLayer.strokeColor = UIColor.b100.cgColor
+//            intervalClock.shapeLayer.lineWidth = dim
+//        
+//            intervalClock.center = timerWindowView.center
+//            view.insertSubview(intervalClock, at: 0)
+//    }
     
     
     func initlabels() {

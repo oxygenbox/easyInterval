@@ -8,8 +8,8 @@
 
 import UIKit
 
-class InfoView: UIView {
-
+class InstructionView: UIView {
+    //MARK:- Outlets
     @IBOutlet weak var twoFingerView: UIView!
     @IBOutlet weak var twoFingerImage: UIImageView!
     @IBOutlet weak var fingerA: UIView!
@@ -19,14 +19,7 @@ class InfoView: UIView {
     
     var fingerATimer: Timer!
     var fingerBTimer: Timer!
-    /*
-     
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
+    
     var handsOn: CGFloat = 8
     var handsOff: CGFloat = -200
     
@@ -36,36 +29,25 @@ class InfoView: UIView {
         
     }
     
+    //MARK:- Methods
     func config() {
         backgroundColor = UIColor.Theme.borderOn
-        twoFingerImage.tintColor = UIColor.Theme.on
-        descLabel.textColor = UIColor.Theme.on
-        isHidden = true
-        
-        
         handBaseConstraint.constant = handsOff
-        
-      
-        
-        
-        
+        twoFingerImage.tintColor = UIColor.Theme.on
+        descLabel.textColor = UIColor.white
+        isHidden = true
     }
     
     func initTwoFingerPulse() {
-        fingerATimer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true, block: { (timer) in
+        fingerATimer = Timer.scheduledTimer(withTimeInterval: 0.45, repeats: true, block: { (timer) in
             self.addPulse(target: self.fingerA, duration: 0.5)
             self.addPulse(target: self.fingerB, duration: 0.5)
         })
         
-        fingerBTimer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true, block: { (timer) in
+        fingerBTimer = Timer.scheduledTimer(withTimeInterval: 0.45, repeats: true, block: { (timer) in
             self.addPulse(target: self.fingerA, duration: 0.75)
             self.addPulse(target: self.fingerB, duration: 0.75)
         })
-    }
-    
-    func stopPulse() {
-        fingerATimer.invalidate()
-        fingerBTimer.invalidate()
     }
     
     func addPulse(target: UIView, duration: Double) {
@@ -75,9 +57,19 @@ class InfoView: UIView {
         pulse.backgroundColor = UIColor.clear.cgColor
         pulse.borderWidth = 3
         pulse.borderColor = UIColor.Theme.on.cgColor
-        
         twoFingerView.layer.insertSublayer(pulse, below: target.layer)
     }
+
+    func stopPulse() {
+        guard let timerA = fingerATimer, let timerB = fingerBTimer else {
+            return
+        }
+        
+        timerA.invalidate()
+        timerB.invalidate()
+    }
+    
+    
     func toggle() {
         if isHidden {
             alpha = 0
@@ -86,10 +78,7 @@ class InfoView: UIView {
                 self.alpha = 1
             }, completion: { (success) in
                self.animateTwoFingerOn()
-            
             })
-            
-            
         } else {
             stopPulse()
             UIView.animate(withDuration: 0.5, animations: {
@@ -102,51 +91,12 @@ class InfoView: UIView {
     }
     
     func animateTwoFingerOn() {
-        
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.5, options: [.curveEaseOut], animations: {
             self.handBaseConstraint.constant = self.handsOn
             self.layoutIfNeeded()
         }) { (success) in
             self.initTwoFingerPulse()
         }
-        
-        
-        
-        
     }
-
 }
 
-
-
-
-
-
-/*
- override func viewDidLoad() {
- super.viewDidLoad()
- 
- // Do any additional setup after loading the view, typically from a nib.
- 
- timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true, block: { (timer) in
- self.addPulse(target: self.finger1, duration: 0.5)
- self.addPulse(target: self.finger2, duration: 0.5)
- })
- 
- timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true, block: { (timer) in
- self.addPulse(target: self.finger1, duration: 0.75)
- self.addPulse(target: self.finger2, duration: 0.75)
- })
- }
- 
- override func didReceiveMemoryWarning() {
- super.didReceiveMemoryWarning()
- // Dispose of any resources that can be recreated.
- 
- }
- 
- 
- 
- 
-
- */
