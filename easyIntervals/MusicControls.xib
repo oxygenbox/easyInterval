@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G12b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="MusicControls" customModule="easyIntervals" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="378" height="60"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="srq-uK-xo1">
+                    <rect key="frame" x="20" y="8" width="338" height="44"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UJy-lr-nzJ" customClass="RoundButton" customModule="easyIntervals" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="44" id="WWb-9h-90X"/>
+                                <constraint firstAttribute="height" constant="44" id="ePd-DB-U9k"/>
+                            </constraints>
+                            <connections>
+                                <action selector="closeTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="n7t-yE-bZB"/>
+                            </connections>
+                        </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5J9-1x-FLK">
+                            <rect key="frame" x="59" y="0.0" width="44" height="44"/>
+                            <color key="backgroundColor" red="0.0039215686269999999" green="0.15686274510000001" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="44" id="3l1-lS-Saj"/>
+                                <constraint firstAttribute="height" constant="44" id="eXC-eL-piy"/>
+                            </constraints>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Ed-8d-RTT" customClass="RoundButton" customModule="easyIntervals" customModuleProvider="target">
+                            <rect key="frame" x="117.5" y="0.0" width="44" height="44"/>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="44" id="kUZ-4r-iLv"/>
+                                <constraint firstAttribute="height" constant="44" id="yAA-fM-bLb"/>
+                            </constraints>
+                            <connections>
+                                <action selector="previousTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="wZQ-dN-B2j"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="23x-4A-omN" customClass="RoundButton" customModule="easyIntervals" customModuleProvider="target">
+                            <rect key="frame" x="176.5" y="0.0" width="44" height="44"/>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="H5w-A2-h8C"/>
+                                <constraint firstAttribute="width" constant="44" id="zcf-De-IXh"/>
+                            </constraints>
+                            <connections>
+                                <action selector="playPauseTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="PH0-Z6-Kcw"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gsk-H8-qKP" customClass="RoundButton" customModule="easyIntervals" customModuleProvider="target">
+                            <rect key="frame" x="235" y="0.0" width="44" height="44"/>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="Ryt-Jh-deN"/>
+                                <constraint firstAttribute="width" constant="44" id="ZhL-C8-0Jq"/>
+                            </constraints>
+                            <connections>
+                                <action selector="nextTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="AT4-WO-HIE"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tod-qE-nZt" customClass="RoundButton" customModule="easyIntervals" customModuleProvider="target">
+                            <rect key="frame" x="294" y="0.0" width="44" height="44"/>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="aOv-Zy-zxL"/>
+                                <constraint firstAttribute="width" constant="44" id="wLY-Np-ecQ"/>
+                            </constraints>
+                            <connections>
+                                <action selector="chooseTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="HfW-g7-l6s"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="srq-uK-xo1" secondAttribute="trailing" constant="20" id="LzE-lY-Oin"/>
+                <constraint firstAttribute="bottom" secondItem="srq-uK-xo1" secondAttribute="bottom" constant="8" id="Rbo-jx-r0Q"/>
+                <constraint firstItem="srq-uK-xo1" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="Zah-Gy-Qvi"/>
+                <constraint firstItem="srq-uK-xo1" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="xQ1-6t-iuO"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="4" y="-206"/>
+        </view>
+    </objects>
+</document>

@@ -147,10 +147,16 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zRP-8L-l9d" customClass="RoundButton" customModule="easyIntervals" customModuleProvider="target">
                                                 <rect key="frame" x="141.5" y="0.0" width="44" height="44"/>
                                                 <state key="normal" image="icon_cadence"/>
+                                                <connections>
+                                                    <action selector="cadenceTapped:" destination="FgG-fg-luk" eventType="touchUpInside" id="Uga-jd-GBR"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6g3-71-4EX" customClass="RoundButton" customModule="easyIntervals" customModuleProvider="target">
                                                 <rect key="frame" x="189" y="0.0" width="44" height="44"/>
                                                 <state key="normal" image="icon_music"/>
+                                                <connections>
+                                                    <action selector="musicTapped:" destination="FgG-fg-luk" eventType="touchUpInside" id="bhJ-j2-f7r"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aHE-lQ-LuD" customClass="RoundButton" customModule="easyIntervals" customModuleProvider="target">
                                                 <rect key="frame" x="236" y="0.0" width="44" height="44"/>
@@ -198,6 +204,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="audioButton" destination="LaX-mj-V9q" id="WRs-eT-Ong"/>
+                        <outlet property="buttonBar" destination="k2X-af-jKr" id="iI1-vg-Pij"/>
                         <outlet property="cadenceButton" destination="zRP-8L-l9d" id="xvY-W3-ppL"/>
                         <outlet property="elapsedTime" destination="CD3-HI-dbn" id="Jvp-CQ-wVF"/>
                         <outlet property="infoButton" destination="dAF-z7-CFH" id="3iu-2x-RF3"/>

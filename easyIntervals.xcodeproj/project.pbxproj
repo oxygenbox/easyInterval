@@ -26,6 +26,8 @@
 		9E957F261ECA504200CBFC1F /* TimerWindowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E957F251ECA504200CBFC1F /* TimerWindowView.swift */; };
 		9EAA94E01ECB6B0300D77A2C /* Pulsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EAA94DF1ECB6B0300D77A2C /* Pulsing.swift */; };
 		9EAEA5941ED3446B005E3F63 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EAEA5931ED3446B005E3F63 /* ButtonView.swift */; };
+		9EB1C7481EE9753500B9BDD1 /* MusicControls.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EB1C7471EE9753500B9BDD1 /* MusicControls.xib */; };
+		9EB1C74A1EE9754C00B9BDD1 /* MusicControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB1C7491EE9754C00B9BDD1 /* MusicControls.swift */; };
 		9EB3FD641ED606EF00B9319F /* Tutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB3FD631ED606EF00B9319F /* Tutorial.swift */; };
 		9EB3FD661ED64B9000B9319F /* ScaleSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB3FD651ED64B9000B9319F /* ScaleSegue.swift */; };
 		9EC7AC511E4B5C1B00C89EA7 /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC7AC501E4B5C1B00C89EA7 /* ToDo.swift */; };
@@ -83,6 +85,8 @@
 		9E957F251ECA504200CBFC1F /* TimerWindowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerWindowView.swift; sourceTree = "<group>"; };
 		9EAA94DF1ECB6B0300D77A2C /* Pulsing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pulsing.swift; sourceTree = "<group>"; };
 		9EAEA5931ED3446B005E3F63 /* ButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
+		9EB1C7471EE9753500B9BDD1 /* MusicControls.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MusicControls.xib; sourceTree = "<group>"; };
+		9EB1C7491EE9754C00B9BDD1 /* MusicControls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicControls.swift; sourceTree = "<group>"; };
 		9EB3FD631ED606EF00B9319F /* Tutorial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tutorial.swift; sourceTree = "<group>"; };
 		9EB3FD651ED64B9000B9319F /* ScaleSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaleSegue.swift; sourceTree = "<group>"; };
 		9EC7AC501E4B5C1B00C89EA7 /* ToDo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
@@ -108,6 +112,7 @@
 			children = (
 				9E8FCDE41EE0A0E8003D2175 /* SettingWindow.xib */,
 				9E7F19561EE70FA6004350D2 /* InstructionView.xib */,
+				9EB1C7471EE9753500B9BDD1 /* MusicControls.xib */,
 			);
 			name = xib;
 			sourceTree = "<group>";
@@ -182,6 +187,7 @@
 				9EB3FD651ED64B9000B9319F /* ScaleSegue.swift */,
 				9E8FCDE61EE0A1EF003D2175 /* SettingWindow.swift */,
 				9E7F19541EE70F83004350D2 /* IntructionView.swift */,
+				9EB1C7491EE9754C00B9BDD1 /* MusicControls.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -283,6 +289,7 @@
 				9ED0CF5F1E26714B0036233A /* 1.caf in Resources */,
 				9ED0CF671E2671520036233A /* completed.caf in Resources */,
 				9ED0CF641E2671520036233A /* cadenceBeat.caf in Resources */,
+				9EB1C7481EE9753500B9BDD1 /* MusicControls.xib in Resources */,
 				9ED0CF651E2671520036233A /* checkCadenceBeat.caf in Resources */,
 				9E2E77D21E23D92F0082ED83 /* Main.storyboard in Resources */,
 				9ED0CF661E2671520036233A /* complete.caf in Resources */,
@@ -316,6 +323,7 @@
 				9E8FCDE71EE0A1EF003D2175 /* SettingWindow.swift in Sources */,
 				9E2E77CD1E23D92F0082ED83 /* AppDelegate.swift in Sources */,
 				9E7F19551EE70F83004350D2 /* IntructionView.swift in Sources */,
+				9EB1C74A1EE9754C00B9BDD1 /* MusicControls.swift in Sources */,
 				9E0599A91EC2295500E15A34 /* ClockView.swift in Sources */,
 				9ED0CF5E1E2588510036233A /* Interval.swift in Sources */,
 				9EB3FD661ED64B9000B9319F /* ScaleSegue.swift in Sources */,

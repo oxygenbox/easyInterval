@@ -13,6 +13,7 @@ class TimerViewController: UIViewController{
     @IBOutlet weak var intervalTime: UILabel!
     @IBOutlet weak var elapsedTime: UILabel!
     @IBOutlet weak var sessionType: UILabel!
+    @IBOutlet weak var buttonBar: ButtonView!
     
     @IBOutlet weak var infoButton: RoundButton!
     @IBOutlet weak var audioButton: RoundButton!
@@ -28,7 +29,7 @@ class TimerViewController: UIViewController{
    
     //MARK - VARIABLES
     var workout: Workout!
-   // var intervalClock = ClockView()
+    var musicControls: MusicControls!
     
     lazy var timerWindowView: TimerWindowView = {
         var h = self.view.frame.size.height
@@ -45,10 +46,12 @@ class TimerViewController: UIViewController{
         super.viewWillAppear(animated)
         configureScreen()
         initWorkout()
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadMusicControls()
     }
     
     override func didReceiveMemoryWarning() {
@@ -74,6 +77,17 @@ class TimerViewController: UIViewController{
     @IBAction func infoButtonTapped(_ sender: RoundButton) {
         timerWindowView.instructions.toggle()
     }
+    
+    @IBAction func musicTapped(_ sender: UIButton) {
+       showMusicControls()
+    }
+    
+    @IBAction func cadenceTapped(_ sender: UIButton) {
+        if let wo = workout {
+            wo.playCadence()
+        }
+    }
+    
     
     //MARK:- METHODS
     func configureScreen() {
@@ -210,6 +224,31 @@ class TimerViewController: UIViewController{
         ac.addAction(cancelActions)
         present(ac, animated: true, completion: nil)
     }
+    
+    
+    func loadMusicControls() {
+        if let mc = Bundle.main.loadNibNamed("MusicControls", owner: self, options: nil)?.first as? MusicControls {
+            self.musicControls = mc
+            mc.frame = buttonBar.frame
+            mc.isHidden = true
+            view.addSubview(mc)
+        }
+    }
+
+    func showMusicControls() {
+        musicControls.frame.origin.x = view.frame.width
+        musicControls.isHidden = false
+        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: [], animations: {
+            self.musicControls.frame.origin.x = 0
+        }) { (success) in
+            
+        }
+    }
+    
+    
+    
+    
+    
 
     //MARK: - GESTURES
     func initGestures() {
@@ -252,6 +291,10 @@ extension TimerViewController: WorkoutDelegate {
     func percentComplete(pct: CGFloat) {
         
     }
+}
+
+extension TimerViewController: MusicControlDelegate {
+    
 }
 
 

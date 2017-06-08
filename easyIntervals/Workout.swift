@@ -143,7 +143,6 @@ class Workout: NSObject, AVAudioPlayerDelegate {
     }
     
     func playCadence() {
-        print("playCadence")
         speak(word: "cadenceBeat")
     }
     
