@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "easyIntervals/SettingModeView.swift"
-            timestampString = "517429734.013902"
+            timestampString = "518581131.242738"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
             landmarkName = "didMoveToWindow()"
             landmarkType = "7">
          </BreakpointContent>

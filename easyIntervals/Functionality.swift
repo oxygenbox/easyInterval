@@ -11,7 +11,7 @@ Improve descpription text (Title-desc)
  Main screen clearify session (show clock)
  Fic colors
  info screem complete screen
- 
+ END WORKOUT
  
  
  

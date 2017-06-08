@@ -15,7 +15,6 @@ class SettingModeView: UIView {
     
     var mode: Mode = .run {
         didSet {
-           // setImage()
             change()
         }
     }
@@ -30,8 +29,6 @@ class SettingModeView: UIView {
     }
     
     func config() {
-         print(frame)
-        print(bounds.height/2)
         layer.cornerRadius = self.bounds.height / 2
         layer.borderColor = UIColor.Theme.base.cgColor
         layer.borderWidth = 2
@@ -43,26 +40,7 @@ class SettingModeView: UIView {
         imageView.contentMode = .scaleAspectFit
         addSubview(imageView)
     }
-    /*
-     
-          configure()
- */
-    
-    
-//    func setUp() {
-//        layer.cornerRadius = bounds.width/2
-//        layer.borderColor = UIColor.myBlue.cgColor
-//        layer.borderWidth = 4
-//        clipsToBounds = true
-//        
-//        let rect = CGRect(x: 10, y: 10, width: bounds.size.width - 20, height: bounds.size.height - 20)
-//        imageView = UIImageView(frame: bounds)
-//        imageView.frame = rect
-//        imageView.contentMode = .scaleAspectFit
-//        addSubview(imageView)
-//    }
-    
-    
+
     func setImage() {
         var imageName = "walk_solid"
         if mode == .run {
@@ -83,10 +61,7 @@ class SettingModeView: UIView {
             UIView.animate(withDuration:self.dropDuration, delay: self.delay, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveLinear, animations: {
                 self.imageView.transform = .identity
             }, completion: nil)
-            
-            
         }
- 
     }
 
 }
