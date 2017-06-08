@@ -225,10 +225,10 @@ class TimerViewController: UIViewController{
         present(ac, animated: true, completion: nil)
     }
     
-    
     func loadMusicControls() {
         if let mc = Bundle.main.loadNibNamed("MusicControls", owner: self, options: nil)?.first as? MusicControls {
             self.musicControls = mc
+            self.musicControls.delegate = self
             mc.frame = buttonBar.frame
             mc.isHidden = true
             view.addSubview(mc)
@@ -238,7 +238,12 @@ class TimerViewController: UIViewController{
     func showMusicControls() {
         musicControls.frame.origin.x = view.frame.width
         musicControls.isHidden = false
-        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: [], animations: {
+        
+        UIView.animate(withDuration: 0.25) { 
+            self.buttonBar.alpha = 0.0
+        }
+        
+        UIView.animate(withDuration: 0.75, delay: 0.2, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.4, options: [], animations: {
             self.musicControls.frame.origin.x = 0
         }) { (success) in
             
@@ -294,7 +299,17 @@ extension TimerViewController: WorkoutDelegate {
 }
 
 extension TimerViewController: MusicControlDelegate {
-    
+    func hideMusicControls() {
+        UIView.animate(withDuration: 0.5, animations: {
+            self.musicControls.frame.origin.x = self.view.frame.width
+             self.buttonBar.alpha = 1
+        }) { (success) in
+            self.musicControls.isHidden = true
+        }
+        
+        
+        
+    }
 }
 
 

@@ -13,6 +13,8 @@ Improve descpription text (Title-desc)
  info screem complete screen
  END WORKOUT
  
+ ***MUSIC NOT STAYING ON
+ 
  
  
  Add Run/Walk Message (make obvious)
