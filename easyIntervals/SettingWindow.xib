@@ -15,24 +15,24 @@
             <rect key="frame" x="0.0" y="0.0" width="298" height="300"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="83e-6g-lC4">
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="83e-6g-lC4">
                     <rect key="frame" x="8" y="16" width="282" height="268"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kuw-hv-xYq">
-                            <rect key="frame" x="101" y="0.0" width="80" height="138"/>
+                            <rect key="frame" x="111" y="0.0" width="60" height="60"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="80" id="hs7-mU-XyE"/>
-                                <constraint firstAttribute="width" constant="80" id="nKM-u3-dXg"/>
+                                <constraint firstAttribute="height" constant="60" id="hs7-mU-XyE"/>
+                                <constraint firstAttribute="width" constant="60" id="nKM-u3-dXg"/>
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="caZ-MS-ZN5">
-                            <rect key="frame" x="125" y="143" width="32" height="23.5"/>
+                            <rect key="frame" x="0.0" y="84.5" width="282" height="23.5"/>
                             <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="5Pj-v2-4cI">
-                            <rect key="frame" x="35.5" y="171.5" width="211" height="29"/>
+                            <rect key="frame" x="35.5" y="132.5" width="211" height="29"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="28" id="KeI-4l-4Xx"/>
                             </constraints>
@@ -44,7 +44,7 @@
                             </segments>
                         </segmentedControl>
                         <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="2Re-X9-Pjv">
-                            <rect key="frame" x="35.5" y="204.5" width="211" height="29"/>
+                            <rect key="frame" x="35.5" y="184.5" width="211" height="29"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="28" id="nWT-3j-6Zq"/>
                             </constraints>
@@ -58,10 +58,12 @@
                             </segments>
                         </segmentedControl>
                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8SS-I6-2w0">
-                            <rect key="frame" x="116.5" y="237.5" width="51" height="30.5"/>
+                            <rect key="frame" x="116.5" y="237" width="51" height="31"/>
                         </switch>
                     </subviews>
                     <constraints>
+                        <constraint firstItem="caZ-MS-ZN5" firstAttribute="leading" secondItem="83e-6g-lC4" secondAttribute="leading" id="3Fo-gf-hae"/>
+                        <constraint firstAttribute="trailing" secondItem="caZ-MS-ZN5" secondAttribute="trailing" id="9mq-Iv-iiF"/>
                         <constraint firstItem="2Re-X9-Pjv" firstAttribute="width" secondItem="5Pj-v2-4cI" secondAttribute="width" id="sq8-aW-iqW"/>
                     </constraints>
                 </stackView>

@@ -204,18 +204,13 @@ extension UILabel
         let text = self.text
         if let text = text
         {
-            
             let attributeString = NSMutableAttributedString(string: text)
             let style = NSMutableParagraphStyle()
             
             style.lineSpacing = lineHeight
-            style.lineHeightMultiple = 0.8
+            style.lineHeightMultiple = 1
             style.alignment = .center;
             style.lineSpacing = 0.5;
-            
-            
-            
-            
             
             attributeString.addAttribute(NSParagraphStyleAttributeName,
                                          value: style,
@@ -224,7 +219,53 @@ extension UILabel
             self.attributedText = attributeString
         }
     }
+    
+    func descFormat(lineHeight: CGFloat) {
+        if let text = self.text {
+            let attributeString = NSMutableAttributedString(string: text)
+            let style = NSMutableParagraphStyle()
+            
+            
+            style.lineSpacing = lineHeight
+            style.lineHeightMultiple = 1
+            style.alignment = .center;
+            style.lineSpacing = 0.5;
+            style.lineBreakMode = .byWordWrapping
+            style.alignment = .center
+            
+            let charRange = NSMakeRange(0, text.characters.count)
+            let fontName = UIFont(name: "AvenirNextCondensed-Regular", size: 16)
+            
+            attributeString.addAttribute(NSParagraphStyleAttributeName,
+                                         value: style,
+                                         range: NSMakeRange(0, text.characters.count))
+            attributeString.addAttribute(NSForegroundColorAttributeName, value: UIColor.Theme.borderOn, range: charRange)
+            
+            attributeString.addAttribute(NSFontAttributeName, value: fontName!, range: charRange)
+            
+            
+            
+            
+            self.attributedText = attributeString
+        }
+
+    }
+    
+    
 }
 
+
+
+
+
+/*
+ //let attrString = NSMutableAttributedString(string: stringValue)
+// let style = NSMutableParagraphStyle()
+ style.lineSpacing = 0 // change line spacing between paragraph like 36 or 48
+ style.minimumLineHeight = 8 // change line spacing between each line like 30 or 40
+// attrString.addAttribute(NSParagraphStyleAttributeName, value: style, range: NSRange(location: 0, length: stringValue.characters.count))
+// return attrString
+ 
+ */
 
 

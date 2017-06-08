@@ -27,7 +27,7 @@
 		9EAA94E01ECB6B0300D77A2C /* Pulsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EAA94DF1ECB6B0300D77A2C /* Pulsing.swift */; };
 		9EAEA5941ED3446B005E3F63 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EAEA5931ED3446B005E3F63 /* ButtonView.swift */; };
 		9EB1C7481EE9753500B9BDD1 /* MusicControls.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EB1C7471EE9753500B9BDD1 /* MusicControls.xib */; };
-		9EB1C74A1EE9754C00B9BDD1 /* MusicControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB1C7491EE9754C00B9BDD1 /* MusicControls.swift */; };
+		9EB1C74B1EE9AD8400B9BDD1 /* MusicControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB1C7491EE9754C00B9BDD1 /* MusicControls.swift */; };
 		9EB3FD641ED606EF00B9319F /* Tutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB3FD631ED606EF00B9319F /* Tutorial.swift */; };
 		9EB3FD661ED64B9000B9319F /* ScaleSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB3FD651ED64B9000B9319F /* ScaleSegue.swift */; };
 		9EC7AC511E4B5C1B00C89EA7 /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC7AC501E4B5C1B00C89EA7 /* ToDo.swift */; };
@@ -323,7 +323,7 @@
 				9E8FCDE71EE0A1EF003D2175 /* SettingWindow.swift in Sources */,
 				9E2E77CD1E23D92F0082ED83 /* AppDelegate.swift in Sources */,
 				9E7F19551EE70F83004350D2 /* IntructionView.swift in Sources */,
-				9EB1C74A1EE9754C00B9BDD1 /* MusicControls.swift in Sources */,
+				9EB1C74B1EE9AD8400B9BDD1 /* MusicControls.swift in Sources */,
 				9E0599A91EC2295500E15A34 /* ClockView.swift in Sources */,
 				9ED0CF5E1E2588510036233A /* Interval.swift in Sources */,
 				9EB3FD661ED64B9000B9319F /* ScaleSegue.swift in Sources */,
