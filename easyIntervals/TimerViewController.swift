@@ -250,11 +250,6 @@ class TimerViewController: UIViewController{
         }
     }
     
-    
-    
-    
-    
-
     //MARK: - GESTURES
     func initGestures() {
         let twoFingerTap = UITapGestureRecognizer(target: self, action: #selector(twoTapDetected(_:)))

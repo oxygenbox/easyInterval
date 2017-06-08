@@ -88,8 +88,6 @@ class Data: Settings {
         return minutes*60
     }
     
-    
-
     func calcSessionIncrement() {
         var i = 0
         while (sessionSeconds / 60) * i < 30 {

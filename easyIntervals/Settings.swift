@@ -84,6 +84,10 @@ class Settings {
         defaults.set(cadenceFrequency, forKey: IntKey.cadenceFrequency.rawValue)
         defaults.set(settingsTab, forKey: IntKey.settingsTab.rawValue)
         
+        print("music \(musicOn)")
+        
+        
+        
         defaults.synchronize()
     }
 }

@@ -196,7 +196,6 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         
         data.settingsTab = sender.tag
         data.save()
-        //changePreference()
         flip()
     }
     
@@ -207,8 +206,6 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     
     //MARK: - Methods
     func config() {
-        //NAVBAR
-        //navigationItem.backBarButtonItem = UIBarButtonItem(title: "Main", style: .plain, target: nil, action: nil)
         titleLabel.font = UIFont.title
         titleLabel.textColor = UIColor.Theme.base
         titleLabel.text = data.settingTitle
