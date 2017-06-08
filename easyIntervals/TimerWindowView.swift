@@ -62,7 +62,7 @@ class TimerWindowView: UIView {
         clipsToBounds = true
         layer.borderColor = UIColor.Theme.base.cgColor
         layer.borderWidth = 1
-       // addBackgroundGradient()
+       
         config()
     }
     
@@ -102,7 +102,7 @@ class TimerWindowView: UIView {
         }
         
         imageView.image = UIImage(named: imageName)
-        imageView.tintImageColor(color: UIColor.base)
+        imageView.tintImageColor(color: UIColor.white)
     }
     
     func tick() {
@@ -140,7 +140,7 @@ class TimerWindowView: UIView {
             return
         }
         
-        sessionClock.shapeLayer.strokeColor = UIColor.b800.cgColor
+        sessionClock.shapeLayer.strokeColor = UIColor.blueI.cgColor
         sessionClock.shapeLayer.lineWidth = 2
         sessionClock.isHidden = false
         sessionClock.begin(with: t)
@@ -178,13 +178,7 @@ class TimerWindowView: UIView {
         self.addSubview(self.label)
     }
     
-    func addBackgroundGradient() {
-        let gradient = CAGradientLayer()
-        gradient.frame = bounds
-        gradient.colors = [UIColor.Theme.windowStart.cgColor, UIColor.Theme.windowEnd.cgColor]
-        gradient.locations = [0.5, 1]
-        layer.insertSublayer(gradient, at: 0)
-    }
+   
     
     
     func loadInstructions() {

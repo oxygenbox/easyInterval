@@ -90,133 +90,80 @@ class Settings {
 
 extension UIColor
 {
-//    public class var off: UIColor
-//    {
-//        return UIColor(red: 236/255, green: 44/255, blue: 8/255, alpha: 1.0)
+
+//    
+//    public class var base: UIColor {
+//        return UIColor.white
+//    }
+    
+//    public class var accent: UIColor {
+//        return UIColor(red: 5/255, green: 85/255, blue: 179/255, alpha: 1.0)
 //    }
 //    
-//    public class var on: UIColor
-//    {
-//        return UIColor(red: 250/255, green: 179/255, blue: 0/255, alpha: 1.0)
-//    }
-    
-    public class var myBlue: UIColor
-    {
-        return UIColor(red: 5/255, green: 85/255, blue: 179/255, alpha: 1.0)
-    }
-    
-    public class var base: UIColor {
-        return UIColor.white
-    }
-    
-    public class var accent: UIColor {
-        return UIColor(red: 5/255, green: 85/255, blue: 179/255, alpha: 1.0)
-    }
-    
-//    public class var blueA: UIColor {
-//        return UIColor(red: 225/255, green: 252/255, blue: 255/255, alpha: 1.0)
-//    }
-//    
-//    public class var blueB: UIColor {
-//        return UIColor(red: 149/255, green: 252/255, blue: 242/255, alpha: 1.0)
-//    }
-    
-    public class var blueC: UIColor {
-        return UIColor(red: 114/255, green: 184/255, blue: 253/255, alpha: 1.0)
-    }
-    
-//    public class var blueD: UIColor {
-//        return UIColor(red: 144/255, green: 153/255, blue: 216/255, alpha: 1.0)
-//    }
+
+
     
     //
-    public class var b50: UIColor {
+    public class var blueA: UIColor {
         return UIColor(red: 227/255, green: 242/255, blue: 253/255, alpha: 1.0)
     }
     
-    public class var b100: UIColor {
+    public class var blueB: UIColor {
         return UIColor(red: 187/255, green: 222/255, blue: 251/255, alpha: 1.0)
     }
     
-    public class var b200: UIColor {
+    public class var blueC: UIColor {
         return UIColor(red: 144/255, green: 202/255, blue: 249/255, alpha: 1.0)
     }
     
-    public class var b300: UIColor {
+    public class var blueD: UIColor {
         return UIColor(red: 100/255, green: 181/255, blue: 246/255, alpha: 1.0)
     }
     
-    public class var b400: UIColor {
+    public class var blueE: UIColor {
         return UIColor(red: 66/255, green: 165/255, blue: 245/255, alpha: 1.0)
     }
     
-    public class var b500: UIColor {
+    public class var blueF: UIColor {
         return UIColor(red: 33/255, green: 150/255, blue: 243/255, alpha: 1.0)
     }
     
-    public class var o500: UIColor {
+    public class var orangeF: UIColor {
         return UIColor(red: 222/255, green: 105/255, blue: 12/255, alpha: 1.0)
     }
     
-    public class var b600: UIColor {
+    public class var blueG: UIColor {
         return UIColor(red: 30/255, green: 136/255, blue: 229/255, alpha: 1.0)
     }
     
-    public class var b700: UIColor {
+    public class var blueH: UIColor {
         return UIColor(red: 25/255, green: 118/255, blue: 210/255, alpha: 1.0)
     }
     
-    public class var o700: UIColor {
+    public class var orangeH: UIColor {
         return UIColor(red: 230/255, green: 137/255, blue: 45/255, alpha: 1.0)
     }
     
-    public class var b800: UIColor {
+    public class var blueI: UIColor {
         return UIColor(red: 21/255, green: 101/255, blue: 192/255, alpha: 1.0)
     }
     
-    public class var b900: UIColor {
+    public class var blueJ: UIColor {
         return UIColor(red: 13/255, green: 71/255, blue: 161/255, alpha: 1.0)
     }
     
     struct Theme {
-        static var base: UIColor {return .b500}
-        static var ibase: UIColor {return .o500}
+        static var base: UIColor {return .blueF}
+        static var ibase: UIColor {return .orangeF}
         static var back: UIColor { return .white}
         static var buttonBar: UIColor {return .clear}
-        static var text: UIColor {return .b700}
-        static var on: UIColor {return .b200}
+        static var text: UIColor {return .blueH}
+        static var on: UIColor {return .blueC}
         static var off: UIColor {return .white}
-        static var borderOn: UIColor {return .b700}
-        static var borderOff: UIColor {return .b200}
-        
-        
-        static var bar: UIColor {return .b700}
-        static var ibar: UIColor {return .o700}
-        
-        
-        static var textLight: UIColor {return .b50}
-        static var windowStart: UIColor {return .b50}
-        static var windowEnd: UIColor {return .b200}
-    }
-    
-    struct OLDTheme {
-        static var base: UIColor {return .b500}
-        static var ibase: UIColor {return .o500}
-        static var bar: UIColor {return .b700}
-        static var ibar: UIColor {return .o700}
-        static var on: UIColor {return .b200}
-       
-        static var borderOn: UIColor {return .b50}
-        static var borderOff: UIColor {return .b900}
-        static var textLight: UIColor {return .b50}
-        static var windowStart: UIColor {return .b50}
-        static var windowEnd: UIColor {return .b200}
-    }
-    
-    
-    
-    struct Fonts {
-        static var avenirNextCondMed: String {return "AvenirNextCondensed-Medium"}
+        static var borderOn: UIColor {return .blueH}
+        static var borderOff: UIColor {return .blueC}
+        static var bar: UIColor {return .blueH}
+        static var ibar: UIColor {return .orangeH}
     }
 }
 
