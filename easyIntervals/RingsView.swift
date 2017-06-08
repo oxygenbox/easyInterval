@@ -23,7 +23,7 @@ class RingsView: UIView {
     //MARK:- METHODS
     func configure() {
         intervalRing = makeCircle(fill: .clear, stroke: .blueC, lineWidth: bounds.width/2, end: 0.0, clockwise: true)
-        baseRing = makeCircle(fill: .clear, stroke: .blueD, lineWidth: 4, end: 1, clockwise: true)
+       // baseRing = makeCircle(fill: .clear, stroke: .blueD, lineWidth: 4, end: 1, clockwise: true)
         elapsedRing = makeCircle(fill: .clear, stroke: .red, lineWidth: 4, end: 1.0, clockwise: true)
         
         layer.insertSublayer(elapsedRing, at: 0)

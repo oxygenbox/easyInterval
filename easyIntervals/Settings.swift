@@ -90,15 +90,15 @@ class Settings {
 
 extension UIColor
 {
-    public class var off: UIColor
-    {
-        return UIColor(red: 236/255, green: 44/255, blue: 8/255, alpha: 1.0)
-    }
-    
-    public class var on: UIColor
-    {
-        return UIColor(red: 250/255, green: 179/255, blue: 0/255, alpha: 1.0)
-    }
+//    public class var off: UIColor
+//    {
+//        return UIColor(red: 236/255, green: 44/255, blue: 8/255, alpha: 1.0)
+//    }
+//    
+//    public class var on: UIColor
+//    {
+//        return UIColor(red: 250/255, green: 179/255, blue: 0/255, alpha: 1.0)
+//    }
     
     public class var myBlue: UIColor
     {
@@ -113,21 +113,21 @@ extension UIColor
         return UIColor(red: 5/255, green: 85/255, blue: 179/255, alpha: 1.0)
     }
     
-    public class var blueA: UIColor {
-        return UIColor(red: 225/255, green: 252/255, blue: 255/255, alpha: 1.0)
-    }
-    
-    public class var blueB: UIColor {
-        return UIColor(red: 149/255, green: 252/255, blue: 242/255, alpha: 1.0)
-    }
+//    public class var blueA: UIColor {
+//        return UIColor(red: 225/255, green: 252/255, blue: 255/255, alpha: 1.0)
+//    }
+//    
+//    public class var blueB: UIColor {
+//        return UIColor(red: 149/255, green: 252/255, blue: 242/255, alpha: 1.0)
+//    }
     
     public class var blueC: UIColor {
         return UIColor(red: 114/255, green: 184/255, blue: 253/255, alpha: 1.0)
     }
     
-    public class var blueD: UIColor {
-        return UIColor(red: 144/255, green: 153/255, blue: 216/255, alpha: 1.0)
-    }
+//    public class var blueD: UIColor {
+//        return UIColor(red: 144/255, green: 153/255, blue: 216/255, alpha: 1.0)
+//    }
     
     //
     public class var b50: UIColor {
