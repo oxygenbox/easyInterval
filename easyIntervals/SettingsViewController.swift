@@ -108,9 +108,6 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         
     var settingHome = CGRect.zero
     var settingWindow = SettingWindow()
-   // var settingOff = SettingWindow()
-  //  var currentWindow: SettingWindow?
-  //  var previousWindow: SettingWindow?
     
     var settingFrame: UIView {
         return UIView(frame: settingHome)
@@ -196,6 +193,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         
         data.settingsTab = sender.tag
         data.save()
+        
         flip()
     }
     
@@ -348,7 +346,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
             settingWindow.cadenceControl.addTarget(self, action: #selector(controlChanged(_:)), for: .valueChanged)
             settingWindow.sessionControl.addTarget(self, action: #selector(controlChanged(_:)), for: .valueChanged)
             settingWindow.preference = activePreference
-            
+            settingWindow.setAppearance()
             view.addSubview(settingWindow)
         }
     }

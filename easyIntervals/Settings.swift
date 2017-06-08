@@ -44,7 +44,6 @@ class Settings {
     
     //MARK: Methods
     init() {
-        print("init settings")
         get()
     }
     

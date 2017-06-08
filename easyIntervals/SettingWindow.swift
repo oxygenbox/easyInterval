@@ -12,17 +12,14 @@ class SettingWindow: UIView {
     @IBOutlet weak var iconImage: UIImageView!
     @IBOutlet weak var descLabel: UILabel!
     @IBOutlet weak var prefSwitch: UISwitch!
-    //@IBOutlet weak var controlLabel: UILabel!
     @IBOutlet weak var cadenceControl: UISegmentedControl!
     @IBOutlet weak var sessionControl: UISegmentedControl!
 
-    
     var preference: Preference = .info {
         didSet {
             setUp()
         }
     }
-    
     
     var cadenceString: NSMutableAttributedString {
         let paragraphStyle = NSMutableParagraphStyle()
@@ -163,7 +160,7 @@ class SettingWindow: UIView {
         }
         
         setAppearance()
-         descLabel.setLineHeight(lineHeight: 2)
+        descLabel.setLineHeight(lineHeight: 2)
     }
     
     func initSegmentedControl() {
