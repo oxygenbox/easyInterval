@@ -153,7 +153,7 @@ class Workout: NSObject, AVAudioPlayerDelegate {
     }
     
     func speak(word: String){
-        if data.audioOn {
+        if data.audioOn || word == "cadenceBeat" {
             do {
                 let url = Bundle.main.url(forResource: word, withExtension: "caf")
                 audioPlayer = try AVAudioPlayer(contentsOf: url!)

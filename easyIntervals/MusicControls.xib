@@ -18,63 +18,61 @@
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="srq-uK-xo1">
                     <rect key="frame" x="20" y="8" width="338" height="44"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tod-qE-nZt" customClass="RoundButton" customModule="easyIntervals" customModuleProvider="target">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tod-qE-nZt" customClass="RoundButton" customModule="easyIntervals" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
-                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="44" id="aOv-Zy-zxL"/>
                                 <constraint firstAttribute="width" constant="44" id="wLY-Np-ecQ"/>
                             </constraints>
-                            <state key="normal" title="+"/>
+                            <state key="normal" image="but_menu"/>
                             <connections>
                                 <action selector="chooseTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="HfW-g7-l6s"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Ed-8d-RTT" customClass="RoundButton" customModule="easyIntervals" customModuleProvider="target">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Ed-8d-RTT" customClass="RoundButton" customModule="easyIntervals" customModuleProvider="target">
                             <rect key="frame" x="59" y="0.0" width="44" height="44"/>
-                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="44" id="kUZ-4r-iLv"/>
                                 <constraint firstAttribute="height" constant="44" id="yAA-fM-bLb"/>
                             </constraints>
+                            <state key="normal" image="but_prev"/>
                             <connections>
                                 <action selector="previousTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="wZQ-dN-B2j"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="23x-4A-omN" customClass="RoundButton" customModule="easyIntervals" customModuleProvider="target">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="23x-4A-omN" customClass="RoundButton" customModule="easyIntervals" customModuleProvider="target">
                             <rect key="frame" x="117.5" y="0.0" width="44" height="44"/>
-                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="44" id="H5w-A2-h8C"/>
                                 <constraint firstAttribute="width" constant="44" id="zcf-De-IXh"/>
                             </constraints>
+                            <state key="normal" image="but_play"/>
                             <connections>
                                 <action selector="playPauseTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="PH0-Z6-Kcw"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gsk-H8-qKP" customClass="RoundButton" customModule="easyIntervals" customModuleProvider="target">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gsk-H8-qKP" customClass="RoundButton" customModule="easyIntervals" customModuleProvider="target">
                             <rect key="frame" x="176.5" y="0.0" width="44" height="44"/>
-                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="44" id="Ryt-Jh-deN"/>
                                 <constraint firstAttribute="width" constant="44" id="ZhL-C8-0Jq"/>
                             </constraints>
+                            <state key="normal" image="but_next"/>
                             <connections>
                                 <action selector="nextTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="AT4-WO-HIE"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UJy-lr-nzJ" customClass="RoundButton" customModule="easyIntervals" customModuleProvider="target">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UJy-lr-nzJ" customClass="RoundButton" customModule="easyIntervals" customModuleProvider="target">
                             <rect key="frame" x="235" y="0.0" width="44" height="44"/>
-                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="44" id="WWb-9h-90X"/>
                                 <constraint firstAttribute="height" constant="44" id="ePd-DB-U9k"/>
                             </constraints>
-                            <state key="normal" title="close">
+                            <state key="normal" image="but_close">
                                 <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                             </state>
                             <connections>
-                                <action selector="closeTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="n7t-yE-bZB"/>
+                                <action selector="closeTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="Kr1-Ge-YbW"/>
                             </connections>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5J9-1x-FLK">
@@ -95,7 +93,21 @@
                 <constraint firstItem="srq-uK-xo1" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="xQ1-6t-iuO"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outletCollection property="buttons" destination="UJy-lr-nzJ" collectionClass="NSMutableArray" id="axH-hv-y26"/>
+                <outletCollection property="buttons" destination="gsk-H8-qKP" collectionClass="NSMutableArray" id="Nlb-ac-ah5"/>
+                <outletCollection property="buttons" destination="23x-4A-omN" collectionClass="NSMutableArray" id="jQc-6j-5Cf"/>
+                <outletCollection property="buttons" destination="2Ed-8d-RTT" collectionClass="NSMutableArray" id="Ww3-6S-Jw5"/>
+                <outletCollection property="buttons" destination="tod-qE-nZt" collectionClass="NSMutableArray" id="ZyU-9v-04n"/>
+            </connections>
             <point key="canvasLocation" x="4" y="-206"/>
         </view>
     </objects>
+    <resources>
+        <image name="but_close" width="40" height="40"/>
+        <image name="but_menu" width="40" height="40"/>
+        <image name="but_next" width="40" height="40"/>
+        <image name="but_play" width="40" height="40"/>
+        <image name="but_prev" width="40" height="40"/>
+    </resources>
 </document>
