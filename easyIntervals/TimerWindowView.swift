@@ -67,7 +67,8 @@ class TimerWindowView: UIView {
     }
     
     func config() {
-        backgroundColor = UIColor.Theme.on
+        //backgroundColor = UIColor.Theme.on
+        setBackground()
         let m = 0.10 * frame.size.height
         let rect = CGRect(x: m, y: m, width: bounds.size.width - m*2, height: bounds.size.height - m*2)
         imageView = UIImageView(frame: rect)
@@ -93,12 +94,19 @@ class TimerWindowView: UIView {
                 self.imageView.transform = .identity
             }, completion: nil)
         }
+        
+        UIView.animate(withDuration: 0.2) {
+            self.setBackground()
+        }
+        
     }
 
     func setImage() {
         var imageName = "walk_solid"
+        //var tintColor = UIColor.walk
         if mode == .run {
             imageName = "run_solid"
+          //  tintColor = UIColor.run
         }
         
         imageView.image = UIImage(named: imageName)
@@ -132,7 +140,14 @@ class TimerWindowView: UIView {
     }
     
     func beginClocks(intervalSeconds: Int, sessionSeconds: Int?) {
-        intervalClock.shapeLayer.strokeColor = UIColor.orange.cgColor
+       
+        if mode == .walk {
+             intervalClock.shapeLayer.strokeColor = UIColor.run.cgColor
+        } else {
+             intervalClock.shapeLayer.strokeColor = UIColor.walk.cgColor
+        }
+        
+       
         intervalClock.shapeLayer.lineWidth = frame.size.height - 12
         intervalClock.begin(with: intervalSeconds)
         
@@ -198,7 +213,14 @@ class TimerWindowView: UIView {
         }
     }
 
-
+    func setBackground()  {
+        if mode == .run {
+            backgroundColor = UIColor.run
+        }
+        else {
+            backgroundColor = UIColor.walk
+        }
+    }
 }
 
 
