@@ -43,12 +43,15 @@ class SettingModeView: UIView {
 
     func setImage() {
         var imageName = "walk_solid"
+        var tintColor = UIColor.walk
+        
         if mode == .run {
             imageName = "run_solid"
+            tintColor = UIColor.run
         }
         
         imageView.image = UIImage(named: imageName)
-        imageView.tintImageColor(color: UIColor.Theme.base)
+        imageView.tintImageColor(color: tintColor)
     }
     
     func change() {

@@ -144,6 +144,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
                 settingWindow.cadenceControl.isEnabled = sender.isOn
             case .music:
                 data.musicOn = sender.isOn
+            print("MUSIC \(data.musicOn)")
             case .workout:
                 data.workoutOn = sender.isOn
                 settingWindow.sessionControl.isEnabled = sender.isOn
@@ -152,6 +153,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         }
         setButtonState()
         settingWindow.setAppearance()
+        data.save()
     }
     
     @IBAction func controlChanged(_ sender: UISegmentedControl) {

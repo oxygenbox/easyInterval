@@ -29,8 +29,6 @@ class RoundButton: UIButton {
         tintColor = UIColor.Theme.base
     }
     
-    
-    
     func select() {
         layer.borderWidth = 2
         layer.borderColor = UIColor.Theme.borderOn.cgColor
@@ -44,6 +42,4 @@ class RoundButton: UIButton {
     func makeInfo() {
         tintColor = UIColor.Theme.on
     }
-    
-
 }

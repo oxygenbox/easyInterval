@@ -83,10 +83,6 @@ class Settings {
         defaults.set(cadenceFrequency, forKey: IntKey.cadenceFrequency.rawValue)
         defaults.set(settingsTab, forKey: IntKey.settingsTab.rawValue)
         
-        print("music \(musicOn)")
-        
-        
-        
         defaults.synchronize()
     }
 }
@@ -104,7 +100,13 @@ extension UIColor
 //    }
 //    
 
-
+    public class var run: UIColor {
+        return UIColor(red: 153/255, green: 187/255, blue: 64/255, alpha: 1)
+    }
+    
+    public class var walk: UIColor {
+        return UIColor(red: 66/255, green: 113/255, blue: 11/255, alpha: 1)
+    }
     
     //
     public class var blueA: UIColor {

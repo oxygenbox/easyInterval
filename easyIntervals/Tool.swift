@@ -15,7 +15,13 @@ class Tool {
     class  func intervalTimeFormatted(seconds:Int) -> NSMutableAttributedString {
         let timeString = formatTime(secs: seconds, withHours: false)
         let charCount = timeString.characters.count
-        let font = UIFont(name: "AvenirNext-Bold", size: 120)
+        //let font = UIFont(name: "AvenirNext-Bold", size: 120)
+        //let font = UIFont(name: "DINAlternate-Bold", size: 120)
+        //let font = UIFont(name: "DamascusBold", size: 120)
+        //*** let font = UIFont(name: "PingFangSC-Semibold", size: 120)
+        let font = UIFont(name: "PingFangTC-Semibold", size: 120)
+        //let font = UIFont(name: "MalayalamSangamMN-Bold", size: 120) (doesnt jump)
+       
         
         let attributedString = NSMutableAttributedString(string: timeString)
         attributedString.addAttribute(NSKernAttributeName, value: -4, range: NSMakeRange(0, charCount))
