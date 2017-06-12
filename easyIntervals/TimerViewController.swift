@@ -128,6 +128,15 @@ class TimerViewController: UIViewController{
     
     func updateTimeLabels() {
         intervalTime.attributedText = Tool.intervalTimeFormatted(seconds: workout.currentInterval.remainingSeconds)
+        
+        if workout.currentMode == .run {
+            intervalTime.textColor = UIColor.run
+        } else {
+            intervalTime.textColor = UIColor.walk
+        }
+        
+        
+        
         timerWindowView.intervalSeconds = workout.currentInterval.remainingSeconds
         
         if let session = workout.woSession {
