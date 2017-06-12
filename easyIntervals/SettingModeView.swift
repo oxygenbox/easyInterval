@@ -43,11 +43,11 @@ class SettingModeView: UIView {
 
     func setImage() {
         var imageName = "walk_solid"
-        var tintColor = UIColor.walk
+        let tintColor = UIColor.white
         
         if mode == .run {
             imageName = "run_solid"
-            tintColor = UIColor.run
+           // tintColor = UIColor.run
         }
         
         imageView.image = UIImage(named: imageName)
@@ -64,6 +64,17 @@ class SettingModeView: UIView {
             UIView.animate(withDuration:self.dropDuration, delay: self.delay, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveLinear, animations: {
                 self.imageView.transform = .identity
             }, completion: nil)
+        }
+        setBackground()
+    }
+    
+    func setBackground() {
+        UIView.animate(withDuration: 0.2) {
+            if self.mode == .run {
+                self.backgroundColor = UIColor.run
+            } else {
+                self.backgroundColor = UIColor.walk
+            }
         }
     }
 

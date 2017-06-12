@@ -312,7 +312,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
             label.layer.cornerRadius = label.frame.size.height / 2
             label.clipsToBounds = true
             label.layer.borderWidth = 2
-            label.layer.borderColor = UIColor.Theme.base.cgColor
+            label.layer.borderColor = UIColor.primary.cgColor
             
         } else {
             label.attributedText = Tool.formatPickerTime(time: Data.timeArray[row])

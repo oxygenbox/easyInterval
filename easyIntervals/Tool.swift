@@ -57,6 +57,21 @@ class Tool {
     class func formatPickerMode(mode: String) -> NSMutableAttributedString {
         let attributes =  [NSFontAttributeName: UIFont(name: "AvenirNext-DemiBold", size: 24.0)!]
         let mutableString = NSMutableAttributedString(string: mode, attributes: attributes)
+        if mode == "Run/Walk" {
+             let runRange =  NSRange(location:0,length:3)
+            mutableString.addAttribute(NSForegroundColorAttributeName, value: UIColor.run, range: runRange)
+             let walkRange =  NSRange(location:4,length:4)
+            mutableString.addAttribute(NSForegroundColorAttributeName, value: UIColor.walk, range: walkRange)
+        } else {
+            let walkRange =  NSRange(location:0,length:4)
+            mutableString.addAttribute(NSForegroundColorAttributeName, value: UIColor.walk, range: walkRange)
+            let runRange =  NSRange(location:5,length:3)
+            mutableString.addAttribute(NSForegroundColorAttributeName, value: UIColor.run, range: runRange)
+        }
+        
+        
+        
+        
         return mutableString
     }
     
@@ -67,6 +82,7 @@ class Tool {
         mutableString.addAttribute(NSFontAttributeName, value: UIFont(name: "AvenirNextCondensed-DemiBold", size: 24.0)!, range: myRange)
         mutableString.addAttribute(NSUnderlineStyleAttributeName, value: NSUnderlineStyle.styleSingle.rawValue, range: myRange)
         mutableString.addAttribute(NSBaselineOffsetAttributeName , value: 6, range: myRange)
+        mutableString.addAttribute(NSForegroundColorAttributeName, value: UIColor.primary, range: NSMakeRange(0, time.characters.count))
         return mutableString
     }
 }

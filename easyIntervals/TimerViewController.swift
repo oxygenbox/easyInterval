@@ -93,6 +93,7 @@ class TimerViewController: UIViewController{
     func configureScreen() {
         view.backgroundColor = UIColor.Theme.back
         
+        
         configureLabels()
         configureButtons()
         

@@ -35,7 +35,7 @@ class TimerWindowView: UIView {
     lazy var countDownLabel: UILabel = {
         let label = UILabel(frame: self.frame)
         label.font = UIFont(name: "AvenirNext-Bold", size: 120)
-        label.textColor = UIColor.Theme.ibase
+        label.textColor = UIColor.highlight
         label.text = "5"
         return label
     }()
@@ -155,8 +155,8 @@ class TimerWindowView: UIView {
             return
         }
         
-        sessionClock.shapeLayer.strokeColor = UIColor.blueI.cgColor
-        sessionClock.shapeLayer.lineWidth = 2
+        sessionClock.shapeLayer.strokeColor = UIColor.highlight.cgColor
+        sessionClock.shapeLayer.lineWidth = 10
         sessionClock.isHidden = false
         sessionClock.begin(with: t)
         
@@ -176,7 +176,7 @@ class TimerWindowView: UIView {
         let radius = imageView.frame.width //* 0.8
         let pulse = Pulsing(numberOfPulses: 1, radius: radius/2, position: imageView.center)
         pulse.animationDuration = 0.5
-        pulse.backgroundColor = UIColor.Theme.ibase.cgColor
+        pulse.backgroundColor = UIColor.highlight.cgColor
         layer.insertSublayer(pulse, below: imageView.layer)
     }
     
@@ -188,7 +188,7 @@ class TimerWindowView: UIView {
         self.label.frame = self.bounds
         self.label.font = UIFont(name: "AvenirNext-Bold", size: h)
         self.label.textAlignment = .center
-        self.label.textColor = UIColor.Theme.ibar
+        self.label.textColor = UIColor.highlight
         self.label.text = ""
         self.addSubview(self.label)
     }

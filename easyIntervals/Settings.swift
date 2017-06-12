@@ -108,6 +108,23 @@ extension UIColor
         return UIColor(red: 66/255, green: 113/255, blue: 11/255, alpha: 1)
     }
     
+    public class var primary: UIColor {
+        return UIColor(red: 70/255, green: 53/255, blue: 43/255, alpha: 1)
+    }
+    
+    public class var tertiary: UIColor {
+       // return UIColor(red: 16/255, green: 103/255, blue:122/255, alpha: 0.25)
+        return UIColor(red: 136/255, green: 179/255, blue:189/255, alpha: 1)
+    }
+    
+    public class var secondary: UIColor {
+        return UIColor(red: 16/255, green: 103/255, blue:122/255, alpha: 1)
+    }
+    
+    public class var highlight: UIColor {
+        return UIColor(red: 255/255, green: 250/255, blue: 98/255, alpha: 1)
+    }
+    
     //
     public class var blueA: UIColor {
         return UIColor(red: 227/255, green: 242/255, blue: 253/255, alpha: 1.0)
@@ -158,15 +175,15 @@ extension UIColor
     }
     
     struct Theme {
-        static var base: UIColor {return .blueF}
+        static var base: UIColor {return .secondary}
         static var ibase: UIColor {return .orangeF}
         static var back: UIColor { return .white}
         static var buttonBar: UIColor {return .clear}
         static var text: UIColor {return .blueH}
-        static var on: UIColor {return .blueC}
+        static var on: UIColor {return .tertiary}
         static var off: UIColor {return .white}
-        static var borderOn: UIColor {return .blueH}
-        static var borderOff: UIColor {return .blueC}
+        static var borderOn: UIColor {return .primary}
+        static var borderOff: UIColor {return .primary}
         static var bar: UIColor {return .blueH}
         static var ibar: UIColor {return .orangeH}
     }
