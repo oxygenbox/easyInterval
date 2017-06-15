@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G12b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="FgG-fg-luk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G12b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="sKf-lX-bwi">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -440,6 +441,175 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ixP-l7-aOV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3654" y="-583"/>
+        </scene>
+        <!--Preference View Controller-->
+        <scene sceneID="ZHf-i9-kgb">
+            <objects>
+                <viewController id="sKf-lX-bwi" customClass="PreferenceViewController" customModule="easyIntervals" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="BFZ-2y-WzA"/>
+                        <viewControllerLayoutGuide type="bottom" id="WIg-zI-bPw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9mi-nK-NTf">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VZn-gD-gpU">
+                                <rect key="frame" x="0.0" y="508" width="320" height="60"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="-1" translatesAutoresizingMaskIntoConstraints="NO" id="G73-dK-eSw">
+                                        <rect key="frame" x="20" y="8" width="280" height="44"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pGX-BI-mZh" customClass="PreferenceButton" customModule="easyIntervals" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="DXm-Qd-DLl"/>
+                                                    <constraint firstAttribute="width" constant="44" id="xBW-74-PoG"/>
+                                                </constraints>
+                                                <connections>
+                                                    <action selector="preferenceButtonTapped:" destination="sKf-lX-bwi" eventType="touchUpInside" id="14T-GE-7DN"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tl4-GW-6Ic" customClass="PreferenceButton" customModule="easyIntervals" customModuleProvider="target">
+                                                <rect key="frame" x="47" y="0.0" width="44" height="44"/>
+                                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <connections>
+                                                    <action selector="preferenceButtonTapped:" destination="sKf-lX-bwi" eventType="touchUpInside" id="00r-KZ-fqN"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XEn-Dz-mPY" customClass="PreferenceButton" customModule="easyIntervals" customModuleProvider="target">
+                                                <rect key="frame" x="94.5" y="0.0" width="44" height="44"/>
+                                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <connections>
+                                                    <action selector="preferenceButtonTapped:" destination="sKf-lX-bwi" eventType="touchUpInside" id="4GP-0h-3di"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hWj-Nb-jJU" customClass="PreferenceButton" customModule="easyIntervals" customModuleProvider="target">
+                                                <rect key="frame" x="141.5" y="0.0" width="44" height="44"/>
+                                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <connections>
+                                                    <action selector="preferenceButtonTapped:" destination="sKf-lX-bwi" eventType="touchUpInside" id="ZT8-Sf-nmn"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RjW-Qz-zcj" customClass="PreferenceButton" customModule="easyIntervals" customModuleProvider="target">
+                                                <rect key="frame" x="189" y="0.0" width="44" height="44"/>
+                                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <connections>
+                                                    <action selector="preferenceButtonTapped:" destination="sKf-lX-bwi" eventType="touchUpInside" id="Y92-Zu-oCY"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ime-7u-tNT" customClass="PreferenceButton" customModule="easyIntervals" customModuleProvider="target">
+                                                <rect key="frame" x="236" y="0.0" width="44" height="44"/>
+                                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <connections>
+                                                    <action selector="preferenceButtonTapped:" destination="sKf-lX-bwi" eventType="touchUpInside" id="mVz-y7-zGm"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="RjW-Qz-zcj" firstAttribute="height" secondItem="hWj-Nb-jJU" secondAttribute="height" id="2ir-Uv-xAa"/>
+                                            <constraint firstItem="RjW-Qz-zcj" firstAttribute="width" secondItem="hWj-Nb-jJU" secondAttribute="width" id="5Sp-jM-LmI"/>
+                                            <constraint firstItem="ime-7u-tNT" firstAttribute="height" secondItem="RjW-Qz-zcj" secondAttribute="height" id="Ah0-51-9mQ"/>
+                                            <constraint firstItem="XEn-Dz-mPY" firstAttribute="height" secondItem="Tl4-GW-6Ic" secondAttribute="height" id="HG4-9q-VzJ"/>
+                                            <constraint firstItem="XEn-Dz-mPY" firstAttribute="width" secondItem="Tl4-GW-6Ic" secondAttribute="width" id="KLv-lr-9xb"/>
+                                            <constraint firstItem="hWj-Nb-jJU" firstAttribute="height" secondItem="XEn-Dz-mPY" secondAttribute="height" id="Sep-ba-hNi"/>
+                                            <constraint firstItem="Tl4-GW-6Ic" firstAttribute="width" secondItem="pGX-BI-mZh" secondAttribute="width" id="USw-ba-l1s"/>
+                                            <constraint firstItem="Tl4-GW-6Ic" firstAttribute="height" secondItem="pGX-BI-mZh" secondAttribute="height" id="Ynf-3Y-kZB"/>
+                                            <constraint firstItem="hWj-Nb-jJU" firstAttribute="width" secondItem="XEn-Dz-mPY" secondAttribute="width" id="bDz-K0-r8o"/>
+                                            <constraint firstItem="ime-7u-tNT" firstAttribute="width" secondItem="RjW-Qz-zcj" secondAttribute="width" id="hnT-yP-UcI"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="G73-dK-eSw" secondAttribute="trailing" constant="20" id="KTe-Qs-0yD"/>
+                                    <constraint firstAttribute="height" constant="60" id="cow-Hd-XyM"/>
+                                    <constraint firstItem="G73-dK-eSw" firstAttribute="leading" secondItem="VZn-gD-gpU" secondAttribute="leading" constant="20" id="dFB-UB-OMX"/>
+                                    <constraint firstAttribute="bottom" secondItem="G73-dK-eSw" secondAttribute="bottom" constant="8" id="dsi-va-zEl"/>
+                                    <constraint firstItem="G73-dK-eSw" firstAttribute="top" secondItem="VZn-gD-gpU" secondAttribute="top" constant="8" id="wFm-7S-2zq"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tbg-4s-rcB">
+                                <rect key="frame" x="20" y="448" width="280" height="60"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pbf-vl-68X" customClass="SwitchView" customModule="easyIntervals" customModuleProvider="target">
+                                        <rect key="frame" x="95" y="8" width="59" height="39"/>
+                                        <subviews>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T0D-ir-qS8">
+                                                <rect key="frame" x="4" y="4" width="51" height="31"/>
+                                            </switch>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="T0D-ir-qS8" firstAttribute="centerX" secondItem="pbf-vl-68X" secondAttribute="centerX" id="Jwn-kG-MrV"/>
+                                            <constraint firstItem="T0D-ir-qS8" firstAttribute="centerY" secondItem="pbf-vl-68X" secondAttribute="centerY" id="tQh-sg-3cE"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <constraints>
+                                    <constraint firstItem="pbf-vl-68X" firstAttribute="centerY" secondItem="tbg-4s-rcB" secondAttribute="centerY" id="m9N-3s-4ie"/>
+                                    <constraint firstItem="pbf-vl-68X" firstAttribute="centerX" secondItem="tbg-4s-rcB" secondAttribute="centerX" id="wSc-jK-W1f"/>
+                                    <constraint firstAttribute="height" constant="60" id="yYs-A6-Rem"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lKr-Wy-Zk8">
+                                <rect key="frame" x="0.0" y="20" width="320" height="60"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="zfq-oH-45u"/>
+                                </constraints>
+                            </view>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LHV-Qw-FOK">
+                                <rect key="frame" x="0.0" y="80" width="320" height="216"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="LHV-Qw-FOK" secondAttribute="height" multiplier="40:27" id="JD7-oW-7Ib"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="sKf-lX-bwi" id="8ka-UD-1d5"/>
+                                    <outlet property="delegate" destination="sKf-lX-bwi" id="yeV-lf-3Gg"/>
+                                </connections>
+                            </pickerView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="WGa-Ln-XSE">
+                                <rect key="frame" x="76" y="304" width="168" height="29"/>
+                                <segments>
+                                    <segment title="run/walk"/>
+                                    <segment title="walk/run"/>
+                                </segments>
+                                <connections>
+                                    <action selector="intervalOrderChanged:" destination="sKf-lX-bwi" eventType="valueChanged" id="P73-dW-gMO"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="lKr-Wy-Zk8" firstAttribute="top" secondItem="BFZ-2y-WzA" secondAttribute="bottom" id="6pK-Lt-TUs"/>
+                            <constraint firstItem="lKr-Wy-Zk8" firstAttribute="leading" secondItem="9mi-nK-NTf" secondAttribute="leading" id="9jY-9a-QFV"/>
+                            <constraint firstItem="tbg-4s-rcB" firstAttribute="leading" secondItem="9mi-nK-NTf" secondAttribute="leading" constant="20" id="EgY-NV-CHF"/>
+                            <constraint firstItem="WIg-zI-bPw" firstAttribute="top" secondItem="VZn-gD-gpU" secondAttribute="bottom" id="F1F-0W-VF9"/>
+                            <constraint firstItem="VZn-gD-gpU" firstAttribute="leading" secondItem="9mi-nK-NTf" secondAttribute="leading" id="Gj8-G3-ktv"/>
+                            <constraint firstAttribute="trailing" secondItem="lKr-Wy-Zk8" secondAttribute="trailing" id="Hvc-Yy-gdu"/>
+                            <constraint firstItem="VZn-gD-gpU" firstAttribute="top" secondItem="tbg-4s-rcB" secondAttribute="bottom" id="Ich-rz-dLF"/>
+                            <constraint firstAttribute="trailing" secondItem="VZn-gD-gpU" secondAttribute="trailing" id="JFB-cf-ziJ"/>
+                            <constraint firstItem="LHV-Qw-FOK" firstAttribute="leading" secondItem="9mi-nK-NTf" secondAttribute="leading" id="JZk-D9-5Ee"/>
+                            <constraint firstAttribute="trailing" secondItem="tbg-4s-rcB" secondAttribute="trailing" constant="20" id="TxO-mR-YGa"/>
+                            <constraint firstItem="WGa-Ln-XSE" firstAttribute="top" secondItem="LHV-Qw-FOK" secondAttribute="bottom" constant="8" id="ava-MS-cyG"/>
+                            <constraint firstItem="LHV-Qw-FOK" firstAttribute="top" secondItem="lKr-Wy-Zk8" secondAttribute="bottom" id="hO7-v1-4ns"/>
+                            <constraint firstAttribute="trailing" secondItem="LHV-Qw-FOK" secondAttribute="trailing" id="qiz-eQ-8ei"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="WGa-Ln-XSE" secondAttribute="trailing" constant="60" id="v7z-uY-iJr"/>
+                            <constraint firstItem="WGa-Ln-XSE" firstAttribute="leading" secondItem="9mi-nK-NTf" secondAttribute="leadingMargin" constant="60" id="yWn-vO-uXy"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="intervalOrderControl" destination="WGa-Ln-XSE" id="vl3-FG-a9d"/>
+                        <outlet property="picker" destination="LHV-Qw-FOK" id="Rfu-SI-hTc"/>
+                        <outlet property="switchView" destination="pbf-vl-68X" id="Z9a-5L-iP9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CXi-8e-h7R" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4436.25" y="-540.84507042253517"/>
         </scene>
     </scenes>
     <resources>

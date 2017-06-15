@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		9E0599A91EC2295500E15A34 /* ClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0599A81EC2295500E15A34 /* ClockView.swift */; };
+		9E10CC5D1EF309830017D7B8 /* PreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E10CC5C1EF309830017D7B8 /* PreferenceViewController.swift */; };
+		9E10CC5F1EF30CA60017D7B8 /* PreferenceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E10CC5E1EF30CA60017D7B8 /* PreferenceButton.swift */; };
+		9E10CC611EF3112D0017D7B8 /* SwitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E10CC601EF3112D0017D7B8 /* SwitchView.swift */; };
 		9E1703FB1E56240E007B2D05 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1703FA1E56240E007B2D05 /* TimerViewController.swift */; };
 		9E2E77CD1E23D92F0082ED83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2E77CC1E23D92F0082ED83 /* AppDelegate.swift */; };
 		9E2E77D21E23D92F0082ED83 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E2E77D01E23D92F0082ED83 /* Main.storyboard */; };
@@ -52,6 +55,9 @@
 
 /* Begin PBXFileReference section */
 		9E0599A81EC2295500E15A34 /* ClockView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClockView.swift; sourceTree = "<group>"; };
+		9E10CC5C1EF309830017D7B8 /* PreferenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceViewController.swift; sourceTree = "<group>"; };
+		9E10CC5E1EF30CA60017D7B8 /* PreferenceButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceButton.swift; sourceTree = "<group>"; };
+		9E10CC601EF3112D0017D7B8 /* SwitchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchView.swift; sourceTree = "<group>"; };
 		9E1703FA1E56240E007B2D05 /* TimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		9E2E77C91E23D92F0082ED83 /* easyIntervals.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = easyIntervals.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E2E77CC1E23D92F0082ED83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -157,6 +163,7 @@
 			children = (
 				9E1703FA1E56240E007B2D05 /* TimerViewController.swift */,
 				9E2E77E21E23D9BD0082ED83 /* SettingsViewController.swift */,
+				9E10CC5C1EF309830017D7B8 /* PreferenceViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -188,6 +195,8 @@
 				9E8FCDE61EE0A1EF003D2175 /* SettingWindow.swift */,
 				9E7F19541EE70F83004350D2 /* IntructionView.swift */,
 				9EB1C7491EE9754C00B9BDD1 /* MusicControls.swift */,
+				9E10CC5E1EF30CA60017D7B8 /* PreferenceButton.swift */,
+				9E10CC601EF3112D0017D7B8 /* SwitchView.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -309,6 +318,7 @@
 				9E520DDE1E685DF400142F85 /* RoundButton.swift in Sources */,
 				9EF0558E1EC0A4DA0058039D /* Functionality.swift in Sources */,
 				9E2E77EA1E2557670082ED83 /* Session.swift in Sources */,
+				9E10CC611EF3112D0017D7B8 /* SwitchView.swift in Sources */,
 				9E520DDC1E6756BB00142F85 /* SettingModeView.swift in Sources */,
 				9E2E77E81E23DA0C0082ED83 /* Settings.swift in Sources */,
 				9EAA94E01ECB6B0300D77A2C /* Pulsing.swift in Sources */,
@@ -316,6 +326,8 @@
 				9E2E77E61E23D9FE0082ED83 /* Data.swift in Sources */,
 				9E1703FB1E56240E007B2D05 /* TimerViewController.swift in Sources */,
 				9EAEA5941ED3446B005E3F63 /* ButtonView.swift in Sources */,
+				9E10CC5D1EF309830017D7B8 /* PreferenceViewController.swift in Sources */,
+				9E10CC5F1EF30CA60017D7B8 /* PreferenceButton.swift in Sources */,
 				9EB3FD641ED606EF00B9319F /* Tutorial.swift in Sources */,
 				9E957F261ECA504200CBFC1F /* TimerWindowView.swift in Sources */,
 				9EC7AC511E4B5C1B00C89EA7 /* ToDo.swift in Sources */,
