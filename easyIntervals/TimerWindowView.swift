@@ -216,10 +216,13 @@ class TimerWindowView: UIView {
     func setBackground()  {
         if mode == .run {
             backgroundColor = UIColor.run
+            
         }
         else {
             backgroundColor = UIColor.walk
         }
+        
+        backgroundColor = UIColor.tertiary
     }
 }
 

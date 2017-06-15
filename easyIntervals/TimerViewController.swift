@@ -136,8 +136,6 @@ class TimerViewController: UIViewController{
             intervalTime.textColor = UIColor.walk
         }
         
-        
-        
         timerWindowView.intervalSeconds = workout.currentInterval.remainingSeconds
         
         if let session = workout.woSession {
@@ -311,9 +309,6 @@ extension TimerViewController: MusicControlDelegate {
         }) { (success) in
             self.musicControls.isHidden = true
         }
-        
-        
-        
     }
 }
 
