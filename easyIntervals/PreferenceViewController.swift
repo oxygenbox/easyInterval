@@ -55,6 +55,7 @@ class PreferenceViewController: UIViewController {
     //MARK:- LIFECYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -87,6 +88,7 @@ class PreferenceViewController: UIViewController {
     //MARK:- METHODS
     
     func configure() {
+        switchView.delegate = self
         
         picker.selectRow(data.runValue, inComponent: runComponent, animated: false)
         picker.selectRow(data.walkValue, inComponent: walkComponent, animated: false)
@@ -103,8 +105,12 @@ class PreferenceViewController: UIViewController {
         for (index, button) in buttonCollection.enumerated() {
             button.tag = index
             
+         
             if index == data.settingsTab {
+                positionSwitchView(destination: button.center.x)
                 button.select()
+               
+                
             } else {
                 button.deselect()
             }
@@ -133,6 +139,7 @@ class PreferenceViewController: UIViewController {
         for but in buttonCollection {
             if but == button {
                 but.select()
+                print(but.tag)
             } else {
                 but.deselect()
             }
@@ -151,7 +158,6 @@ class PreferenceViewController: UIViewController {
                 default:
                     break
             }
-            print(but)
         }
         
     }
@@ -204,6 +210,7 @@ class PreferenceViewController: UIViewController {
     
     
     func positionSwitchView(destination: CGFloat) {
+        switchView.preference = activePreference
         let pa = UIViewPropertyAnimator(duration: 0.25, curve: .easeOut) {
             self.switchView.center.x = destination
         }
@@ -248,6 +255,7 @@ extension PreferenceViewController: UIPickerViewDataSource {
         
         
         let dim = pickerView.bounds.width/2 - 10
+        
         let pView = UIView(frame: CGRect(x: 0, y: 0, width: dim, height: dim))
         pView.layer.cornerRadius = dim/2
         
@@ -266,12 +274,12 @@ extension PreferenceViewController: UIPickerViewDataSource {
         
         if component == runComponent {
             pView.backgroundColor = UIColor.green
-            //imageView.image = UIImage(named: "run_solid")
+           // imageView.image = UIImage(named: "run_solid")
              imageView.tintColor = UIColor.run
             
         } else {
             pView.backgroundColor = UIColor.red
-           // imageView.image = UIImage(named: "walk_solid")
+          //  imageView.image = UIImage(named: "walk_solid")
             imageView.tintColor = UIColor.walk
         }
         
@@ -283,7 +291,9 @@ extension PreferenceViewController: UIPickerViewDataSource {
 
 extension PreferenceViewController: SwitchViewDelegate {
     func changePreferenceState() {
-        
+        setButtonState()
+       // settingWindow.setAppearance()
+       // data.save()
     }
 }
 
@@ -384,30 +394,6 @@ extension PreferenceViewController: SwitchViewDelegate {
  
  
  
- //MARK: - IBACTIONS
- @IBAction func switchChanged(sender: UISwitch) {
- switch activePreference {
- case .audio:
- data.audioOn = sender.isOn
- case .vibrate:
- data.vibrateOn = sender.isOn
- case .cadence:
- data.cadenceOn = sender.isOn
- settingWindow.cadenceControl.isEnabled = sender.isOn
- case .music:
- data.musicOn = sender.isOn
- print("MUSIC \(data.musicOn)")
- case .workout:
- data.workoutOn = sender.isOn
- settingWindow.sessionControl.isEnabled = sender.isOn
- default:
- break
- }
- setButtonState()
- settingWindow.setAppearance()
- data.save()
- }
- 
  @IBAction func controlChanged(_ sender: UISegmentedControl) {
  let value = sender.selectedSegmentIndex
  if activePreference == .workout {
@@ -461,13 +447,7 @@ extension PreferenceViewController: SwitchViewDelegate {
  
  
  
- func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
- if component == 0 {
- return Data.modeNameArray[row]
- } else {
- return Data.timeArray[row]
- }
- }
+
  
  func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
  let label = UILabel(frame: CGRect(x: 0, y: 0, width: Picker.time.width, height: 50))
@@ -523,10 +503,176 @@ extension PreferenceViewController: SwitchViewDelegate {
  }
  
  
+ /////////////////////////////////////////
  
  
+ //
+ //  SettingWindow.swift
+ //  easyIntervals
+ //
+ //  Created by Michael Schaffner on 6/1/17.
+ //  Copyright © 2017 Michael Schaffner. All rights reserved.
+ //
+ 
+ import UIKit
+ 
+ class SettingWindow: UIView {
+ @IBOutlet weak var iconImage: UIImageView!
+ @IBOutlet weak var descLabel: UILabel!
+ @IBOutlet weak var prefSwitch: UISwitch!
+ @IBOutlet weak var cadenceControl: UISegmentedControl!
+ @IBOutlet weak var sessionControl: UISegmentedControl!
+ 
+ var preference: Preference = .info {
+ didSet {
+ preferenceChanged()
+ }
+ }
+ 
+ var cadenceDescription: String {
+ var freq: String
+ switch data.cadenceFrequency {
+ case 0:
+ freq = ""
+ case 1:
+ freq =  "Other"
+ case 2:
+ freq  = "Third"
+ default:
+ freq = "Fourth"
+ }
+ 
+ return "Play Cadence Check\n Every \(freq) Run Interval"
+ }
  
  
+ var workoutDescription: String {
+ let minutes = data.sessionArray[data.sequenceRepeats]
+ return "Set for a \(minutes) minute workout"
+ }
+ 
+ var shapeLayer = CAShapeLayer()
+ let lineWidth: CGFloat = 10
+ 
+ override func didMoveToSuperview() {
+ super.didMoveToSuperview()
+ configure()
+ }
+ 
+ override init(frame: CGRect) {
+ super.init(frame: frame)
+ }
+ 
+ required init?(coder aDecoder: NSCoder) {
+ super.init(coder: aDecoder)
+ }
+ 
+ //MARK:- Methods
+ func configure() {
+ layer.cornerRadius = frame.size.width/2
+ layer.borderColor = UIColor.Theme.base.cgColor
+ layer.borderWidth = 1
+ clipsToBounds = true
+ 
+ configureLabels()
+ configureControls()
+ // addCircle()
+ }
+ 
+ func configureControls() {
+ sessionControl.tintColor = UIColor.Theme.borderOn
+ cadenceControl.tintColor = UIColor.Theme.borderOn
+ cadenceControl.setTitleTextAttributes(
+ [NSFontAttributeName: UIFont.cadence],
+ for: .normal)
+ sessionControl.setTitleTextAttributes(
+ [NSFontAttributeName: UIFont.session],
+ for: .normal)
+ }
+ 
+ func configureLabels() {
+ // descLabel.font = UIFont.setting
+ // descLabel.textAlignment = .center
+ descLabel.descFormat(lineHeight: 1)
+ descLabel.textColor = UIColor.Theme.borderOn
+ }
+ 
+ func preferenceChanged() {
+ //set switch and image
+ switch preference {
+ case .audio:
+ prefSwitch.isOn = data.audioOn
+ iconImage.image = UIImage(named: "audio_panel")
+ case .vibrate:
+ prefSwitch.isOn = data.vibrateOn
+ iconImage.image = UIImage(named: "vibrate_panel")
+ case .cadence:
+ prefSwitch.isOn = data.cadenceOn
+ iconImage.image = UIImage(named: "cadence_panel")
+ case .music:
+ prefSwitch.isOn = data.musicOn
+ iconImage.image = UIImage(named: "music_panel")
+ case .workout:
+ prefSwitch.isOn = data.workoutOn
+ iconImage.image = UIImage(named: "session_panel")
+ default:
+ //info
+ iconImage.image = nil
+ }
+ 
+ prefSwitch.isHidden = preference == .info
+ descLabel.text = preference.desc
+ initSegmentedControl()
+ 
+ descLabel.descFormat(lineHeight: 1)
+ 
+ setAppearance()
+ }
+ 
+ func initSegmentedControl() {
+ switch preference {
+ case .cadence:
+ cadenceControl.isHidden = false
+ sessionControl.isHidden = true
+ cadenceControl.isEnabled = data.cadenceOn
+ cadenceControl.selectedSegmentIndex = data.cadenceFrequency
+ case .workout:
+ sessionControl.isHidden = false
+ cadenceControl.isHidden = true
+ sessionControl.isEnabled = data.workoutOn
+ sessionControl.selectedSegmentIndex = data.sequenceRepeats
+ for (index, minutes) in data.sessionArray.enumerated() {
+ sessionControl.setTitle("\(minutes)", forSegmentAt: index)
+ }
+ default:
+ sessionControl.isHidden = preference != .workout
+ cadenceControl.isHidden = preference != .cadence
+ }
+ 
+ updateControlDescription()
+ }
+ 
+ func updateControlDescription() {
+ if preference == .workout {
+ descLabel.text = workoutDescription
+ } else if preference == .cadence {
+ descLabel.text = cadenceDescription
+ } else {
+ //controlLabel.text = ""
+ }
+ descLabel.descFormat(lineHeight: 1)
+ }
+ 
+ func setAppearance(){
+ if prefSwitch.isOn {
+ backgroundColor = UIColor.Theme.on
+ iconImage.tintColor = UIColor.Theme.off
+ }else {
+ backgroundColor = UIColor.Theme.off
+ iconImage.tintColor = UIColor.Theme.on
+ }
+ }
+
  
  
  
