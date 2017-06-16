@@ -52,6 +52,16 @@ class Data: Settings {
         }
     }
     
+    var formattedTitle: NSMutableAttributedString {
+        let font = UIFont(name: "AvenirNextCondensed-Regular", size: 20.0)!
+        let charCount = settingTitle.characters.count
+        let attributedString = NSMutableAttributedString(string: settingTitle)
+        attributedString.addAttribute(NSForegroundColorAttributeName, value: UIColor.Theme.text, range: NSMakeRange(0, charCount))
+        attributedString.addAttribute(NSFontAttributeName, value: font, range: NSMakeRange(0, charCount))
+        
+        return attributedString
+    }
+    
     var runIntervalInSeconds: Int {
         return (self.runValue + 1) * 60
     }

@@ -21,6 +21,8 @@ class PreferenceViewController: UIViewController {
     @IBOutlet weak var cadenceButton: PreferenceButton!
     @IBOutlet weak var musicButton: PreferenceButton!
     @IBOutlet weak var sessionButton: PreferenceButton!
+    @IBOutlet weak var doneButton: UIButton!
+    @IBOutlet weak var titleLabel: UILabel!
     
     @IBOutlet var buttonCollection: [PreferenceButton]!
     
@@ -69,6 +71,10 @@ class PreferenceViewController: UIViewController {
         self.selectButton(button: sender)
     }
     
+    @IBAction func doneButtonTapped(_sender:UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func intervalOrderChanged(_ sender: UISegmentedControl) {
         isRunWalk = sender.selectedSegmentIndex == 0
         data.isRunWalk = sender.selectedSegmentIndex == 0
@@ -105,16 +111,12 @@ class PreferenceViewController: UIViewController {
             
             setButtonState()
             infoButton.makeInfo()
-           // doneButton.tintColor = UIColor.Theme.base
+            doneButton.tintColor = UIColor.Theme.base
         }
     }
     
     func postTitle() {
-        /*
-         titleLabel.font = UIFont.title
-         titleLabel.textColor = UIColor.Theme.base
-         titleLabel.text = data.settingTitle
-         */
+        titleLabel.attributedText = data.formattedTitle
     }
     
     func setButtonState() {
@@ -222,12 +224,9 @@ extension PreferenceViewController: UIPickerViewDelegate {
         
         postTitle()
         initSegmentedControls()
-        //runSetting = picker.selectedRow(inComponent: runComponent)
-        // walkSetting = picker.selectedRow(inComponent: walkComponent)
+        
         //settingWindow.initSegmentedControl()
-        //if component == 0 {
-         //   updateModeWindows()
-       // }
+        
         
     }
 }
@@ -267,6 +266,12 @@ extension PreferenceViewController: UIPickerViewDataSource {
         }
         
         return pView
+    }
+}
+
+extension PreferenceViewController: SwitchViewDelegate {
+    func changePreferenceState() {
+        
     }
 }
 
@@ -435,9 +440,7 @@ extension PreferenceViewController: UIPickerViewDataSource {
  }
  
  
- @IBAction func doneTapped(_ sender: UIButton) {
- dismiss(animated: true, completion: nil)
- }
+
  
  //MARK: - Methods
  
@@ -508,20 +511,7 @@ extension PreferenceViewController: UIPickerViewDataSource {
  return label
  }
  
- func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
  
- data.isRunWalk = picker.selectedRow(inComponent: 0) == 0
- data.runValue = picker.selectedRow(inComponent: runComponent)
- data.walkValue = picker.selectedRow(inComponent: walkComponent)
- data.save()
- data.calcSessionIncrement()
- title = data.settingTitle
- settingWindow.initSegmentedControl()
- 
- if component == 0 {
- updateModeWindows()
- }
- }
  
  func loadSettingWindow() {
  

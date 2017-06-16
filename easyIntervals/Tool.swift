@@ -85,6 +85,8 @@ class Tool {
         mutableString.addAttribute(NSForegroundColorAttributeName, value: UIColor.primary, range: NSMakeRange(0, time.characters.count))
         return mutableString
     }
+    
+    
 }
 
 
