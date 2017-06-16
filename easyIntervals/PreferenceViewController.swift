@@ -237,7 +237,7 @@ extension PreferenceViewController: UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 10
+        return Data.timeArray.count
     }
     
     func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
@@ -250,20 +250,32 @@ extension PreferenceViewController: UIPickerViewDataSource {
         let dim = pickerView.bounds.width/2 - 10
         let pView = UIView(frame: CGRect(x: 0, y: 0, width: dim, height: dim))
         pView.layer.cornerRadius = dim/2
-        pView.backgroundColor = UIColor.blue
+        
+        let margin: CGFloat = 30
+        let imageView = UIImageView(frame: CGRect(x: margin, y: margin, width: dim-margin*2, height: dim-margin*2))
+        pView.addSubview(imageView)
+        
         let label = UILabel(frame: pView.frame)
-        label.textColor = UIColor.white
-        label.font = UIFont(name: "Helvetica", size: 40)!
-        label.text = "\(row):00"
+        label.attributedText = Tool.formatPickerTime(time: Data.timeArray[row])
         label.textAlignment = .center
         pView.addSubview(label)
 
+       
+        
+        
         
         if component == runComponent {
             pView.backgroundColor = UIColor.green
+            //imageView.image = UIImage(named: "run_solid")
+             imageView.tintColor = UIColor.run
+            
         } else {
-             pView.backgroundColor = UIColor.red
+            pView.backgroundColor = UIColor.red
+           // imageView.image = UIImage(named: "walk_solid")
+            imageView.tintColor = UIColor.walk
         }
+        
+        
         
         return pView
     }
@@ -448,35 +460,6 @@ extension PreferenceViewController: SwitchViewDelegate {
  
  
  
- 
- //MARK: - PickerView Methods
- func numberOfComponents(in pickerView: UIPickerView) -> Int {
- return 3
- }
- 
- func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
- if component == 0 {
- return Data.modeNameArray.count
- } else {
- return Data.timeArray.count
- }
- }
- 
- func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
- if component == 0 {
- return Picker.mode.width
- } else {
- return Picker.time.width
- }
- }
- 
- func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
- if component == 0 {
- return Picker.mode.height
- } else {
- return Picker.time.height
- }
- }
  
  func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
  if component == 0 {

@@ -77,13 +77,13 @@ class Tool {
     
     class func formatPickerTime(time: String) -> NSMutableAttributedString {
         let attribute = [NSFontAttributeName: UIFont(name: "AvenirNextCondensed-Bold", size: 32.0)!]
-        let mutableString = NSMutableAttributedString(string: time, attributes: attribute)
-        let myRange = NSRange(location: mutableString.length-3, length: 3)
-        mutableString.addAttribute(NSFontAttributeName, value: UIFont(name: "AvenirNextCondensed-DemiBold", size: 24.0)!, range: myRange)
-        mutableString.addAttribute(NSUnderlineStyleAttributeName, value: NSUnderlineStyle.styleSingle.rawValue, range: myRange)
-        mutableString.addAttribute(NSBaselineOffsetAttributeName , value: 6, range: myRange)
-        mutableString.addAttribute(NSForegroundColorAttributeName, value: UIColor.primary, range: NSMakeRange(0, time.characters.count))
-        return mutableString
+        let attributedString = NSMutableAttributedString(string: time, attributes: attribute)
+        let myRange = NSRange(location: attributedString.length-3, length: 3)
+        attributedString.addAttribute(NSFontAttributeName, value: UIFont(name: "AvenirNextCondensed-DemiBold", size: 24.0)!, range: myRange)
+        attributedString.addAttribute(NSUnderlineStyleAttributeName, value: NSUnderlineStyle.styleSingle.rawValue, range: myRange)
+        attributedString.addAttribute(NSBaselineOffsetAttributeName , value: 6, range: myRange)
+        attributedString.addAttribute(NSForegroundColorAttributeName, value: UIColor.primary, range: NSMakeRange(0, time.characters.count))
+        return attributedString
     }
     
     
