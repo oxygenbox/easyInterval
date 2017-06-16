@@ -161,48 +161,12 @@ class PreferenceViewController: UIViewController {
         }
         
     }
-    /*
-     sender.select()
-     
-     for button in buttonCollection {
-     if sender == button {
-     button.select()
-     } else{
-     button.deselect()
-     
-     switch button {
-     case audioButton:
-     button.isOn = data.audioOn
-     case vibrateButton:
-     button.isOn = data.vibrateOn
-     case cadenceButton:
-     button.isOn = data.cadenceOn
-     case musicButton:
-     button.isOn = data.musicOn
-     case sessionButton:
-     button.isOn = data.workoutOn
-     default:
-     break
-     }
-     }
-     }
-     
-     data.settingsTab = sender.tag
-     data.save()
-     
-     flip()
- */
-    
-    
-    
-    
+  
     /*
     func config() {
      loadSettingWindow()
     }
-     
      */
-    
     
     func initSegmentedControls() {
         

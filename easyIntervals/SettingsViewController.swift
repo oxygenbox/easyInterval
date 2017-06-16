@@ -100,6 +100,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         } else {
             return 1
         }
+        
     }
 
     var activePreference : Preference {
