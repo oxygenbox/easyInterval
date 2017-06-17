@@ -98,6 +98,59 @@ class Data: Settings {
         return minutes*60
     }
     
+    var cadenceDescription: String {
+        var freq: String
+        switch cadenceFrequency {
+        case 0:
+            freq = ""
+        case 1:
+            freq =  "Other "
+        case 2:
+            freq  = "Third "
+        default:
+            freq = "Fourth "
+        }
+        
+        return "Play Cadence Check Every \(freq)Run Interval"
+    }
+    
+    
+    var workoutDescription: String {
+        let minutes = sessionArray[sequenceRepeats]
+        return "Set for a \(minutes) minute workout"
+    }
+
+    
+    /*
+     let attributeString = NSMutableAttributedString(string: text)
+     let style = NSMutableParagraphStyle()
+     
+     
+     style.lineSpacing = lineHeight
+     style.lineHeightMultiple = 1
+     style.alignment = .center;
+     style.lineSpacing = 0.5;
+     style.lineBreakMode = .byWordWrapping
+     style.alignment = .center
+     
+     let charRange = NSMakeRange(0, text.characters.count)
+     let fontName = UIFont(name: "AvenirNextCondensed-Regular", size: 16)
+     
+     attributeString.addAttribute(NSParagraphStyleAttributeName,
+     value: style,
+     range: NSMakeRange(0, text.characters.count))
+     attributeString.addAttribute(NSForegroundColorAttributeName, value: UIColor.Theme.borderOn, range: charRange)
+     
+     attributeString.addAttribute(NSFontAttributeName, value: fontName!, range: charRange)
+     
+     
+     
+     
+     self.attributedText = attributeString
+
+     */
+    
+    
     func calcSessionIncrement() {
         var i = 0
         while (sessionSeconds / 60) * i < 30 {

@@ -10,7 +10,6 @@ import UIKit
 
 class PreferenceViewController: UIViewController {
 
-    
     //MARK- OUTLETS
     @IBOutlet weak var picker: UIPickerView!
     @IBOutlet weak var intervalOrderControl: UISegmentedControl!
@@ -23,6 +22,9 @@ class PreferenceViewController: UIViewController {
     @IBOutlet weak var sessionButton: PreferenceButton!
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var cadenceControl: UISegmentedControl!
+    @IBOutlet weak var sessionControl: UISegmentedControl!
+    @IBOutlet weak var descriptionLabel: UILabel!
     
     @IBOutlet var buttonCollection: [PreferenceButton]!
     
@@ -70,6 +72,7 @@ class PreferenceViewController: UIViewController {
         data.save()
         self.positionSwitchView(destination: sender.center.x)
         self.selectButton(button: sender)
+        self.initSegmentedControls()
     }
     
     @IBAction func doneButtonTapped(_sender:UIButton) {
@@ -85,8 +88,18 @@ class PreferenceViewController: UIViewController {
         picker.selectRow(data.walkValue, inComponent: walkComponent, animated: false)
     }
     
-    //MARK:- METHODS
+    @IBAction func controlChanged(_ sender: UISegmentedControl) {
+        if activePreference  == .cadence {
+            data.cadenceFrequency = sender.selectedSegmentIndex
+        } else if activePreference == .workout {
+            data.sequenceRepeats = sender.selectedSegmentIndex
+        }
+        data.save()
+        postDescription()
+        
+    }
     
+    //MARK:- METHODS
     func configure() {
         switchView.delegate = self
         
@@ -124,6 +137,25 @@ class PreferenceViewController: UIViewController {
     func postTitle() {
         titleLabel.attributedText = data.formattedTitle
     }
+    
+    func postDescription() {
+        switch activePreference {
+            case .audio:
+                break
+            case .vibrate:
+                break
+            case .cadence:
+                self.descriptionLabel.text = data.cadenceDescription
+            case .music:
+                break
+            case .workout:
+                self.descriptionLabel.text = data.workoutDescription
+            default:
+                break
+        }
+        descriptionLabel.descFormat(lineHeight: 1)
+    }
+    
     
     func setButtonState() {
         audioButton.isOn = data.audioOn
@@ -169,8 +201,41 @@ class PreferenceViewController: UIViewController {
      */
     
     func initSegmentedControls() {
-        
+        sessionControl.isHidden = activePreference != .workout
+        cadenceControl.isHidden = activePreference != .cadence
+        switch activePreference {
+        case .cadence:
+          //  cadenceControl.isHidden = false
+            //sessionControl.isHidden = true
+            cadenceControl.isEnabled = data.cadenceOn
+            cadenceControl.selectedSegmentIndex = data.cadenceFrequency
+            
+            
+        case .workout:
+            //sessionControl.isHidden = false
+           // cadenceControl.isHidden = true
+            sessionControl.isEnabled = data.workoutOn
+            sessionControl.selectedSegmentIndex = data.sequenceRepeats
+            
+            
+            for (index, minutes) in data.sessionArray.enumerated() {
+                sessionControl.setTitle("\(minutes)", forSegmentAt: index)
+            }
+        default:
+           break
+        }
+        postDescription()
     }
+    
+    
+    
+    /*
+     
+    
+
+     */
+    
+    
     
     
     func positionSwitchView(destination: CGFloat) {
@@ -181,8 +246,6 @@ class PreferenceViewController: UIViewController {
         
         pa.startAnimation()
     }
-
-
 }
 
 //MARK:- EXTENSIONS
@@ -358,16 +421,6 @@ extension PreferenceViewController: SwitchViewDelegate {
  
  
  
- @IBAction func controlChanged(_ sender: UISegmentedControl) {
- let value = sender.selectedSegmentIndex
- if activePreference == .workout {
- data.sequenceRepeats = value
- } else {
- data.cadenceFrequency = value
- }
- data.save()
- settingWindow.updateControlDescription()
- }
  
  func buttonPressed(_ sender: RoundButton) {
  sender.select()
@@ -493,28 +546,7 @@ extension PreferenceViewController: SwitchViewDelegate {
  }
  }
  
- var cadenceDescription: String {
- var freq: String
- switch data.cadenceFrequency {
- case 0:
- freq = ""
- case 1:
- freq =  "Other"
- case 2:
- freq  = "Third"
- default:
- freq = "Fourth"
- }
- 
- return "Play Cadence Check\n Every \(freq) Run Interval"
- }
- 
- 
- var workoutDescription: String {
- let minutes = data.sessionArray[data.sequenceRepeats]
- return "Set for a \(minutes) minute workout"
- }
- 
+  
  var shapeLayer = CAShapeLayer()
  let lineWidth: CGFloat = 10
  
@@ -593,39 +625,7 @@ extension PreferenceViewController: SwitchViewDelegate {
  setAppearance()
  }
  
- func initSegmentedControl() {
- switch preference {
- case .cadence:
- cadenceControl.isHidden = false
- sessionControl.isHidden = true
- cadenceControl.isEnabled = data.cadenceOn
- cadenceControl.selectedSegmentIndex = data.cadenceFrequency
- case .workout:
- sessionControl.isHidden = false
- cadenceControl.isHidden = true
- sessionControl.isEnabled = data.workoutOn
- sessionControl.selectedSegmentIndex = data.sequenceRepeats
- for (index, minutes) in data.sessionArray.enumerated() {
- sessionControl.setTitle("\(minutes)", forSegmentAt: index)
- }
- default:
- sessionControl.isHidden = preference != .workout
- cadenceControl.isHidden = preference != .cadence
- }
  
- updateControlDescription()
- }
- 
- func updateControlDescription() {
- if preference == .workout {
- descLabel.text = workoutDescription
- } else if preference == .cadence {
- descLabel.text = cadenceDescription
- } else {
- //controlLabel.text = ""
- }
- descLabel.descFormat(lineHeight: 1)
- }
  
  func setAppearance(){
  if prefSwitch.isOn {
