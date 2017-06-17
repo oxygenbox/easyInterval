@@ -27,6 +27,8 @@
 		9E8FCDE51EE0A0E8003D2175 /* SettingWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E8FCDE41EE0A0E8003D2175 /* SettingWindow.xib */; };
 		9E8FCDE71EE0A1EF003D2175 /* SettingWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8FCDE61EE0A1EF003D2175 /* SettingWindow.swift */; };
 		9E957F261ECA504200CBFC1F /* TimerWindowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E957F251ECA504200CBFC1F /* TimerWindowView.swift */; };
+		9E97E5581EF5CAB70094853D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E97E5571EF5CAB70094853D /* MainViewController.swift */; };
+		9E97E55A1EF5D02D0094853D /* RoundModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E97E5591EF5D02D0094853D /* RoundModeView.swift */; };
 		9EAA94E01ECB6B0300D77A2C /* Pulsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EAA94DF1ECB6B0300D77A2C /* Pulsing.swift */; };
 		9EAEA5941ED3446B005E3F63 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EAEA5931ED3446B005E3F63 /* ButtonView.swift */; };
 		9EB1C7481EE9753500B9BDD1 /* MusicControls.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EB1C7471EE9753500B9BDD1 /* MusicControls.xib */; };
@@ -89,6 +91,8 @@
 		9E8FCDE41EE0A0E8003D2175 /* SettingWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingWindow.xib; sourceTree = "<group>"; };
 		9E8FCDE61EE0A1EF003D2175 /* SettingWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingWindow.swift; sourceTree = "<group>"; };
 		9E957F251ECA504200CBFC1F /* TimerWindowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerWindowView.swift; sourceTree = "<group>"; };
+		9E97E5571EF5CAB70094853D /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		9E97E5591EF5D02D0094853D /* RoundModeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundModeView.swift; sourceTree = "<group>"; };
 		9EAA94DF1ECB6B0300D77A2C /* Pulsing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pulsing.swift; sourceTree = "<group>"; };
 		9EAEA5931ED3446B005E3F63 /* ButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		9EB1C7471EE9753500B9BDD1 /* MusicControls.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MusicControls.xib; sourceTree = "<group>"; };
@@ -163,6 +167,7 @@
 			children = (
 				9E1703FA1E56240E007B2D05 /* TimerViewController.swift */,
 				9E2E77E21E23D9BD0082ED83 /* SettingsViewController.swift */,
+				9E97E5571EF5CAB70094853D /* MainViewController.swift */,
 				9E10CC5C1EF309830017D7B8 /* PreferenceViewController.swift */,
 			);
 			name = Controllers;
@@ -197,6 +202,7 @@
 				9EB1C7491EE9754C00B9BDD1 /* MusicControls.swift */,
 				9E10CC5E1EF30CA60017D7B8 /* PreferenceButton.swift */,
 				9E10CC601EF3112D0017D7B8 /* SwitchView.swift */,
+				9E97E5591EF5D02D0094853D /* RoundModeView.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -316,6 +322,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E520DDE1E685DF400142F85 /* RoundButton.swift in Sources */,
+				9E97E5581EF5CAB70094853D /* MainViewController.swift in Sources */,
 				9EF0558E1EC0A4DA0058039D /* Functionality.swift in Sources */,
 				9E2E77EA1E2557670082ED83 /* Session.swift in Sources */,
 				9E10CC611EF3112D0017D7B8 /* SwitchView.swift in Sources */,
@@ -339,6 +346,7 @@
 				9E0599A91EC2295500E15A34 /* ClockView.swift in Sources */,
 				9ED0CF5E1E2588510036233A /* Interval.swift in Sources */,
 				9EB3FD661ED64B9000B9319F /* ScaleSegue.swift in Sources */,
+				9E97E55A1EF5D02D0094853D /* RoundModeView.swift in Sources */,
 				9E2E77E31E23D9BD0082ED83 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
