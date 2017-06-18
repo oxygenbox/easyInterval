@@ -10,39 +10,123 @@ import UIKit
 
 class MainViewController: UIViewController {
 
+    //MARK- IBOutlet
+    @IBOutlet weak var infoButton: PreferenceButton!
+    @IBOutlet weak var audioButton: PreferenceButton!
+    @IBOutlet weak var vibrateButton: PreferenceButton!
+    @IBOutlet weak var cadenceButton: PreferenceButton!
+    @IBOutlet weak var musicButton: PreferenceButton!
+    @IBOutlet weak var workoutButton: PreferenceButton!
+    @IBOutlet weak var settingsButton:UIButton!
+    @IBOutlet weak var resetButton:UIButton!
+    @IBOutlet weak var titleLabel:UILabel!
+
+    @IBOutlet weak var leftWindow: RoundModeView!
+    @IBOutlet weak var rightWindow: RoundModeView!
+    
+    //MARK- VARIABLES
+    var workout: Workout!
+    var musicControls: MusicControls!
+    
+    var runWindow: RoundModeView {
+        if data.isRunWalk {
+            return self.leftWindow
+        } else {
+            return self.rightWindow
+        }
+    }
+    
+    var walkWindow: RoundModeView {
+        if data.isRunWalk {
+            return self.rightWindow
+        } else {
+            return self.leftWindow
+        }
+    }
+
+    //MARK:- LIFECYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        configure()
+        initWorkout()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    //MARK- IBACTIONS
+    @IBAction func settingsTapped(_ sender: UIButton) {
+        
     }
-    */
+    
+    @IBAction func resetTapped(_ sender: UIButton) {
+        openResetOptions()
+    }
+    
+    
+    @IBAction func infoTapped(_ sender: UIButton) {
+        
+    }
+    
+    @IBAction func cadenceTapped(_ sender: UIButton) {
+        guard let workout = workout else {
+            return
+        }
+        workout.playCadence()
+    }
+    
+    
+    @IBAction func musicTapped(_ sender: UIButton) {
+        openMusicControls()
+    }
+    
+    //MARK:- METHODS
+    func configure() {
+        configureButtons()
+    }
+    
+    func configureButtons() {
+        audioButton.isOn = data.audioOn
+        audioButton.isUserInteractionEnabled = false
+        vibrateButton.isOn = data.vibrateOn
+        vibrateButton.isUserInteractionEnabled = false
+        cadenceButton.isOn = data.cadenceOn
+        cadenceButton.isUserInteractionEnabled = data.cadenceOn
+        musicButton.isOn = data.musicOn
+        musicButton.isUserInteractionEnabled = data.musicOn
+        workoutButton.isOn = data.workoutOn
+        workoutButton.isUserInteractionEnabled = false
+        
+        infoButton.makeInfo()
+        resetButton.tintColor = UIColor.Theme.base
+        settingsButton.tintColor = UIColor.Theme.base
+    }
+    
+    func initWorkout() {
+        
+    }
+    
+    func  openResetOptions() {
+        
+    }
+    
+    func openMusicControls() {
+        
+    }
+
+
+   
 
 }
 
 
 /*
- //
- //  TimerViewController.swift
- //  easyIntervals
- //
- //  Created by Michael Schaffner on 2/16/17.
- //  Copyright © 2017 Michael Schaffner. All rights reserved.
- //
+
  
  import UIKit
  
@@ -53,21 +137,13 @@ class MainViewController: UIViewController {
  @IBOutlet weak var sessionType: UILabel!
  @IBOutlet weak var buttonBar: ButtonView!
  
- @IBOutlet weak var infoButton: RoundButton!
- @IBOutlet weak var audioButton: RoundButton!
- @IBOutlet weak var vibrateButton: RoundButton!
- @IBOutlet weak var cadenceButton: RoundButton!
- @IBOutlet weak var musicButton: RoundButton!
- @IBOutlet weak var workoutButton: RoundButton!
- @IBOutlet weak var settingsButton:UIButton!
- @IBOutlet weak var resetButton:UIButton!
- @IBOutlet weak var titleLabel:UILabel!
+ 
+
  
  @IBOutlet var prefButtons: [UIButton]!
  
  //MARK - VARIABLES
- var workout: Workout!
- var musicControls: MusicControls!
+ 
  
  lazy var timerWindowView: TimerWindowView = {
  var h = self.view.frame.size.height
@@ -80,22 +156,13 @@ class MainViewController: UIViewController {
  }()
  
  //MARK:- LIFECYCLE
- override func viewWillAppear(_ animated: Bool) {
- super.viewWillAppear(animated)
- configureScreen()
- initWorkout()
- 
- }
  
  override func viewDidLoad() {
  super.viewDidLoad()
  loadMusicControls()
  }
  
- override func didReceiveMemoryWarning() {
- super.didReceiveMemoryWarning()
- // Dispose of any resources that can be recreated.
- }
+ 
  
  //MARK:- IBACTIONS
  @IBAction func settingsTapped(_ sender: UIButton) {
@@ -108,9 +175,6 @@ class MainViewController: UIViewController {
  
  }
  
- @IBAction func resetTapped(_ sender: UIButton) {
- openResetAlert()
- }
  
  @IBAction func infoButtonTapped(_ sender: RoundButton) {
  timerWindowView.instructions.toggle()
@@ -120,11 +184,6 @@ class MainViewController: UIViewController {
  showMusicControls()
  }
  
- @IBAction func cadenceTapped(_ sender: UIButton) {
- if let wo = workout {
- wo.playCadence()
- }
- }
  
  
  //MARK:- METHODS
@@ -140,21 +199,7 @@ class MainViewController: UIViewController {
  }
  
  func configureButtons() {
- audioButton.isOn = data.audioOn
- vibrateButton.isOn = data.vibrateOn
- cadenceButton.isOn = data.cadenceOn
- musicButton.isOn = data.musicOn
- workoutButton.isOn = data.workoutOn
  
- audioButton.isUserInteractionEnabled = false
- vibrateButton.isUserInteractionEnabled = false
- cadenceButton.isUserInteractionEnabled = data.cadenceOn
- musicButton.isUserInteractionEnabled = data.musicOn
- workoutButton.isUserInteractionEnabled = false
- 
- infoButton.makeInfo()
- resetButton.tintColor = UIColor.Theme.base
- settingsButton.tintColor = UIColor.Theme.base
  }
  
  func configureLabels() {

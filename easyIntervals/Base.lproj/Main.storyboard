@@ -752,6 +752,9 @@
                                                 </constraints>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="A"/>
+                                                <connections>
+                                                    <action selector="resetTapped:" destination="Yuq-lR-ZVo" eventType="touchUpInside" id="QeP-tr-iKg"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bl9-7M-QzC">
                                                 <rect key="frame" x="44" y="0.0" width="216" height="44"/>
@@ -764,6 +767,9 @@
                                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="A"/>
+                                                <connections>
+                                                    <action selector="settingsTapped:" destination="Yuq-lR-ZVo" eventType="touchUpInside" id="uI3-O3-gPZ"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -796,6 +802,9 @@
                                                 </constraints>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="A"/>
+                                                <connections>
+                                                    <action selector="infoTapped:" destination="Yuq-lR-ZVo" eventType="touchUpInside" id="7Pq-WX-D1C"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vFQ-qz-AJl" customClass="PreferenceButton" customModule="easyIntervals" customModuleProvider="target">
                                                 <rect key="frame" x="47" y="0.0" width="44.5" height="44"/>
@@ -814,12 +823,18 @@
                                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="A"/>
+                                                <connections>
+                                                    <action selector="cadenceTapped:" destination="Yuq-lR-ZVo" eventType="touchUpInside" id="amR-mi-hpg"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AwM-Aw-buB" customClass="PreferenceButton" customModule="easyIntervals" customModuleProvider="target">
                                                 <rect key="frame" x="188.5" y="0.0" width="44.5" height="44"/>
                                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="A"/>
+                                                <connections>
+                                                    <action selector="musicTapped:" destination="Yuq-lR-ZVo" eventType="touchUpInside" id="Hq3-67-zyi"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z9e-GU-IlC" customClass="PreferenceButton" customModule="easyIntervals" customModuleProvider="target">
                                                 <rect key="frame" x="236" y="0.0" width="44" height="44"/>
@@ -887,6 +902,19 @@
                             <constraint firstItem="GAa-Te-jhW" firstAttribute="leading" secondItem="roR-UC-ntp" secondAttribute="leading" id="sJi-eC-NWf"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="audioButton" destination="vFQ-qz-AJl" id="6Yy-4D-kFu"/>
+                        <outlet property="cadenceButton" destination="bKa-hg-QLm" id="EYK-l6-P6E"/>
+                        <outlet property="infoButton" destination="uh8-G0-Lcn" id="eN8-mc-epy"/>
+                        <outlet property="leftWindow" destination="7Xh-eg-yeV" id="pp8-Cd-5e5"/>
+                        <outlet property="musicButton" destination="AwM-Aw-buB" id="3fj-eg-LA9"/>
+                        <outlet property="resetButton" destination="r6F-pb-z8T" id="A83-8T-nyp"/>
+                        <outlet property="rightWindow" destination="LRN-GQ-pSu" id="sla-Ro-FA6"/>
+                        <outlet property="settingsButton" destination="vka-bP-fuc" id="Ut6-8s-6Im"/>
+                        <outlet property="titleLabel" destination="bl9-7M-QzC" id="GnM-VK-qIk"/>
+                        <outlet property="vibrateButton" destination="etV-OV-7XV" id="V0S-jR-XV8"/>
+                        <outlet property="workoutButton" destination="z9e-GU-IlC" id="wBT-tT-4wR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rE4-m8-KaZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
