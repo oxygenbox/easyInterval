@@ -87,7 +87,14 @@ class MainViewController: UIViewController {
     
     //MARK:- METHODS
     func configure() {
+        view.backgroundColor = UIColor.Theme.back
+        titleLabel.attributedText = data.formattedTitle
+        initGestures()
         configureButtons()
+        
+        runWindow.mode = .run
+        walkWindow.mode = .walk
+        
     }
     
     func configureButtons() {
@@ -115,29 +122,52 @@ class MainViewController: UIViewController {
         
     }
     
+    
+    
     func openMusicControls() {
         
     }
 
+    //MARK: - GESTURES
+    func initGestures() {
+        let twoFingerTap = UITapGestureRecognizer(target: self, action: #selector(twoFingerTapDetected(_:)))
+        twoFingerTap.numberOfTapsRequired = 1
+        twoFingerTap.numberOfTouchesRequired = 2
+        view.addGestureRecognizer(twoFingerTap)
+        let swipeRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipeDetected(_:)))
+        view.addGestureRecognizer(swipeRecognizer)
 
+    }
+    
+    func twoFingerTapDetected(_ sender: UIGestureRecognizer){
+        
+    }
+    
+    func swipeDetected(_ sender: UIGestureRecognizer){
+        
+    }
+    
+ 
+    
+    /*
+   
+    
+    func twoTapDetected(_ sender: UITapGestureRecognizer) {
+        toggleSession()
+    }
+    
+    func swipeDetected(_ sender : UISwipeGestureRecognizer) {
+        //need to insert music control
+        print("swipe")
+    }
+ */
+}
    
 
-}
+
 
 
 /*
-
- 
- import UIKit
- 
- class TimerViewController: UIViewController{
- //MARK:- IBOUTLET
- @IBOutlet weak var intervalTime: UILabel!
- @IBOutlet weak var elapsedTime: UILabel!
- @IBOutlet weak var sessionType: UILabel!
- @IBOutlet weak var buttonBar: ButtonView!
- 
- 
 
  
  @IBOutlet var prefButtons: [UIButton]!
@@ -188,13 +218,9 @@ class MainViewController: UIViewController {
  
  //MARK:- METHODS
  func configureScreen() {
- view.backgroundColor = UIColor.Theme.back
  
  
- configureLabels()
- configureButtons()
- 
- initGestures()
+
  view.addSubview(timerWindowView)
  }
  
@@ -203,9 +229,7 @@ class MainViewController: UIViewController {
  }
  
  func configureLabels() {
- titleLabel.font = UIFont.title
- titleLabel.textColor = UIColor.Theme.base
- titleLabel.text = data.settingTitle
+
  elapsedTime.textColor = UIColor.Theme.base
  sessionType.textColor = UIColor.Theme.base
  }
@@ -341,25 +365,7 @@ class MainViewController: UIViewController {
  }
  }
  
- //MARK: - GESTURES
- func initGestures() {
- let twoFingerTap = UITapGestureRecognizer(target: self, action: #selector(twoTapDetected(_:)))
- twoFingerTap.numberOfTapsRequired = 1
- twoFingerTap.numberOfTouchesRequired = 2
- view.addGestureRecognizer(twoFingerTap)
- let swipeRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipeDetected(_:)))
- view.addGestureRecognizer(swipeRecognizer)
- }
  
- func twoTapDetected(_ sender: UITapGestureRecognizer) {
- toggleSession()
- }
- 
- func swipeDetected(_ sender : UISwipeGestureRecognizer) {
- //need to insert music control
- print("swipe")
- }
- }
  
  //MARK:- EXTENSIONS
  extension TimerViewController: WorkoutDelegate {
