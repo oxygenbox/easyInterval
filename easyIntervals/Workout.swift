@@ -13,8 +13,7 @@ import AVFoundation
 protocol WorkoutDelegate {
     func woTick()
     func modeUpdate()
-    func percentComplete(pct: CGFloat)
-    
+    func modeChanged(to mode: Mode) 
     func workoutTick(with percent: CGFloat)
 }
 
@@ -34,6 +33,9 @@ class Workout: NSObject, AVAudioPlayerDelegate {
     var cadenceTracker = 1
     var woSession:Session?
     
+    var isPaused: Bool {
+        return timer == nil
+    }
     
     //MARK:- Lifecycle
     override init() {
@@ -183,6 +185,7 @@ class Workout: NSObject, AVAudioPlayerDelegate {
         speak(word: currentInterval.mode.name.lowercased())
         if let d = delegate {
             d.modeUpdate()
+            d.modeChanged(to: currentMode)
         }
     }
     

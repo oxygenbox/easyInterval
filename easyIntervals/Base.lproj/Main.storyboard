@@ -442,10 +442,10 @@
             </objects>
             <point key="canvasLocation" x="3654" y="-583"/>
         </scene>
-        <!--Preference View Controller-->
+        <!--Preferences-->
         <scene sceneID="ZHf-i9-kgb">
             <objects>
-                <viewController id="sKf-lX-bwi" customClass="PreferenceViewController" customModule="easyIntervals" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Preferences" title="Preferences" id="sKf-lX-bwi" customClass="PreferenceViewController" customModule="easyIntervals" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="BFZ-2y-WzA"/>
                         <viewControllerLayoutGuide type="bottom" id="WIg-zI-bPw"/>
@@ -723,7 +723,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CXi-8e-h7R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4601" y="-555"/>
+            <point key="canvasLocation" x="5344" y="-567"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="wi6-xJ-ycd">
@@ -787,7 +787,13 @@
                                     <constraint firstAttribute="height" constant="60" id="jiA-0h-eKd"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3HU-ep-6h7">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zpx-Jq-6S7">
+                                <rect key="frame" x="24" y="100" width="272" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3HU-ep-6h7" customClass="ButtonView" customModule="easyIntervals" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="508" width="320" height="60"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="xMW-xe-wrf">
@@ -894,18 +900,23 @@
                             <constraint firstAttribute="trailing" secondItem="GAa-Te-jhW" secondAttribute="trailing" id="7tZ-la-O9X"/>
                             <constraint firstAttribute="trailing" secondItem="ane-sV-Toc" secondAttribute="trailing" constant="8" id="AL3-bO-ISc"/>
                             <constraint firstItem="VI5-BN-aJo" firstAttribute="top" secondItem="3HU-ep-6h7" secondAttribute="bottom" id="I8T-PJ-NS6"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="zpx-Jq-6S7" secondAttribute="trailing" constant="8" id="MmF-rH-bwq"/>
                             <constraint firstItem="GAa-Te-jhW" firstAttribute="top" secondItem="TfR-R0-w1b" secondAttribute="bottom" id="PGF-h8-Jcf"/>
                             <constraint firstItem="ane-sV-Toc" firstAttribute="centerY" secondItem="roR-UC-ntp" secondAttribute="centerY" id="a4y-Al-GJz"/>
+                            <constraint firstItem="zpx-Jq-6S7" firstAttribute="leading" secondItem="roR-UC-ntp" secondAttribute="leadingMargin" constant="8" id="dl3-tO-UKX"/>
                             <constraint firstItem="3HU-ep-6h7" firstAttribute="leading" secondItem="roR-UC-ntp" secondAttribute="leading" id="drT-yJ-jpq"/>
                             <constraint firstItem="ane-sV-Toc" firstAttribute="leading" secondItem="roR-UC-ntp" secondAttribute="leading" constant="8" id="i7T-gB-y0v"/>
                             <constraint firstAttribute="trailing" secondItem="3HU-ep-6h7" secondAttribute="trailing" id="n7y-UZ-8AV"/>
+                            <constraint firstItem="zpx-Jq-6S7" firstAttribute="top" secondItem="GAa-Te-jhW" secondAttribute="bottom" constant="20" id="oaL-VA-DOR"/>
                             <constraint firstItem="GAa-Te-jhW" firstAttribute="leading" secondItem="roR-UC-ntp" secondAttribute="leading" id="sJi-eC-NWf"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="audioButton" destination="vFQ-qz-AJl" id="6Yy-4D-kFu"/>
+                        <outlet property="buttonBar" destination="3HU-ep-6h7" id="0by-iS-2Q9"/>
                         <outlet property="cadenceButton" destination="bKa-hg-QLm" id="EYK-l6-P6E"/>
                         <outlet property="infoButton" destination="uh8-G0-Lcn" id="eN8-mc-epy"/>
+                        <outlet property="intervalTime" destination="zpx-Jq-6S7" id="VdG-oR-QjK"/>
                         <outlet property="leftWindow" destination="7Xh-eg-yeV" id="pp8-Cd-5e5"/>
                         <outlet property="musicButton" destination="AwM-Aw-buB" id="3fj-eg-LA9"/>
                         <outlet property="resetButton" destination="r6F-pb-z8T" id="A83-8T-nyp"/>
@@ -918,7 +929,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rE4-m8-KaZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5242.5" y="-551.4084507042254"/>
+            <point key="canvasLocation" x="4648" y="-567"/>
         </scene>
     </scenes>
     <resources>

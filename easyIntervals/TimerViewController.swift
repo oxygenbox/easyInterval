@@ -287,6 +287,12 @@ extension TimerViewController: WorkoutDelegate {
     func workoutTick(with percent: CGFloat) {
         updateTimeLabels()
     }
+    
+    func modeChanged(to mode: Mode) {
+        
+    }
+    
+    
 
     func modeUpdate(){
         timerWindowView.mode = workout.currentMode
@@ -296,9 +302,7 @@ extension TimerViewController: WorkoutDelegate {
         }
     }
 
-    func percentComplete(pct: CGFloat) {
-        
-    }
+    
 }
 
 extension TimerViewController: MusicControlDelegate {

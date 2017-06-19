@@ -26,9 +26,9 @@ class Session: NSObject {
         remainingSeconds -= 1
         elapsedSeconds += 1
         
-        print("total \(totalSeconds)")
-        print("remain \(remainingSeconds)")
-        print("elpsed \(elapsedSeconds)")
+       // print("total \(totalSeconds)")
+       // print("remain \(remainingSeconds)")
+      //  print("elpsed \(elapsedSeconds)")
     }
 
     override init() {

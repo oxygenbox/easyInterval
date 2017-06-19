@@ -172,7 +172,6 @@ class PreferenceViewController: UIViewController {
         for but in buttonCollection {
             if but == button {
                 but.select()
-                print(but.tag)
             } else {
                 but.deselect()
             }

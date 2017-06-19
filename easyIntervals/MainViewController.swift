@@ -9,7 +9,15 @@
 import UIKit
 
 class MainViewController: UIViewController {
-
+    
+    enum resetType {
+        case run
+        case walk
+        case elapsed
+        case all
+        case session
+    }
+    
     //MARK- IBOutlet
     @IBOutlet weak var infoButton: PreferenceButton!
     @IBOutlet weak var audioButton: PreferenceButton!
@@ -20,9 +28,12 @@ class MainViewController: UIViewController {
     @IBOutlet weak var settingsButton:UIButton!
     @IBOutlet weak var resetButton:UIButton!
     @IBOutlet weak var titleLabel:UILabel!
+    @IBOutlet weak var buttonBar: ButtonView!
 
     @IBOutlet weak var leftWindow: RoundModeView!
     @IBOutlet weak var rightWindow: RoundModeView!
+    
+    @IBOutlet weak var intervalTime: UILabel!
     
     //MARK- VARIABLES
     var workout: Workout!
@@ -47,6 +58,7 @@ class MainViewController: UIViewController {
     //MARK:- LIFECYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadMusicControls()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -61,7 +73,11 @@ class MainViewController: UIViewController {
     
     //MARK- IBACTIONS
     @IBAction func settingsTapped(_ sender: UIButton) {
-        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let preferenceVC = storyboard.instantiateViewController(withIdentifier: "Preferences") as? PreferenceViewController {
+            preferenceVC.modalTransitionStyle = .crossDissolve
+            self.present(preferenceVC, animated: true)
+        }
     }
     
     @IBAction func resetTapped(_ sender: UIButton) {
@@ -95,6 +111,9 @@ class MainViewController: UIViewController {
         runWindow.mode = .run
         walkWindow.mode = .walk
         
+        // elapsedTime.textColor = UIColor.Theme.base
+        // sessionType.textColor = UIColor.Theme.base
+        
     }
     
     func configureButtons() {
@@ -115,17 +134,147 @@ class MainViewController: UIViewController {
     }
     
     func initWorkout() {
-        
+        workout = Workout()
+        workout.delegate = self
+        modeUpdate()
+    }
+    
+    func toggleWorkout() {
+        workout.toggleTimer()
+        //playing
+        //pause
+        //resume
+        //hasStarted
+    }
+    
+    /*
+     func toggleSession() {
+     //called on tap gesture
+     workout.toggleTimer()
+     if(workout.timer == nil) {
+     timerWindowView.pause()
+     settingsButton.isEnabled = true
+     
+     } else {
+     timerWindowView.hideInstructions()
+     if timerWindowView.intervalClock.hasStarted {
+     timerWindowView.resume()
+     } else {
+     let intervalSecs = workout.currentInterval.lengthInSeconds
+     var sessionSecs: Int?
+     if workout.woSession != nil {
+     sessionSecs = data.totalSessionSeconds
+     }
+     timerWindowView.beginClocks(intervalSeconds: intervalSecs, sessionSeconds: sessionSecs)
+     }
+     settingsButton.isEnabled = false
+     }
+     }
+ */
+    
+    func setScreenMode() {
+        print("setScreenMode \(workout.currentMode)")
+    }
+    
+    
+    
+    func postTimes() {
+        intervalTime.attributedText = Tool.intervalTimeFormatted(seconds: workout.currentInterval.remainingSeconds)
     }
     
     func  openResetOptions() {
+        let ac = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
         
+        let runAction = UIAlertAction(title: "Restart Run Interval", style: .default) { [unowned self] (action) in
+            self.reset(type: .run)
+            //self.timerWindowView.reset(interval: true, session: false)
+        }
+        
+        let walkAction = UIAlertAction(title: "", style: .default) { [unowned self] (action) in
+            self.reset(type: .walk)
+            //self.timerWindowView.reset(interval: true, session: false)
+        }
+        
+        let elapsedAction = UIAlertAction(title: "Restart Elapsed Time", style: .default) { [unowned self] (action) in
+            self.reset(type: .elapsed)
+        }
+
+        
+        let allAction = UIAlertAction(title: "Restart Interval & Elapsed Time", style: .default) { [unowned self] (action) in
+            self.reset(type: .all)
+        }
+        
+        let workoutAction = UIAlertAction(title: "Restart Workout", style: .default) { [unowned self] (action) in
+            self.reset(type: .session)
+            //self.timerWindowView.reset(interval: true, session: true)
+        }
+        
+        let endWorkoutAction = UIAlertAction(title: "End Workout", style: .default) { [unowned self] (action) in
+            self.workout.woSession!.remainingSeconds = 0
+            self.workout.complete()
+        }
+
+        if data.workoutOn {
+            ac.addAction(runAction)
+            ac.addAction(walkAction)
+            ac.addAction(elapsedAction)
+            ac.addAction(allAction)
+        } else {
+            ac.addAction(workoutAction)
+            ac.addAction(endWorkoutAction)
+        }
+        
+        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        present(ac, animated: true)
     }
     
+    func reset(type: resetType) {
+        switch type {
+        case .run:
+            self.workout.restart(mode: .run)
+        case .walk:
+            self.workout.restart(mode: .walk)
+        case .elapsed:
+            self.workout.elapsedSeconds = 0
+        case .all:
+            self.workout.restart(mode: self.workout.currentMode)
+            self.workout.elapsedSeconds = 0
+        case.session:
+            self.workout.startSession()
+            if data.isRunWalk {
+                self.workout.restart(mode: .run)
+            } else {
+                self.workout.restart(mode: .walk)
+            }
+        }
+        // self.updateTimeLabels()
+    }
     
+   //MARK:- MUSIC METHODS
+    func loadMusicControls() {
+        if let mc = Bundle.main.loadNibNamed("MusicControls", owner: self, options: nil)?.first as? MusicControls {
+            self.musicControls = mc
+            self.musicControls.delegate = self
+            mc.frame = buttonBar.frame
+            mc.isHidden = true
+            view.addSubview(mc)
+        }
+    }
     
     func openMusicControls() {
+        musicControls.frame.origin.x = view.frame.width
+        musicControls.isHidden = false
+        let fadeAnimator = UIViewPropertyAnimator(duration: 0.25, curve: .linear) {
+            self.buttonBar.alpha = 0.0
+        }
         
+        let animator = UIViewPropertyAnimator(duration: 0.75, dampingRatio: 0.6) { 
+            self.musicControls.frame.origin.x = 0
+        }
+        
+        fadeAnimator.startAnimation()
+        animator.startAnimation()
     }
 
     //MARK: - GESTURES
@@ -140,102 +289,89 @@ class MainViewController: UIViewController {
     }
     
     func twoFingerTapDetected(_ sender: UIGestureRecognizer){
-        
+        toggleWorkout()
     }
     
     func swipeDetected(_ sender: UIGestureRecognizer){
-        
+    //need to insert music control
     }
-    
- 
-    
-    /*
-   
-    
-    func twoTapDetected(_ sender: UITapGestureRecognizer) {
-        toggleSession()
-    }
-    
-    func swipeDetected(_ sender : UISwipeGestureRecognizer) {
-        //need to insert music control
-        print("swipe")
-    }
- */
 }
-   
+
+ //MARK:- EXTENSIONS
+extension MainViewController: MusicControlDelegate {
+    func hideMusicControls() {
+        let animator = UIViewPropertyAnimator(duration: 0.5, curve: .easeInOut) { 
+            self.musicControls.frame.origin.x = self.view.frame.width
+            self.buttonBar.alpha = 1
+        }
+        
+        animator.addCompletion { (position) in
+            self.musicControls.isHidden = true
+        }
+        
+        animator.startAnimation()
+    }
+}
+
+
+extension MainViewController: WorkoutDelegate {
+    func woTick() {
+        postTimes()
+    }
+        
+    func workoutTick(with: CGFloat) {
+        postTimes()
+    }
+        
+    func  modeUpdate() {
+        print("modeUpdate called")
+//        switch workout.currentMode {
+//            case .run:
+//                self.runWindow.isHidden = false
+//                self.walkWindow.isHidden = true
+//            case .walk:
+//                self.walkWindow.isHidden = false
+//                self.runWindow.isHidden = true
+//            default:
+//                break
+//        }
+        
+//        timerWindowView.mode = workout.currentMode
+//        if workout.timer != nil {
+//            let intervalSecs = workout.currentInterval.lengthInSeconds
+//            timerWindowView.beginClocks(intervalSeconds: intervalSecs, sessionSeconds: nil)
+//        }
+        postTimes()
+    }
+    
+    func modeChanged(to mode: Mode) {
+        print(mode)
+        setScreenMode()
+    }
+    
+}
 
 
 
 
 /*
+ 
+ 
+
+
 
  
  @IBOutlet var prefButtons: [UIButton]!
  
  //MARK - VARIABLES
  
- 
- lazy var timerWindowView: TimerWindowView = {
- var h = self.view.frame.size.height
- h -= 120 // header + footer
- h -= 10 //margin
- h/=2
- let x = self.view.frame.width - h
- let frame = CGRect(x: x/2, y: h + 60, width: h, height: h)
- return TimerWindowView(frame: frame)
- }()
- 
- //MARK:- LIFECYCLE
- 
- override func viewDidLoad() {
- super.viewDidLoad()
- loadMusicControls()
- }
- 
- 
- 
- //MARK:- IBACTIONS
- @IBAction func settingsTapped(_ sender: UIButton) {
- let storyboard = UIStoryboard(name: "Main", bundle: nil)
- if let ivc = storyboard.instantiateViewController(withIdentifier: "Settings") as? SettingsViewController {
- ivc.settingHome = timerWindowView.frame
- ivc.modalTransitionStyle = .crossDissolve
- self.present(ivc, animated: true, completion: { _ in })
- }
- 
- }
- 
- 
- @IBAction func infoButtonTapped(_ sender: RoundButton) {
- timerWindowView.instructions.toggle()
- }
- 
- @IBAction func musicTapped(_ sender: UIButton) {
- showMusicControls()
- }
- 
- 
- 
- //MARK:- METHODS
- func configureScreen() {
- 
+
  
 
- view.addSubview(timerWindowView)
- }
- 
- func configureButtons() {
- 
- }
- 
- func configureLabels() {
-
- elapsedTime.textColor = UIColor.Theme.base
- sessionType.textColor = UIColor.Theme.base
  }
  
  func updateTimeLabels() {
- intervalTime.attributedText = Tool.intervalTimeFormatted(seconds: workout.currentInterval.remainingSeconds)
+ 
  
  if workout.currentMode == .run {
  intervalTime.textColor = UIColor.run
@@ -254,156 +390,9 @@ class MainViewController: UIViewController {
  }
  }
  
- func initWorkout() {
- workout = Workout()
- workout.delegate = self
- updateTimeLabels()
- modeUpdate()
- }
- 
- func toggleSession() {
- //called on tap gesture
- workout.toggleTimer()
- if(workout.timer == nil) {
- timerWindowView.pause()
- settingsButton.isEnabled = true
- 
- } else {
- timerWindowView.hideInstructions()
- if timerWindowView.intervalClock.hasStarted {
- timerWindowView.resume()
- } else {
- let intervalSecs = workout.currentInterval.lengthInSeconds
- var sessionSecs: Int?
- if workout.woSession != nil {
- sessionSecs = data.totalSessionSeconds
- }
- timerWindowView.beginClocks(intervalSeconds: intervalSecs, sessionSeconds: sessionSecs)
- }
- settingsButton.isEnabled = false
- }
- }
- 
- func openResetAlert() {
- let ac = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
- let runAction = UIAlertAction(title: "Restart Run Interval", style: .default) { [unowned self] (action) in
- self.timerWindowView.reset(interval: true, session: false)
- self.workout.restart(mode: .run)
- self.updateTimeLabels()
- }
- 
- let walkAction = UIAlertAction(title: "Restart Walk Interval", style: .default) { [unowned self] (action) in
- self.timerWindowView.reset(interval: true, session: false)
- self.workout.restart(mode: .walk)
- self.updateTimeLabels()
- }
- 
- let elapsedAction = UIAlertAction(title: "Restart Elapsed Time", style: .default) { [unowned self] (action) in
- self.workout.elapsedSeconds = 0
- self.updateTimeLabels()
- }
- 
- let allAction = UIAlertAction(title: "Restart Interval & Elapsed Time", style: .default) { [unowned self] (action) in
- self.workout.restart(mode: self.workout.currentMode)
- self.workout.elapsedSeconds = 0
- self.updateTimeLabels()
- }
- 
- let workoutAction = UIAlertAction(title: "Restart Workout", style: .default) { (action) in
- self.workout.startSession()
- if data.isRunWalk {
- self.workout.restart(mode: .run)
- } else {
- self.workout.restart(mode: .walk)
- }
- self.timerWindowView.reset(interval: true, session: true)
- }
- 
- let endWOAction = UIAlertAction(title: "End Workout", style: .default) { (action) in
- self.workout.woSession!.remainingSeconds = 0
- self.workout.complete()
- }
- 
- let cancelActions = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
- 
- if !data.workoutOn {
- ac.addAction(runAction)
- ac.addAction(walkAction)
- ac.addAction(elapsedAction)
- ac.addAction(allAction)
- } else {
- ac.addAction(workoutAction)
- ac.addAction(endWOAction)
- }
- 
- ac.addAction(cancelActions)
- present(ac, animated: true, completion: nil)
- }
- 
- func loadMusicControls() {
- if let mc = Bundle.main.loadNibNamed("MusicControls", owner: self, options: nil)?.first as? MusicControls {
- self.musicControls = mc
- self.musicControls.delegate = self
- mc.frame = buttonBar.frame
- mc.isHidden = true
- view.addSubview(mc)
- }
- }
- 
- func showMusicControls() {
- musicControls.frame.origin.x = view.frame.width
- musicControls.isHidden = false
- 
- UIView.animate(withDuration: 0.25) {
- self.buttonBar.alpha = 0.0
- }
- 
- UIView.animate(withDuration: 0.75, delay: 0.2, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.4, options: [], animations: {
- self.musicControls.frame.origin.x = 0
- }) { (success) in
- 
- }
- }
- 
- 
- 
- //MARK:- EXTENSIONS
- extension TimerViewController: WorkoutDelegate {
- func woTick(){
- updateTimeLabels()
- }
- 
- func workoutTick(with percent: CGFloat) {
- updateTimeLabels()
- }
- 
- func modeUpdate(){
- timerWindowView.mode = workout.currentMode
- if workout.timer != nil {
- let intervalSecs = workout.currentInterval.lengthInSeconds
- timerWindowView.beginClocks(intervalSeconds: intervalSecs, sessionSeconds: nil)
- }
- }
- 
- func percentComplete(pct: CGFloat) {
- 
- }
- }
- 
- extension TimerViewController: MusicControlDelegate {
- func hideMusicControls() {
- UIView.animate(withDuration: 0.5, animations: {
- self.musicControls.frame.origin.x = self.view.frame.width
- self.buttonBar.alpha = 1
- }) { (success) in
- self.musicControls.isHidden = true
- }
- }
- }
  
  
  
  
  
-
  */

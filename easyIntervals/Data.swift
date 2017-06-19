@@ -122,6 +122,7 @@ class Data: Settings {
 
     
     /*
+     
      let attributeString = NSMutableAttributedString(string: text)
      let style = NSMutableParagraphStyle()
      
