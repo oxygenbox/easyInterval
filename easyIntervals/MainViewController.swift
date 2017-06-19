@@ -174,6 +174,17 @@ class MainViewController: UIViewController {
     
     func setScreenMode() {
         print("setScreenMode \(workout.currentMode)")
+        
+        switch workout.currentMode {
+        case .run:
+            runWindow.alpha =  1
+            walkWindow.alpha =  0
+        case .walk:
+            walkWindow.alpha = 1
+            runWindow.alpha = 0
+        default:
+            break
+        }
     }
     
     
