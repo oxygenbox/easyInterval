@@ -11,9 +11,11 @@ import UIKit
 class RoundModeView: UIView {
     
     //MARK- VARIABLES
+    let shrinkSize: CGFloat = 0.5
+    let animationSpeed: Double = 0.25
+    
     lazy var intervalClock: ClockView = {
-        let clock = ClockView(frame: self.frame)
-        clock.backgroundColor = UIColor.blue
+        let clock = ClockView(frame: self.bounds)
         return clock
     }()
     
@@ -37,7 +39,6 @@ class RoundModeView: UIView {
         clipsToBounds = true
     }
     
-    
     func configure() {
         addSubview(intervalClock)
         addSubview(imageView)
@@ -52,23 +53,82 @@ class RoundModeView: UIView {
         default:
             break
         }
-        
-       
     }
+    
+    func beginClock(intervalSeconds: Int) {
+        intervalClock.shapeLayer.strokeColor = UIColor.red.cgColor
+        intervalClock.shapeLayer.lineWidth = frame.size.width - 12
+        intervalClock.begin(with: intervalSeconds)
+    }
+    
+    func pause() {
+        intervalClock.pause()
+    }
+    
+    func reset() {
+        intervalClock.reset()
+    }
+    
+    
+    func grow() {
+        let animator = UIViewPropertyAnimator(duration: self.animationSpeed, curve: .linear) {
+            self.transform = CGAffineTransform.identity
+        }
+        
+        animator.startAnimation()
+    }
+    
+    func shrink() {
+        let animator = UIViewPropertyAnimator(duration: self.animationSpeed, curve: .linear) {
+            self.transform = CGAffineTransform(scaleX: self.shrinkSize, y: self.shrinkSize)
+        }
+        
+        animator.startAnimation()
+    }
+    
+    
 
 }
 
 /*
- func setImage() {
- var imageName = "walk_solid"
- //var tintColor = UIColor.walk
- if mode == .run {
- imageName = "run_solid"
- //  tintColor = UIColor.run
- }
- 
- 
- imageView.tintImageColor(color: UIColor.white)
- }
 
-  */
+ 
+ pac.startAnimation()
+ 
+ 
+ 
+ func pause() {
+ intervalClock.pause()
+ sessionClock.pause()
+ 
+ }
+ 
+ func resume() {
+ intervalClock.resume()
+ sessionClock.resume()
+ }
+ 
+ func beginClocks(intervalSeconds: Int, sessionSeconds: Int?) {
+ 
+ if mode == .walk {
+ intervalClock.shapeLayer.strokeColor = UIColor.run.cgColor
+ } else {
+ intervalClock.shapeLayer.strokeColor = UIColor.walk.cgColor
+ }
+ 
+ 
+ intervalClock.shapeLayer.lineWidth = frame.size.height - 12
+ intervalClock.begin(with: intervalSeconds)
+ 
+ guard let t = sessionSeconds else {
+ return
+ }
+ 
+ sessionClock.shapeLayer.strokeColor = UIColor.highlight.cgColor
+ sessionClock.shapeLayer.lineWidth = 10
+ sessionClock.isHidden = false
+ sessionClock.begin(with: t)
+ 
+ }
+ 
+   */

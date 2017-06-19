@@ -872,7 +872,7 @@
                                     <constraint firstAttribute="bottom" secondItem="xMW-xe-wrf" secondAttribute="bottom" constant="8" id="xgZ-BE-4Y0"/>
                                 </constraints>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ane-sV-Toc">
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ane-sV-Toc">
                                 <rect key="frame" x="8" y="208" width="304" height="152"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Xh-eg-yeV" customClass="RoundModeView" customModule="easyIntervals" customModuleProvider="target">

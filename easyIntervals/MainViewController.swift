@@ -174,14 +174,20 @@ class MainViewController: UIViewController {
     
     func setScreenMode() {
         print("setScreenMode \(workout.currentMode)")
-        
+        let intervalSecs = workout.currentInterval.lengthInSeconds
         switch workout.currentMode {
         case .run:
-            runWindow.alpha =  1
-            walkWindow.alpha =  0
+            runWindow.grow()
+            walkWindow.shrink()
+            //runWindow.alpha =  1
+           // walkWindow.alpha =  0
+            runWindow.beginClock(intervalSeconds: intervalSecs)
         case .walk:
-            walkWindow.alpha = 1
-            runWindow.alpha = 0
+            walkWindow.grow()
+            runWindow.shrink()
+            //walkWindow.alpha = 1
+            //runWindow.alpha = 0
+            walkWindow.beginClock(intervalSeconds: intervalSecs)
         default:
             break
         }
