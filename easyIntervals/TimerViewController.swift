@@ -284,7 +284,7 @@ extension TimerViewController: WorkoutDelegate {
         updateTimeLabels()
     }
     
-    func workoutTick(with percent: CGFloat) {
+    func workoutTick(remaining seconds: Int) {
         updateTimeLabels()
     }
     

@@ -14,7 +14,7 @@ protocol WorkoutDelegate {
     func woTick()
     func modeUpdate()
     func modeChanged(to mode: Mode) 
-    func workoutTick(with percent: CGFloat)
+    func workoutTick(remaining seconds: Int)
 }
 
 class Workout: NSObject, AVAudioPlayerDelegate {
@@ -105,11 +105,11 @@ class Workout: NSObject, AVAudioPlayerDelegate {
             woSession!.tick()
         }
         
-        guard let timerViewController = delegate else {
+        guard let mainVC = delegate else {
             return
         }
         
-        timerViewController.workoutTick(with: currentInterval.intervalPercent())
+        mainVC.workoutTick(remaining: currentInterval.remainingSeconds)
     }
     
     func intervalTick() {

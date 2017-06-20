@@ -9,11 +9,68 @@
 import UIKit
 
 class PreferenceButton: UIButton {
-
-    override func draw(_ rect: CGRect) {
-        layer.cornerRadius = frame.width/2
-        clipsToBounds = true
+    //MARK:- VARIABLES
+    var isOn: Bool = false {
+        didSet{
+            if isOn {
+                backgroundColor = UIColor.Theme.on
+                tintColor = UIColor.Theme.off
+            } else {
+                backgroundColor = UIColor.Theme.off
+                tintColor = UIColor.Theme.on
+            }
+        }
     }
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        layer.cornerRadius = self.bounds.height / 2
+        layer.borderWidth = 0
+        tintColor = UIColor.Theme.base
+    }
+    
+    func select() {
+        layer.borderWidth = 2
+        layer.borderColor = UIColor.Theme.borderOn.cgColor
+    }
+    
+    func deselect() {
+        layer.borderWidth = 1
+        layer.borderColor = UIColor.Theme.borderOff.cgColor
+    }
+    
+    func makeInfo() {
+        tintColor = UIColor.Theme.on
+    }
 
 }
+
+
+/*
+ class RoundButton: UIButton {
+ 
+ var isOn: Bool = false {
+ didSet{
+ if isOn {
+ backgroundColor = UIColor.Theme.on
+ tintColor = UIColor.Theme.off
+ } else {
+ backgroundColor = UIColor.Theme.off
+ tintColor = UIColor.Theme.on
+ }
+ }
+ }
+ 
+ override func awakeFromNib() {
+ super.awakeFromNib()
+ layer.cornerRadius = self.bounds.height / 2
+ layer.borderWidth = 0
+ tintColor = UIColor.Theme.base
+ }
+ 
+ 
+ 
+ }
+
+ 
+ */

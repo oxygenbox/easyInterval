@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G12b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Yuq-lR-ZVo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G18a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Yuq-lR-ZVo">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -743,15 +743,14 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lvN-io-n5w">
                                         <rect key="frame" x="8" y="8" width="304" height="44"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r6F-pb-z8T">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r6F-pb-z8T">
                                                 <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
-                                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="44" id="628-WZ-RMQ"/>
                                                     <constraint firstAttribute="width" constant="44" id="aM8-mp-sZ6"/>
                                                 </constraints>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" title="A"/>
+                                                <state key="normal" image="reset"/>
                                                 <connections>
                                                     <action selector="resetTapped:" destination="Yuq-lR-ZVo" eventType="touchUpInside" id="QeP-tr-iKg"/>
                                                 </connections>
@@ -762,11 +761,10 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vka-bP-fuc">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vka-bP-fuc">
                                                 <rect key="frame" x="260" y="0.0" width="44" height="44"/>
-                                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" title="A"/>
+                                                <state key="normal" image="setting"/>
                                                 <connections>
                                                     <action selector="settingsTapped:" destination="Yuq-lR-ZVo" eventType="touchUpInside" id="uI3-O3-gPZ"/>
                                                 </connections>
@@ -799,7 +797,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="xMW-xe-wrf">
                                         <rect key="frame" x="20" y="8" width="280" height="44"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uh8-G0-Lcn" customClass="PreferenceButton" customModule="easyIntervals" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uh8-G0-Lcn" customClass="PreferenceButton" customModule="easyIntervals" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
                                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
@@ -807,46 +805,46 @@
                                                     <constraint firstAttribute="width" constant="44" id="MJH-ts-dJx"/>
                                                 </constraints>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" title="A"/>
+                                                <state key="normal" image="icon_help"/>
                                                 <connections>
                                                     <action selector="infoTapped:" destination="Yuq-lR-ZVo" eventType="touchUpInside" id="7Pq-WX-D1C"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vFQ-qz-AJl" customClass="PreferenceButton" customModule="easyIntervals" customModuleProvider="target">
-                                                <rect key="frame" x="47" y="0.0" width="44.5" height="44"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vFQ-qz-AJl" customClass="PreferenceButton" customModule="easyIntervals" customModuleProvider="target">
+                                                <rect key="frame" x="47" y="0.0" width="44" height="44"/>
                                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" title="A"/>
+                                                <state key="normal" image="icon_audio"/>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="etV-OV-7XV" customClass="PreferenceButton" customModule="easyIntervals" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="etV-OV-7XV" customClass="PreferenceButton" customModule="easyIntervals" customModuleProvider="target">
                                                 <rect key="frame" x="94.5" y="0.0" width="44" height="44"/>
                                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" title="A"/>
+                                                <state key="normal" image="icon_vibrate"/>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bKa-hg-QLm" customClass="PreferenceButton" customModule="easyIntervals" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bKa-hg-QLm" customClass="PreferenceButton" customModule="easyIntervals" customModuleProvider="target">
                                                 <rect key="frame" x="141.5" y="0.0" width="44" height="44"/>
                                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" title="A"/>
+                                                <state key="normal" image="icon_cadence"/>
                                                 <connections>
                                                     <action selector="cadenceTapped:" destination="Yuq-lR-ZVo" eventType="touchUpInside" id="amR-mi-hpg"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AwM-Aw-buB" customClass="PreferenceButton" customModule="easyIntervals" customModuleProvider="target">
-                                                <rect key="frame" x="188.5" y="0.0" width="44.5" height="44"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AwM-Aw-buB" customClass="PreferenceButton" customModule="easyIntervals" customModuleProvider="target">
+                                                <rect key="frame" x="189" y="0.0" width="44" height="44"/>
                                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" title="A"/>
+                                                <state key="normal" image="icon_music"/>
                                                 <connections>
                                                     <action selector="musicTapped:" destination="Yuq-lR-ZVo" eventType="touchUpInside" id="Hq3-67-zyi"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z9e-GU-IlC" customClass="PreferenceButton" customModule="easyIntervals" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z9e-GU-IlC" customClass="PreferenceButton" customModule="easyIntervals" customModuleProvider="target">
                                                 <rect key="frame" x="236" y="0.0" width="44" height="44"/>
                                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" title="A"/>
+                                                <state key="normal" image="icon_time"/>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -894,9 +892,69 @@
                                     <constraint firstItem="LRN-GQ-pSu" firstAttribute="width" secondItem="LRN-GQ-pSu" secondAttribute="height" multiplier="1:1" id="7Hy-w2-fIA"/>
                                 </constraints>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IrA-ip-tPO" customClass="CountDownView" customModule="easyIntervals" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="376" width="320" height="60"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="KVh-Q2-BRW">
+                                        <rect key="frame" x="20" y="5" width="280" height="50"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="psy-Ie-m5f" customClass="CountDownDot" customModule="easyIntervals" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="2cA-ou-I0N"/>
+                                                    <constraint firstAttribute="width" constant="50" id="eK2-8u-cZp"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FwE-A4-mdt" customClass="CountDownDot" customModule="easyIntervals" customModuleProvider="target">
+                                                <rect key="frame" x="58" y="0.0" width="49.5" height="50"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tmn-Rf-dg2" customClass="CountDownDot" customModule="easyIntervals" customModuleProvider="target">
+                                                <rect key="frame" x="115" y="0.0" width="50" height="50"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CnX-lI-wOh" customClass="CountDownDot" customModule="easyIntervals" customModuleProvider="target">
+                                                <rect key="frame" x="173" y="0.0" width="49.5" height="50"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qW6-Yd-JVI" customClass="CountDownDot" customModule="easyIntervals" customModuleProvider="target">
+                                                <rect key="frame" x="230" y="0.0" width="50" height="50"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="Tmn-Rf-dg2" firstAttribute="height" secondItem="FwE-A4-mdt" secondAttribute="height" id="98h-no-NYu"/>
+                                            <constraint firstItem="qW6-Yd-JVI" firstAttribute="height" secondItem="CnX-lI-wOh" secondAttribute="height" id="UnD-yK-orM"/>
+                                            <constraint firstItem="qW6-Yd-JVI" firstAttribute="width" secondItem="CnX-lI-wOh" secondAttribute="width" id="dDJ-bF-1r9"/>
+                                            <constraint firstItem="FwE-A4-mdt" firstAttribute="height" secondItem="psy-Ie-m5f" secondAttribute="height" id="eEt-0g-NwG"/>
+                                            <constraint firstItem="Tmn-Rf-dg2" firstAttribute="width" secondItem="FwE-A4-mdt" secondAttribute="width" id="gud-dt-o6U"/>
+                                            <constraint firstItem="CnX-lI-wOh" firstAttribute="width" secondItem="Tmn-Rf-dg2" secondAttribute="width" id="ir8-Fd-bng"/>
+                                            <constraint firstItem="FwE-A4-mdt" firstAttribute="width" secondItem="psy-Ie-m5f" secondAttribute="width" id="oRp-gD-9nJ"/>
+                                            <constraint firstItem="CnX-lI-wOh" firstAttribute="height" secondItem="Tmn-Rf-dg2" secondAttribute="height" id="w4M-w6-PKb"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="KVh-Q2-BRW" firstAttribute="leading" secondItem="IrA-ip-tPO" secondAttribute="leading" constant="20" id="X5X-Mv-gmO"/>
+                                    <constraint firstAttribute="trailing" secondItem="KVh-Q2-BRW" secondAttribute="trailing" constant="20" id="XUI-7s-f17"/>
+                                    <constraint firstItem="KVh-Q2-BRW" firstAttribute="top" secondItem="IrA-ip-tPO" secondAttribute="top" constant="5" id="bea-3A-fpm"/>
+                                    <constraint firstAttribute="height" constant="60" id="iKD-uS-miT"/>
+                                    <constraint firstAttribute="bottom" secondItem="KVh-Q2-BRW" secondAttribute="bottom" constant="5" id="z40-K7-woV"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="dots" destination="psy-Ie-m5f" collectionClass="NSMutableArray" id="BWU-id-g5t"/>
+                                    <outletCollection property="dots" destination="FwE-A4-mdt" collectionClass="NSMutableArray" id="2WV-Mq-vhe"/>
+                                    <outletCollection property="dots" destination="Tmn-Rf-dg2" collectionClass="NSMutableArray" id="360-By-1ax"/>
+                                    <outletCollection property="dots" destination="CnX-lI-wOh" collectionClass="NSMutableArray" id="B7F-my-756"/>
+                                    <outletCollection property="dots" destination="qW6-Yd-JVI" collectionClass="NSMutableArray" id="ljf-Hn-x6k"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="IrA-ip-tPO" firstAttribute="leading" secondItem="roR-UC-ntp" secondAttribute="leading" id="6ol-GQ-V5m"/>
                             <constraint firstAttribute="trailing" secondItem="GAa-Te-jhW" secondAttribute="trailing" id="7tZ-la-O9X"/>
                             <constraint firstAttribute="trailing" secondItem="ane-sV-Toc" secondAttribute="trailing" constant="8" id="AL3-bO-ISc"/>
                             <constraint firstItem="VI5-BN-aJo" firstAttribute="top" secondItem="3HU-ep-6h7" secondAttribute="bottom" id="I8T-PJ-NS6"/>
@@ -906,15 +964,18 @@
                             <constraint firstItem="zpx-Jq-6S7" firstAttribute="leading" secondItem="roR-UC-ntp" secondAttribute="leadingMargin" constant="8" id="dl3-tO-UKX"/>
                             <constraint firstItem="3HU-ep-6h7" firstAttribute="leading" secondItem="roR-UC-ntp" secondAttribute="leading" id="drT-yJ-jpq"/>
                             <constraint firstItem="ane-sV-Toc" firstAttribute="leading" secondItem="roR-UC-ntp" secondAttribute="leading" constant="8" id="i7T-gB-y0v"/>
+                            <constraint firstAttribute="trailing" secondItem="IrA-ip-tPO" secondAttribute="trailing" id="mwa-Tj-Pqj"/>
                             <constraint firstAttribute="trailing" secondItem="3HU-ep-6h7" secondAttribute="trailing" id="n7y-UZ-8AV"/>
                             <constraint firstItem="zpx-Jq-6S7" firstAttribute="top" secondItem="GAa-Te-jhW" secondAttribute="bottom" constant="20" id="oaL-VA-DOR"/>
                             <constraint firstItem="GAa-Te-jhW" firstAttribute="leading" secondItem="roR-UC-ntp" secondAttribute="leading" id="sJi-eC-NWf"/>
+                            <constraint firstItem="IrA-ip-tPO" firstAttribute="top" secondItem="ane-sV-Toc" secondAttribute="bottom" constant="16" id="zV2-1s-H5J"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="audioButton" destination="vFQ-qz-AJl" id="6Yy-4D-kFu"/>
                         <outlet property="buttonBar" destination="3HU-ep-6h7" id="0by-iS-2Q9"/>
                         <outlet property="cadenceButton" destination="bKa-hg-QLm" id="EYK-l6-P6E"/>
+                        <outlet property="countDownView" destination="IrA-ip-tPO" id="N5y-ch-3OH"/>
                         <outlet property="infoButton" destination="uh8-G0-Lcn" id="eN8-mc-epy"/>
                         <outlet property="intervalTime" destination="zpx-Jq-6S7" id="VdG-oR-QjK"/>
                         <outlet property="leftWindow" destination="7Xh-eg-yeV" id="pp8-Cd-5e5"/>
@@ -929,7 +990,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rE4-m8-KaZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4648" y="-567"/>
+            <point key="canvasLocation" x="4646.25" y="-567.25352112676057"/>
         </scene>
     </scenes>
     <resources>
@@ -941,5 +1002,6 @@
         <image name="icon_time" width="22" height="22"/>
         <image name="icon_vibrate" width="22" height="22"/>
         <image name="reset" width="22" height="22"/>
+        <image name="setting" width="22" height="22"/>
     </resources>
 </document>

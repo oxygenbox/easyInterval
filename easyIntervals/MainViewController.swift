@@ -32,6 +32,7 @@ class MainViewController: UIViewController {
 
     @IBOutlet weak var leftWindow: RoundModeView!
     @IBOutlet weak var rightWindow: RoundModeView!
+    @IBOutlet weak var countDownView: CountDownView!
     
     @IBOutlet weak var intervalTime: UILabel!
     
@@ -333,11 +334,18 @@ extension MainViewController: MusicControlDelegate {
 
 extension MainViewController: WorkoutDelegate {
     func woTick() {
+        print("woTick")
         postTimes()
+        
     }
         
-    func workoutTick(with: CGFloat) {
+    func workoutTick(remaining seconds: Int) {
         postTimes()
+        
+        if workout.currentInterval.countDown {
+            self.countDownView.countDown(second: seconds)
+            
+        }
     }
         
     func  modeUpdate() {

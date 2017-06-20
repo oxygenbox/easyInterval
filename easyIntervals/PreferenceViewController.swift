@@ -57,6 +57,8 @@ class PreferenceViewController: UIViewController {
     //MARK:- LIFECYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
+        let button = buttonCollection[data.settingsTab]
+        positionSwitchView(destination: button.center.x)
         
     }
     
@@ -121,8 +123,10 @@ class PreferenceViewController: UIViewController {
             
          
             if index == data.settingsTab {
-                positionSwitchView(destination: button.center.x)
+                //positionSwitchView(destination: button.center.x)
+                
                 button.select()
+                print(index)
                
                 
             } else {
@@ -133,6 +137,8 @@ class PreferenceViewController: UIViewController {
             infoButton.makeInfo()
             doneButton.tintColor = UIColor.Theme.base
         }
+        
+       
     }
     
     func postTitle() {
@@ -221,6 +227,7 @@ class PreferenceViewController: UIViewController {
         }
         
         pa.startAnimation()
+        view.layoutIfNeeded()
     }
 }
 
