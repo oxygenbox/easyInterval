@@ -112,6 +112,8 @@ class MainViewController: UIViewController {
         runWindow.mode = .run
         walkWindow.mode = .walk
         
+        
+        
         // elapsedTime.textColor = UIColor.Theme.base
         // sessionType.textColor = UIColor.Theme.base
         
@@ -142,6 +144,7 @@ class MainViewController: UIViewController {
     
     func toggleWorkout() {
         workout.toggleTimer()
+        setScreenMode()
         //playing
         //pause
         //resume
@@ -370,7 +373,6 @@ extension MainViewController: WorkoutDelegate {
     }
     
     func modeChanged(to mode: Mode) {
-        print(mode)
         setScreenMode()
     }
     

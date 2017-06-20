@@ -11,7 +11,7 @@ import UIKit
 class RoundModeView: UIView {
     
     //MARK- VARIABLES
-    let shrinkSize: CGFloat = 0.5
+    let shrinkSize: CGFloat = 0.25
     let animationSpeed: Double = 0.25
     
     lazy var intervalClock: ClockView = {
@@ -55,11 +55,10 @@ class RoundModeView: UIView {
         case .run:
             self.backgroundColor = UIColor.run
             imageView.image = UIImage(named: "run_solid")
-            //intervalClock.shapeLayer.strokeColor = UIColor.walk.cgColor
+            
         case .walk:
             self.backgroundColor = UIColor.walk
             imageView.image = UIImage(named: "walk_solid")
-            //intervalClock.shapeLayer.strokeColor = UIColor.run.cgColor
         default:
             break
         }
@@ -81,6 +80,7 @@ class RoundModeView: UIView {
     
     
     func grow() {
+         self.intervalClock.alpha = 1
         let animator = UIViewPropertyAnimator(duration: self.animationSpeed, curve: .linear) {
             self.transform = CGAffineTransform.identity
         }
@@ -91,54 +91,13 @@ class RoundModeView: UIView {
     func shrink() {
         let animator = UIViewPropertyAnimator(duration: self.animationSpeed, curve: .linear) {
             self.transform = CGAffineTransform(scaleX: self.shrinkSize, y: self.shrinkSize)
+            self.intervalClock.alpha = 0
         }
         
+        animator.addCompletion { (scale) in
+        
+        }
         animator.startAnimation()
     }
-    
-    
-
 }
 
-/*
-
- 
- pac.startAnimation()
- 
- 
- 
- func pause() {
- intervalClock.pause()
- sessionClock.pause()
- 
- }
- 
- func resume() {
- intervalClock.resume()
- sessionClock.resume()
- }
- 
- func beginClocks(intervalSeconds: Int, sessionSeconds: Int?) {
- 
- if mode == .walk {
- intervalClock.shapeLayer.strokeColor = UIColor.run.cgColor
- } else {
- intervalClock.shapeLayer.strokeColor = UIColor.walk.cgColor
- }
- 
- 
- intervalClock.shapeLayer.lineWidth = frame.size.height - 12
- intervalClock.begin(with: intervalSeconds)
- 
- guard let t = sessionSeconds else {
- return
- }
- 
- sessionClock.shapeLayer.strokeColor = UIColor.highlight.cgColor
- sessionClock.shapeLayer.lineWidth = 10
- sessionClock.isHidden = false
- sessionClock.begin(with: t)
- 
- }
- 
-   */
