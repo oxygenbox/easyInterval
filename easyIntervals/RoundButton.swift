@@ -41,7 +41,15 @@ class RoundButton: UIButton {
     
     func makeInfo() {
         tintColor = UIColor.Theme.on
+        backgroundColor = UIColor.Theme.off
+    }
+    
+    func controls() {
+        tintColor = UIColor.Theme.on
+        backgroundColor = UIColor.Theme.off
     }
 }
+
+
 
 

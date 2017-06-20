@@ -167,7 +167,7 @@ class MainViewController: UIViewController {
                 setScreenMode()
                 if workout.woSession != nil {
                     //start session timer
-                   // let sessionSecs = data.totalSessionSeconds
+                    let sessionSecs = data.totalSessionSeconds
                 }
                 
             
@@ -241,7 +241,7 @@ class MainViewController: UIViewController {
             //self.timerWindowView.reset(interval: true, session: false)
         }
         
-        let walkAction = UIAlertAction(title: "", style: .default) { [unowned self] (action) in
+        let walkAction = UIAlertAction(title: "Restart Walk Interval", style: .default) { [unowned self] (action) in
             self.reset(type: .walk)
             //self.timerWindowView.reset(interval: true, session: false)
         }
@@ -284,13 +284,16 @@ class MainViewController: UIViewController {
         switch type {
         case .run:
             self.workout.restart(mode: .run)
+            self.setScreenMode()
         case .walk:
             self.workout.restart(mode: .walk)
+            self.setScreenMode()
         case .elapsed:
             self.workout.elapsedSeconds = 0
         case .all:
             self.workout.restart(mode: self.workout.currentMode)
             self.workout.elapsedSeconds = 0
+            self.setScreenMode()
         case.session:
             self.workout.startSession()
             if data.isRunWalk {
@@ -298,8 +301,10 @@ class MainViewController: UIViewController {
             } else {
                 self.workout.restart(mode: .walk)
             }
+            self.setScreenMode()
         }
-        // self.updateTimeLabels()
+        
+        postTimes()
     }
     
    //MARK:- MUSIC METHODS
