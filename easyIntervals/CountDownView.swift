@@ -9,8 +9,6 @@
 import UIKit
 
 class CountDownView: UIView {
-
-    
     @IBOutlet var dots: [CountDownDot]!
     
     override func draw(_ rect: CGRect) {
@@ -26,7 +24,6 @@ class CountDownView: UIView {
             dot.configure(tagNum: dots.count - index)
         }
     }
-    
     
     func countDown(second: Int) {
         let dot = dots[dots.count - second]

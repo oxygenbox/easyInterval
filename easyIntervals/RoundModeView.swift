@@ -34,6 +34,14 @@ class RoundModeView: UIView {
         }
     }
     
+    var clockColor: UIColor {
+        if mode == .run {
+            return UIColor.walk
+        } else {
+            return UIColor.run
+        }
+    }
+    
     override func draw(_ rect: CGRect) {
         layer.cornerRadius = frame.size.height/2
         clipsToBounds = true
@@ -47,16 +55,18 @@ class RoundModeView: UIView {
         case .run:
             self.backgroundColor = UIColor.run
             imageView.image = UIImage(named: "run_solid")
+            //intervalClock.shapeLayer.strokeColor = UIColor.walk.cgColor
         case .walk:
             self.backgroundColor = UIColor.walk
             imageView.image = UIImage(named: "walk_solid")
+            //intervalClock.shapeLayer.strokeColor = UIColor.run.cgColor
         default:
             break
         }
     }
     
     func beginClock(intervalSeconds: Int) {
-        intervalClock.shapeLayer.strokeColor = UIColor.red.cgColor
+        intervalClock.shapeLayer.strokeColor = self.clockColor.cgColor
         intervalClock.shapeLayer.lineWidth = frame.size.width - 12
         intervalClock.begin(with: intervalSeconds)
     }

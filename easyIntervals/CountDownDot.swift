@@ -25,13 +25,11 @@ class CountDownDot: UIView {
         return l
     }()
 
-    
     func configure(tagNum: Int) {
         tag = tagNum
         label.text = "\(tagNum)"
         backgroundColor = UIColor.orange
         alpha = 0.0
-        
     }
     
     func animateOn() {
