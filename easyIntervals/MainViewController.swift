@@ -55,6 +55,14 @@ class MainViewController: UIViewController {
             return self.leftWindow
         }
     }
+    
+    var activeWindow: RoundModeView {
+        if workout.currentMode == .run {
+            return self.runWindow
+        } else {
+            return self.walkWindow
+        }
+    }
 
     //MARK:- LIFECYCLE
     override func viewDidLoad() {
@@ -144,7 +152,30 @@ class MainViewController: UIViewController {
     
     func toggleWorkout() {
         workout.toggleTimer()
-        setScreenMode()
+       
+        
+        if workout.timer == nil {
+            settingsButton.isEnabled = true
+            activeWindow.pause()
+        } else {
+            settingsButton.isEnabled = false
+            if activeWindow.intervalClock.hasStarted {
+                //resume
+                activeWindow.intervalClock.resume()
+            } else {
+                //start
+                setScreenMode()
+                if workout.woSession != nil {
+                    //start session timer
+                   // let sessionSecs = data.totalSessionSeconds
+                }
+                
+            
+                
+            }
+        }
+        
+        
         //playing
         //pause
         //resume
@@ -167,7 +198,7 @@ class MainViewController: UIViewController {
      let intervalSecs = workout.currentInterval.lengthInSeconds
      var sessionSecs: Int?
      if workout.woSession != nil {
-     sessionSecs = data.totalSessionSeconds
+     
      }
      timerWindowView.beginClocks(intervalSeconds: intervalSecs, sessionSeconds: sessionSecs)
      }
@@ -177,7 +208,6 @@ class MainViewController: UIViewController {
  */
     
     func setScreenMode() {
-        print("setScreenMode \(workout.currentMode)")
         let intervalSecs = workout.currentInterval.lengthInSeconds
         switch workout.currentMode {
         case .run:

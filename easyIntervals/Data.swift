@@ -114,7 +114,6 @@ class Data: Settings {
         return "Play Cadence Check Every \(freq)Run Interval"
     }
     
-    
     var workoutDescription: String {
         let minutes = sessionArray[sequenceRepeats]
         return "Set for a \(minutes) minute workout"

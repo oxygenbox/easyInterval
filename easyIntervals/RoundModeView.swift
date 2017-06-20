@@ -78,7 +78,13 @@ class RoundModeView: UIView {
         intervalClock.reset()
     }
     
+    func resume() {
+        if intervalClock.hasStarted {
+            intervalClock.resume()
+        }
+    }
     
+
     func grow() {
          self.intervalClock.alpha = 1
         let animator = UIViewPropertyAnimator(duration: self.animationSpeed, curve: .linear) {
