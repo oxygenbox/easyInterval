@@ -865,7 +865,7 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fIm-za-4uD">
-                                <rect key="frame" x="8" y="94" width="304" height="380.5"/>
+                                <rect key="frame" x="8" y="94.5" width="304" height="380"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IrA-ip-tPO" customClass="CountDownView" customModule="easyIntervals" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="304" height="50"/>
@@ -947,21 +947,55 @@
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="ane-sV-Toc" userLabel="Stack View - ModeViews">
-                                        <rect key="frame" x="0.0" y="230" width="304" height="150.5"/>
+                                        <rect key="frame" x="0.0" y="230" width="304" height="150"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Xh-eg-yeV" customClass="RoundModeView" customModule="easyIntervals" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="150" height="150.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rN4-OE-En0" customClass="ClockView" customModule="easyIntervals" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="-1" width="150" height="150"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    </view>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7Vj-Tl-WHR">
+                                                        <rect key="frame" x="20" y="20" width="110" height="110"/>
+                                                    </imageView>
+                                                </subviews>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
+                                                    <constraint firstItem="7Vj-Tl-WHR" firstAttribute="leading" secondItem="7Xh-eg-yeV" secondAttribute="leading" constant="20" id="0dH-lh-DnJ"/>
                                                     <constraint firstAttribute="width" secondItem="7Xh-eg-yeV" secondAttribute="height" multiplier="1:1" id="1H6-Ns-PdN"/>
+                                                    <constraint firstItem="7Vj-Tl-WHR" firstAttribute="top" secondItem="7Xh-eg-yeV" secondAttribute="top" constant="20" id="Qro-f7-ue8"/>
+                                                    <constraint firstAttribute="trailing" secondItem="7Vj-Tl-WHR" secondAttribute="trailing" constant="20" id="kzv-0E-hgM"/>
+                                                    <constraint firstAttribute="bottom" secondItem="7Vj-Tl-WHR" secondAttribute="bottom" constant="20" id="yp6-U1-taz"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outlet property="imageView" destination="7Vj-Tl-WHR" id="pY9-Au-XpV"/>
+                                                    <outlet property="intervalClock" destination="rN4-OE-En0" id="Ka1-Bb-35I"/>
+                                                </connections>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LRN-GQ-pSu" customClass="RoundModeView" customModule="easyIntervals" customModuleProvider="target">
-                                                <rect key="frame" x="154" y="0.5" width="150" height="149.5"/>
+                                                <rect key="frame" x="154" y="0.0" width="150" height="150"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N4I-DU-DN9" customClass="ClockView" customModule="easyIntervals" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    </view>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="F5J-II-L8m">
+                                                        <rect key="frame" x="20" y="20" width="110" height="110"/>
+                                                    </imageView>
+                                                </subviews>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
+                                                    <constraint firstItem="F5J-II-L8m" firstAttribute="leading" secondItem="LRN-GQ-pSu" secondAttribute="leading" constant="20" id="0j2-yW-naR"/>
+                                                    <constraint firstAttribute="trailing" secondItem="F5J-II-L8m" secondAttribute="trailing" constant="20" id="HH1-KJ-4V7"/>
+                                                    <constraint firstAttribute="bottom" secondItem="F5J-II-L8m" secondAttribute="bottom" constant="20" id="MS6-WR-gNM"/>
+                                                    <constraint firstItem="F5J-II-L8m" firstAttribute="top" secondItem="LRN-GQ-pSu" secondAttribute="top" constant="20" id="WrC-yF-QEZ"/>
                                                     <constraint firstAttribute="width" secondItem="LRN-GQ-pSu" secondAttribute="height" multiplier="1:1" id="wQJ-8F-NAJ"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outlet property="imageView" destination="F5J-II-L8m" id="MVI-Ui-huW"/>
+                                                    <outlet property="intervalClock" destination="N4I-DU-DN9" id="sjJ-oE-UnS"/>
+                                                </connections>
                                             </view>
                                         </subviews>
                                     </stackView>

@@ -14,19 +14,19 @@ class RoundModeView: UIView {
     let shrinkSize: CGFloat = 0.25
     let animationSpeed: Double = 0.25
     
-    lazy var intervalClock: ClockView = {
-        let clock = ClockView(frame: self.bounds)
-        return clock
-    }()
+//    lazy var intervalClock: ClockView = {
+//        let clock = ClockView(frame: self.bounds)
+//        return clock
+//    }()
     
-    lazy var imageView: UIImageView = {
-        let inset = self.frame.size.height * 0.10
-        let rect = CGRect(x: inset, y: inset, width: self.bounds.width - inset*2, height: self.bounds.height - inset*2)
-        let iv = UIImageView(frame: rect)
-        iv.contentMode = .scaleAspectFit
-        iv.tintColor = UIColor.white
-        return iv
-    }()
+//    lazy var imageView: UIImageView = {
+//        let inset = self.frame.size.height * 0.10
+//        let rect = CGRect(x: inset, y: inset, width: self.bounds.width - inset*2, height: self.bounds.height - inset*2)
+//        let iv = UIImageView(frame: rect)
+//        iv.contentMode = .scaleAspectFit
+//        iv.tintColor = UIColor.white
+//        return iv
+//    }()
     
     var mode: Mode = .run {
         didSet {
@@ -42,23 +42,27 @@ class RoundModeView: UIView {
         }
     }
     
+    @IBOutlet weak var intervalClock: ClockView!
+    @IBOutlet weak var imageView: UIImageView!
+    
+    
     override func draw(_ rect: CGRect) {
         layer.cornerRadius = frame.size.height/2
         clipsToBounds = true
     }
     
     func configure() {
-        addSubview(intervalClock)
-        addSubview(imageView)
+       // addSubview(intervalClock)
+       // addSubview(imageView)
         
         switch mode {
         case .run:
             self.backgroundColor = UIColor.run
-            imageView.image = UIImage(named: "run_solid")
+            self.imageView.image = UIImage(named: "run_solid")
             
         case .walk:
             self.backgroundColor = UIColor.walk
-            imageView.image = UIImage(named: "walk_solid")
+            self.imageView.image = UIImage(named: "walk_solid")
         default:
             break
         }
