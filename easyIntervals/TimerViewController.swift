@@ -24,6 +24,7 @@ class TimerViewController: UIViewController{
     @IBOutlet weak var settingsButton:UIButton!
     @IBOutlet weak var resetButton:UIButton!
     @IBOutlet weak var titleLabel:UILabel!
+
     
     @IBOutlet var prefButtons: [UIButton]!
    

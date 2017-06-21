@@ -35,6 +35,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var countDownView: CountDownView!
     
     @IBOutlet weak var intervalTime: UILabel!
+    @IBOutlet weak var elapsedTime: UILabel!
     
     //MARK- VARIABLES
     var workout: Workout!
@@ -231,6 +232,13 @@ class MainViewController: UIViewController {
     
     func postTimes() {
         intervalTime.attributedText = Tool.intervalTimeFormatted(seconds: workout.currentInterval.remainingSeconds)
+        
+        if let session = workout.woSession {
+            elapsedTime.attributedText = Tool.elapsedTimeFormatted(seconds: session.remainingSeconds)
+            
+        } else {
+            elapsedTime.attributedText = Tool.elapsedTimeFormatted(seconds: workout.elapsedSeconds)
+        }
     }
     
     func  openResetOptions() {
@@ -381,7 +389,7 @@ extension MainViewController: WorkoutDelegate {
         postTimes()
         
         if workout.currentInterval.countDown {
-            self.countDownView.countDown(second: seconds)
+           // self.countDownView.countDown(second: seconds)
             
         }
     }
@@ -441,16 +449,7 @@ extension MainViewController: WorkoutDelegate {
  intervalTime.textColor = UIColor.walk
  }
  
- timerWindowView.intervalSeconds = workout.currentInterval.remainingSeconds
- 
- if let session = workout.woSession {
- elapsedTime.text = Tool.formatTime(secs: session.remainingSeconds, withHours: true)
- sessionType.text = "remaining"
- } else {
- elapsedTime.text = Tool.formatTime(secs: workout.elapsedSeconds, withHours: true)
- sessionType.text = "elapsed"
- }
- }
+
  
  
  

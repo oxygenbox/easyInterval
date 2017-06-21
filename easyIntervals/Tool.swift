@@ -15,14 +15,40 @@ class Tool {
     class  func intervalTimeFormatted(seconds:Int) -> NSMutableAttributedString {
         let timeString = formatTime(secs: seconds, withHours: false)
         let charCount = timeString.characters.count
-        //let font = UIFont(name: "AvenirNext-Bold", size: 120)
-        let font = UIFont(name: "AvenirNext-Bold", size: 20)
+        let font = UIFont(name: "AvenirNext-Bold", size: 120)
+        //let font = UIFont(name: "AvenirNext-Bold", size: 20)
         let attributedString = NSMutableAttributedString(string: timeString)
         attributedString.addAttribute(NSKernAttributeName, value: -4, range: NSMakeRange(0, charCount))
         attributedString.addAttribute(NSForegroundColorAttributeName, value: UIColor.Theme.text, range: NSMakeRange(0, charCount))
         attributedString.addAttribute(NSFontAttributeName, value: font!, range: NSMakeRange(0, charCount))
         return attributedString
     }
+    
+    class func elapsedTimeFormatted(seconds: Int) -> NSMutableAttributedString {
+        let timeString = formatTime(secs: seconds, withHours: true)
+        let attributedString = NSMutableAttributedString(string: timeString)
+        let charCount = timeString.characters.count
+        let font = UIFont(name: "AvenirNext-DemiBold", size: 60)!
+        attributedString.addAttribute(NSKernAttributeName, value: -4, range: NSMakeRange(0, charCount))
+        attributedString.addAttribute(NSForegroundColorAttributeName, value: UIColor.Theme.text, range: NSMakeRange(0, charCount))
+        attributedString.addAttribute(NSFontAttributeName, value: font, range: NSMakeRange(0, charCount))
+        return attributedString
+    }
+    
+    /*
+     
+     if let session = workout.woSession {
+     elapsedTime.text = Tool.formatTime(secs: session.remainingSeconds, withHours: true)
+     } else {
+     elapsedTime.text = Tool.formatTime(secs: workout.elapsedSeconds, withHours: true)
+     }
+
+ */
+    
+    
+    
+    
+    
     
     class func formatTime(secs: Int, withHours: Bool) -> String {
         var seconds = secs

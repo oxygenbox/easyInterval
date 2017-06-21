@@ -865,10 +865,41 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fIm-za-4uD">
-                                <rect key="frame" x="8" y="94.5" width="304" height="380"/>
+                                <rect key="frame" x="8" y="163.5" width="304" height="241"/>
                                 <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="interval" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MSS-tp-Zwn">
+                                        <rect key="frame" x="124" y="0.0" width="56" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="elapsed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oaE-gl-U5b">
+                                        <rect key="frame" x="122" y="20.5" width="60.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="ane-sV-Toc" userLabel="Stack View - ModeViews">
+                                        <rect key="frame" x="0.0" y="41" width="304" height="150"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Xh-eg-yeV" customClass="RoundModeView" customModule="easyIntervals" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="7Xh-eg-yeV" secondAttribute="height" multiplier="1:1" id="1H6-Ns-PdN"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LRN-GQ-pSu" customClass="RoundModeView" customModule="easyIntervals" customModuleProvider="target">
+                                                <rect key="frame" x="154" y="0.0" width="150" height="150"/>
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="LRN-GQ-pSu" secondAttribute="height" multiplier="1:1" id="wQJ-8F-NAJ"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IrA-ip-tPO" customClass="CountDownView" customModule="easyIntervals" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="304" height="50"/>
+                                        <rect key="frame" x="0.0" y="191" width="304" height="50"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="KVh-Q2-BRW">
                                                 <rect key="frame" x="20" y="5" width="264" height="40"/>
@@ -926,45 +957,6 @@
                                             <outletCollection property="dots" destination="qW6-Yd-JVI" collectionClass="NSMutableArray" id="ljf-Hn-x6k"/>
                                         </connections>
                                     </view>
-                                    <view contentMode="scaleToFill" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="UV6-Y8-amW" customClass="RoundStatusView" customModule="easyIntervals" customModuleProvider="target">
-                                        <rect key="frame" x="62" y="50" width="180" height="180"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MSS-tp-Zwn">
-                                                <rect key="frame" x="8" y="8" width="164" height="164"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstItem="MSS-tp-Zwn" firstAttribute="top" secondItem="UV6-Y8-amW" secondAttribute="top" constant="8" id="9RK-eQ-hOW"/>
-                                            <constraint firstAttribute="height" constant="180" id="DU0-Kt-xxt"/>
-                                            <constraint firstAttribute="trailing" secondItem="MSS-tp-Zwn" secondAttribute="trailing" constant="8" id="JUv-ry-kQ0"/>
-                                            <constraint firstAttribute="bottom" secondItem="MSS-tp-Zwn" secondAttribute="bottom" constant="8" id="PGW-yQ-ERe"/>
-                                            <constraint firstAttribute="width" secondItem="UV6-Y8-amW" secondAttribute="height" multiplier="1:1" id="gat-fE-q69"/>
-                                            <constraint firstItem="MSS-tp-Zwn" firstAttribute="leading" secondItem="UV6-Y8-amW" secondAttribute="leading" constant="8" id="nv7-Yu-u9d"/>
-                                        </constraints>
-                                    </view>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="ane-sV-Toc" userLabel="Stack View - ModeViews">
-                                        <rect key="frame" x="0.0" y="230" width="304" height="150"/>
-                                        <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Xh-eg-yeV" customClass="RoundModeView" customModule="easyIntervals" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
-                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="7Xh-eg-yeV" secondAttribute="height" multiplier="1:1" id="1H6-Ns-PdN"/>
-                                                </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LRN-GQ-pSu" customClass="RoundModeView" customModule="easyIntervals" customModuleProvider="target">
-                                                <rect key="frame" x="154" y="0.0" width="150" height="150"/>
-                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="LRN-GQ-pSu" secondAttribute="height" multiplier="1:1" id="wQJ-8F-NAJ"/>
-                                                </constraints>
-                                            </view>
-                                        </subviews>
-                                    </stackView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="ane-sV-Toc" secondAttribute="trailing" id="JvY-E4-k7S"/>
@@ -992,6 +984,7 @@
                         <outlet property="buttonBar" destination="3HU-ep-6h7" id="0by-iS-2Q9"/>
                         <outlet property="cadenceButton" destination="bKa-hg-QLm" id="EYK-l6-P6E"/>
                         <outlet property="countDownView" destination="IrA-ip-tPO" id="N5y-ch-3OH"/>
+                        <outlet property="elapsedTime" destination="oaE-gl-U5b" id="QzW-x0-0yw"/>
                         <outlet property="infoButton" destination="uh8-G0-Lcn" id="eN8-mc-epy"/>
                         <outlet property="intervalTime" destination="MSS-tp-Zwn" id="TMk-HA-lYv"/>
                         <outlet property="leftWindow" destination="7Xh-eg-yeV" id="pp8-Cd-5e5"/>
