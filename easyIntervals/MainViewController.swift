@@ -69,6 +69,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadMusicControls()
+        configure()
     }
     
     override func viewWillAppear(_ animated: Bool) {

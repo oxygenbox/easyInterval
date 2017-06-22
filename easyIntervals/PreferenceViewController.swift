@@ -29,13 +29,13 @@ class PreferenceViewController: UIViewController {
     @IBOutlet var buttonCollection: [PreferenceButton]!
     
     //MARK- VARIABLES
-    var isRunWalk = true
+   // var isRunWalk = true
     var runSetting = 0
     var walkSetting = 0
     var preferences: [Preference] =  [.info, .audio, .vibrate, .cadence, .music, .workout]
     
     var runComponent: Int {
-        if isRunWalk {
+        if data.isRunWalk {
             return 0
         } else {
             return 1
@@ -43,7 +43,7 @@ class PreferenceViewController: UIViewController {
     }
     
     var walkComponent: Int {
-        if isRunWalk {
+        if data.isRunWalk {
             return 1
         } else {
             return 0
@@ -57,16 +57,14 @@ class PreferenceViewController: UIViewController {
     //MARK:- LIFECYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
+        configure()
         let button = buttonCollection[data.settingsTab]
         positionSwitchView(destination: button.center.x)
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        configure()
     }
-    
     
     //MARK:- ACTIONS
     @IBAction func preferenceButtonTapped(_ sender: PreferenceButton) {
@@ -82,7 +80,7 @@ class PreferenceViewController: UIViewController {
     }
     
     @IBAction func intervalOrderChanged(_ sender: UISegmentedControl) {
-        isRunWalk = sender.selectedSegmentIndex == 0
+        data.isRunWalk = sender.selectedSegmentIndex == 0
         data.isRunWalk = sender.selectedSegmentIndex == 0
         data.save()
         picker.reloadAllComponents()
@@ -104,6 +102,9 @@ class PreferenceViewController: UIViewController {
     //MARK:- METHODS
     func configure() {
         switchView.delegate = self
+        print("isRunWalk \(data.isRunWalk)")
+        print("run \(runComponent)")
+        print("walk \(walkComponent)")
         
         picker.selectRow(data.runValue, inComponent: runComponent, animated: false)
         picker.selectRow(data.walkValue, inComponent: walkComponent, animated: false)
@@ -271,18 +272,20 @@ extension PreferenceViewController: UIPickerViewDataSource {
         label.attributedText = Tool.formatPickerTime(time: Data.timeArray[row])
         label.textAlignment = .center
         pView.addSubview(label)
-
+        label.textColor = UIColor.white
+        
+        print(data.isRunWalk)
+        
         if component == runComponent {
             pView.backgroundColor = UIColor.green
-           // imageView.image = UIImage(named: "run_solid")
+          //  imageView.image = UIImage(named: "run_solid")
              imageView.tintColor = UIColor.run
             
         } else {
             pView.backgroundColor = UIColor.red
-          //  imageView.image = UIImage(named: "walk_solid")
+           // imageView.image = UIImage(named: "walk_solid")
             imageView.tintColor = UIColor.walk
         }
-        
         
         
         return pView
