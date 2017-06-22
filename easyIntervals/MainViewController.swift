@@ -218,12 +218,14 @@ class MainViewController: UIViewController {
             //runWindow.alpha =  1
            // walkWindow.alpha =  0
             runWindow.beginClock(intervalSeconds: intervalSecs)
+            walkWindow.beginStatusClock(intervalSeconds: intervalSecs)
         case .walk:
             walkWindow.grow()
             runWindow.shrink()
             //walkWindow.alpha = 1
             //runWindow.alpha = 0
             walkWindow.beginClock(intervalSeconds: intervalSecs)
+            runWindow.beginStatusClock(intervalSeconds: intervalSecs)
         default:
             break
         }
@@ -390,7 +392,7 @@ extension MainViewController: WorkoutDelegate {
         postTimes()
         
         if workout.currentInterval.countDown {
-           // self.countDownView.countDown(second: seconds)
+            self.countDownView.countDown(second: seconds)
             
         }
     }

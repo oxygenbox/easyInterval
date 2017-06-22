@@ -13,6 +13,7 @@ class RoundModeView: UIView {
     //MARK- VARIABLES
     let shrinkSize: CGFloat = 0.25
     let animationSpeed: Double = 0.25
+    let dropDuration: Double = 0.4
     
     lazy var intervalClock: ClockView = {
         let clock = ClockView(frame: self.bounds)
@@ -26,6 +27,11 @@ class RoundModeView: UIView {
         iv.contentMode = .scaleAspectFit
         iv.tintColor = UIColor.white
         return iv
+    }()
+    
+    lazy var statusView: RoundStatusView = {
+       let sv = RoundStatusView(frame: CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height))
+        return sv
     }()
     
     var mode: Mode = .run {
@@ -43,14 +49,31 @@ class RoundModeView: UIView {
     }
     
     
+    
+    
     override func draw(_ rect: CGRect) {
         layer.cornerRadius = frame.size.height/2
         clipsToBounds = true
     }
     
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+    }
+    
+    
+    
+    
+    
     func configure() {
         addSubview(intervalClock)
         addSubview(imageView)
+        addSubview(statusView)
         
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.centerXAnchor.constraint(equalTo: imageView.superview!.centerXAnchor).isActive = true
@@ -63,6 +86,12 @@ class RoundModeView: UIView {
         intervalClock.centerYAnchor.constraint(equalTo: intervalClock.superview!.centerYAnchor).isActive = true
         intervalClock.heightAnchor.constraint(equalToConstant: frame.size.height).isActive = true
         intervalClock.widthAnchor.constraint(equalToConstant: frame.size.width).isActive = true
+        
+//        statusView.translatesAutoresizingMaskIntoConstraints = false
+//        statusView.centerXAnchor.constraint(equalTo: statusView.superview!.centerXAnchor).isActive = true
+//        statusView.centerYAnchor.constraint(equalTo: statusView.superview!.centerYAnchor).isActive = true
+//        statusView.heightAnchor.constraint(equalToConstant: frame.size.height * 0.8).isActive = true
+//        statusView.widthAnchor.constraint(equalToConstant: frame.size.width * 0.8).isActive = true
         
         switch mode {
         case .run:
@@ -83,6 +112,13 @@ class RoundModeView: UIView {
         intervalClock.begin(with: intervalSeconds)
     }
     
+    func beginStatusClock(intervalSeconds: Int) {
+        statusView.clock?.frame = bounds
+        statusView.clock!.shapeLayer.strokeColor = self.clockColor.cgColor
+        statusView.clock!.shapeLayer.lineWidth = statusView.clock!.frame.size.width * 0.92 //- 12
+        statusView.clock!.begin(with: intervalSeconds)
+    }
+    
     func pause() {
         intervalClock.pause()
     }
@@ -99,23 +135,81 @@ class RoundModeView: UIView {
     
 
     func grow() {
-         self.intervalClock.alpha = 1
-        let animator = UIViewPropertyAnimator(duration: self.animationSpeed, curve: .linear) {
-            self.transform = CGAffineTransform.identity
-        }
+        statusOff()
+//        statusView.frame = CGRect(origin: CGPoint.zero, size: frame.size)
+//        statusView.frame.origin.y = -statusView.frame.size.height
+//        statusView.isHidden = true
+//        
+//        
+//        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 0.8, options: [], animations: {
+//            self.statusView.frame.origin.y = 0
+//        }, completion: nil)
         
-        animator.startAnimation()
+//         self.intervalClock.alpha = 1
+//        let animator = UIViewPropertyAnimator(duration: self.animationSpeed, curve: .linear) {
+//            self.transform = CGAffineTransform.identity
+//        }
+//        
+//        animator.startAnimation()
     }
     
     func shrink() {
-        let animator = UIViewPropertyAnimator(duration: self.animationSpeed, curve: .linear) {
-            self.transform = CGAffineTransform(scaleX: self.shrinkSize, y: self.shrinkSize)
-            self.intervalClock.alpha = 0
+        statusOn()
+        
+       // let s = RoundStatusView(frame: CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height))
+       // s.backgroundColor = UIColor.purple
+       // addSubview(s)
+//        let animator = UIViewPropertyAnimator(duration: self.animationSpeed, curve: .linear) {
+//            self.transform = CGAffineTransform(scaleX: self.shrinkSize, y: self.shrinkSize)
+//            self.intervalClock.alpha = 0
+//        }
+//        
+//        animator.addCompletion { (scale) in
+//        
+//        }
+//        animator.startAnimation()
+    }
+    
+    func statusOn() {
+       statusView.isHidden = false
+//        statusView.frame = CGRect(origin: CGPoint.zero, size: frame.size)
+//        statusView.layer.cornerRadius = statusView.frame.size.width/2
+        statusView.setUp(frame: bounds)
+        statusView.frame.origin.y = -statusView.frame.size.height
+        
+        UIView.animate(withDuration:self.dropDuration, delay:0, usingSpringWithDamping: 0.5, initialSpringVelocity: 5, options: .curveLinear, animations: {
+            self.statusView.frame.origin.y = 0
+        })
+    }
+    
+    //    UIView.animate(withDuration: self.dropDuration, delay: 0, options: .curveLinear, animations: {
+//            self.imageView.transform = CGAffineTransform(translationX: 0, y: self.bounds.height)
+//        }) { (true) in
+//            self.imageView.transform = CGAffineTransform(translationX: 0, y: -self.bounds.height)
+//            self.setImage()
+//            UIView.animate(withDuration:self.dropDuration, delay: self.delay, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveLinear, animations: {
+//                self.imageView.transform = .identity
+//            }, completion: nil)
+  //      }
+//        
+//        UIView.animate(withDuration: 0.2) {
+//            self.setBackground()
+//        }
+
+        
+        
+        
+        
+        
+//    }
+//
+    func statusOff() {
+       // statusView.isHidden = true
+        
+        let animator = UIViewPropertyAnimator(duration: 0.5, curve: .easeOut) { 
+            self.statusView.frame.origin.y = self.frame.size.height
         }
         
-        animator.addCompletion { (scale) in
-        
-        }
         animator.startAnimation()
     }
 }
