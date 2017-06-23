@@ -8,15 +8,35 @@
 
 import UIKit
 
-class RoundStatusView: UIView {
+class RoundIntervalView: UIView {
+    var mode: Mode = .run {
+        didSet {
+            
+        }
+    }
     
-    var clock: ClockView?
+    lazy var clock: ClockView = {
+        let clockView = ClockView(frame: self.frame)
+        return clockView
+    }()
+    
+    lazy var label: UILabel = {
+        let lbl = UILabel(frame: self.bounds)
+        lbl.textAlignment = .center
+        let font = UIFont(name: "AvenirNext-DemiBold", size: 28)!
+        lbl.font = font
+        lbl.textColor = UIColor.white
+        
+        lbl.text = "run"
+        
+        return lbl
+        
+    }()
         
     override func draw(_ rect: CGRect) {
         layer.cornerRadius = frame.size.height/2
         clipsToBounds = true
     }
-    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -30,12 +50,8 @@ class RoundStatusView: UIView {
         self.frame = frame
         backgroundColor = UIColor.gray
         layer.cornerRadius = frame.size.height/2
-        
-        if clock == nil {
-            clock = ClockView(frame: frame)
-            clock?.backgroundColor = UIColor.yellow
-            addSubview(clock!)
-        }
+        addSubview(clock)
+        addSubview(label)
         
     }
 

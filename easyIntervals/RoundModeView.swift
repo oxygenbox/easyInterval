@@ -29,8 +29,8 @@ class RoundModeView: UIView {
         return iv
     }()
     
-    lazy var statusView: RoundStatusView = {
-       let sv = RoundStatusView(frame: CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height))
+    lazy var intervalView: RoundIntervalView = {
+       let sv = RoundIntervalView(frame: CGRect.zero)
         return sv
     }()
     
@@ -73,7 +73,7 @@ class RoundModeView: UIView {
     func configure() {
         addSubview(intervalClock)
         addSubview(imageView)
-        addSubview(statusView)
+        addSubview(intervalView)
         
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.centerXAnchor.constraint(equalTo: imageView.superview!.centerXAnchor).isActive = true
@@ -87,11 +87,6 @@ class RoundModeView: UIView {
         intervalClock.heightAnchor.constraint(equalToConstant: frame.size.height).isActive = true
         intervalClock.widthAnchor.constraint(equalToConstant: frame.size.width).isActive = true
         
-//        statusView.translatesAutoresizingMaskIntoConstraints = false
-//        statusView.centerXAnchor.constraint(equalTo: statusView.superview!.centerXAnchor).isActive = true
-//        statusView.centerYAnchor.constraint(equalTo: statusView.superview!.centerYAnchor).isActive = true
-//        statusView.heightAnchor.constraint(equalToConstant: frame.size.height * 0.8).isActive = true
-//        statusView.widthAnchor.constraint(equalToConstant: frame.size.width * 0.8).isActive = true
         
         switch mode {
         case .run:
@@ -113,10 +108,10 @@ class RoundModeView: UIView {
     }
     
     func beginStatusClock(intervalSeconds: Int) {
-        statusView.clock?.frame = bounds
-        statusView.clock!.shapeLayer.strokeColor = self.clockColor.cgColor
-        statusView.clock!.shapeLayer.lineWidth = statusView.clock!.frame.size.width * 0.92 //- 12
-        statusView.clock!.begin(with: intervalSeconds)
+        intervalView.clock.frame = bounds
+        intervalView.clock.shapeLayer.strokeColor = self.clockColor.cgColor
+        intervalView.clock.shapeLayer.lineWidth = intervalView.clock.frame.size.width * 0.92 //- 12
+        intervalView.clock.begin(with: intervalSeconds)
     }
     
     func pause() {
@@ -171,14 +166,14 @@ class RoundModeView: UIView {
     }
     
     func statusOn() {
-       statusView.isHidden = false
+       intervalView.isHidden = false
 //        statusView.frame = CGRect(origin: CGPoint.zero, size: frame.size)
 //        statusView.layer.cornerRadius = statusView.frame.size.width/2
-        statusView.setUp(frame: bounds)
-        statusView.frame.origin.y = -statusView.frame.size.height
+        intervalView.setUp(frame: bounds)
+        intervalView.frame.origin.y = -intervalView.frame.size.height
         
         UIView.animate(withDuration:self.dropDuration, delay:0, usingSpringWithDamping: 0.5, initialSpringVelocity: 5, options: .curveLinear, animations: {
-            self.statusView.frame.origin.y = 0
+            self.intervalView.frame.origin.y = 0
         })
     }
     
@@ -207,7 +202,7 @@ class RoundModeView: UIView {
        // statusView.isHidden = true
         
         let animator = UIViewPropertyAnimator(duration: 0.5, curve: .easeOut) { 
-            self.statusView.frame.origin.y = self.frame.size.height
+            self.intervalView.frame.origin.y = self.frame.size.height
         }
         
         animator.startAnimation()
