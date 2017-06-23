@@ -11,7 +11,8 @@ import UIKit
 class RoundIntervalView: UIView {
     var mode: Mode = .run {
         didSet {
-            
+            self.label.text = "HEY"
+            self.label.frame = self.bounds
         }
     }
     
@@ -23,12 +24,11 @@ class RoundIntervalView: UIView {
     lazy var label: UILabel = {
         let lbl = UILabel(frame: self.bounds)
         lbl.textAlignment = .center
-        let font = UIFont(name: "AvenirNext-DemiBold", size: 28)!
+        let font = UIFont(name: "AvenirNext-DemiBold", size: 48)!
         lbl.font = font
         lbl.textColor = UIColor.white
         
         lbl.text = "run"
-        
         return lbl
         
     }()
@@ -52,7 +52,17 @@ class RoundIntervalView: UIView {
         layer.cornerRadius = frame.size.height/2
         addSubview(clock)
         addSubview(label)
+        label.frame = bounds
+        
+        if mode == .run {
+            label.text = "run"
+            backgroundColor = UIColor.run
+        } else {
+            label.text = "walk"
+             backgroundColor = UIColor.walk
+        }
         
     }
-
+    
+    
 }

@@ -48,9 +48,6 @@ class RoundModeView: UIView {
         }
     }
     
-    
-    
-    
     override func draw(_ rect: CGRect) {
         layer.cornerRadius = frame.size.height/2
         clipsToBounds = true
@@ -65,10 +62,6 @@ class RoundModeView: UIView {
         super.init(coder: aDecoder)
         
     }
-    
-    
-    
-    
     
     func configure() {
         addSubview(intervalClock)
@@ -92,10 +85,13 @@ class RoundModeView: UIView {
         case .run:
             self.backgroundColor = UIColor.run
             self.imageView.image = UIImage(named: "run_solid")
+            self.intervalView.mode = .walk
+           
             
         case .walk:
             self.backgroundColor = UIColor.walk
             self.imageView.image = UIImage(named: "walk_solid")
+            self.intervalView.mode = .run
         default:
             break
         }
@@ -107,12 +103,29 @@ class RoundModeView: UIView {
         intervalClock.begin(with: intervalSeconds)
     }
     
-    func beginStatusClock(intervalSeconds: Int) {
+    func beginIntervalClock(intervalSeconds: Int) {
         intervalView.clock.frame = bounds
-        intervalView.clock.shapeLayer.strokeColor = self.clockColor.cgColor
+        if intervalView.mode == .run {
+            intervalView.clock.shapeLayer.strokeColor = UIColor.walk.cgColor
+        }else {
+            intervalView.clock.shapeLayer.strokeColor = UIColor.run.cgColor
+        }
         intervalView.clock.shapeLayer.lineWidth = intervalView.clock.frame.size.width * 0.92 //- 12
         intervalView.clock.begin(with: intervalSeconds)
     }
+    
+    func pauseIntervalClock() {
+        intervalView.clock.pause()
+    }
+    
+    func resumeIntervalClock() {
+        intervalView.clock.resume()
+    }
+    
+    func resetIntervalClock() {
+        intervalView.clock.reset()
+    }
+    
     
     func pause() {
         intervalClock.pause()
@@ -128,79 +141,21 @@ class RoundModeView: UIView {
         }
     }
     
-
-    func grow() {
-        statusOff()
-//        statusView.frame = CGRect(origin: CGPoint.zero, size: frame.size)
-//        statusView.frame.origin.y = -statusView.frame.size.height
-//        statusView.isHidden = true
-//        
-//        
-//        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 0.8, options: [], animations: {
-//            self.statusView.frame.origin.y = 0
-//        }, completion: nil)
-        
-//         self.intervalClock.alpha = 1
-//        let animator = UIViewPropertyAnimator(duration: self.animationSpeed, curve: .linear) {
-//            self.transform = CGAffineTransform.identity
-//        }
-//        
-//        animator.startAnimation()
-    }
-    
-    func shrink() {
-        statusOn()
-        
-       // let s = RoundStatusView(frame: CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height))
-       // s.backgroundColor = UIColor.purple
-       // addSubview(s)
-//        let animator = UIViewPropertyAnimator(duration: self.animationSpeed, curve: .linear) {
-//            self.transform = CGAffineTransform(scaleX: self.shrinkSize, y: self.shrinkSize)
-//            self.intervalClock.alpha = 0
-//        }
-//        
-//        animator.addCompletion { (scale) in
-//        
-//        }
-//        animator.startAnimation()
-    }
     
     func statusOn() {
        intervalView.isHidden = false
-//        statusView.frame = CGRect(origin: CGPoint.zero, size: frame.size)
-//        statusView.layer.cornerRadius = statusView.frame.size.width/2
         intervalView.setUp(frame: bounds)
         intervalView.frame.origin.y = -intervalView.frame.size.height
+        intervalView.label.frame = intervalView.bounds
+
+        //intervalView.setText()
         
         UIView.animate(withDuration:self.dropDuration, delay:0, usingSpringWithDamping: 0.5, initialSpringVelocity: 5, options: .curveLinear, animations: {
             self.intervalView.frame.origin.y = 0
         })
     }
     
-    //    UIView.animate(withDuration: self.dropDuration, delay: 0, options: .curveLinear, animations: {
-//            self.imageView.transform = CGAffineTransform(translationX: 0, y: self.bounds.height)
-//        }) { (true) in
-//            self.imageView.transform = CGAffineTransform(translationX: 0, y: -self.bounds.height)
-//            self.setImage()
-//            UIView.animate(withDuration:self.dropDuration, delay: self.delay, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveLinear, animations: {
-//                self.imageView.transform = .identity
-//            }, completion: nil)
-  //      }
-//        
-//        UIView.animate(withDuration: 0.2) {
-//            self.setBackground()
-//        }
-
-        
-        
-        
-        
-        
-//    }
-//
-    func statusOff() {
-       // statusView.isHidden = true
-        
+      func statusOff() {
         let animator = UIViewPropertyAnimator(duration: 0.5, curve: .easeOut) { 
             self.intervalView.frame.origin.y = self.frame.size.height
         }

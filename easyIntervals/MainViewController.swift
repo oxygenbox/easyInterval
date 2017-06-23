@@ -169,7 +169,7 @@ class MainViewController: UIViewController {
                 setScreenMode()
                 if workout.woSession != nil {
                     //start session timer
-                    let sessionSecs = data.totalSessionSeconds
+                   // let sessionSecs = data.totalSessionSeconds
                 }
                 
             
@@ -184,48 +184,19 @@ class MainViewController: UIViewController {
         //hasStarted
     }
     
-    /*
-     func toggleSession() {
-     //called on tap gesture
-     workout.toggleTimer()
-     if(workout.timer == nil) {
-     timerWindowView.pause()
-     settingsButton.isEnabled = true
-     
-     } else {
-     timerWindowView.hideInstructions()
-     if timerWindowView.intervalClock.hasStarted {
-     timerWindowView.resume()
-     } else {
-     let intervalSecs = workout.currentInterval.lengthInSeconds
-     var sessionSecs: Int?
-     if workout.woSession != nil {
-     
-     }
-     timerWindowView.beginClocks(intervalSeconds: intervalSecs, sessionSeconds: sessionSecs)
-     }
-     settingsButton.isEnabled = false
-     }
-     }
- */
+
     
     func setScreenMode() {
         let intervalSecs = workout.currentInterval.lengthInSeconds
         switch workout.currentMode {
         case .run:
-            runWindow.grow()
-            walkWindow.shrink()
-            //runWindow.alpha =  1
-           // walkWindow.alpha =  0
-            runWindow.beginClock(intervalSeconds: intervalSecs)
-            walkWindow.beginStatusClock(intervalSeconds: intervalSecs)
+            runWindow.statusOff()
+            walkWindow.statusOn()
+            walkWindow.beginIntervalClock(intervalSeconds: intervalSecs)
         case .walk:
-            walkWindow.grow()
-            runWindow.shrink()
-            //walkWindow.alpha = 1
-            //runWindow.alpha = 0
-            walkWindow.beginClock(intervalSeconds: intervalSecs)
-            runWindow.beginStatusClock(intervalSeconds: intervalSecs)
+            walkWindow.statusOff()
+            runWindow.statusOn()
+            runWindow.beginIntervalClock(intervalSeconds: intervalSecs)
         default:
             break
         }
@@ -426,37 +397,3 @@ extension MainViewController: WorkoutDelegate {
 
 
 
-
-/*
- 
- 
-
-
-
- 
- @IBOutlet var prefButtons: [UIButton]!
- 
- //MARK - VARIABLES
- 
-
- 
-
- }
- 
- func updateTimeLabels() {
- 
- 
- if workout.currentMode == .run {
- intervalTime.textColor = UIColor.run
- } else {
- intervalTime.textColor = UIColor.walk
- }
- 
-
- 
- 
- 
- 
- 
- 
- */
