@@ -274,7 +274,6 @@ extension PreferenceViewController: UIPickerViewDataSource {
         pView.addSubview(label)
         label.textColor = UIColor.white
         
-        print(data.isRunWalk)
         
         if component == runComponent {
             pView.backgroundColor = UIColor.green

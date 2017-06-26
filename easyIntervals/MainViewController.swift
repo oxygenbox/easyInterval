@@ -57,11 +57,11 @@ class MainViewController: UIViewController {
         }
     }
     
-    var activeWindow: RoundModeView {
+    var intervalWindow: RoundModeView {
         if workout.currentMode == .run {
-            return self.runWindow
-        } else {
             return self.walkWindow
+        } else {
+            return self.runWindow
         }
     }
 
@@ -159,12 +159,15 @@ class MainViewController: UIViewController {
         
         if workout.timer == nil {
             settingsButton.isEnabled = true
-            activeWindow.pause()
+            intervalWindow.pause()
+            intervalWindow.pauseIntervalClock()
+            intervalWindow.intervalClock.alpha = 0.3
         } else {
             settingsButton.isEnabled = false
-            if activeWindow.intervalClock.hasStarted {
+            if intervalWindow.intervalClock.hasStarted {
                 //resume
-                activeWindow.intervalClock.resume()
+                intervalWindow.resumeIntervalClock()
+                intervalWindow.intervalClock.alpha = 1
             } else {
                 //start
                 setScreenMode()
