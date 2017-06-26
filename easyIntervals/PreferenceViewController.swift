@@ -28,6 +28,7 @@ class PreferenceViewController: UIViewController {
     
     @IBOutlet var buttonCollection: [PreferenceButton]!
     
+    @IBOutlet weak var topView: UIView!
     //MARK- VARIABLES
    // var isRunWalk = true
     var runSetting = 0

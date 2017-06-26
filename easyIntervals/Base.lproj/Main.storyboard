@@ -712,6 +712,7 @@
                         <outlet property="sessionControl" destination="Oc5-ao-UEJ" id="xxO-MU-6Iv"/>
                         <outlet property="switchView" destination="pbf-vl-68X" id="Z9a-5L-iP9"/>
                         <outlet property="titleLabel" destination="7hG-qc-ta9" id="BM6-X2-0Jm"/>
+                        <outlet property="topView" destination="lKr-Wy-Zk8" id="sIW-eE-fAb"/>
                         <outlet property="vibrateButton" destination="XEn-Dz-mPY" id="kSW-8e-T5e"/>
                         <outletCollection property="buttonCollection" destination="pGX-BI-mZh" collectionClass="NSMutableArray" id="M3C-kT-Bsy"/>
                         <outletCollection property="buttonCollection" destination="Tl4-GW-6Ic" collectionClass="NSMutableArray" id="hM3-bD-JdX"/>
@@ -998,12 +999,14 @@
                         <outlet property="elapsedTime" destination="oaE-gl-U5b" id="QzW-x0-0yw"/>
                         <outlet property="infoButton" destination="uh8-G0-Lcn" id="eN8-mc-epy"/>
                         <outlet property="intervalTime" destination="MSS-tp-Zwn" id="TMk-HA-lYv"/>
+                        <outlet property="labelStack" destination="Gm2-Fi-Rw9" id="PjK-9y-mbI"/>
                         <outlet property="leftWindow" destination="7Xh-eg-yeV" id="pp8-Cd-5e5"/>
                         <outlet property="musicButton" destination="AwM-Aw-buB" id="3fj-eg-LA9"/>
                         <outlet property="resetButton" destination="r6F-pb-z8T" id="A83-8T-nyp"/>
                         <outlet property="rightWindow" destination="LRN-GQ-pSu" id="sla-Ro-FA6"/>
                         <outlet property="settingsButton" destination="vka-bP-fuc" id="Ut6-8s-6Im"/>
                         <outlet property="titleLabel" destination="bl9-7M-QzC" id="GnM-VK-qIk"/>
+                        <outlet property="topView" destination="GAa-Te-jhW" id="Zca-X2-igh"/>
                         <outlet property="vibrateButton" destination="etV-OV-7XV" id="V0S-jR-XV8"/>
                         <outlet property="workoutButton" destination="z9e-GU-IlC" id="wBT-tT-4wR"/>
                     </connections>

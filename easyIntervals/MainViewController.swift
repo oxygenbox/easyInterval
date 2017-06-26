@@ -37,6 +37,10 @@ class MainViewController: UIViewController {
     @IBOutlet weak var intervalTime: UILabel!
     @IBOutlet weak var elapsedTime: UILabel!
     
+    @IBOutlet weak var topView: UIView!
+    
+    @IBOutlet weak var labelStack: UIStackView!
+    
     //MARK- VARIABLES
     var workout: Workout!
     var musicControls: MusicControls!
@@ -64,6 +68,24 @@ class MainViewController: UIViewController {
             return self.runWindow
         }
     }
+    
+    lazy var sessionClock: ClockView = {
+        
+        
+       // let dim = self.intervalTime.frame.size.height + self.elapsedTime.frame.size.height
+        let dim = self.labelStack.frame.size.height
+        let clock = ClockView(frame: CGRect(x: 0, y: 0, width: dim, height: dim))
+        clock.backgroundColor = UIColor.yellow
+        clock.center.x = self.view.frame.size.width/2
+        clock.frame.origin.y = self.labelStack.frame.size.height
+        
+        clock.isHidden = true
+        
+        clock.layer.cornerRadius = dim/2
+       
+        
+        return clock
+    }()
 
     //MARK:- LIFECYCLE
     override func viewDidLoad() {
@@ -77,6 +99,7 @@ class MainViewController: UIViewController {
         configure()
         initWorkout()
         postTimes()
+        view.insertSubview(sessionClock, at: 0)
     }
 
     override func didReceiveMemoryWarning() {
@@ -167,12 +190,10 @@ class MainViewController: UIViewController {
                 //start
                 setScreenMode()
                 if workout.woSession != nil {
+                    showSessionClock()
                     //start session timer
                    // let sessionSecs = data.totalSessionSeconds
                 }
-                
-            
-                
             }
         }
         
@@ -183,6 +204,17 @@ class MainViewController: UIViewController {
         //hasStarted
     }
     
+    func showSessionClock() {
+//        sessionClock.frame.origin.y = -sessionClock.frame.size.height
+//        sessionClock.isHidden = false
+//        let animator = UIViewPropertyAnimator(duration: 1, curve: .easeInOut) {
+//            self.sessionClock.frame.origin.y = self.labelStack.frame.origin.y
+//            //self.sessionClock.center.y = self.labelStack.center.y
+//        }
+//    
+//        animator.startAnimation()
+    
+    }
 
     
     func setScreenMode() {
