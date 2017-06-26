@@ -54,6 +54,7 @@ class RoundIntervalView: UIView {
         addSubview(label)
         label.frame = bounds
         
+        
         if mode == .run {
             label.text = "run"
             backgroundColor = UIColor.run
@@ -62,6 +63,9 @@ class RoundIntervalView: UIView {
              backgroundColor = UIColor.walk
         }
         
+        
+        layer.borderColor = UIColor.white.cgColor
+        layer.borderWidth = 2
     }
     
     

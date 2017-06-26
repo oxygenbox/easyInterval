@@ -87,25 +87,43 @@ class Settings {
     }
 }
 
-extension UIColor
-{
-
-//    
-//    public class var base: UIColor {
-//        return UIColor.white
-//    }
+extension UIColor {
     
-//    public class var accent: UIColor {
-//        return UIColor(red: 5/255, green: 85/255, blue: 179/255, alpha: 1.0)
-//    }
-//    
+    public class var jake: UIColor {
+        return UIColor(red: 254/255, green: 188/255, blue: 29/255, alpha: 1)
+    }
+
+    public class var packLight: UIColor {
+        return UIColor (red: 160/255, green: 229/255, blue: 122/255, alpha: 1)
+    }
+    
+    public class var packDark: UIColor {
+        return UIColor(red: 82/255, green: 165/255, blue: 35/255, alpha: 1)
+    }
 
     public class var run: UIColor {
-        return UIColor(red: 153/255, green: 187/255, blue: 64/255, alpha: 1)
+        
+        return UIColor(red: 0/255, green: 152/255, blue: 200/255, alpha: 1)
+       // return UIColor(red: 136/255, green: 177/255, blue: 203/255, alpha: 1)
+       // return UIColor(red: 153/255, green: 187/255, blue: 64/255, alpha: 1)
     }
     
     public class var walk: UIColor {
-        return UIColor(red: 66/255, green: 113/255, blue: 11/255, alpha: 1)
+       return UIColor(red: 1/255, green: 100/255, blue: 204/255, alpha: 1)
+       // return UIColor(red: 152/255, green: 100/255, blue: 204/255, alpha: 1)
+        
+    }
+    
+    public class var background: UIColor {
+        return packLight
+        //return UIColor(red: 99/255, green: 178/255, blue: 87/255, alpha: 1)
+        //sky return UIColor(red: 90/255, green:174/255, blue: 244/255, alpha: 1)
+        //return UIColor(red: 99/255, green: 178/255, blue: 86/255, alpha: 1)
+        //return UIColor(red: 66/255, green: 113/255, blue: 11/255, alpha: 1)
+    }
+    
+    public class var dot: UIColor {
+        return jake
     }
     
     public class var primary: UIColor {

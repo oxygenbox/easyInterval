@@ -12,9 +12,7 @@ class CountDownView: UIView {
     @IBOutlet var dots: [CountDownDot]!
     
     override func draw(_ rect: CGRect) {
-        //layer.cornerRadius = frame.size.height/2
-        //clipsToBounds = true
-        //backgroundColor = UIColor.orange
+        
     }
     
     override func didMoveToWindow() {

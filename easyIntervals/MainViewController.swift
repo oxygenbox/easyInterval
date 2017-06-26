@@ -76,6 +76,7 @@ class MainViewController: UIViewController {
         super.viewWillAppear(animated)
         configure()
         initWorkout()
+        postTimes()
     }
 
     override func didReceiveMemoryWarning() {
@@ -114,7 +115,7 @@ class MainViewController: UIViewController {
     
     //MARK:- METHODS
     func configure() {
-        view.backgroundColor = UIColor.Theme.back
+        view.backgroundColor = UIColor.background
         titleLabel.attributedText = data.formattedTitle
         initGestures()
         configureButtons()
@@ -200,6 +201,7 @@ class MainViewController: UIViewController {
         default:
             break
         }
+        postTimes()
     }
     
     
@@ -369,24 +371,8 @@ extension MainViewController: WorkoutDelegate {
     }
         
     func  modeUpdate() {
-        print("modeUpdate called")
-//        switch workout.currentMode {
-//            case .run:
-//                self.runWindow.isHidden = false
-//                self.walkWindow.isHidden = true
-//            case .walk:
-//                self.walkWindow.isHidden = false
-//                self.runWindow.isHidden = true
-//            default:
-//                break
-//        }
-        
-//        timerWindowView.mode = workout.currentMode
-//        if workout.timer != nil {
-//            let intervalSecs = workout.currentInterval.lengthInSeconds
-//            timerWindowView.beginClocks(intervalSeconds: intervalSecs, sessionSeconds: nil)
-//        }
-        postTimes()
+        //print("modeUpdate called")
+       // postTimes()
     }
     
     func modeChanged(to mode: Mode) {

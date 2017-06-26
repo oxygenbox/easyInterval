@@ -51,6 +51,9 @@ class RoundModeView: UIView {
     override func draw(_ rect: CGRect) {
         layer.cornerRadius = frame.size.height/2
         clipsToBounds = true
+        layer.borderColor = UIColor.white.cgColor
+        layer.borderWidth = 2
+        
     }
     
     override init(frame: CGRect) {
@@ -150,7 +153,7 @@ class RoundModeView: UIView {
 
         //intervalView.setText()
         
-        UIView.animate(withDuration:self.dropDuration, delay:0, usingSpringWithDamping: 0.5, initialSpringVelocity: 5, options: .curveLinear, animations: {
+        UIView.animate(withDuration:self.dropDuration, delay:0, usingSpringWithDamping: 0.3, initialSpringVelocity: 0, options: [.curveLinear], animations: {
             self.intervalView.frame.origin.y = 0
         })
     }

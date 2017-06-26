@@ -16,7 +16,6 @@ class Tool {
         let timeString = formatTime(secs: seconds, withHours: false)
         let charCount = timeString.characters.count
         let font = UIFont(name: "AvenirNext-Bold", size: 120)
-        //let font = UIFont(name: "AvenirNext-Bold", size: 20)
         let attributedString = NSMutableAttributedString(string: timeString)
         attributedString.addAttribute(NSKernAttributeName, value: -4, range: NSMakeRange(0, charCount))
         attributedString.addAttribute(NSForegroundColorAttributeName, value: UIColor.Theme.text, range: NSMakeRange(0, charCount))
@@ -28,7 +27,7 @@ class Tool {
         let timeString = formatTime(secs: seconds, withHours: true)
         let attributedString = NSMutableAttributedString(string: timeString)
         let charCount = timeString.characters.count
-        let font = UIFont(name: "AvenirNext-DemiBold", size: 60)!
+        let font = UIFont(name: "AvenirNext-DemiBold", size: 48)!
         attributedString.addAttribute(NSKernAttributeName, value: -4, range: NSMakeRange(0, charCount))
         attributedString.addAttribute(NSForegroundColorAttributeName, value: UIColor.Theme.text, range: NSMakeRange(0, charCount))
         attributedString.addAttribute(NSFontAttributeName, value: font, range: NSMakeRange(0, charCount))
