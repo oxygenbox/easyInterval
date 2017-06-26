@@ -41,6 +41,7 @@ class PreferenceButton: UIButton {
     
     func makeInfo() {
         tintColor = UIColor.Theme.on
+        backgroundColor = UIColor.Theme.off
     }
 
 }

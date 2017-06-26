@@ -23,7 +23,7 @@ class CountDownDot: UIView {
         l.textAlignment = .center
         l.text = "5"
         l.textColor = UIColor.white
-        let font = UIFont(name: "AvenirNext-Bold", size: 24)!
+        let font = UIFont(name: "AvenirNext-Bold", size: 36)!
         l.font = font
         return l
     }()
@@ -33,7 +33,7 @@ class CountDownDot: UIView {
         label.text = "\(tagNum)"
         backgroundColor = UIColor.dot
         layer.borderColor = UIColor.white.cgColor
-        layer.borderWidth = 2
+        layer.borderWidth = 1
         alpha = 0.0
     }
     

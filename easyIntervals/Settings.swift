@@ -126,6 +126,14 @@ extension UIColor {
         return jake
     }
     
+    public class var grass: UIColor {
+        return UIColor(red: 99/255, green: 187/255, blue: 87/255, alpha: 1)
+    }
+    
+    public class var bush: UIColor {
+        return UIColor(red: 32/255, green: 116/255, blue: 28/255, alpha: 1)
+    }
+    
     public class var primary: UIColor {
         return UIColor(red: 70/255, green: 53/255, blue: 43/255, alpha: 1)
     }
@@ -198,10 +206,10 @@ extension UIColor {
         static var back: UIColor { return .white}
         static var buttonBar: UIColor {return .clear}
         static var text: UIColor {return .blueH}
-        static var on: UIColor {return .tertiary}
-        static var off: UIColor {return .white}
-        static var borderOn: UIColor {return .primary}
-        static var borderOff: UIColor {return .primary}
+        static var on: UIColor {return .packDark}
+        static var off: UIColor {return .packLight}
+        static var borderOn: UIColor {return .bush}
+        static var borderOff: UIColor {return .packDark}
         static var bar: UIColor {return .blueH}
         static var ibar: UIColor {return .orangeH}
     }

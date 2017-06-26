@@ -743,7 +743,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lvN-io-n5w">
                                         <rect key="frame" x="8" y="8" width="304" height="44"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r6F-pb-z8T" customClass="RoundButton" customModule="easyIntervals" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r6F-pb-z8T" customClass="PlainButton" customModule="easyIntervals" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="44" id="628-WZ-RMQ"/>
@@ -761,7 +761,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vka-bP-fuc" customClass="RoundButton" customModule="easyIntervals" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vka-bP-fuc" customClass="PlainButton" customModule="easyIntervals" customModuleProvider="target">
                                                 <rect key="frame" x="260" y="0.0" width="44" height="44"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" image="setting"/>
@@ -776,7 +776,6 @@
                                         </constraints>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="lvN-io-n5w" firstAttribute="leading" secondItem="GAa-Te-jhW" secondAttribute="leading" constant="8" id="2v7-ol-VyE"/>
                                     <constraint firstAttribute="bottom" secondItem="lvN-io-n5w" secondAttribute="bottom" constant="8" id="6pI-ut-RAz"/>
