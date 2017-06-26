@@ -237,14 +237,48 @@ class MainViewController: UIViewController {
     
     
     func postTimes() {
-        intervalTime.attributedText = Tool.intervalTimeFormatted(seconds: workout.currentInterval.remainingSeconds)
         
+        let intervalText = Tool.intervalTimeFormatted(seconds: workout.currentInterval.remainingSeconds)
+        
+        var textColor = UIColor.run
+        
+        var elapsedText = Tool.elapsedTimeFormatted(seconds: workout.elapsedSeconds)
         if let session = workout.woSession {
-            elapsedTime.attributedText = Tool.elapsedTimeFormatted(seconds: session.remainingSeconds)
-            
-        } else {
-            elapsedTime.attributedText = Tool.elapsedTimeFormatted(seconds: workout.elapsedSeconds)
+             elapsedText = Tool.elapsedTimeFormatted(seconds: session.remainingSeconds)
         }
+        
+        
+        if workout.currentMode == .walk {
+            textColor = UIColor.walk
+        }
+        
+        let shadow = NSShadow()
+        shadow.shadowOffset = CGSize(width: 3, height: 3)
+        shadow.shadowBlurRadius = 3
+        shadow.shadowColor = UIColor.black
+        
+        intervalText.addAttribute(NSForegroundColorAttributeName, value: textColor, range: NSMakeRange(0, intervalText.length))
+        elapsedText.addAttribute(NSForegroundColorAttributeName, value: textColor, range: NSMakeRange(0, elapsedText.length))
+        
+        intervalText.addAttribute(NSShadowAttributeName, value: shadow, range: NSMakeRange(0, intervalText.length))
+        
+/*UITextAttributeTextShadowColor  : [UIColor blackColor],
+ UITextAttributeTextShadowOffset : [NSValue valueWithUIOffset:UIOffsetMake(2.0, 0.0)],
+ UITextAttributeTextColor        : [UIColor yellowColor]};
+ */
+ 
+ 
+ 
+        intervalTime.attributedText = intervalText
+        elapsedTime.attributedText = elapsedText
+        
+//        
+//        if let session = workout.woSession {
+//            elapsedTime.attributedText = Tool.elapsedTimeFormatted(seconds: session.remainingSeconds)
+//            
+//        } else {
+//            elapsedTime.attributedText = Tool.elapsedTimeFormatted(seconds: workout.elapsedSeconds)
+       // }
     }
     
     func  openResetOptions() {

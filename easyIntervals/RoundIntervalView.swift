@@ -11,7 +11,6 @@ import UIKit
 class RoundIntervalView: UIView {
     var mode: Mode = .run {
         didSet {
-            self.label.text = "HEY"
             self.label.frame = self.bounds
         }
     }
