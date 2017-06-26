@@ -865,7 +865,7 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fIm-za-4uD">
-                                <rect key="frame" x="8" y="110.5" width="304" height="348.5"/>
+                                <rect key="frame" x="8" y="105.5" width="304" height="358.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Gm2-Fi-Rw9">
                                         <rect key="frame" x="6" y="0.0" width="292" height="148.5"/>
@@ -892,33 +892,33 @@
                                         </constraints>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IrA-ip-tPO" customClass="CountDownView" customModule="easyIntervals" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="148.5" width="304" height="50"/>
+                                        <rect key="frame" x="0.0" y="148.5" width="304" height="60"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="KVh-Q2-BRW">
-                                                <rect key="frame" x="20" y="5" width="264" height="40"/>
+                                                <rect key="frame" x="20" y="5" width="264" height="50"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="psy-Ie-m5f" customClass="CountDownDot" customModule="easyIntervals" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="40" id="2cA-ou-I0N"/>
-                                                            <constraint firstAttribute="width" constant="40" id="eK2-8u-cZp"/>
+                                                            <constraint firstAttribute="height" constant="50" id="2cA-ou-I0N"/>
+                                                            <constraint firstAttribute="width" constant="50" id="eK2-8u-cZp"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FwE-A4-mdt" customClass="CountDownDot" customModule="easyIntervals" customModuleProvider="target">
-                                                        <rect key="frame" x="56" y="0.0" width="40" height="40"/>
+                                                        <rect key="frame" x="53.5" y="0.0" width="50" height="50"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tmn-Rf-dg2" customClass="CountDownDot" customModule="easyIntervals" customModuleProvider="target">
-                                                        <rect key="frame" x="112" y="0.0" width="40.5" height="40"/>
+                                                        <rect key="frame" x="107" y="0.0" width="50.5" height="50"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CnX-lI-wOh" customClass="CountDownDot" customModule="easyIntervals" customModuleProvider="target">
-                                                        <rect key="frame" x="168" y="0.0" width="40" height="40"/>
+                                                        <rect key="frame" x="160.5" y="0.0" width="50" height="50"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qW6-Yd-JVI" customClass="CountDownDot" customModule="easyIntervals" customModuleProvider="target">
-                                                        <rect key="frame" x="224" y="0.0" width="40" height="40"/>
+                                                        <rect key="frame" x="214" y="0.0" width="50" height="50"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </view>
                                                 </subviews>
@@ -939,7 +939,7 @@
                                             <constraint firstItem="KVh-Q2-BRW" firstAttribute="leading" secondItem="IrA-ip-tPO" secondAttribute="leading" constant="20" id="X5X-Mv-gmO"/>
                                             <constraint firstAttribute="trailing" secondItem="KVh-Q2-BRW" secondAttribute="trailing" constant="20" id="XUI-7s-f17"/>
                                             <constraint firstItem="KVh-Q2-BRW" firstAttribute="top" secondItem="IrA-ip-tPO" secondAttribute="top" constant="5" id="bea-3A-fpm"/>
-                                            <constraint firstAttribute="height" constant="50" id="iKD-uS-miT"/>
+                                            <constraint firstAttribute="height" constant="60" id="iKD-uS-miT"/>
                                             <constraint firstAttribute="bottom" secondItem="KVh-Q2-BRW" secondAttribute="bottom" constant="5" id="z40-K7-woV"/>
                                         </constraints>
                                         <connections>
@@ -951,7 +951,7 @@
                                         </connections>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="ane-sV-Toc" userLabel="Stack View - ModeViews">
-                                        <rect key="frame" x="0.0" y="198.5" width="304" height="150"/>
+                                        <rect key="frame" x="0.0" y="208.5" width="304" height="150"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Xh-eg-yeV" customClass="RoundModeView" customModule="easyIntervals" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
