@@ -123,11 +123,6 @@ class MainViewController: UIViewController {
         runWindow.mode = .run
         walkWindow.mode = .walk
         
-        
-        
-        // elapsedTime.textColor = UIColor.Theme.base
-        // sessionType.textColor = UIColor.Theme.base
-        
     }
     
     func configureButtons() {
@@ -143,8 +138,8 @@ class MainViewController: UIViewController {
         workoutButton.isUserInteractionEnabled = false
         
         infoButton.makeInfo()
-        resetButton.tintColor = UIColor.Theme.base
-        settingsButton.tintColor = UIColor.Theme.base
+        resetButton.tintColor = UIColor.packDark
+        settingsButton.tintColor = UIColor.packDark
     }
     
     func initWorkout() {

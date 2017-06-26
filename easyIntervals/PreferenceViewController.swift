@@ -101,17 +101,16 @@ class PreferenceViewController: UIViewController {
     
     //MARK:- METHODS
     func configure() {
+        self.view.backgroundColor = UIColor.background
         switchView.delegate = self
-        print("isRunWalk \(data.isRunWalk)")
-        print("run \(runComponent)")
-        print("walk \(walkComponent)")
-        
         picker.selectRow(data.runValue, inComponent: runComponent, animated: false)
         picker.selectRow(data.walkValue, inComponent: walkComponent, animated: false)
         
         if !data.isRunWalk {
             intervalOrderControl.selectedSegmentIndex = 1
         }
+        
+        
         
         configureButtons()
         initSegmentedControls()
@@ -136,7 +135,7 @@ class PreferenceViewController: UIViewController {
             
             setButtonState()
             infoButton.makeInfo()
-            doneButton.tintColor = UIColor.Theme.base
+            //doneButton.tintColor = UIColor.Theme.base
         }
         
        
@@ -201,6 +200,10 @@ class PreferenceViewController: UIViewController {
     }
   
     func initSegmentedControls() {
+        intervalOrderControl.tintColor = UIColor.packDark
+        sessionControl.tintColor = UIColor.packDark
+        cadenceControl.tintColor = UIColor.packDark
+        
         sessionControl.isHidden = activePreference != .workout
         cadenceControl.isHidden = activePreference != .cadence
         switch activePreference {
@@ -276,12 +279,12 @@ extension PreferenceViewController: UIPickerViewDataSource {
         
         
         if component == runComponent {
-            pView.backgroundColor = UIColor.green
+            pView.backgroundColor = UIColor.run
           //  imageView.image = UIImage(named: "run_solid")
              imageView.tintColor = UIColor.run
             
         } else {
-            pView.backgroundColor = UIColor.red
+            pView.backgroundColor = UIColor.walk
            // imageView.image = UIImage(named: "walk_solid")
             imageView.tintColor = UIColor.walk
         }
