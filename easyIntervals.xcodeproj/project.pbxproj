@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9E0599A91EC2295500E15A34 /* ClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0599A81EC2295500E15A34 /* ClockView.swift */; };
 		9E0CA72C1F015B4B006F6F9A /* PlainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0CA72B1F015B4B006F6F9A /* PlainButton.swift */; };
+		9E0CA72E1F02CFAB006F6F9A /* SessionClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0CA72D1F02CFAB006F6F9A /* SessionClockView.swift */; };
 		9E10CC5D1EF309830017D7B8 /* PreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E10CC5C1EF309830017D7B8 /* PreferenceViewController.swift */; };
 		9E10CC5F1EF30CA60017D7B8 /* PreferenceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E10CC5E1EF30CA60017D7B8 /* PreferenceButton.swift */; };
 		9E10CC611EF3112D0017D7B8 /* SwitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E10CC601EF3112D0017D7B8 /* SwitchView.swift */; };
@@ -62,6 +63,7 @@
 /* Begin PBXFileReference section */
 		9E0599A81EC2295500E15A34 /* ClockView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClockView.swift; sourceTree = "<group>"; };
 		9E0CA72B1F015B4B006F6F9A /* PlainButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlainButton.swift; sourceTree = "<group>"; };
+		9E0CA72D1F02CFAB006F6F9A /* SessionClockView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionClockView.swift; sourceTree = "<group>"; };
 		9E10CC5C1EF309830017D7B8 /* PreferenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceViewController.swift; sourceTree = "<group>"; };
 		9E10CC5E1EF30CA60017D7B8 /* PreferenceButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceButton.swift; sourceTree = "<group>"; };
 		9E10CC601EF3112D0017D7B8 /* SwitchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchView.swift; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 				9E490B6B1EF822A0008BD59A /* CountDownView.swift */,
 				9E490B6D1EF8243B008BD59A /* CountDownDot.swift */,
 				9E0CA72B1F015B4B006F6F9A /* PlainButton.swift */,
+				9E0CA72D1F02CFAB006F6F9A /* SessionClockView.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -361,6 +364,7 @@
 				9E0599A91EC2295500E15A34 /* ClockView.swift in Sources */,
 				9E9995371EF9A026006E3F5E /* RoundIntervalView.swift in Sources */,
 				9ED0CF5E1E2588510036233A /* Interval.swift in Sources */,
+				9E0CA72E1F02CFAB006F6F9A /* SessionClockView.swift in Sources */,
 				9EB3FD661ED64B9000B9319F /* ScaleSegue.swift in Sources */,
 				9E97E55A1EF5D02D0094853D /* RoundModeView.swift in Sources */,
 				9E2E77E31E23D9BD0082ED83 /* SettingsViewController.swift in Sources */,

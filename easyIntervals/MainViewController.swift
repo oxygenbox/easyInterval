@@ -69,20 +69,12 @@ class MainViewController: UIViewController {
         }
     }
     
-    lazy var sessionClock: ClockView = {
+    lazy var sessionClock: SessionClockView = {
+        let dim = self.countDownView.frame.size.height
         
-        let dim: CGFloat = self.countDownView.frame.height
-        let x = self.view.frame.width/2 - dim/2
-        let clock = ClockView(frame: CGRect(x: 0, y: 0, width: dim, height: dim))
-        
-        clock.backgroundColor = UIColor.white
-        clock.layer.cornerRadius = dim/2
-        clock.clipsToBounds = true
-        
-        
-        return clock
-        
+        return SessionClockView(frame: CGRect(x: 0, y: 0, width: dim, height: dim))
     }()
+    
     
     //MARK:- LIFECYCLE
     override func viewDidLoad() {
@@ -181,33 +173,29 @@ class MainViewController: UIViewController {
             settingsButton.isEnabled = true
             intervalWindow.pause()
             intervalWindow.pauseIntervalClock()
-            intervalWindow.intervalClock.alpha = 0.3
+            //intervalWindow.intervalClock.alpha = 0.3
+            if data.workoutOn {
+                self.sessionClock.pause()
+            }
         } else {
             settingsButton.isEnabled = false
             if intervalWindow.intervalClock.hasStarted {
                 //resume
                 intervalWindow.resumeIntervalClock()
-                intervalWindow.intervalClock.alpha = 1
+                //intervalWindow.intervalClock.alpha = 1
+                
+                if data.workoutOn {
+                    self.sessionClock.resume()
+                }
+                
             } else {
                 //start
                 setScreenMode()
                 if workout.woSession != nil {
-                    sessionClock.shapeLayer.strokeColor = UIColor.red.cgColor
-                    sessionClock.shapeLayer.lineWidth = sessionClock.frame.size.width * 0.92 //- 12
-                    
-                    
-                    sessionClock.begin(with: data.totalSessionSeconds)
-                    //start session timer
-                   // let sessionSecs = data.totalSessionSeconds
+                    self.sessionClock.beginClock(intervalSeconds: data.totalSessionSeconds)
                 }
             }
         }
-        
-        
-        //playing
-        //pause
-        //resume
-        //hasStarted
     }
     
     func setScreenMode() {
