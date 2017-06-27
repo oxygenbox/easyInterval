@@ -87,6 +87,7 @@ class PreferenceViewController: UIViewController {
         picker.reloadAllComponents()
         picker.selectRow(data.runValue, inComponent: runComponent, animated: false)
         picker.selectRow(data.walkValue, inComponent: walkComponent, animated: false)
+        postTitle()
     }
     
     @IBAction func controlChanged(_ sender: UISegmentedControl) {

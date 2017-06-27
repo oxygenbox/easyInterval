@@ -173,8 +173,6 @@
 		9E2E77DE1E23D9780082ED83 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				9E1703FA1E56240E007B2D05 /* TimerViewController.swift */,
-				9E2E77E21E23D9BD0082ED83 /* SettingsViewController.swift */,
 				9E97E5571EF5CAB70094853D /* MainViewController.swift */,
 				9E10CC5C1EF309830017D7B8 /* PreferenceViewController.swift */,
 			);
@@ -184,6 +182,8 @@
 		9E2E77DF1E23D9850082ED83 /* temp */ = {
 			isa = PBXGroup;
 			children = (
+				9E1703FA1E56240E007B2D05 /* TimerViewController.swift */,
+				9E2E77E21E23D9BD0082ED83 /* SettingsViewController.swift */,
 			);
 			name = temp;
 			sourceTree = "<group>";

@@ -71,22 +71,19 @@ class MainViewController: UIViewController {
     
     lazy var sessionClock: ClockView = {
         
-        
-       // let dim = self.intervalTime.frame.size.height + self.elapsedTime.frame.size.height
-        let dim = self.labelStack.frame.size.height
+        let dim: CGFloat = self.countDownView.frame.height
+        let x = self.view.frame.width/2 - dim/2
         let clock = ClockView(frame: CGRect(x: 0, y: 0, width: dim, height: dim))
-        clock.backgroundColor = UIColor.yellow
-        clock.center.x = self.view.frame.size.width/2
-        clock.frame.origin.y = self.labelStack.frame.size.height
         
-        clock.isHidden = true
-        
+        clock.backgroundColor = UIColor.white
         clock.layer.cornerRadius = dim/2
-       
+        clock.clipsToBounds = true
+        
         
         return clock
+        
     }()
-
+    
     //MARK:- LIFECYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -99,7 +96,11 @@ class MainViewController: UIViewController {
         configure()
         initWorkout()
         postTimes()
-        view.insertSubview(sessionClock, at: 0)
+      
+       // countDownView.addSubview(sessionClock)
+    
+        countDownView.insertSubview(sessionClock, at: 0)
+        sessionClock.center.x = countDownView.frame.width/2
     }
 
     override func didReceiveMemoryWarning() {
@@ -163,14 +164,7 @@ class MainViewController: UIViewController {
         cadenceButton.interactive = data.cadenceOn
         musicButton.interactive = data.musicOn
         
-        
-        
-       // audioButton.interactive = data.audioOn
-       // vibrateButton
-        
         infoButton.makeInfo()
-        resetButton.tintColor = UIColor.packDark
-        settingsButton.tintColor = UIColor.packDark
     }
     
     func initWorkout() {
@@ -198,7 +192,11 @@ class MainViewController: UIViewController {
                 //start
                 setScreenMode()
                 if workout.woSession != nil {
-                    showSessionClock()
+                    sessionClock.shapeLayer.strokeColor = UIColor.red.cgColor
+                    sessionClock.shapeLayer.lineWidth = sessionClock.frame.size.width * 0.92 //- 12
+                    
+                    
+                    sessionClock.begin(with: data.totalSessionSeconds)
                     //start session timer
                    // let sessionSecs = data.totalSessionSeconds
                 }
@@ -211,19 +209,6 @@ class MainViewController: UIViewController {
         //resume
         //hasStarted
     }
-    
-    func showSessionClock() {
-//        sessionClock.frame.origin.y = -sessionClock.frame.size.height
-//        sessionClock.isHidden = false
-//        let animator = UIViewPropertyAnimator(duration: 1, curve: .easeInOut) {
-//            self.sessionClock.frame.origin.y = self.labelStack.frame.origin.y
-//            //self.sessionClock.center.y = self.labelStack.center.y
-//        }
-//    
-//        animator.startAnimation()
-    
-    }
-
     
     func setScreenMode() {
         let intervalSecs = workout.currentInterval.lengthInSeconds
@@ -270,23 +255,10 @@ class MainViewController: UIViewController {
         
         intervalText.addAttribute(NSShadowAttributeName, value: shadow, range: NSMakeRange(0, intervalText.length))
         
-/*UITextAttributeTextShadowColor  : [UIColor blackColor],
- UITextAttributeTextShadowOffset : [NSValue valueWithUIOffset:UIOffsetMake(2.0, 0.0)],
- UITextAttributeTextColor        : [UIColor yellowColor]};
- */
- 
- 
  
         intervalTime.attributedText = intervalText
         elapsedTime.attributedText = elapsedText
         
-//        
-//        if let session = workout.woSession {
-//            elapsedTime.attributedText = Tool.elapsedTimeFormatted(seconds: session.remainingSeconds)
-//            
-//        } else {
-//            elapsedTime.attributedText = Tool.elapsedTimeFormatted(seconds: workout.elapsedSeconds)
-       // }
     }
     
     func  openResetOptions() {
@@ -321,7 +293,7 @@ class MainViewController: UIViewController {
             self.workout.complete()
         }
 
-        if data.workoutOn {
+        if !data.workoutOn {
             ac.addAction(runAction)
             ac.addAction(walkAction)
             ac.addAction(elapsedAction)
@@ -369,17 +341,23 @@ class MainViewController: UIViewController {
             self.musicControls = mc
             self.musicControls.delegate = self
             mc.frame = buttonBar.frame
+            
             mc.isHidden = true
             view.addSubview(mc)
         }
     }
     
     func openMusicControls() {
+        musicControls.frame = buttonBar.frame
         musicControls.frame.origin.x = view.frame.width
+        
+        musicControls.frame.origin.y = view.frame.height - musicControls.frame.height
         musicControls.isHidden = false
         let fadeAnimator = UIViewPropertyAnimator(duration: 0.25, curve: .linear) {
             self.buttonBar.alpha = 0.0
         }
+        
+        
         
         let animator = UIViewPropertyAnimator(duration: 0.75, dampingRatio: 0.6) { 
             self.musicControls.frame.origin.x = 0

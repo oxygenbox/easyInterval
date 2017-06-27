@@ -52,6 +52,8 @@ class MusicControls: UIView {
         for button in buttons {
             button.select()
             button.isOn = false
+            button.backgroundColor = UIColor.purple
+            print("YAY")
         }
     }
     
