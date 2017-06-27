@@ -160,6 +160,14 @@ class MainViewController: UIViewController {
         workoutButton.isOn = data.workoutOn
         workoutButton.isUserInteractionEnabled = false
         
+        cadenceButton.interactive = data.cadenceOn
+        musicButton.interactive = data.musicOn
+        
+        
+        
+       // audioButton.interactive = data.audioOn
+       // vibrateButton
+        
         infoButton.makeInfo()
         resetButton.tintColor = UIColor.packDark
         settingsButton.tintColor = UIColor.packDark

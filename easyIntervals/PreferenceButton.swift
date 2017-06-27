@@ -22,6 +22,18 @@ class PreferenceButton: UIButton {
         }
     }
     
+    var interactive: Bool = true {
+        didSet {
+            if interactive {
+                backgroundColor = UIColor.activeButton
+                tintColor = UIColor.background
+            } 
+            
+            isUserInteractionEnabled =  interactive
+        }
+    }
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         layer.cornerRadius = self.bounds.height / 2
