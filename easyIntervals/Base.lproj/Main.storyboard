@@ -522,7 +522,7 @@
                                     <outlet property="delegate" destination="sKf-lX-bwi" id="yeV-lf-3Gg"/>
                                 </connections>
                             </pickerView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="GX4-11-nP0">
+                            <stackView opaque="NO" contentMode="center" axis="vertical" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="GX4-11-nP0">
                                 <rect key="frame" x="8" y="360" width="288" height="80.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f4o-uE-U9h">
