@@ -201,7 +201,8 @@ class PreferenceViewController: UIViewController {
     }
   
     func initSegmentedControls() {
-        intervalOrderControl.tintColor = UIColor.packDark
+        intervalOrderControl.tintColor = UIColor.activeButton
+        intervalOrderControl.backgroundColor = UIColor.white.withAlphaComponent(0.25)
         sessionControl.tintColor = UIColor.packDark
         cadenceControl.tintColor = UIColor.packDark
         

@@ -134,6 +134,10 @@ extension UIColor {
         return UIColor(red: 32/255, green: 116/255, blue: 28/255, alpha: 1)
     }
     
+    public class var activeButton: UIColor {
+        return .bush
+    }
+    
     public class var primary: UIColor {
         return UIColor(red: 70/255, green: 53/255, blue: 43/255, alpha: 1)
     }

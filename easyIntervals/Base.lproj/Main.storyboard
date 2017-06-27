@@ -510,13 +510,13 @@
                                 </connections>
                             </pickerView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="WGa-Ln-XSE">
-                                <rect key="frame" x="93" y="304" width="133" height="29"/>
+                                <rect key="frame" x="98" y="304" width="123" height="33"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="28" id="NaD-96-mAE"/>
+                                    <constraint firstAttribute="height" constant="32" id="NaD-96-mAE"/>
                                 </constraints>
                                 <segments>
-                                    <segment title="run/walk"/>
-                                    <segment title="walk/run"/>
+                                    <segment title="" image="runWalk"/>
+                                    <segment title="" image="walkRun"/>
                                 </segments>
                                 <connections>
                                     <action selector="intervalOrderChanged:" destination="sKf-lX-bwi" eventType="valueChanged" id="P73-dW-gMO"/>
@@ -638,7 +638,7 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="GX4-11-nP0">
-                                <rect key="frame" x="8" y="340" width="288" height="100"/>
+                                <rect key="frame" x="8" y="344" width="288" height="96"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f4o-uE-U9h">
                                         <rect key="frame" x="0.0" y="0.0" width="288" height="20.5"/>
@@ -648,7 +648,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="3Jd-dG-8IR">
-                                        <rect key="frame" x="0.0" y="34" width="288" height="29"/>
+                                        <rect key="frame" x="0.0" y="32" width="288" height="29"/>
                                         <segments>
                                             <segment title="Every"/>
                                             <segment title="Other"/>
@@ -660,7 +660,7 @@
                                         </connections>
                                     </segmentedControl>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Oc5-ao-UEJ">
-                                        <rect key="frame" x="0.0" y="72" width="288" height="29"/>
+                                        <rect key="frame" x="0.0" y="68" width="288" height="29"/>
                                         <segments>
                                             <segment title="15"/>
                                             <segment title="30"/>
@@ -1025,6 +1025,8 @@
         <image name="icon_time" width="22" height="22"/>
         <image name="icon_vibrate" width="22" height="22"/>
         <image name="reset" width="22" height="22"/>
+        <image name="runWalk" width="47" height="28"/>
         <image name="setting" width="22" height="22"/>
+        <image name="walkRun" width="47" height="28"/>
     </resources>
 </document>
