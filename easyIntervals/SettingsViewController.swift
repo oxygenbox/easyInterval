@@ -6,7 +6,7 @@
 //  Copyright © 2017 Michael Schaffner. All rights reserved.
 //
 
-
+/*
 enum Picker: Int {
     case mode
     case time
@@ -27,7 +27,7 @@ enum Picker: Int {
             return 30.0
         }
     }
-}
+}*/
 
 enum Preference: Int {
     case info, audio, vibrate, cadence, music, workout
@@ -66,9 +66,10 @@ enum Preference: Int {
     }
 }
 
-import UIKit
-class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
 
+import UIKit
+class SettingsViewController: UIViewController {
+/*
     //MARK: - IBOutlets
     @IBOutlet weak var picker: UIPickerView!
     @IBOutlet weak var leftModeIcon: SettingModeView!
@@ -361,6 +362,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
           
         })
     }
+    */
 }
 
 

@@ -9,6 +9,7 @@
 import UIKit
 
 class TimerViewController: UIViewController{
+    /*
     //MARK:- IBOUTLET
     @IBOutlet weak var intervalTime: UILabel!
     @IBOutlet weak var elapsedTime: UILabel!
@@ -302,10 +303,11 @@ extension TimerViewController: WorkoutDelegate {
             timerWindowView.beginClocks(intervalSeconds: intervalSecs, sessionSeconds: nil)
         }
     }
-
+*/
     
 }
 
+/*
 extension TimerViewController: MusicControlDelegate {
     func hideMusicControls() {
         UIView.animate(withDuration: 0.5, animations: {
@@ -316,7 +318,7 @@ extension TimerViewController: MusicControlDelegate {
         }
     }
 }
-
+*/
 
 
 

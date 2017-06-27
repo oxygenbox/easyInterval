@@ -71,7 +71,6 @@ class MainViewController: UIViewController {
     
     lazy var sessionClock: SessionClockView = {
         let dim = self.countDownView.frame.size.height
-        
         return SessionClockView(frame: CGRect(x: 0, y: 0, width: dim, height: dim))
     }()
     
@@ -88,11 +87,10 @@ class MainViewController: UIViewController {
         configure()
         initWorkout()
         postTimes()
-      
-       // countDownView.addSubview(sessionClock)
     
         countDownView.insertSubview(sessionClock, at: 0)
         sessionClock.center.x = countDownView.frame.width/2
+        sessionClock.isHidden = !data.workoutOn
     }
 
     override func didReceiveMemoryWarning() {

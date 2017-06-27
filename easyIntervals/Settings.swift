@@ -156,9 +156,9 @@ extension UIColor {
     }
     
     //
-    public class var blueA: UIColor {
-        return UIColor(red: 227/255, green: 242/255, blue: 253/255, alpha: 1.0)
-    }
+//    public class var blueA: UIColor {
+//        return UIColor(red: 227/255, green: 242/255, blue: 253/255, alpha: 1.0)
+//    }
     
     public class var blueB: UIColor {
         return UIColor(red: 187/255, green: 222/255, blue: 251/255, alpha: 1.0)
