@@ -43,7 +43,7 @@ class Tutorial: UIView {
             let radius = frame.width //* 0.8
             let pulse = Pulsing(numberOfPulses: 1, radius: radius/2, position: self.center)
             pulse.animationDuration = 0.5
-            pulse.backgroundColor = UIColor.Theme.ibase.cgColor
+            pulse.backgroundColor = UIColor.jake.cgColor
             layer.insertSublayer(pulse, at: 1)
             print("pulse")
     }

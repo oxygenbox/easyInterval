@@ -277,6 +277,8 @@ class MainViewController: UIViewController {
         let endWorkoutAction = UIAlertAction(title: "End Workout", style: .default) { [unowned self] (action) in
             self.workout.woSession!.remainingSeconds = 0
             self.workout.complete()
+            self.intervalWindow.pauseIntervalClock()
+            self.sessionClock.pause()
         }
 
         if !data.workoutOn {
@@ -310,6 +312,7 @@ class MainViewController: UIViewController {
             self.setScreenMode()
         case.session:
             self.workout.startSession()
+            self.sessionClock.reset()
             if data.isRunWalk {
                 self.workout.restart(mode: .run)
             } else {

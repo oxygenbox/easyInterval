@@ -222,7 +222,7 @@ class TimerWindowView: UIView {
             backgroundColor = UIColor.walk
         }
         
-        backgroundColor = UIColor.tertiary
+        //backgroundColor = UIColor.tertiary
     }
 }
 

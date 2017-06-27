@@ -102,24 +102,15 @@ extension UIColor {
     }
 
     public class var run: UIColor {
-        
         return UIColor(red: 0/255, green: 152/255, blue: 200/255, alpha: 1)
-       // return UIColor(red: 136/255, green: 177/255, blue: 203/255, alpha: 1)
-       // return UIColor(red: 153/255, green: 187/255, blue: 64/255, alpha: 1)
     }
     
     public class var walk: UIColor {
        return UIColor(red: 1/255, green: 100/255, blue: 204/255, alpha: 1)
-       // return UIColor(red: 152/255, green: 100/255, blue: 204/255, alpha: 1)
-        
     }
     
     public class var background: UIColor {
         return packLight
-        //return UIColor(red: 99/255, green: 178/255, blue: 87/255, alpha: 1)
-        //sky return UIColor(red: 90/255, green:174/255, blue: 244/255, alpha: 1)
-        //return UIColor(red: 99/255, green: 178/255, blue: 86/255, alpha: 1)
-        //return UIColor(red: 66/255, green: 113/255, blue: 11/255, alpha: 1)
     }
     
     public class var dot: UIColor {
@@ -142,11 +133,6 @@ extension UIColor {
         return UIColor(red: 70/255, green: 53/255, blue: 43/255, alpha: 1)
     }
     
-    public class var tertiary: UIColor {
-       // return UIColor(red: 16/255, green: 103/255, blue:122/255, alpha: 0.25)
-        return UIColor(red: 136/255, green: 179/255, blue:189/255, alpha: 1)
-    }
-    
     public class var secondary: UIColor {
         return UIColor(red: 16/255, green: 103/255, blue:122/255, alpha: 1)
     }
@@ -155,70 +141,18 @@ extension UIColor {
         return UIColor(red: 255/255, green: 250/255, blue: 98/255, alpha: 1)
     }
     
-    //
-//    public class var blueA: UIColor {
-//        return UIColor(red: 227/255, green: 242/255, blue: 253/255, alpha: 1.0)
-//    }
-    
-    public class var blueB: UIColor {
-        return UIColor(red: 187/255, green: 222/255, blue: 251/255, alpha: 1.0)
-    }
-    
-    public class var blueC: UIColor {
-        return UIColor(red: 144/255, green: 202/255, blue: 249/255, alpha: 1.0)
-    }
-    
-    public class var blueD: UIColor {
-        return UIColor(red: 100/255, green: 181/255, blue: 246/255, alpha: 1.0)
-    }
-    
-    public class var blueE: UIColor {
-        return UIColor(red: 66/255, green: 165/255, blue: 245/255, alpha: 1.0)
-    }
-    
-    public class var blueF: UIColor {
-        return UIColor(red: 33/255, green: 150/255, blue: 243/255, alpha: 1.0)
-    }
-    
-    public class var orangeF: UIColor {
-        return UIColor(red: 222/255, green: 105/255, blue: 12/255, alpha: 1.0)
-    }
-    
-    public class var blueG: UIColor {
-        return UIColor(red: 30/255, green: 136/255, blue: 229/255, alpha: 1.0)
-    }
-    
-    public class var blueH: UIColor {
-        return UIColor(red: 25/255, green: 118/255, blue: 210/255, alpha: 1.0)
-    }
-    
-    public class var orangeH: UIColor {
-        return UIColor(red: 230/255, green: 137/255, blue: 45/255, alpha: 1.0)
-    }
-    
-    public class var blueI: UIColor {
-        return UIColor(red: 21/255, green: 101/255, blue: 192/255, alpha: 1.0)
-    }
-    
-    public class var blueJ: UIColor {
-        return UIColor(red: 13/255, green: 71/255, blue: 161/255, alpha: 1.0)
-    }
-    
     struct Theme {
         static var base: UIColor {return .secondary}
-        static var ibase: UIColor {return .orangeF}
+       
         static var back: UIColor { return .white}
         static var buttonBar: UIColor {return .clear}
-        static var text: UIColor {return .blueH}
+        static var text: UIColor {return .packDark}
         static var on: UIColor {return .packDark}
         static var off: UIColor {return .packLight}
         static var borderOn: UIColor {return .bush}
         static var borderOff: UIColor {return .packDark}
-        static var bar: UIColor {return .blueH}
-        static var ibar: UIColor {return .orangeH}
     }
 }
-
 
 extension UIFont {
     public class var session: UIFont {
@@ -232,7 +166,6 @@ extension UIFont {
     public class var title: UIFont {
         return UIFont(name: "AvenirNextCondensed-Regular", size: 20.0)!
     }
-    
     
     public class var setting: UIFont {
         return UIFont(name: "AvenirNextCondensed-Regular", size: 17.0)!
@@ -271,29 +204,13 @@ extension UILabel
             
             attributeString.addAttribute(NSFontAttributeName, value: fontName!, range: charRange)
             
-            
-            
-            
             self.attributedText = attributeString
         }
-
     }
-    
-    
 }
 
 
 
 
-
-/*
- //let attrString = NSMutableAttributedString(string: stringValue)
-// let style = NSMutableParagraphStyle()
- style.lineSpacing = 0 // change line spacing between paragraph like 36 or 48
- style.minimumLineHeight = 8 // change line spacing between each line like 30 or 40
-// attrString.addAttribute(NSParagraphStyleAttributeName, value: style, range: NSRange(location: 0, length: stringValue.characters.count))
-// return attrString
- 
- */
 
 
