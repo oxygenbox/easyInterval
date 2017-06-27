@@ -293,6 +293,8 @@ extension PreferenceViewController: UIPickerViewDataSource {
             imageView.tintColor = UIColor.walk
         }
         
+        pView.layer.borderWidth = 2
+        pView.layer.borderColor = UIColor.white.cgColor
         
         return pView
     }
