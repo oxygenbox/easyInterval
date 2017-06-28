@@ -59,13 +59,20 @@ class PreferenceViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
-        let button = buttonCollection[data.settingsTab]
-        positionSwitchView(destination: button.center.x)
+        switchView.alpha = 0
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        let button = buttonCollection[data.settingsTab]
+        positionSwitchView(destination: button.center.x)
+    }
+    
+    
     
     //MARK:- ACTIONS
     @IBAction func preferenceButtonTapped(_ sender: PreferenceButton) {
@@ -125,8 +132,6 @@ class PreferenceViewController: UIViewController {
             
          
             if index == data.settingsTab {
-                //positionSwitchView(destination: button.center.x)
-                
                 button.select()
                 print(index)
                
@@ -233,6 +238,7 @@ class PreferenceViewController: UIViewController {
         switchView.preference = activePreference
         let pa = UIViewPropertyAnimator(duration: 0.25, curve: .easeOut) {
             self.switchView.center.x = destination
+            self.switchView.alpha = 1
         }
         
         pa.startAnimation()

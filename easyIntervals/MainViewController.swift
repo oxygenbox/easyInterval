@@ -234,7 +234,12 @@ class MainViewController: UIViewController {
         let shadow = NSShadow()
         shadow.shadowOffset = CGSize(width: 3, height: 3)
         shadow.shadowBlurRadius = 3
-        shadow.shadowColor = UIColor.black
+        
+        shadow.shadowOffset = CGSize(width: -1, height: 1)
+        shadow.shadowBlurRadius = 1
+        
+        
+        shadow.shadowColor = UIColor.bush
         
         intervalText.addAttribute(NSForegroundColorAttributeName, value: textColor, range: NSMakeRange(0, intervalText.length))
         elapsedText.addAttribute(NSForegroundColorAttributeName, value: textColor, range: NSMakeRange(0, elapsedText.length))
