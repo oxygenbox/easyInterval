@@ -13,8 +13,8 @@ class PlainButton: UIButton {
     override func draw(_ rect: CGRect) {
         layer.cornerRadius = frame.size.width/2
         clipsToBounds = true
-        //layer.borderWidth = 1
-        //layer.borderColor = UIColor.Theme.borderOff.cgColor
+        layer.borderWidth = 1
+        layer.borderColor = UIColor.activeButton.cgColor
        
         
         
@@ -22,8 +22,8 @@ class PlainButton: UIButton {
     
     override func didMoveToWindow() {
         super.didMoveToWindow()
-        backgroundColor = UIColor.activeButton
-         tintColor = UIColor.background
+        backgroundColor = UIColor.background
+         tintColor = UIColor.activeButton
         titleLabel?.textColor = backgroundColor
     }
     

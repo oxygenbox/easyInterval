@@ -25,8 +25,10 @@ class PreferenceButton: UIButton {
     var interactive: Bool = true {
         didSet {
             if interactive {
-                backgroundColor = UIColor.activeButton
-                tintColor = UIColor.background
+                backgroundColor = UIColor.packDark
+                tintColor = UIColor.activeButton
+                layer.borderWidth = 1
+                layer.borderColor = UIColor.activeButton.cgColor
             } 
             
             isUserInteractionEnabled =  interactive
@@ -52,8 +54,10 @@ class PreferenceButton: UIButton {
     }
     
     func makeInfo() {
-        tintColor = UIColor.background
-        backgroundColor = UIColor.activeButton
+        tintColor = UIColor.activeButton
+        backgroundColor = UIColor.background
+        layer.borderWidth = 1
+        layer.borderColor = UIColor.activeButton.cgColor
     }
 
 }

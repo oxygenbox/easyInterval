@@ -333,7 +333,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vka-bP-fuc" customClass="PlainButton" customModule="easyIntervals" customModuleProvider="target">
                                                 <rect key="frame" x="260" y="0.0" width="44" height="44"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" image="setting"/>
+                                                <state key="normal" image="Gear2"/>
                                                 <connections>
                                                     <action selector="settingsTapped:" destination="Yuq-lR-ZVo" eventType="touchUpInside" id="uI3-O3-gPZ"/>
                                                 </connections>
@@ -585,6 +585,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Gear2" width="22" height="22"/>
         <image name="icon_audio" width="22" height="22"/>
         <image name="icon_cadence" width="22" height="22"/>
         <image name="icon_help" width="22" height="22"/>
@@ -594,7 +595,6 @@
         <image name="icon_vibrate" width="22" height="22"/>
         <image name="reset" width="22" height="22"/>
         <image name="runWalk" width="47" height="28"/>
-        <image name="setting" width="22" height="22"/>
         <image name="walkRun" width="47" height="28"/>
     </resources>
 </document>
