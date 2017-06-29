@@ -114,7 +114,36 @@ class MainViewController: UIViewController {
     
     @IBAction func infoTapped(_ sender: UIButton) {
         instructionView.toggle()
-       // instructionView.isHidden = !instructionView.isHidden
+        
+        
+//        if instructionView.isHidden {
+//           
+//            let yOff = -instructionView.frame.size.height
+//            instructionView.transform = CGAffineTransform(translationX: 0, y: yOff)
+//           // instructionView.transform = CGAffineTransform(rotationAngle: -45)
+//            instructionView.isHidden = false
+//            
+//            UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 5, options: [], animations: {
+//                self.instructionView.transform = .identity
+//            }, completion: { (success) in
+//                 self.instructionView.animateTwoFingerOn()
+//            })
+//            
+//            
+////
+//        } else {
+//            instructionView.isHidden = true
+////           let yOff = -instructionView.frame.size.height
+//////            
+//         UIView.animate(withDuration: 5, animations: {
+//                self.instructionView.frame.origin.y = 0
+////               self.instructionView.transform = CGAffineTransform(scaleX: 0, y: yOff)
+//            }, completion: { (success) in
+//                self.instructionView.isHidden = true
+//            })
+//        }
+        
+            
         
     }
     
@@ -335,14 +364,14 @@ class MainViewController: UIViewController {
     
     func loadInstructions() {
         if let iv = Bundle.main.loadNibNamed("InstructionView", owner: self, options: nil)?.first as? InstructionView {
-            iv.frame = CGRect(x: 0, y: 0, width: 300, height: 300)
+            
             
             self.instructionView = iv
             
             let dim = self.view.frame.size.width*0.8
             iv.frame = CGRect(x: 0, y: 0, width: dim, height: dim)
-           // iv.layer.cornerRadius = dim/2
-           // iv.clipsToBounds = true
+            //iv.frame = rightWindow.frame
+           
             let x = self.view.frame.size.width/2
             let y = topView.frame.origin.y + topView.frame.size.height
             iv.center.x = x
@@ -448,6 +477,12 @@ extension MainViewController: WorkoutDelegate {
     
     func modeChanged(to mode: Mode) {
         setScreenMode()
+    }
+    
+    func closeInfo() {
+        if !instructionView.isHidden {
+            self.instructionView.toggle()
+        }
     }
     
 }

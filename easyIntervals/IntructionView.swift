@@ -98,8 +98,10 @@ class InstructionView: UIView {
         if isHidden {
             alpha = 0
             isHidden = false
+            center.y -= 50
             UIView.animate(withDuration: 0.5, animations: {
                 self.alpha = 1
+                self.center.y += 50
             }, completion: { (success) in
                self.animateTwoFingerOn()
             })

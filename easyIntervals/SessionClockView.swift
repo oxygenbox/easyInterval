@@ -36,6 +36,12 @@ class SessionClockView: UIView {lazy var clock: ClockView = {
         
         clock.alpha = 0.75
         addSubview(clock)
+        
+        let imageView = UIImageView(frame: self.frame)
+        imageView.image = UIImage(named: "session_panel")
+        imageView.alpha = 0.3
+        addSubview(imageView)
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
