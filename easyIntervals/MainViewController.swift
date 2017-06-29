@@ -44,6 +44,7 @@ class MainViewController: UIViewController {
     //MARK- VARIABLES
     var workout: Workout!
     var musicControls: MusicControls!
+    var instructionView: InstructionView!
     
     var runWindow: RoundModeView {
         if data.isRunWalk {
@@ -112,6 +113,8 @@ class MainViewController: UIViewController {
     
     
     @IBAction func infoTapped(_ sender: UIButton) {
+        instructionView.toggle()
+       // instructionView.isHidden = !instructionView.isHidden
         
     }
     
@@ -136,6 +139,7 @@ class MainViewController: UIViewController {
         
         runWindow.mode = .run
         walkWindow.mode = .walk
+        loadInstructions()
         
     }
     
@@ -328,6 +332,29 @@ class MainViewController: UIViewController {
         
         postTimes()
     }
+    
+    func loadInstructions() {
+        if let iv = Bundle.main.loadNibNamed("InstructionView", owner: self, options: nil)?.first as? InstructionView {
+            iv.frame = CGRect(x: 0, y: 0, width: 300, height: 300)
+            
+            self.instructionView = iv
+            
+            let dim = self.view.frame.size.width*0.8
+            iv.frame = CGRect(x: 0, y: 0, width: dim, height: dim)
+           // iv.layer.cornerRadius = dim/2
+           // iv.clipsToBounds = true
+            let x = self.view.frame.size.width/2
+            let y = topView.frame.origin.y + topView.frame.size.height
+            iv.center.x = x
+            iv.frame.origin.y = y
+           
+
+            view.addSubview(iv)
+             iv.isHidden = false
+        }
+    }
+    
+    
     
    //MARK:- MUSIC METHODS
     func loadMusicControls() {

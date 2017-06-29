@@ -19,28 +19,6 @@ Improve descpription text (Title-desc)
  
  Add Run/Walk Message (make obvious)
  
- Improve main screen layout
- Color Palette
- Get reset working
- Setting screen animation
- Intro/ Instruction screen
- Handle session completion
- Write setting screen text
-
- MUSIC MIC PLY
- 
- STYLE TH PREFE SWITCH 
- 
- PLAY IN BACKGROUND
- 
- 
- 
- 
- 
- xib round
- BG Icont slid in with spring and rotate
- Round
- Delegate
  
  
  
@@ -90,16 +68,38 @@ Improve descpription text (Title-desc)
 
 
 /*
- 227, 242, 253
- 187, 222, 251
- 144, 202, 249
- 100, 181, 246
- 66, 165, 245
- 33, 150, 243
- 30, 136, 229
- 25, 118, 210
- 21, 101, 192
- 13, 71, 161
+//June 29th
+ Prefernce screen switch and info button
+ Do we need an info button?
+ Prefernce fic text lsyout
+ Prefernce stylize switch
+ Image on picker
+ Center segmented controls
+ 
+ 
+ 
+ Title improve change color change fontsize
+ Test  rest otions
+ 
+ add clock icon to status clock
+ Rest screen when returning from Prefernce screen
+ Design  Icon
+ Clock animation getting stuck
+ 
+ When paused reset sould not start session
+ 
+ Get music working
+ Pause kill cadence timer
+ Style music buttons
+ 
+ Remove unused graphics
+ Remove old code
+ ±Session complete
+ -Handle
+ -Display
+ -Reset
+ -Share
+ 
  
  
  

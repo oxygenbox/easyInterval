@@ -31,9 +31,33 @@ class InstructionView: UIView {
     
     //MARK:- Methods
     func config() {
-        backgroundColor = UIColor.Theme.borderOn
+        
+        layer.cornerRadius = frame.size.width/2
+        clipsToBounds = true
+        layer.borderColor = UIColor.white.cgColor
+        layer.borderWidth  = 2
+        
+        
+        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        
+        
+        
+        let gradientLayer = CAGradientLayer()
+        
+        gradientLayer.frame = bounds
+        
+        gradientLayer.colors = [UIColor.walk.cgColor, UIColor.run.cgColor]
+        
+        layer.insertSublayer(gradientLayer, at: 0)
+        
+        
+        
+        backgroundColor = UIColor.walk
         handBaseConstraint.constant = handsOff
-        twoFingerImage.tintColor = UIColor.Theme.on
+        twoFingerImage.tintColor = UIColor.white
         descLabel.textColor = UIColor.white
         isHidden = true
     }
@@ -56,7 +80,7 @@ class InstructionView: UIView {
         pulse.animationDuration = duration
         pulse.backgroundColor = UIColor.clear.cgColor
         pulse.borderWidth = 3
-        pulse.borderColor = UIColor.Theme.on.cgColor
+        pulse.borderColor = UIColor.white.cgColor
         twoFingerView.layer.insertSublayer(pulse, below: target.layer)
     }
 

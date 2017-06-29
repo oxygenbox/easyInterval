@@ -61,7 +61,7 @@ class Pulsing: CALayer {
         
         let opacityAnimation = CAKeyframeAnimation(keyPath: "opacity")
         opacityAnimation.duration = animationDuration
-        opacityAnimation.values = [0.4, 0.8, 0]
+        opacityAnimation.values = [0.6, 1.0, 0]
         opacityAnimation.keyTimes = [0, 0.2, 1]
         
         return opacityAnimation
