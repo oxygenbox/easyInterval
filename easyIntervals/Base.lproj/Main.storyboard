@@ -7,7 +7,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -91,17 +90,17 @@
                                 </connections>
                             </pickerView>
                             <stackView opaque="NO" contentMode="bottom" axis="vertical" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="GX4-11-nP0">
-                                <rect key="frame" x="8" y="360" width="288" height="80.5"/>
+                                <rect key="frame" x="8" y="360" width="304" height="72"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f4o-uE-U9h">
-                                        <rect key="frame" x="0.0" y="0.0" width="288" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="304" height="20.5"/>
                                         <color key="backgroundColor" red="1" green="1" blue="0.1358506944" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="3Jd-dG-8IR">
-                                        <rect key="frame" x="0.0" y="24.5" width="288" height="29"/>
+                                        <rect key="frame" x="0.0" y="20.5" width="304" height="29"/>
                                         <segments>
                                             <segment title="Every"/>
                                             <segment title="Other"/>
@@ -113,7 +112,7 @@
                                         </connections>
                                     </segmentedControl>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Oc5-ao-UEJ">
-                                        <rect key="frame" x="0.0" y="52.5" width="288" height="29"/>
+                                        <rect key="frame" x="0.0" y="48.5" width="304" height="24.5"/>
                                         <segments>
                                             <segment title="15"/>
                                             <segment title="30"/>
@@ -247,10 +246,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="WGa-Ln-XSE" firstAttribute="top" secondItem="lKr-Wy-Zk8" secondAttribute="bottom" constant="8" id="1SG-Fh-Ajk"/>
-                            <constraint firstItem="tbg-4s-rcB" firstAttribute="top" secondItem="GX4-11-nP0" secondAttribute="bottom" constant="8" id="5H5-9w-9fl"/>
                             <constraint firstItem="lKr-Wy-Zk8" firstAttribute="top" secondItem="BFZ-2y-WzA" secondAttribute="bottom" id="6pK-Lt-TUs"/>
                             <constraint firstItem="lKr-Wy-Zk8" firstAttribute="leading" secondItem="9mi-nK-NTf" secondAttribute="leading" id="9jY-9a-QFV"/>
                             <constraint firstItem="GX4-11-nP0" firstAttribute="top" secondItem="LHV-Qw-FOK" secondAttribute="bottom" constant="16" id="ABH-hq-3z8"/>
+                            <constraint firstAttribute="trailing" secondItem="GX4-11-nP0" secondAttribute="trailing" constant="8" id="Ea5-R5-ufC"/>
                             <constraint firstItem="tbg-4s-rcB" firstAttribute="leading" secondItem="9mi-nK-NTf" secondAttribute="leading" constant="20" id="EgY-NV-CHF"/>
                             <constraint firstItem="WIg-zI-bPw" firstAttribute="top" secondItem="VZn-gD-gpU" secondAttribute="bottom" id="F1F-0W-VF9"/>
                             <constraint firstItem="VZn-gD-gpU" firstAttribute="leading" secondItem="9mi-nK-NTf" secondAttribute="leading" id="Gj8-G3-ktv"/>
@@ -259,11 +258,13 @@
                             <constraint firstAttribute="trailing" secondItem="VZn-gD-gpU" secondAttribute="trailing" id="JFB-cf-ziJ"/>
                             <constraint firstItem="LHV-Qw-FOK" firstAttribute="leading" secondItem="9mi-nK-NTf" secondAttribute="leading" id="JZk-D9-5Ee"/>
                             <constraint firstItem="LHV-Qw-FOK" firstAttribute="top" secondItem="WGa-Ln-XSE" secondAttribute="bottom" constant="8" id="JtC-aV-lwt"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="GX4-11-nP0" secondAttribute="trailing" constant="8" id="TuT-kf-tWF"/>
                             <constraint firstAttribute="trailing" secondItem="tbg-4s-rcB" secondAttribute="trailing" constant="20" id="TxO-mR-YGa"/>
+                            <constraint firstItem="tbg-4s-rcB" firstAttribute="top" secondItem="GX4-11-nP0" secondAttribute="bottom" constant="16" id="YEd-f1-89k"/>
                             <constraint firstItem="WGa-Ln-XSE" firstAttribute="centerX" secondItem="9mi-nK-NTf" secondAttribute="centerX" id="cLH-Mw-7fJ"/>
-                            <constraint firstItem="GX4-11-nP0" firstAttribute="leading" secondItem="9mi-nK-NTf" secondAttribute="leading" constant="8" id="qcF-2i-gWi"/>
                             <constraint firstAttribute="trailing" secondItem="LHV-Qw-FOK" secondAttribute="trailing" id="qiz-eQ-8ei"/>
+                            <constraint firstItem="GX4-11-nP0" firstAttribute="top" secondItem="LHV-Qw-FOK" secondAttribute="bottom" constant="16" id="qx2-0F-Sei"/>
+                            <constraint firstItem="GX4-11-nP0" firstAttribute="leading" secondItem="9mi-nK-NTf" secondAttribute="leading" constant="8" id="rgu-IE-psy"/>
+                            <constraint firstItem="tbg-4s-rcB" firstAttribute="top" secondItem="GX4-11-nP0" secondAttribute="bottom" constant="16" id="s0Q-8K-xfx"/>
                         </constraints>
                     </view>
                     <connections>
