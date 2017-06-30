@@ -146,7 +146,7 @@ class RoundModeView: UIView {
     
     
     func statusOn() {
-       intervalView.isHidden = false
+        intervalView.isHidden = false
         intervalView.setUp(frame: bounds)
         intervalView.frame.origin.y = -intervalView.frame.size.height
         intervalView.label.frame = intervalView.bounds

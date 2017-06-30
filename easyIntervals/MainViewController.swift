@@ -235,11 +235,20 @@ class MainViewController: UIViewController {
         case .run:
             runWindow.statusOff()
             walkWindow.statusOn()
-            walkWindow.beginIntervalClock(intervalSeconds: intervalSecs)
+            if workout.timer != nil {
+                walkWindow.beginIntervalClock(intervalSeconds: intervalSecs)
+            } else {
+                walkWindow.intervalView.clock.reset()
+
+        }
         case .walk:
             walkWindow.statusOff()
             runWindow.statusOn()
-            runWindow.beginIntervalClock(intervalSeconds: intervalSecs)
+            if workout.timer != nil {
+                runWindow.beginIntervalClock(intervalSeconds: intervalSecs)
+            } else {
+                runWindow.intervalView.clock.reset()
+            }
         default:
             break
         }

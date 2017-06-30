@@ -15,42 +15,15 @@ Improve descpription text (Title-desc)
  
  ***MUSIC NOT STAYING ON
  
- 
- 
  Add Run/Walk Message (make obvious)
  
- 
- 
- 
-
  IS IT SIMPLE
  IS IT CLEAN
  IS IT CLEAR
  UX -Conytold obvioud
  
- Reset button
- Restart Run Interval
- Restart walk interval
- Reset Elapsed Timer
- Reset All
- //Cancel
- x
- Remaining time
- Elapsed time
- currentMode - Run - Walk - Paused
- Progsress bar
- display settings
- 
- Settings
- Picker - RW-WR - interval length
- Info
- 
- vibrate - on/off
- Music - on/off
- Cadence - on/off
- Workout - on/off
- 
 
+ 
  Play cadence
  Play music
  
@@ -74,7 +47,7 @@ Improve descpription text (Title-desc)
  Prefernce fic text lsyout
  Prefernce stylize switch
  Image on picker
- Center segmented controls
+ 
  
  
  
