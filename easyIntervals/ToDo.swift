@@ -42,4 +42,7 @@ import Foundation
  
  9. Implement music
  10. Countdown to start
+ 
+ 11. defaulut instructions open
+ 12. close instructions when started
  */
