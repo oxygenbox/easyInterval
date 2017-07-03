@@ -52,6 +52,53 @@ class Data: Settings {
         }
     }
     
+    
+    var colorizedTitle: NSMutableAttributedString {
+        let font = UIFont(name: "AvenirNext-DemiBold", size: 20.0)!
+        
+        let runAttributes = [NSForegroundColorAttributeName: UIColor.run, NSFontAttributeName: font]
+        let runString = NSMutableAttributedString(string: "run: \(runTimeString)", attributes: runAttributes)
+        
+        let walkAttributes = [NSForegroundColorAttributeName: UIColor.walk, NSFontAttributeName: font]
+        let walkString = NSMutableAttributedString(string: "walk: \(walkTimeString)", attributes: walkAttributes)
+        
+        let space = NSMutableAttributedString(string: " ", attributes: runAttributes)
+        
+        let combination = NSMutableAttributedString()
+        
+        if data.isRunWalk {
+            combination.append(runString)
+            combination.append(space)
+            combination.append(walkString)
+        }else {
+            combination.append(walkString)
+            combination.append(space)
+            combination.append(runString)
+        }
+       
+        
+        return combination
+    }
+    
+    
+    /*
+     
+     let yourOtherAttributes = [NSForegroundColorAttributeName: UIColor.redColor(), NSFontAttributeName: UIFont.systemFontOfSize(25)]
+     
+     let partOne = NSMutableAttributedString(string: "This is an example ", attributes: yourAttributes)
+     let partTwo = NSMutableAttributedString(string: "for the combination of Attributed String!", attributes: yourOtherAttributes)
+     
+     let combination = NSMutableAttributedString()
+     
+     combination.appendAttributedString(partOne)
+     combination.appendAttributedString(partTwo)
+     Swift 3
+     
+     combination.append(partOne)
+     combination.append(partTwo)
+     */
+    
+    
     var formattedTitle: NSMutableAttributedString {
         let font = UIFont(name: "AvenirNextCondensed-Regular", size: 20.0)!
         let charCount = settingTitle.characters.count

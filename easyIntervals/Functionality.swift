@@ -55,11 +55,9 @@ Improve descpription text (Title-desc)
  Test  rest otions
  
  add clock icon to status clock
- Rest screen when returning from Prefernce screen
- Design  Icon
- Clock animation getting stuck
+ Reset screen when returning from Prefernce screen
  
- When paused reset sould not start session
+ Clock animation getting stuck
  
  Get music working
  Pause kill cadence timer
@@ -67,11 +65,11 @@ Improve descpription text (Title-desc)
  
  Remove unused graphics
  Remove old code
- ±Session complete
- -Handle
- -Display
- -Reset
- -Share
+ Session complete
+ - Handle
+ - Display
+ - Reset
+ - Share
  
  
  

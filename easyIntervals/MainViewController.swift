@@ -162,7 +162,7 @@ class MainViewController: UIViewController {
     //MARK:- METHODS
     func configure() {
         view.backgroundColor = UIColor.background
-        titleLabel.attributedText = data.formattedTitle
+        titleLabel.attributedText = data.colorizedTitle
         initGestures()
         configureButtons()
         

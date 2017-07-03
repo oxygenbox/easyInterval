@@ -149,7 +149,7 @@ class PreferenceViewController: UIViewController {
     }
     
     func postTitle() {
-        titleLabel.attributedText = data.formattedTitle
+        titleLabel.attributedText = data.colorizedTitle
     }
     
     func postDescription() {
