@@ -20,6 +20,8 @@ class InstructionView: UIView {
     var fingerATimer: Timer!
     var fingerBTimer: Timer!
     
+    var cycleTimer: Timer?
+    
     var handsOn: CGFloat = 8
     var handsOff: CGFloat = -200
     
@@ -103,7 +105,8 @@ class InstructionView: UIView {
                 self.alpha = 1
                 self.center.y += 50
             }, completion: { (success) in
-               self.animateTwoFingerOn()
+                self.animateTwoFingerOn()
+                self.startCycle()
             })
         } else {
             stopPulse()
@@ -112,6 +115,7 @@ class InstructionView: UIView {
             }, completion: { (success) in
                 self.isHidden = true
                 self.handBaseConstraint.constant = self.handsOff
+                
             })
         }
     }
@@ -122,7 +126,17 @@ class InstructionView: UIView {
             self.layoutIfNeeded()
         }) { (success) in
             self.initTwoFingerPulse()
+            self.stopCycle()
         }
+        
+    }
+    
+    func startCycle() {
+        
+    }
+    
+    func stopCycle() {
+        
     }
 }
 

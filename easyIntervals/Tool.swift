@@ -34,21 +34,6 @@ class Tool {
         return attributedString
     }
     
-    /*
-     
-     if let session = workout.woSession {
-     elapsedTime.text = Tool.formatTime(secs: session.remainingSeconds, withHours: true)
-     } else {
-     elapsedTime.text = Tool.formatTime(secs: workout.elapsedSeconds, withHours: true)
-     }
-
- */
-    
-    
-    
-    
-    
-    
     class func formatTime(secs: Int, withHours: Bool) -> String {
         var seconds = secs
         var minutes = seconds / 60

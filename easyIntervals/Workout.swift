@@ -134,9 +134,9 @@ class Workout: NSObject, AVAudioPlayerDelegate {
         if data.cadenceOn && currentMode == .run {
             if cadenceTracker < data.cadenceFrequency {
                 cadenceTracker += 1
-                print("skip cadenceCheck")
+                
             } else {
-                print("play cadenceCheck")
+                
                let cadenceTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(playCadence), userInfo: nil, repeats: false)
                 RunLoop.main.add(cadenceTimer, forMode: RunLoopMode.commonModes)
                 cadenceTracker = 0
@@ -192,7 +192,6 @@ class Workout: NSObject, AVAudioPlayerDelegate {
     func complete() {
         if let session = woSession {
             if session.complete {
-                print("complete \(session.remainingSeconds)")
                 session.remainingSeconds = session.totalSeconds
                 session.elapsedSeconds = 0
                 self.sessionComplete()

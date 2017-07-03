@@ -133,9 +133,6 @@ class PreferenceViewController: UIViewController {
          
             if index == data.settingsTab {
                 button.select()
-                print(index)
-               
-                
             } else {
                 button.deselect()
             }

@@ -8,24 +8,6 @@
 
 import Foundation
 
-
-/*
- Feb 15
- Makehead progress
- make pig elspded bsvkground
- elaped or remaining
- Stackview layout
- Show firt screen instructions
- Fir screen play with coor
- 
- 
- 
- 
- */
-
-
-
-
 /*
  Write preference esciptions
  a. Session working
@@ -45,4 +27,5 @@ import Foundation
  
  11. defaulut instructions open
  12. close instructions when started
+ 13. Fix sesson clock
  */

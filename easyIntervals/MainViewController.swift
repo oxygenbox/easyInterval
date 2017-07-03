@@ -114,7 +114,6 @@ class MainViewController: UIViewController {
     
     @IBAction func infoTapped(_ sender: UIButton) {
         instructionView.toggle()
-        print(instructionView.twoFingerImage.frame.size.height)
     }
     
     @IBAction func cadenceTapped(_ sender: UIButton) {
@@ -347,7 +346,7 @@ class MainViewController: UIViewController {
             
             self.instructionView = iv
             
-            let dim = self.view.frame.size.width*0.8
+            let dim: CGFloat = 256 //self.view.frame.size.width*0.8
             iv.frame = CGRect(x: 0, y: 0, width: dim, height: dim)
             //iv.frame = rightWindow.frame
            
@@ -361,8 +360,6 @@ class MainViewController: UIViewController {
              iv.isHidden = false
         }
     }
-    
-    
     
    //MARK:- MUSIC METHODS
     func loadMusicControls() {
@@ -408,6 +405,7 @@ class MainViewController: UIViewController {
     }
     
     func twoFingerTapDetected(_ sender: UIGestureRecognizer){
+        hideInstructions()
         toggleWorkout()
     }
     
@@ -435,7 +433,6 @@ extension MainViewController: MusicControlDelegate {
 
 extension MainViewController: WorkoutDelegate {
     func woTick() {
-        print("woTick")
         postTimes()
         
     }
@@ -450,8 +447,7 @@ extension MainViewController: WorkoutDelegate {
     }
         
     func  modeUpdate() {
-        //print("modeUpdate called")
-       // postTimes()
+        
     }
     
     func modeChanged(to mode: Mode) {
@@ -461,6 +457,12 @@ extension MainViewController: WorkoutDelegate {
     func closeInfo() {
         if !instructionView.isHidden {
             self.instructionView.toggle()
+        }
+    }
+    
+    func hideInstructions() {
+        if !instructionView.isHidden {
+            instructionView.toggle()
         }
     }
     
