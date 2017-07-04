@@ -150,6 +150,7 @@ class RoundModeView: UIView {
         intervalView.setUp(frame: bounds)
         intervalView.frame.origin.y = -intervalView.frame.size.height
         intervalView.label.frame = intervalView.bounds
+        
 
         //intervalView.setText()
         

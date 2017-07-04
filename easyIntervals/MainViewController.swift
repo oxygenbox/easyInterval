@@ -191,9 +191,19 @@ class MainViewController: UIViewController {
             } else {
                 //start
                 setScreenMode()
-                if workout.woSession != nil {
-                    self.sessionClock.beginClock(intervalSeconds: data.totalSessionSeconds)
+                
+                guard let session = workout.woSession else {
+                    return
                 }
+                
+                if session.complete {
+                    session.remainingSeconds = session.totalSeconds
+                    session.elapsedSeconds = 0
+                    initWorkout()
+                }
+                
+                self.sessionClock.beginClock(intervalSeconds: data.totalSessionSeconds)
+               
             }
         }
     }
@@ -224,6 +234,22 @@ class MainViewController: UIViewController {
         postTimes()
     }
     
+    
+    func screenCompleteMode() {
+//        if workout.currentMode == .run {
+//            walkWindow.intervalView.label.text = "complete"
+//            runWindow.imageView.image = UIImage(named: "finishFlag")
+//            walkWindow.statusOn()
+//            runWindow.statusOff()
+//        } else {
+//            runWindow.intervalView.label.text = "complete"
+//            walkWindow.imageView.image = UIImage(named: "finishFlag")
+//            runWindow.statusOn()
+//            walkWindow.statusOff()
+//            
+//        }
+        print("screenCompleteMode")
+    }
     
     
     func postTimes() {
@@ -260,15 +286,6 @@ class MainViewController: UIViewController {
  
         intervalTime.attributedText = intervalText
         elapsedTime.attributedText = elapsedText
-        
-        guard  let woSession = workout.woSession else {
-            return
-        }
-        
-        if woSession.complete {
-            print("Oh Yeah Post Timer")
-            elapsedTime.text = "oh Yeeak"
-        }
         
     }
     
@@ -478,6 +495,11 @@ extension MainViewController: WorkoutDelegate {
     func sessionComplete() {
         print("MAinView sessionComplete")
         elapsedTime.text = "complete"
+        screenCompleteMode()
+        /*
+         //session.remainingSeconds = session.totalSeconds
+         //session.elapsedSeconds = 0
+         */
     }
     
 }

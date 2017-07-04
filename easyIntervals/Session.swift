@@ -34,7 +34,7 @@ class Session: NSObject {
     convenience init(totalSecs: Int) {
        self.init()
         self.totalSeconds = totalSecs
-        remainingSeconds = totalSecs
+        self.remainingSeconds = totalSecs
     }
 }
 

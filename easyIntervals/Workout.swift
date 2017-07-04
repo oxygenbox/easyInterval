@@ -78,7 +78,8 @@ class Workout: NSObject, AVAudioPlayerDelegate {
     }
     
     func startSession() {
-        let secs = data.totalSessionSeconds
+        //******change this back
+        let secs = data.totalSessionSeconds / 6
         woSession = Session(totalSecs: secs)
     }
     
@@ -100,7 +101,6 @@ class Workout: NSObject, AVAudioPlayerDelegate {
 
     func tickOccured() {
         intervalTick()
-        //elapsedSeconds += 1
         
         if woSession != nil {
             woSession!.tick()
@@ -193,20 +193,16 @@ class Workout: NSObject, AVAudioPlayerDelegate {
     func complete() {
         if let session = woSession {
             if session.complete {
-                session.remainingSeconds = session.totalSeconds
-                session.elapsedSeconds = 0
+                //session.remainingSeconds = session.totalSeconds
+                //session.elapsedSeconds = 0
                 self.sessionComplete()
-                
                 return
             }
         }
-
-         startNewInterval()
-    
+        startNewInterval()
     }
     
     func sessionComplete() {
-        print("Workout session complete called")
         pauseTimer()
         speak(word: "complete")
     
