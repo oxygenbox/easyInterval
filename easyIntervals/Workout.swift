@@ -15,6 +15,7 @@ protocol WorkoutDelegate {
     func modeUpdate()
     func modeChanged(to mode: Mode) 
     func workoutTick(remaining seconds: Int)
+    func sessionComplete()
 }
 
 class Workout: NSObject, AVAudioPlayerDelegate {
@@ -205,9 +206,15 @@ class Workout: NSObject, AVAudioPlayerDelegate {
     }
     
     func sessionComplete() {
+        print("Workout session complete called")
         pauseTimer()
         speak(word: "complete")
+    
         
+        guard  let d = delegate else {
+            return
+        }
+        d.sessionComplete()
     }
     
     

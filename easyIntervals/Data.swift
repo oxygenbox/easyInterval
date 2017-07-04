@@ -75,30 +75,11 @@ class Data: Settings {
             combination.append(space)
             combination.append(runString)
         }
-       
-        
+    
         return combination
     }
     
-    
-    /*
-     
-     let yourOtherAttributes = [NSForegroundColorAttributeName: UIColor.redColor(), NSFontAttributeName: UIFont.systemFontOfSize(25)]
-     
-     let partOne = NSMutableAttributedString(string: "This is an example ", attributes: yourAttributes)
-     let partTwo = NSMutableAttributedString(string: "for the combination of Attributed String!", attributes: yourOtherAttributes)
-     
-     let combination = NSMutableAttributedString()
-     
-     combination.appendAttributedString(partOne)
-     combination.appendAttributedString(partTwo)
-     Swift 3
-     
-     combination.append(partOne)
-     combination.append(partTwo)
-     */
-    
-    
+
     var formattedTitle: NSMutableAttributedString {
         let font = UIFont(name: "AvenirNextCondensed-Regular", size: 20.0)!
         let charCount = settingTitle.characters.count
@@ -166,38 +147,6 @@ class Data: Settings {
         return "Set for a \(minutes) minute workout"
     }
 
-    
-    /*
-     
-     let attributeString = NSMutableAttributedString(string: text)
-     let style = NSMutableParagraphStyle()
-     
-     
-     style.lineSpacing = lineHeight
-     style.lineHeightMultiple = 1
-     style.alignment = .center;
-     style.lineSpacing = 0.5;
-     style.lineBreakMode = .byWordWrapping
-     style.alignment = .center
-     
-     let charRange = NSMakeRange(0, text.characters.count)
-     let fontName = UIFont(name: "AvenirNextCondensed-Regular", size: 16)
-     
-     attributeString.addAttribute(NSParagraphStyleAttributeName,
-     value: style,
-     range: NSMakeRange(0, text.characters.count))
-     attributeString.addAttribute(NSForegroundColorAttributeName, value: UIColor.Theme.borderOn, range: charRange)
-     
-     attributeString.addAttribute(NSFontAttributeName, value: fontName!, range: charRange)
-     
-     
-     
-     
-     self.attributedText = attributeString
-
-     */
-    
-    
     func calcSessionIncrement() {
         var i = 0
         while (sessionSeconds / 60) * i < 30 {

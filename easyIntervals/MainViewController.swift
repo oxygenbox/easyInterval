@@ -261,6 +261,15 @@ class MainViewController: UIViewController {
         intervalTime.attributedText = intervalText
         elapsedTime.attributedText = elapsedText
         
+        guard  let woSession = workout.woSession else {
+            return
+        }
+        
+        if woSession.complete {
+            print("Oh Yeah Post Timer")
+            elapsedTime.text = "oh Yeeak"
+        }
+        
     }
     
     func  openResetOptions() {
@@ -464,6 +473,11 @@ extension MainViewController: WorkoutDelegate {
         if !instructionView.isHidden {
             instructionView.toggle()
         }
+    }
+    
+    func sessionComplete() {
+        print("MAinView sessionComplete")
+        elapsedTime.text = "complete"
     }
     
 }
