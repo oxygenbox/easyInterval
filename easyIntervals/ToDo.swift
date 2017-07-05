@@ -9,23 +9,8 @@
 import Foundation
 
 /*
- Write preference esciptions
- a. Session working
- 1. Clean up
- 2. Test functionality
- 3. Test settings
- 4. Work on prgress bar
- 5. Workout mode - elapsed, progress
- 6. Design
- 7 make sure funtinality is obviosus
- 8. Animations
- 9. Progress
+
  
  
- 9. Implement music
- 10. Countdown to start
- 
- 11. defaulut instructions open
- 12. close instructions when started
- 13. Fix sesson clock
+
  */

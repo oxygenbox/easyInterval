@@ -199,7 +199,7 @@ class MainViewController: UIViewController {
                 if session.complete {
                     session.remainingSeconds = session.totalSeconds
                     session.elapsedSeconds = 0
-                    initWorkout()
+                   // initWorkout()
                 }
                 
                 self.sessionClock.beginClock(intervalSeconds: data.totalSessionSeconds)
@@ -497,10 +497,10 @@ extension MainViewController: WorkoutDelegate {
     
     func sessionComplete() {
        // screenCompleteMode()
-        /*
-         //session.remainingSeconds = session.totalSeconds
-         //session.elapsedSeconds = 0
-         */
+        
+       //  session.remainingSeconds = session.totalSeconds
+      //  session.elapsedSeconds = 0
+        
         rightWindow.completeView.show(animated: true)
         leftWindow.completeView.show(animated: true)
     }

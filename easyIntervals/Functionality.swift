@@ -42,34 +42,26 @@ Improve descpription text (Title-desc)
 
 /*
 //June 29th
- Prefernce screen switch and info button
- Do we need an info button?
- Prefernce fic text lsyout
- Prefernce stylize switch
- Image on picker
+ 1. Prefernce screen switch and info button
+ 2. Do we need an info button?
+ 3. Prefernce fix text lsyout
+ 4. Prefernce stylize switch
+ 5. Image on picker
+ 6. App store
+ 9. Implement music
+ 10. Default instructions open
+ 11. close instructions when started
+ 13. sesson clock x postion
+ 14, Restarting sesston after ssession completes completed
+ 15. restart session when paused
+ 17. restart interval when paused
+ 18. Reset screen when returning from Prefernce screen
+ 19. Get music working
+ 20. Pause kill cadence timer
+ 21. Style music buttons
  
- 
- 
- 
- Title improve change color change fontsize
- Test  rest otions
- 
- add clock icon to status clock
- Reset screen when returning from Prefernce screen
- 
- Clock animation getting stuck
- 
- Get music working
- Pause kill cadence timer
- Style music buttons
- 
- Remove unused graphics
- Remove old code
- Session complete
- - Handle
- - Display
- - Reset
- - Share
+ 22. Remove unused graphics
+ 23 Remove old code
  
  
  
