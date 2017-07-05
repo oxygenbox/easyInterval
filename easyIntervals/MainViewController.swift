@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MediaPlayer
 
 class MainViewController: UIViewController {
     
@@ -75,6 +76,14 @@ class MainViewController: UIViewController {
         return SessionClockView(frame: CGRect(x: 0, y: 0, width: dim, height: dim))
     }()
     
+    lazy var musicPlayer: MPMusicPlayerController = {
+        let player = MPMusicPlayerController.systemMusicPlayer()
+        let everyThing = MPMediaQuery()
+        let itemsFromGenericQuery = everyThing.items
+        player.setQueue(with: everyThing)
+        player.shuffleMode = MPMusicShuffleMode.songs
+        return player
+    }()
     
     //MARK:- LIFECYCLE
     override func viewDidLoad() {
@@ -438,7 +447,9 @@ class MainViewController: UIViewController {
     }
     
     func swipeDetected(_ sender: UIGestureRecognizer){
-    //need to insert music control
+        if data.musicOn {
+            musicControls.toggleMusic()
+        }
     }
 }
 
@@ -455,6 +466,14 @@ extension MainViewController: MusicControlDelegate {
         }
         
         animator.startAnimation()
+    }
+    
+    func openMediaPicker() {
+        let mediaPicker = MPMediaPickerController(mediaTypes: .any)
+        mediaPicker.delegate = self
+        mediaPicker.allowsPickingMultipleItems = true
+        mediaPicker.prompt = "Pick songs to play"
+        present(mediaPicker, animated: true, completion: nil)
     }
 }
 
@@ -496,17 +515,53 @@ extension MainViewController: WorkoutDelegate {
     }
     
     func sessionComplete() {
-       // screenCompleteMode()
-        
-       //  session.remainingSeconds = session.totalSeconds
-      //  session.elapsedSeconds = 0
-        
         rightWindow.completeView.show(animated: true)
         leftWindow.completeView.show(animated: true)
        
     }
     
 }
+
+//MARK:- MediaPicker Celegate
+extension MainViewController: MPMediaPickerControllerDelegate {
+    func mediaPicker(_ mediaPicker: MPMediaPickerController, didPickMediaItems mediaItemCollection: MPMediaItemCollection) {
+        
+        
+        mediaPicker.dismiss(animated: true, completion: nil)
+    }
+    
+    func mediaPickerDidCancel(_ mediaPicker: MPMediaPickerController) {
+        mediaPicker.dismiss(animated: true, completion: nil)
+    }
+}
+
+
+/*
+ 
+ extension CenterViewController: MPMediaPickerControllerDelegate {
+ func mediaPicker(_ mediaPicker: MPMediaPickerController, didPickMediaItems mediaItemCollection: MPMediaItemCollection) {
+ /*
+ let mc = mediaItemCollection
+ musicPlayer.setQueue(with: mc)
+ playMusic()
+ 
+ //mediaPicker.dismissViewControllerAnimated(true, completion: nil)
+ 
+ mediaPicker.dismiss(animated: true) {
+ self.runnerSequenceView.restartAnimation(self)
+ }
+ */
+ }
+ 
+ 
+
+ */
+
+
+
+
+
+
 
 
 

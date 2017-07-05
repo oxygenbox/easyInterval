@@ -1,23 +1,11 @@
 
-
-
 /*
  import AudioToolbox
  import AVFoundation
  import MediaPlayer
   import WatchConnectivity
  
- var musicPlayed = false
- var musicPaused = false
- 
- lazy var musicPlayer: MPMusicPlayerController = {
- let player = MPMusicPlayerController.systemMusicPlayer()
- let everyThing = MPMediaQuery()
- let itemsFromGenericQuery = everyThing.items
- player.setQueue(with: everyThing)
- player.shuffleMode = MPMusicShuffleMode.songs
- return player
- }()
+
  
   //MARK:- Life cycle functions
  //---------------
@@ -27,44 +15,6 @@
  setWatchSession()
  }
  
- 
- //---------------
- @IBAction func musicPlayTapped()
- {
- if musicPlayer.playbackState == MPMusicPlaybackState.playing {
- musicPaused = true
- musicPlayed = false
- musicPlayer.pause()
- }else{
- 
- musicPlayed = true
- musicPaused = false
- playMusic()
- }
- setMusicInterface()
- }
- 
- //---------------
- @IBAction func musicFwdTapped()
- {
- musicPlayer.skipToNextItem()
- }
- 
- //---------------
- @IBAction func musicBackTapped()
- {
- musicPlayer.skipToPreviousItem()
- }
- 
- //---------------
- @IBAction func musicMenuTapped()
- {
- let mediaPicker = MPMediaPickerController(mediaTypes: MPMediaType.any)
- mediaPicker.delegate = self
- mediaPicker.allowsPickingMultipleItems = true
- mediaPicker.prompt = "Pick songs to play"
- present(mediaPicker, animated: true, completion: nil)
- }
  
  //MARK My Functions
  //---------------
@@ -134,86 +84,8 @@
  
  
  
- //MARK: Music
- func playMusic() {
- var doPlay = false
- //music is set to ON
- if prefs.audioOn {
- if !self.musicPaused {
- doPlay = true
- }
- } else {
- // music set to  OFF
- if self.musicPlayed {
- doPlay = true
- }
- }
- 
- if self.musicPlayed {
- doPlay = true
- }
- 
- if doPlay {
- musicPlayer.play()
- }
- }
- 
- //------------
- func setMusicInterface()
- {
- 
- if musicPlayer.playbackState == MPMusicPlaybackState.playing {
- musicButton.setImage(UIImage(named: "but_pause"), for: UIControlState())
- }else {
- musicButton.setImage(UIImage(named: "but_play"), for: UIControlState())
- }
- }
- 
- 
- func registerMediaPlayerNotifications()
- {
- /*
- let notificationCenter = NotificationCenter.default
- notificationCenter.addObserver(self, selector: #selector(CenterViewController.handle_NowPlayingItemChanged), name: NSNotification.Name.MPMusicPlayerControllerNowPlayingItemDidChange, object: self.musicPlayer)
- notificationCenter.addObserver(self, selector: #selector(CenterViewController.handle_PlaybackStateChanged), name: NSNotification.Name.MPMusicPlayerControllerPlaybackStateDidChange, object: self.musicPlayer)
- notificationCenter.addObserver(self, selector: #selector(CenterViewController.handle_VolumeChanged), name: NSNotification.Name.MPMusicPlayerControllerVolumeDidChange, object: self.musicPlayer)
- 
- musicPlayer.beginGeneratingPlaybackNotifications()
- */
- }
- 
- 
- func handle_PlaybackStateChanged()
- {
- 
- 
- //---------------
- func handle_NowPlayingItemChanged(){
- 
- }
- setMusicInterface()
- }
- 
- func handle_VolumeChanged() {
- 
- }
- 
- //-------------
- func toggleMusicControlView()
- {
- var setting = musicViewBottomConstraint.constant
- if setting < 5 {
- setting = 5
- }else{
- setting =  -musicControlView.frame.height
- }
- UIView.animate(withDuration: 0.25, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: { () -> Void in
- self.musicViewBottomConstraint.constant = setting
- self.view.layoutIfNeeded()
- }, completion: nil)
- self.setMusicInterface()
- }
- 
+  
+  
  //---------------
  //MARK: Distance
  
@@ -478,30 +350,7 @@
  }
  
  
- //MARK:- MediaPicker Celegate
- extension CenterViewController: MPMediaPickerControllerDelegate {
- func mediaPicker(_ mediaPicker: MPMediaPickerController, didPickMediaItems mediaItemCollection: MPMediaItemCollection) {
- /*
- let mc = mediaItemCollection
- musicPlayer.setQueue(with: mc)
- playMusic()
- 
- //mediaPicker.dismissViewControllerAnimated(true, completion: nil)
- 
- mediaPicker.dismiss(animated: true) {
- self.runnerSequenceView.restartAnimation(self)
- }
- */
- }
- 
- //---------------
- func mediaPickerDidCancel(_ mediaPicker: MPMediaPickerController) {
- // mediaPicker.dismissViewControllerAnimated(true, completion: nil)
- mediaPicker.dismiss(animated: true) {
- self.runnerSequenceView.restartAnimation(self)
- }
- }
- 
+  
  func handleAudioSessionInterruption(_ notification :Notification){
  
  }

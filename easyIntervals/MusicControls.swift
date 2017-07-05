@@ -8,19 +8,30 @@
 
 import Foundation
 import  UIKit
+import  MediaPlayer
 
 
 protocol MusicControlDelegate {
     func hideMusicControls()
+    func openMediaPicker()
 }
 
 class MusicControls: UIView {
     var delegate: MusicControlDelegate?
+    var musicPlayed = false
+    var musicPaused = false
     
-    
+    lazy var musicPlayer: MPMusicPlayerController = {
+        let player = MPMusicPlayerController.systemMusicPlayer()
+        let everyThing = MPMediaQuery()
+        let itemsFromGenericQuery = everyThing.items
+        player.setQueue(with: everyThing)
+        player.shuffleMode = MPMusicShuffleMode.songs
+        return player
+    }()
     
     @IBOutlet var buttons: [RoundButton]!
-    
+    @IBOutlet var playPauseButton: PlainButton!
     
     //MARK:- LIFECYCLE
     override func didMoveToSuperview() {
@@ -33,22 +44,25 @@ class MusicControls: UIView {
     }
     
     @IBAction func nextTapped(_ sender: UIButton) {
-        print("next")
+        musicPlayer.skipToNextItem()
     }
     
     @IBAction func previousTapped(_ sender: UIButton) {
-        print("previou")
+        musicPlayer.skipToPreviousItem()
     }
     
     @IBAction func playPauseTapped(_ sender: UIButton) {
-        print("pause")
+       toggleMusic()
     }
     
     @IBAction func chooseTapped(_ sender: UIButton) {
-        print("choose")
+        if let delegate = delegate {
+            delegate.openMediaPicker()
+        }
     }
     
-        
+    
+    //MARK :- Methods
     func hide() {
         if let del = delegate {
             del.hideMusicControls()
@@ -56,6 +70,53 @@ class MusicControls: UIView {
             isHidden = true
         }
     }
+    
+    func toggleMusic() {
+        if musicPlayer.playbackState == MPMusicPlaybackState.playing {
+            musicPaused = true
+            musicPlayed = false
+            musicPlayer.pause()
+        }else{
+            
+            musicPlayed = true
+            musicPaused = false
+            playMusic()
+        }
+        setMusicInterface()
+    }
+    
+    func  setMusicInterface() {
+        if musicPlayer.playbackState == MPMusicPlaybackState.playing {
+            playPauseButton.setImage(UIImage(named: "but_pause"), for: UIControlState())
+        }else {
+            playPauseButton.setImage(UIImage(named: "but_play"), for: UIControlState())
+        }
+    }
+    
+    //MARK: Music
+    func playMusic() {
+        var doPlay = false
+        //music is set to ON
+        if data.musicOn {
+            if !self.musicPaused {
+                doPlay = true
+            }
+        } else {
+            // music set to  OFF
+            if self.musicPlayed {
+                doPlay = true
+            }
+        }
+        
+        if self.musicPlayed {
+            doPlay = true
+        }
+        
+        if doPlay {
+            musicPlayer.play()
+        }
+    }
+
     
     
 }

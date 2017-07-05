@@ -94,6 +94,7 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="playPauseButton" destination="23x-4A-omN" id="9xH-RE-0M6"/>
                 <outletCollection property="buttons" destination="UJy-lr-nzJ" collectionClass="NSMutableArray" id="axH-hv-y26"/>
                 <outletCollection property="buttons" destination="gsk-H8-qKP" collectionClass="NSMutableArray" id="Nlb-ac-ah5"/>
                 <outletCollection property="buttons" destination="23x-4A-omN" collectionClass="NSMutableArray" id="jQc-6j-5Cf"/>
