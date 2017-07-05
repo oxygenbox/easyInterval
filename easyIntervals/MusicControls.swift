@@ -48,15 +48,7 @@ class MusicControls: UIView {
         print("choose")
     }
     
-    func configure() {
-        for button in buttons {
-            button.select()
-            button.isOn = false
-            button.backgroundColor = UIColor.purple
-            print("YAY")
-        }
-    }
-    
+        
     func hide() {
         if let del = delegate {
             del.hideMusicControls()

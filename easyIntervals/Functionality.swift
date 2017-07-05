@@ -50,18 +50,19 @@ Improve descpription text (Title-desc)
  6. App store
  9. Implement music
  10. Default instructions open
- 11. close instructions when started
- 13. sesson clock x postion
+
+
  14, Restarting sesston after ssession completes completed
  15. restart session when paused
- 17. restart interval when paused
+ 
  18. Reset screen when returning from Prefernce screen
  19. Get music working
  20. Pause kill cadence timer
- 21. Style music buttons
+ 
  
  22. Remove unused graphics
  23 Remove old code
+ 24. Shoud reset talk?
  
  
  

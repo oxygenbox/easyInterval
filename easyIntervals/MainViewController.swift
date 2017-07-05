@@ -91,7 +91,9 @@ class MainViewController: UIViewController {
     
         countDownView.insertSubview(sessionClock, at: 0)
         sessionClock.center.x = countDownView.frame.width/2
+        sessionClock.center.x = view.center.x
         sessionClock.isHidden = !data.workoutOn
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -167,8 +169,6 @@ class MainViewController: UIViewController {
     
     func toggleWorkout() {
         workout.toggleTimer()
-       
-        
         if workout.timer == nil {
             settingsButton.isEnabled = true
             intervalWindow.pause()
@@ -383,7 +383,7 @@ class MainViewController: UIViewController {
            
 
             view.addSubview(iv)
-             iv.isHidden = false
+            iv.isHidden = true
         }
     }
     
