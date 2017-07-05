@@ -193,16 +193,17 @@ class PreferenceViewController: UIViewController {
             case .audio:
                 break
             case .vibrate:
-                break
+                self.descriptionLabel.text = ""
             case .cadence:
                 self.descriptionLabel.text = data.cadenceDescription
             case .music:
-                break
+                self.descriptionLabel.text = ""
             case .workout:
                 self.descriptionLabel.text = data.workoutDescription
             default:
-                break
+                self.descriptionLabel.text = ""
         }
+        descriptionLabel.backgroundColor = UIColor.clear
         descriptionLabel.descFormat(lineHeight: 1)
     }
     

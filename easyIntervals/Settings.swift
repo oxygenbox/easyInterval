@@ -195,12 +195,12 @@ extension UILabel
             style.alignment = .center
             
             let charRange = NSMakeRange(0, text.characters.count)
-            let fontName = UIFont(name: "AvenirNextCondensed-Regular", size: 16)
+            let fontName = UIFont(name: "AvenirNext-Regular", size: 16)
             
             attributeString.addAttribute(NSParagraphStyleAttributeName,
                                          value: style,
                                          range: NSMakeRange(0, text.characters.count))
-            attributeString.addAttribute(NSForegroundColorAttributeName, value: UIColor.Theme.borderOn, range: charRange)
+            attributeString.addAttribute(NSForegroundColorAttributeName, value: UIColor.black, range: charRange)
             
             attributeString.addAttribute(NSFontAttributeName, value: fontName!, range: charRange)
             

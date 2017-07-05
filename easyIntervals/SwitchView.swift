@@ -27,7 +27,7 @@ class SwitchView: UIView {
     override func draw(_ rect: CGRect) {
         layer.cornerRadius = frame.size.height/2
         layer.borderWidth = 1
-        layer.backgroundColor = UIColor.packDark.cgColor
+        //layer.backgroundColor = UIColor.packDark.cgColor
         clipsToBounds = true
         
     }
@@ -59,7 +59,8 @@ class SwitchView: UIView {
     
     //MARK:- METHODS
     func initSwitch() {
-        backgroundColor = UIColor.packLight
+       // backgroundColor = UIColor.packLight
+        backgroundColor = UIColor.white.withAlphaComponent(0.2)
         prefSwitch.onTintColor = UIColor.packDark
         prefSwitch.tintColor = UIColor.packDark
         prefSwitch.thumbTintColor = UIColor.activeButton
