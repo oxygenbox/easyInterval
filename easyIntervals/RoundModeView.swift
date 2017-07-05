@@ -149,15 +149,11 @@ class RoundModeView: UIView {
         }
     }
     
-    
     func statusOn() {
         intervalView.isHidden = false
         intervalView.setUp(frame: bounds)
         intervalView.frame.origin.y = -intervalView.frame.size.height
         intervalView.label.frame = intervalView.bounds
-        
-
-        //intervalView.setText()
         
         UIView.animate(withDuration:self.dropDuration, delay:0, usingSpringWithDamping: 0.3, initialSpringVelocity: 0, options: [.curveLinear], animations: {
             self.intervalView.frame.origin.y = 0
@@ -176,12 +172,6 @@ class RoundModeView: UIView {
         if let cv = Bundle.main.loadNibNamed("RoundCompleteView", owner: self, options: nil)?.first as? RoundCompleteView {
                 cv.frame = self.bounds
                 self.completeView = cv
-               //cv.backgroundColor = UIColor.jake
-               // cv.imageView.tintColor = UIColor.white
-                //cv.label.textColor = UIColor.white
-//
-//            
-//            mc.isHidden = true
                 addSubview(cv)
         }
     }

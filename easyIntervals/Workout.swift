@@ -97,6 +97,11 @@ class Workout: NSObject, AVAudioPlayerDelegate {
             timer.invalidate()
             self.timer = nil
         }
+        
+        if let cadenceTimer = cadenceTimer {
+            cadenceTimer.invalidate()
+            cadenceTimer = nil
+        }
     }
 
     func tickOccured() {
@@ -138,8 +143,8 @@ class Workout: NSObject, AVAudioPlayerDelegate {
                 
             } else {
                 
-               let cadenceTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(playCadence), userInfo: nil, repeats: false)
-                RunLoop.main.add(cadenceTimer, forMode: RunLoopMode.commonModes)
+                cadenceTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(playCadence), userInfo: nil, repeats: false)
+                RunLoop.main.add(cadenceTimer!, forMode: RunLoopMode.commonModes)
                 cadenceTracker = 0
             }
         }

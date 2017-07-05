@@ -20,7 +20,7 @@ Improve descpription text (Title-desc)
  IS IT SIMPLE
  IS IT CLEAN
  IS IT CLEAR
- UX -Conytold obvioud
+ 
  
 
  
@@ -29,13 +29,11 @@ Improve descpription text (Title-desc)
  
  Needs to run in plackground
  Allow background audio sources
- Build workout
+
  
  Heathkit
  Distance
  Apple Watch
- Display Mode
- 
 
  */
 
@@ -50,20 +48,15 @@ Improve descpription text (Title-desc)
  6. App store
  9. Implement music
  10. Default instructions open
-
-
- 14, Restarting sesston after ssession completes completed
- 15. restart session when paused
- 
  18. Reset screen when returning from Prefernce screen
  19. Get music working
- 20. Pause kill cadence timer
- 
+
+ 21 add swipe animation to instrictions
  
  22. Remove unused graphics
- 23 Remove old code
- 24. Shoud reset talk?
- 
+ 23. Remove old code
+ 24. Should reset talk?
+ 24 try clockhead clogo
  
  
  

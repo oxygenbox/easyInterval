@@ -503,6 +503,7 @@ extension MainViewController: WorkoutDelegate {
         
         rightWindow.completeView.show(animated: true)
         leftWindow.completeView.show(animated: true)
+        reset(type: .session)
     }
     
 }
