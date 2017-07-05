@@ -131,10 +131,10 @@
                                 <rect key="frame" x="20" y="448" width="280" height="60"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pbf-vl-68X" customClass="SwitchView" customModule="easyIntervals" customModuleProvider="target">
-                                        <rect key="frame" x="110.5" y="10.5" width="59" height="39"/>
+                                        <rect key="frame" x="109.5" y="9.5" width="61" height="41"/>
                                         <subviews>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T0D-ir-qS8">
-                                                <rect key="frame" x="5" y="4" width="51" height="31"/>
+                                                <rect key="frame" x="5" y="5" width="53" height="31"/>
                                                 <connections>
                                                     <action selector="switchChanged:" destination="pbf-vl-68X" eventType="valueChanged" id="57y-Ni-fNh"/>
                                                 </connections>
@@ -142,12 +142,12 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="T0D-ir-qS8" firstAttribute="leading" secondItem="pbf-vl-68X" secondAttribute="leading" constant="5" id="8lF-45-Cbk"/>
-                                            <constraint firstAttribute="bottom" secondItem="T0D-ir-qS8" secondAttribute="bottom" constant="4" id="T9E-2v-x5b"/>
-                                            <constraint firstItem="T0D-ir-qS8" firstAttribute="top" secondItem="pbf-vl-68X" secondAttribute="top" constant="4" id="YHg-Pe-Ckk"/>
+                                            <constraint firstAttribute="bottom" secondItem="T0D-ir-qS8" secondAttribute="bottom" constant="5" id="T9E-2v-x5b"/>
+                                            <constraint firstItem="T0D-ir-qS8" firstAttribute="top" secondItem="pbf-vl-68X" secondAttribute="top" constant="5" id="YHg-Pe-Ckk"/>
+                                            <constraint firstAttribute="height" constant="41" id="lG6-Cy-A6U"/>
                                             <constraint firstAttribute="trailing" secondItem="T0D-ir-qS8" secondAttribute="trailing" constant="5" id="lbE-5R-bij"/>
+                                            <constraint firstAttribute="width" constant="61" id="mAW-Ty-bEG"/>
                                             <constraint firstItem="T0D-ir-qS8" firstAttribute="leading" secondItem="pbf-vl-68X" secondAttribute="leading" constant="5" id="rQz-s2-dOJ"/>
-                                            <constraint firstItem="T0D-ir-qS8" firstAttribute="leading" secondItem="pbf-vl-68X" secondAttribute="leading" constant="5" id="zcD-WI-aNv"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="prefSwitch" destination="T0D-ir-qS8" id="JV6-5h-baZ"/>

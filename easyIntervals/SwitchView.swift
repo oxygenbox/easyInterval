@@ -63,6 +63,7 @@ class SwitchView: UIView {
         prefSwitch.onTintColor = UIColor.packDark
         prefSwitch.tintColor = UIColor.packDark
         prefSwitch.thumbTintColor = UIColor.activeButton
+       
         
         
         

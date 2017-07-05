@@ -40,7 +40,7 @@ Improve descpription text (Title-desc)
  2. Do we need an info button?
  3. Prefernce fix text lsyout
  4. Prefernce stylize switch
- 5. Image on picker
+
  6. App store
  9. Implement music
  10. Default instructions open
@@ -53,6 +53,7 @@ Improve descpription text (Title-desc)
  23. Remove old code
  24. Should reset talk?
  24 try clockhead logo
+ 25, Launch PAge
  
  
  
