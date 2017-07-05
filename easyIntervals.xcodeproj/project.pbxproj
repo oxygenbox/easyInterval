@@ -26,9 +26,10 @@
 		9E490B6E1EF8243B008BD59A /* CountDownDot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E490B6D1EF8243B008BD59A /* CountDownDot.swift */; };
 		9E520DDC1E6756BB00142F85 /* SettingModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E520DDB1E6756BB00142F85 /* SettingModeView.swift */; };
 		9E520DDE1E685DF400142F85 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E520DDD1E685DF400142F85 /* RoundButton.swift */; };
+		9E7095311F0C31C900560AEF /* RoundCompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7095301F0C31C900560AEF /* RoundCompleteView.swift */; };
 		9E7F19551EE70F83004350D2 /* IntructionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7F19541EE70F83004350D2 /* IntructionView.swift */; };
 		9E7F19571EE70FA6004350D2 /* InstructionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E7F19561EE70FA6004350D2 /* InstructionView.xib */; };
-		9E8FCDE51EE0A0E8003D2175 /* SettingWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E8FCDE41EE0A0E8003D2175 /* SettingWindow.xib */; };
+		9E8FCDE51EE0A0E8003D2175 /* RoundCompleteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E8FCDE41EE0A0E8003D2175 /* RoundCompleteView.xib */; };
 		9E8FCDE71EE0A1EF003D2175 /* SettingWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8FCDE61EE0A1EF003D2175 /* SettingWindow.swift */; };
 		9E957F261ECA504200CBFC1F /* TimerWindowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E957F251ECA504200CBFC1F /* TimerWindowView.swift */; };
 		9E97E5581EF5CAB70094853D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E97E5571EF5CAB70094853D /* MainViewController.swift */; };
@@ -95,9 +96,10 @@
 		9E490B6D1EF8243B008BD59A /* CountDownDot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountDownDot.swift; sourceTree = "<group>"; };
 		9E520DDB1E6756BB00142F85 /* SettingModeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingModeView.swift; sourceTree = "<group>"; };
 		9E520DDD1E685DF400142F85 /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
+		9E7095301F0C31C900560AEF /* RoundCompleteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundCompleteView.swift; sourceTree = "<group>"; };
 		9E7F19541EE70F83004350D2 /* IntructionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntructionView.swift; sourceTree = "<group>"; };
 		9E7F19561EE70FA6004350D2 /* InstructionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InstructionView.xib; sourceTree = "<group>"; };
-		9E8FCDE41EE0A0E8003D2175 /* SettingWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingWindow.xib; sourceTree = "<group>"; };
+		9E8FCDE41EE0A0E8003D2175 /* RoundCompleteView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RoundCompleteView.xib; sourceTree = "<group>"; };
 		9E8FCDE61EE0A1EF003D2175 /* SettingWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingWindow.swift; sourceTree = "<group>"; };
 		9E957F251ECA504200CBFC1F /* TimerWindowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerWindowView.swift; sourceTree = "<group>"; };
 		9E97E5571EF5CAB70094853D /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -130,7 +132,7 @@
 		9E119FD81ED87BAB009B4D67 /* xib */ = {
 			isa = PBXGroup;
 			children = (
-				9E8FCDE41EE0A0E8003D2175 /* SettingWindow.xib */,
+				9E8FCDE41EE0A0E8003D2175 /* RoundCompleteView.xib */,
 				9E7F19561EE70FA6004350D2 /* InstructionView.xib */,
 				9EB1C7471EE9753500B9BDD1 /* MusicControls.xib */,
 			);
@@ -218,6 +220,7 @@
 				9E490B6D1EF8243B008BD59A /* CountDownDot.swift */,
 				9E0CA72B1F015B4B006F6F9A /* PlainButton.swift */,
 				9E0CA72D1F02CFAB006F6F9A /* SessionClockView.swift */,
+				9E7095301F0C31C900560AEF /* RoundCompleteView.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -325,7 +328,7 @@
 				9ED0CF661E2671520036233A /* complete.caf in Resources */,
 				9ED0CF621E2671520036233A /* 4.caf in Resources */,
 				9ED0CF6B1E2671520036233A /* walk.caf in Resources */,
-				9E8FCDE51EE0A0E8003D2175 /* SettingWindow.xib in Resources */,
+				9E8FCDE51EE0A0E8003D2175 /* RoundCompleteView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,6 +347,7 @@
 				9E520DDC1E6756BB00142F85 /* SettingModeView.swift in Sources */,
 				9E2E77E81E23DA0C0082ED83 /* Settings.swift in Sources */,
 				9EAA94E01ECB6B0300D77A2C /* Pulsing.swift in Sources */,
+				9E7095311F0C31C900560AEF /* RoundCompleteView.swift in Sources */,
 				9ED0CF6F1E26B53E0036233A /* Tool.swift in Sources */,
 				9E2E77E61E23D9FE0082ED83 /* Data.swift in Sources */,
 				9E1703FB1E56240E007B2D05 /* TimerViewController.swift in Sources */,

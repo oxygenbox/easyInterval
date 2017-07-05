@@ -387,6 +387,7 @@ class MainViewController: UIViewController {
         }
     }
     
+    
    //MARK:- MUSIC METHODS
     func loadMusicControls() {
         if let mc = Bundle.main.loadNibNamed("MusicControls", owner: self, options: nil)?.first as? MusicControls {

@@ -48,6 +48,8 @@ class RoundModeView: UIView {
         }
     }
     
+    var completeView: RoundCompleteView!
+    
     override func draw(_ rect: CGRect) {
         layer.cornerRadius = frame.size.height/2
         clipsToBounds = true
@@ -70,6 +72,7 @@ class RoundModeView: UIView {
         addSubview(intervalClock)
         addSubview(imageView)
         addSubview(intervalView)
+        loadCompleteView()
         
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.centerXAnchor.constraint(equalTo: imageView.superview!.centerXAnchor).isActive = true
@@ -89,12 +92,14 @@ class RoundModeView: UIView {
             self.backgroundColor = UIColor.run
             self.imageView.image = UIImage(named: "run_solid")
             self.intervalView.mode = .walk
+            self.completeView.setUp(isImage: false)
            
             
         case .walk:
             self.backgroundColor = UIColor.walk
             self.imageView.image = UIImage(named: "walk_solid")
             self.intervalView.mode = .run
+            self.completeView.setUp(isImage: true)
         default:
             break
         }
@@ -166,5 +171,20 @@ class RoundModeView: UIView {
         
         animator.startAnimation()
     }
+    
+    func loadCompleteView() {
+        if let cv = Bundle.main.loadNibNamed("RoundCompleteView", owner: self, options: nil)?.first as? RoundCompleteView {
+                cv.frame = self.bounds
+                self.completeView = cv
+               //cv.backgroundColor = UIColor.jake
+               // cv.imageView.tintColor = UIColor.white
+                //cv.label.textColor = UIColor.white
+//
+//            
+//            mc.isHidden = true
+                addSubview(cv)
+        }
+    }
+
 }
 

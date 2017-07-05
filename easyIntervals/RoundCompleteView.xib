@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G23a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="RoundCompleteView" customModule="easyIntervals" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="256" height="256"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="finishFlag" translatesAutoresizingMaskIntoConstraints="NO" id="LCV-JO-on8">
+                    <rect key="frame" x="16" y="0.0" width="232" height="240"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="complete" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="noR-PV-0fh">
+                    <rect key="frame" x="0.0" y="0.0" width="256" height="256"/>
+                    <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="48"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="LCV-JO-on8" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="CPl-Oy-Ir9"/>
+                <constraint firstAttribute="bottom" secondItem="noR-PV-0fh" secondAttribute="bottom" id="ClP-G5-mDt"/>
+                <constraint firstAttribute="trailing" secondItem="noR-PV-0fh" secondAttribute="trailing" id="acu-Z5-8C6"/>
+                <constraint firstAttribute="trailing" secondItem="LCV-JO-on8" secondAttribute="trailing" constant="8" id="bGL-Km-x87"/>
+                <constraint firstAttribute="bottom" secondItem="LCV-JO-on8" secondAttribute="bottom" constant="16" id="cKg-jE-rLc"/>
+                <constraint firstItem="noR-PV-0fh" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="l6K-o5-2KO"/>
+                <constraint firstItem="noR-PV-0fh" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="qOj-aB-Oes"/>
+                <constraint firstItem="LCV-JO-on8" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="rpL-y9-pe3"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="imageView" destination="LCV-JO-on8" id="BrW-eg-xJC"/>
+                <outlet property="label" destination="noR-PV-0fh" id="X6c-74-QVY"/>
+            </connections>
+            <point key="canvasLocation" x="-5" y="-129"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="finishFlag" width="130" height="130"/>
+    </resources>
+</document>
