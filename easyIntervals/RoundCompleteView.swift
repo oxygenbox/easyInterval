@@ -42,6 +42,39 @@ class RoundCompleteView: UIView {
         } else {
             imageView.isHidden  = true 
         }
+        
+        hide(animated: false)
+    }
+    
+    func show(animated: Bool) {
+        
+        if !animated {
+            isHidden = false
+        }else{
+            transform = CGAffineTransform.init(scaleX: 0, y: 0)
+            isHidden = false
+            let animator = UIViewPropertyAnimator(duration: 0.25, curve: .easeInOut, animations: {
+                self.transform = CGAffineTransform.identity
+            })
+            animator.startAnimation()
+        }
+    }
+    
+    func hide(animated: Bool) {
+        if !animated {
+            isHidden = true
+        }else{
+            let animator = UIViewPropertyAnimator(duration: 0.25, curve: .linear, animations: {
+                self.alpha = 0
+            })
+            
+            animator.addCompletion({ (position) in
+                self.isHidden = true
+                self.alpha = 1
+            })
+            
+            animator.startAnimation()
+        }
     }
 
 }

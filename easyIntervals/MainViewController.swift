@@ -433,6 +433,7 @@ class MainViewController: UIViewController {
     
     func twoFingerTapDetected(_ sender: UIGestureRecognizer){
         hideInstructions()
+        hideCompletion()
         toggleWorkout()
     }
     
@@ -481,9 +482,10 @@ extension MainViewController: WorkoutDelegate {
         setScreenMode()
     }
     
-    func closeInfo() {
-        if !instructionView.isHidden {
-            self.instructionView.toggle()
+    func hideCompletion() {
+        if !rightWindow.completeView.isHidden {
+            rightWindow.completeView.hide(animated: true)
+            leftWindow.completeView.hide(animated: true)
         }
     }
     
@@ -494,13 +496,13 @@ extension MainViewController: WorkoutDelegate {
     }
     
     func sessionComplete() {
-        print("MAinView sessionComplete")
-        elapsedTime.text = "complete"
-        screenCompleteMode()
+       // screenCompleteMode()
         /*
          //session.remainingSeconds = session.totalSeconds
          //session.elapsedSeconds = 0
          */
+        rightWindow.completeView.show(animated: true)
+        leftWindow.completeView.show(animated: true)
     }
     
 }
