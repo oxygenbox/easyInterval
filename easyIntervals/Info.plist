@@ -36,5 +36,9 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	<key>kTCCServiceMediaLibrary</key>
+	<string>Access to your music library will allow playback while running</string>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>Allow access to your music library.</string>
 </dict>
 </plist>

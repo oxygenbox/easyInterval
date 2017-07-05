@@ -469,11 +469,35 @@ extension MainViewController: MusicControlDelegate {
     }
     
     func openMediaPicker() {
-        let mediaPicker = MPMediaPickerController(mediaTypes: .any)
-        mediaPicker.delegate = self
-        mediaPicker.allowsPickingMultipleItems = true
-        mediaPicker.prompt = "Pick songs to play"
-        present(mediaPicker, animated: true, completion: nil)
+        
+        MPMediaLibrary.requestAuthorization { (status) in
+            if status == .authorized {
+                let mediaPicker = MPMediaPickerController(mediaTypes: .any)
+                mediaPicker.delegate = self
+                mediaPicker.allowsPickingMultipleItems = true
+                mediaPicker.prompt = "Pick songs to play"
+                self.present(mediaPicker, animated: true, completion: nil)
+            } else {
+                displayMediaLibraryError()
+            }
+        }
+        
+        func displayMediaLibraryError() {
+            var error: String
+            switch MPMediaLibrary.authorizationStatus() {
+            case .restricted:
+                error = "Media library access restricted by corporate or parental settings"
+            case .denied:
+                error = "Media library access denied, this can be changes in system settings"
+            default:
+                error = "Unknown error"
+            }
+            
+            let controller = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
+            controller.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(controller, animated: true, completion: nil)
+        }
+       
     }
 }
 

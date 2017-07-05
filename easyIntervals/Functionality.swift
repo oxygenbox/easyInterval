@@ -47,12 +47,12 @@ Improve descpription text (Title-desc)
  18. Reset screen when returning from Prefernce screen
  19. Get music working
 
- 21 add swipe animation to instrictions
+ 21 add swipe animation to instructions
  
  22. Remove unused graphics
  23. Remove old code
  24. Should reset talk?
- 24 try clockhead clogo
+ 24 try clockhead logo
  
  
  
