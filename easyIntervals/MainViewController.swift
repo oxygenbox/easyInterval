@@ -149,6 +149,7 @@ class MainViewController: UIViewController {
         runWindow.mode = .run
         walkWindow.mode = .walk
         loadInstructions()
+        //requestPermissions()
         
     }
     
@@ -543,6 +544,17 @@ extension MainViewController: WorkoutDelegate {
         leftWindow.completeView.show(animated: true)
        
     }
+    
+    func requestPermissions() {
+        MPMediaLibrary.requestAuthorization { (status) in
+            if status == .authorized {
+                //  self.runMediaLibraryQuery()
+            } else {
+                // self.displayMediaLibraryError()
+            }
+        }
+    }
+
     
 }
 

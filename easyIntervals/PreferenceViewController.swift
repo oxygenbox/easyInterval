@@ -314,11 +314,18 @@ extension PreferenceViewController: UIPickerViewDataSource {
         let pView = UIView(frame: CGRect(x: 0, y: 0, width: dim, height: dim))
         pView.layer.cornerRadius = dim/2
         
-        let margin: CGFloat = 30
+        let margin: CGFloat = 15
         let imageView = UIImageView(frame: CGRect(x: margin, y: margin, width: dim-margin*2, height: dim-margin*2))
+    
+        imageView.frame = CGRect(x: 0, y: margin, width: dim*0.45, height: dim*0.45)
+        imageView.center.x = pView.center.x
+        imageView.tintColor = UIColor.white
+        
         pView.addSubview(imageView)
         
         let label = UILabel(frame: pView.frame)
+        label.frame = CGRect(x: 0, y: dim*0.60, width: dim, height: dim*0.25)
+        
         label.attributedText = Tool.formatPickerTime(time: Data.timeArray[row])
         label.textAlignment = .center
         pView.addSubview(label)
@@ -327,13 +334,13 @@ extension PreferenceViewController: UIPickerViewDataSource {
         
         if component == runComponent {
             pView.backgroundColor = UIColor.run
-          //  imageView.image = UIImage(named: "run_solid")
-             imageView.tintColor = UIColor.run
+            imageView.image = UIImage(named: "run_solid")
+           
             
         } else {
             pView.backgroundColor = UIColor.walk
-           // imageView.image = UIImage(named: "walk_solid")
-            imageView.tintColor = UIColor.walk
+            imageView.image = UIImage(named: "walk_solid")
+            
         }
         
         pView.layer.borderWidth = 2
