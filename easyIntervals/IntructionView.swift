@@ -132,11 +132,16 @@ class InstructionView: UIView {
     }
     
     func startCycle() {
-        
+        if cycleTimer == nil {
+            
+        }
     }
     
     func stopCycle() {
-        
+        if let cycle = cycleTimer {
+            cycle.invalidate()
+            self.cycleTimer = nil
+        }
     }
 }
 

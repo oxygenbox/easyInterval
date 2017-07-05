@@ -13,12 +13,10 @@
 		9E10CC5D1EF309830017D7B8 /* PreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E10CC5C1EF309830017D7B8 /* PreferenceViewController.swift */; };
 		9E10CC5F1EF30CA60017D7B8 /* PreferenceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E10CC5E1EF30CA60017D7B8 /* PreferenceButton.swift */; };
 		9E10CC611EF3112D0017D7B8 /* SwitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E10CC601EF3112D0017D7B8 /* SwitchView.swift */; };
-		9E1703FB1E56240E007B2D05 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1703FA1E56240E007B2D05 /* TimerViewController.swift */; };
 		9E2E77CD1E23D92F0082ED83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2E77CC1E23D92F0082ED83 /* AppDelegate.swift */; };
 		9E2E77D21E23D92F0082ED83 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E2E77D01E23D92F0082ED83 /* Main.storyboard */; };
 		9E2E77D41E23D92F0082ED83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E2E77D31E23D92F0082ED83 /* Assets.xcassets */; };
 		9E2E77D71E23D92F0082ED83 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E2E77D51E23D92F0082ED83 /* LaunchScreen.storyboard */; };
-		9E2E77E31E23D9BD0082ED83 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2E77E21E23D9BD0082ED83 /* SettingsViewController.swift */; };
 		9E2E77E61E23D9FE0082ED83 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2E77E51E23D9FE0082ED83 /* Data.swift */; };
 		9E2E77E81E23DA0C0082ED83 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2E77E71E23DA0C0082ED83 /* Settings.swift */; };
 		9E2E77EA1E2557670082ED83 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2E77E91E2557670082ED83 /* Session.swift */; };
@@ -68,14 +66,12 @@
 		9E10CC5C1EF309830017D7B8 /* PreferenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceViewController.swift; sourceTree = "<group>"; };
 		9E10CC5E1EF30CA60017D7B8 /* PreferenceButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceButton.swift; sourceTree = "<group>"; };
 		9E10CC601EF3112D0017D7B8 /* SwitchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchView.swift; sourceTree = "<group>"; };
-		9E1703FA1E56240E007B2D05 /* TimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		9E2E77C91E23D92F0082ED83 /* easyIntervals.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = easyIntervals.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E2E77CC1E23D92F0082ED83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9E2E77D11E23D92F0082ED83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9E2E77D31E23D92F0082ED83 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9E2E77D61E23D92F0082ED83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9E2E77D81E23D92F0082ED83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9E2E77E21E23D9BD0082ED83 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		9E2E77E51E23D9FE0082ED83 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		9E2E77E71E23DA0C0082ED83 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		9E2E77E91E2557670082ED83 /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
@@ -186,8 +182,6 @@
 		9E2E77DF1E23D9850082ED83 /* temp */ = {
 			isa = PBXGroup;
 			children = (
-				9E1703FA1E56240E007B2D05 /* TimerViewController.swift */,
-				9E2E77E21E23D9BD0082ED83 /* SettingsViewController.swift */,
 			);
 			name = temp;
 			sourceTree = "<group>";
@@ -350,7 +344,6 @@
 				9E7095311F0C31C900560AEF /* RoundCompleteView.swift in Sources */,
 				9ED0CF6F1E26B53E0036233A /* Tool.swift in Sources */,
 				9E2E77E61E23D9FE0082ED83 /* Data.swift in Sources */,
-				9E1703FB1E56240E007B2D05 /* TimerViewController.swift in Sources */,
 				9EAEA5941ED3446B005E3F63 /* ButtonView.swift in Sources */,
 				9E10CC5D1EF309830017D7B8 /* PreferenceViewController.swift in Sources */,
 				9E10CC5F1EF30CA60017D7B8 /* PreferenceButton.swift in Sources */,
@@ -371,7 +364,6 @@
 				9E0CA72E1F02CFAB006F6F9A /* SessionClockView.swift in Sources */,
 				9EB3FD661ED64B9000B9319F /* ScaleSegue.swift in Sources */,
 				9E97E55A1EF5D02D0094853D /* RoundModeView.swift in Sources */,
-				9E2E77E31E23D9BD0082ED83 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

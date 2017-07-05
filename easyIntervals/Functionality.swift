@@ -21,12 +21,8 @@ Improve descpription text (Title-desc)
  IS IT CLEAN
  IS IT CLEAR
  
- 
 
- 
- Play cadence
  Play music
- 
  Needs to run in plackground
  Allow background audio sources
 

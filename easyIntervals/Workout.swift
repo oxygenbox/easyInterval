@@ -78,8 +78,7 @@ class Workout: NSObject, AVAudioPlayerDelegate {
     }
     
     func startSession() {
-        //******change this back
-        let secs = data.totalSessionSeconds / 6
+        let secs = data.totalSessionSeconds
         woSession = Session(totalSecs: secs)
     }
     
@@ -100,7 +99,7 @@ class Workout: NSObject, AVAudioPlayerDelegate {
         
         if let cadenceTimer = cadenceTimer {
             cadenceTimer.invalidate()
-            cadenceTimer = nil
+            self.cadenceTimer = nil
         }
     }
 
@@ -210,15 +209,11 @@ class Workout: NSObject, AVAudioPlayerDelegate {
     func sessionComplete() {
         pauseTimer()
         speak(word: "complete")
-    
-        
         guard  let d = delegate else {
             return
         }
         d.sessionComplete()
     }
-    
-    
     
     func restart(mode: Mode) {
         if mode == currentMode {
