@@ -256,11 +256,11 @@ class PreferenceViewController: UIViewController {
   
     func initSegmentedControls() {
         intervalOrderControl.tintColor = UIColor.activeButton
-        intervalOrderControl.backgroundColor = UIColor.white.withAlphaComponent(0.25)
+        intervalOrderControl.backgroundColor = UIColor.white.withAlphaComponent(0.5)
         sessionControl.tintColor = UIColor.activeButton
         cadenceControl.tintColor = UIColor.activeButton
-        sessionControl.backgroundColor = UIColor.white.withAlphaComponent(0.2)
-        cadenceControl.backgroundColor = UIColor.white.withAlphaComponent(0.2)
+        sessionControl.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+        cadenceControl.backgroundColor = UIColor.white.withAlphaComponent(0.5)
         
         sessionControl.isHidden = activePreference != .workout
         cadenceControl.isHidden = activePreference != .cadence
