@@ -36,29 +36,22 @@ Improve descpription text (Title-desc)
 
 /*
 //June 29th
- 1. Prefernce screen switch and info button
- 2. Do we need an info button?
- 3. Prefernce fix text lsyout
- 4. Prefernce stylize switch
+ 
+ 1. Preference fix text layout
+ 2. Preference stylize switch
+ 3. App store
+ 4. Get music working
+ 5. Music should toggle on and off with playback
+`6. Reset screen when returning from Prefernce screen
+ 7. take away swipe code
+ 8. Remove unused graphics
+ 9. Remove old code
+ 10. Should reset talk?
+ 11. try clockhead logo
+ 12. Launch Page
+ 13. audio cutting off music
 
- 6. App store
- 9. Implement music
- 10. Default instructions open
- 18. Reset screen when returning from Prefernce screen
- 19. Get music working
-
- 21 add swipe animation to instructions
  
- 22. Remove unused graphics
- 23. Remove old code
- 24. Should reset talk?
- 24 try clockhead logo
- 25, Launch Page
- 26. audio cutting off music
- //27. configure should be vsllred once
- 
- 
- Music & cadence should not be buttons when not on (sctovk)
  */
 
 
