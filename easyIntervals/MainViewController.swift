@@ -255,6 +255,7 @@ class MainViewController: UIViewController {
             runWindow.statusOff()
             walkWindow.statusOn()
             if workout.timer != nil {
+                workout.speak(word: "run")
                 walkWindow.beginIntervalClock(intervalSeconds: intervalSecs)
             } else {
                 walkWindow.intervalView.clock.reset()
@@ -264,6 +265,7 @@ class MainViewController: UIViewController {
             walkWindow.statusOff()
             runWindow.statusOn()
             if workout.timer != nil {
+               workout.speak(word: "walk")
                 runWindow.beginIntervalClock(intervalSeconds: intervalSecs)
             } else {
                 runWindow.intervalView.clock.reset()
@@ -405,36 +407,6 @@ class MainViewController: UIViewController {
         
         postTimes()
     }
-    
-    func loadInstructions() {
-        
-//        print("loadInstructions")
-//        
-//        if let iv = Bundle.main.loadNibNamed("InstructionView", owner: self, options: nil)?.first as? InstructionView {
-//            
-//            
-//            self.instructionView = iv
-//            
-//            let dim: CGFloat = 256 //self.view.frame.size.width*0.8
-//            iv.frame = CGRect(x: 0, y: 0, width: dim, height: dim)
-//            //iv.frame = rightWindow.frame
-//           
-//            let x = self.view.frame.size.width/2
-//            let y = topView.frame.origin.y + topView.frame.size.height
-//            iv.center.x = x
-//            iv.frame.origin.y = y
-//           
-//
-//            view.addSubview(iv)
-        
-            let y = self.topView.frame.origin.y + self.topView.frame.size.height
-            instructionView.frame.origin.y = y
-            
-            
-           // iv.isHidden = true
-      //  }
-    }
-    
     
    //MARK:- MUSIC METHODS
     func loadMusicControls() {

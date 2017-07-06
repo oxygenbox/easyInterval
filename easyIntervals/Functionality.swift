@@ -46,9 +46,6 @@ Improve descpription text (Title-desc)
  7. take away swipe code
  8. Remove unused graphics
  9. Remove old code
- 10. Should reset talk?
- 11. try clockhead logo
- 12. Launch Page
  13. audio cutting off music
 
  
