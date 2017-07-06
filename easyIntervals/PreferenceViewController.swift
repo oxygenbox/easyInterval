@@ -65,6 +65,8 @@ class PreferenceViewController: UIViewController {
     @IBOutlet weak var sessionControl: UISegmentedControl!
     @IBOutlet weak var descriptionLabel: UILabel!
     
+    @IBOutlet weak var buttonHighlight:UIView!
+    
     @IBOutlet var buttonCollection: [PreferenceButton]!
     
     @IBOutlet weak var topView: UIView!
@@ -99,6 +101,15 @@ class PreferenceViewController: UIViewController {
         super.viewDidLoad()
         configure()
         switchView.alpha = 0
+        buttonHighlight.alpha = 0
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = buttonHighlight.bounds
+        gradientLayer.colors = [UIColor.white.cgColor, UIColor.packLight.cgColor]
+        buttonHighlight.layer.addSublayer(gradientLayer)
+    
+        
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -275,7 +286,9 @@ class PreferenceViewController: UIViewController {
         switchView.preference = activePreference
         let pa = UIViewPropertyAnimator(duration: 0.25, curve: .easeOut) {
             self.switchView.center.x = destination
+            self.buttonHighlight.center.x = destination
             self.switchView.alpha = 1
+            self.buttonHighlight.alpha = 1
         }
         
         pa.startAnimation()

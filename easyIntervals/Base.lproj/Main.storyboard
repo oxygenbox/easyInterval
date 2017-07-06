@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G23a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Yuq-lR-ZVo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G24b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Yuq-lR-ZVo">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -136,6 +136,11 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tbg-4s-rcB" userLabel="View-switch">
                                 <rect key="frame" x="20" y="448" width="280" height="60"/>
                                 <subviews>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lMW-0V-d4k">
+                                        <rect key="frame" x="110" y="30" width="60" height="90"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pbf-vl-68X" customClass="SwitchView" customModule="easyIntervals" customModuleProvider="target">
                                         <rect key="frame" x="109.5" y="9.5" width="61" height="41"/>
                                         <subviews>
@@ -275,6 +280,7 @@
                     </view>
                     <connections>
                         <outlet property="audioButton" destination="Tl4-GW-6Ic" id="Ch2-UB-3fg"/>
+                        <outlet property="buttonHighlight" destination="lMW-0V-d4k" id="sgT-nt-6kD"/>
                         <outlet property="cadenceButton" destination="hWj-Nb-jJU" id="oL5-ts-wib"/>
                         <outlet property="cadenceControl" destination="3Jd-dG-8IR" id="e62-Jd-SNO"/>
                         <outlet property="descriptionLabel" destination="f4o-uE-U9h" id="35k-av-ng6"/>
