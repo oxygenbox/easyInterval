@@ -58,10 +58,10 @@ class InstructionView: UIView {
         
         
         backgroundColor = UIColor.walk
-        handBaseConstraint.constant = handsOff
+       // handBaseConstraint.constant = handsOff
         twoFingerImage.tintColor = UIColor.white
         descLabel.textColor = UIColor.white
-        isHidden = true
+       // isHidden = true
     }
     
     func initTwoFingerPulse() {
@@ -101,7 +101,7 @@ class InstructionView: UIView {
             alpha = 0
             isHidden = false
             center.y -= 50
-            UIView.animate(withDuration: 0.5, animations: {
+            UIView.animate(withDuration: 0.35, animations: {
                 self.alpha = 1
                 self.center.y += 50
             }, completion: { (success) in
@@ -109,8 +109,10 @@ class InstructionView: UIView {
                 self.startCycle()
             })
         } else {
+            data.firstVisit = false
+            data.save()
             stopPulse()
-            UIView.animate(withDuration: 0.5, animations: {
+            UIView.animate(withDuration: 0.35, animations: {
                 self.alpha = 0
             }, completion: { (success) in
                 self.isHidden = true
@@ -121,7 +123,7 @@ class InstructionView: UIView {
     }
     
     func animateTwoFingerOn() {
-        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.5, options: [.curveEaseOut], animations: {
+        UIView.animate(withDuration: 0.35, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.5, options: [.curveEaseOut], animations: {
             self.handBaseConstraint.constant = self.handsOn
             self.layoutIfNeeded()
         }) { (success) in
@@ -129,6 +131,27 @@ class InstructionView: UIView {
             self.stopCycle()
         }
         
+    }
+    
+    func show() {
+        alpha = 0
+        isHidden = false
+        center.y -= 50
+        UIView.animate(withDuration: 0.5, animations: {
+            self.alpha = 1
+            self.center.y += 50
+        }, completion: { (success) in
+            self.animateTwoFingerOn()
+            self.startCycle()
+        })
+
+//        print("show")
+//        alpha = 1
+//        isHidden = false
+//        self.handBaseConstraint.constant = self.handsOn
+//        self.layoutIfNeeded()
+//        self.initTwoFingerPulse()
+//        animateTwoFingerOn()
     }
     
     func startCycle() {

@@ -45,7 +45,28 @@ class MainViewController: UIViewController {
     //MARK- VARIABLES
     var workout: Workout!
     var musicControls: MusicControls!
-    var instructionView: InstructionView!
+    
+    
+    lazy var instructionView: InstructionView = {
+        let iv = Bundle.main.loadNibNamed("InstructionView", owner: self, options: nil)?.first as! InstructionView
+        let dim: CGFloat = 256 //self.view.frame.size.width*0.8
+        iv.frame = CGRect(x: 0, y: 0, width: dim, height: dim)
+        
+        let x = self.view.frame.size.width/2
+        let y = self.topView.frame.origin.y + self.topView.frame.size.height
+        iv.center.x = x
+        iv.frame.origin.y = y
+        self.view.addSubview(iv)
+        iv.isHidden = true
+        return iv
+    }()
+    
+    
+
+    
+    
+    
+    
     
     var runWindow: RoundModeView {
         if data.isRunWalk {
@@ -89,7 +110,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadMusicControls()
-        configure()
+        //configure()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -148,9 +169,18 @@ class MainViewController: UIViewController {
         
         runWindow.mode = .run
         walkWindow.mode = .walk
-        loadInstructions()
-        //requestPermissions()
+       
+        defaultInstructions()
         
+    }
+    
+    func defaultInstructions() {
+        
+        if data.firstVisit {
+            instructionView.show()
+        }else {
+            print("NOT FIRST VISIT")
+        }
     }
     
     func configureButtons() {
@@ -377,24 +407,32 @@ class MainViewController: UIViewController {
     }
     
     func loadInstructions() {
-        if let iv = Bundle.main.loadNibNamed("InstructionView", owner: self, options: nil)?.first as? InstructionView {
+        
+//        print("loadInstructions")
+//        
+//        if let iv = Bundle.main.loadNibNamed("InstructionView", owner: self, options: nil)?.first as? InstructionView {
+//            
+//            
+//            self.instructionView = iv
+//            
+//            let dim: CGFloat = 256 //self.view.frame.size.width*0.8
+//            iv.frame = CGRect(x: 0, y: 0, width: dim, height: dim)
+//            //iv.frame = rightWindow.frame
+//           
+//            let x = self.view.frame.size.width/2
+//            let y = topView.frame.origin.y + topView.frame.size.height
+//            iv.center.x = x
+//            iv.frame.origin.y = y
+//           
+//
+//            view.addSubview(iv)
+        
+            let y = self.topView.frame.origin.y + self.topView.frame.size.height
+            instructionView.frame.origin.y = y
             
             
-            self.instructionView = iv
-            
-            let dim: CGFloat = 256 //self.view.frame.size.width*0.8
-            iv.frame = CGRect(x: 0, y: 0, width: dim, height: dim)
-            //iv.frame = rightWindow.frame
-           
-            let x = self.view.frame.size.width/2
-            let y = topView.frame.origin.y + topView.frame.size.height
-            iv.center.x = x
-            iv.frame.origin.y = y
-           
-
-            view.addSubview(iv)
-            iv.isHidden = true
-        }
+           // iv.isHidden = true
+      //  }
     }
     
     
@@ -413,6 +451,7 @@ class MainViewController: UIViewController {
     func openMusicControls() {
         musicControls.frame = buttonBar.frame
         musicControls.frame.origin.x = view.frame.width
+        musicControls.frame.origin.x = -musicControls.frame.size.width
         
         musicControls.frame.origin.y = view.frame.height - musicControls.frame.height
         musicControls.isHidden = false
@@ -536,7 +575,10 @@ extension MainViewController: WorkoutDelegate {
     func hideInstructions() {
         if !instructionView.isHidden {
             instructionView.toggle()
+            data.firstVisit = false
+            data.save()
         }
+        
     }
     
     func sessionComplete() {

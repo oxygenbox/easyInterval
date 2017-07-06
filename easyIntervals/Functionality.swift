@@ -53,11 +53,12 @@ Improve descpription text (Title-desc)
  23. Remove old code
  24. Should reset talk?
  24 try clockhead logo
- 25, Launch PAge
+ 25, Launch Page
+ 26. audio cutting off music
+ //27. configure should be vsllred once
  
  
- 
- 
+ Music & cadence should not be buttons when not on (sctovk)
  */
 
 

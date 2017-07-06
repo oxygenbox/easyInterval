@@ -66,6 +66,7 @@ class PreferenceViewController: UIViewController {
     @IBOutlet weak var descriptionLabel: UILabel!
     
     @IBOutlet weak var buttonHighlight:UIView!
+    @IBOutlet weak var descriptionView:UIView!
     
     @IBOutlet var buttonCollection: [PreferenceButton]!
     
@@ -106,10 +107,6 @@ class PreferenceViewController: UIViewController {
         gradientLayer.frame = buttonHighlight.bounds
         gradientLayer.colors = [UIColor.white.cgColor, UIColor.packLight.cgColor]
         buttonHighlight.layer.addSublayer(gradientLayer)
-    
-        
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -174,6 +171,10 @@ class PreferenceViewController: UIViewController {
         configureButtons()
         initSegmentedControls()
         postTitle()
+        //descriptionView.layer.borderColor = UIColor.orange.cgColor
+       // descriptionView.layer.borderWidth = 5
+        descriptionView.layer.cornerRadius = 3
+        descriptionView.backgroundColor = UIColor.jake
     }
     
     func configureButtons() {
@@ -189,6 +190,8 @@ class PreferenceViewController: UIViewController {
             
             setButtonState()
             infoButton.makeInfo()
+            infoButton.isEnabled = false
+            infoButton.alpha = 0.0
             //doneButton.tintColor = UIColor.Theme.base
         }
         

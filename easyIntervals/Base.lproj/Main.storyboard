@@ -92,16 +92,26 @@
                             <stackView opaque="NO" contentMode="bottom" axis="vertical" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="GX4-11-nP0">
                                 <rect key="frame" x="8" y="360" width="304" height="72"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f4o-uE-U9h">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MgM-Vu-fe7">
                                         <rect key="frame" x="0.0" y="0.0" width="304" height="20"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="0.1358506944" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f4o-uE-U9h">
+                                                <rect key="frame" x="0.0" y="0.0" width="304" height="20"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="0.1358506944" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="20" id="2dC-Uz-Tdu"/>
+                                            <constraint firstAttribute="trailing" secondItem="f4o-uE-U9h" secondAttribute="trailing" id="7lR-56-0sH"/>
+                                            <constraint firstAttribute="height" constant="20" id="Jmr-UL-dmA"/>
+                                            <constraint firstItem="f4o-uE-U9h" firstAttribute="top" secondItem="MgM-Vu-fe7" secondAttribute="top" id="MuG-i1-h3F"/>
+                                            <constraint firstAttribute="bottom" secondItem="f4o-uE-U9h" secondAttribute="bottom" id="V8c-DP-RiW"/>
+                                            <constraint firstItem="f4o-uE-U9h" firstAttribute="leading" secondItem="MgM-Vu-fe7" secondAttribute="leading" id="mIl-gJ-arO"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    </view>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="3Jd-dG-8IR">
                                         <rect key="frame" x="0.0" y="20" width="304" height="29"/>
                                         <segments>
@@ -129,9 +139,6 @@
                                         </connections>
                                     </segmentedControl>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="f4o-uE-U9h" secondAttribute="bottom" constant="25" id="jf3-Ob-frK"/>
-                                </constraints>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tbg-4s-rcB" userLabel="View-switch">
                                 <rect key="frame" x="20" y="448" width="280" height="60"/>
@@ -284,6 +291,7 @@
                         <outlet property="cadenceButton" destination="hWj-Nb-jJU" id="oL5-ts-wib"/>
                         <outlet property="cadenceControl" destination="3Jd-dG-8IR" id="e62-Jd-SNO"/>
                         <outlet property="descriptionLabel" destination="f4o-uE-U9h" id="35k-av-ng6"/>
+                        <outlet property="descriptionView" destination="MgM-Vu-fe7" id="s8a-Qs-NhA"/>
                         <outlet property="doneButton" destination="p0y-pu-dV6" id="pFw-o5-0E1"/>
                         <outlet property="infoButton" destination="pGX-BI-mZh" id="cA8-9T-rap"/>
                         <outlet property="intervalOrderControl" destination="WGa-Ln-XSE" id="vl3-FG-a9d"/>

@@ -29,7 +29,9 @@ class PreferenceButton: UIButton {
                 tintColor = UIColor.activeButton
                 layer.borderWidth = 1
                 layer.borderColor = UIColor.activeButton.cgColor
-            } 
+            } else {
+                layer.borderWidth = 0
+            }
             
             isUserInteractionEnabled =  interactive
         }

@@ -16,6 +16,7 @@ enum BoolKey: String {
     case musicOn
     case workoutOn
     case isRunWalk
+    case firstVisit
 }
 
 enum IntKey: String {
@@ -41,6 +42,7 @@ class Settings {
     var sequenceRepeats = 0
     var cadenceFrequency = 0
     var settingsTab = 0
+    var firstVisit: Bool = true
     
     //MARK: Methods
     init() {
@@ -58,6 +60,8 @@ class Settings {
             musicOn = defaults.bool(forKey: BoolKey.musicOn.rawValue)
             workoutOn = defaults.bool(forKey: BoolKey.workoutOn.rawValue)
             isRunWalk = defaults.bool(forKey: BoolKey.isRunWalk.rawValue)
+            firstVisit = defaults.bool(forKey: BoolKey.firstVisit.rawValue)
+            
             
             runValue = defaults.value(forKeyPath: IntKey.runValue.rawValue) as! Int
             walkValue = defaults.value(forKeyPath: IntKey.walkValue.rawValue) as! Int
@@ -76,12 +80,14 @@ class Settings {
         defaults.set(musicOn, forKey: BoolKey.musicOn.rawValue)
         defaults.set(workoutOn, forKey: BoolKey.workoutOn.rawValue)
         defaults.set(isRunWalk, forKey: BoolKey.isRunWalk.rawValue)
+        defaults.set(firstVisit, forKey: BoolKey.firstVisit.rawValue)
         
         defaults.set(runValue, forKey: IntKey.runValue.rawValue)
         defaults.set(walkValue, forKey: IntKey.walkValue.rawValue)
         defaults.set(sequenceRepeats, forKey: IntKey.sequenceRepeats.rawValue)
         defaults.set(cadenceFrequency, forKey: IntKey.cadenceFrequency.rawValue)
         defaults.set(settingsTab, forKey: IntKey.settingsTab.rawValue)
+        
         
         defaults.synchronize()
     }
@@ -195,12 +201,12 @@ extension UILabel
             style.alignment = .center
             
             let charRange = NSMakeRange(0, text.characters.count)
-            let fontName = UIFont(name: "AvenirNext-Regular", size: 16)
+            let fontName = UIFont(name: "AvenirNextCondensed-Regular", size: 16)
             
             attributeString.addAttribute(NSParagraphStyleAttributeName,
                                          value: style,
                                          range: NSMakeRange(0, text.characters.count))
-            attributeString.addAttribute(NSForegroundColorAttributeName, value: UIColor.black, range: charRange)
+            attributeString.addAttribute(NSForegroundColorAttributeName, value: UIColor.white, range: charRange)
             
             attributeString.addAttribute(NSFontAttributeName, value: fontName!, range: charRange)
             
