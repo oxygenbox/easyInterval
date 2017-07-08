@@ -160,7 +160,6 @@
 				9E2E77DE1E23D9780082ED83 /* Controllers */,
 				9E2E77E41E23D9D40082ED83 /* Classes */,
 				9E119FD81ED87BAB009B4D67 /* xib */,
-				9E2E77DF1E23D9850082ED83 /* temp */,
 				9E2E77CC1E23D92F0082ED83 /* AppDelegate.swift */,
 				9E2E77D01E23D92F0082ED83 /* Main.storyboard */,
 				9E2E77D31E23D92F0082ED83 /* Assets.xcassets */,
@@ -177,13 +176,6 @@
 				9E10CC5C1EF309830017D7B8 /* PreferenceViewController.swift */,
 			);
 			name = Controllers;
-			sourceTree = "<group>";
-		};
-		9E2E77DF1E23D9850082ED83 /* temp */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = temp;
 			sourceTree = "<group>";
 		};
 		9E2E77E41E23D9D40082ED83 /* Classes */ = {

@@ -89,14 +89,14 @@
                                     <outlet property="delegate" destination="sKf-lX-bwi" id="yeV-lf-3Gg"/>
                                 </connections>
                             </pickerView>
-                            <stackView opaque="NO" contentMode="bottom" axis="vertical" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="GX4-11-nP0">
-                                <rect key="frame" x="8" y="360" width="304" height="72"/>
+                            <stackView opaque="NO" contentMode="bottom" axis="vertical" distribution="equalCentering" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="GX4-11-nP0">
+                                <rect key="frame" x="8" y="344" width="304" height="96"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MgM-Vu-fe7">
-                                        <rect key="frame" x="0.0" y="0.0" width="304" height="20"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="304" height="50"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f4o-uE-U9h">
-                                                <rect key="frame" x="0.0" y="0.0" width="304" height="20"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f4o-uE-U9h">
+                                                <rect key="frame" x="0.0" y="0.0" width="304" height="50"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="0.1358506944" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -106,14 +106,13 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="f4o-uE-U9h" secondAttribute="trailing" id="7lR-56-0sH"/>
-                                            <constraint firstAttribute="height" constant="20" id="Jmr-UL-dmA"/>
                                             <constraint firstItem="f4o-uE-U9h" firstAttribute="top" secondItem="MgM-Vu-fe7" secondAttribute="top" id="MuG-i1-h3F"/>
                                             <constraint firstAttribute="bottom" secondItem="f4o-uE-U9h" secondAttribute="bottom" id="V8c-DP-RiW"/>
                                             <constraint firstItem="f4o-uE-U9h" firstAttribute="leading" secondItem="MgM-Vu-fe7" secondAttribute="leading" id="mIl-gJ-arO"/>
                                         </constraints>
                                     </view>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="3Jd-dG-8IR">
-                                        <rect key="frame" x="0.0" y="20" width="304" height="29"/>
+                                        <rect key="frame" x="0.0" y="58" width="304" height="3"/>
                                         <segments>
                                             <segment title="Every"/>
                                             <segment title="Other"/>
@@ -125,7 +124,7 @@
                                         </connections>
                                     </segmentedControl>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Oc5-ao-UEJ">
-                                        <rect key="frame" x="0.0" y="48" width="304" height="25"/>
+                                        <rect key="frame" x="0.0" y="68" width="304" height="29"/>
                                         <segments>
                                             <segment title="15"/>
                                             <segment title="30"/>
@@ -266,7 +265,7 @@
                             <constraint firstItem="WGa-Ln-XSE" firstAttribute="top" secondItem="lKr-Wy-Zk8" secondAttribute="bottom" constant="8" id="1SG-Fh-Ajk"/>
                             <constraint firstItem="lKr-Wy-Zk8" firstAttribute="top" secondItem="BFZ-2y-WzA" secondAttribute="bottom" id="6pK-Lt-TUs"/>
                             <constraint firstItem="lKr-Wy-Zk8" firstAttribute="leading" secondItem="9mi-nK-NTf" secondAttribute="leading" id="9jY-9a-QFV"/>
-                            <constraint firstItem="GX4-11-nP0" firstAttribute="top" secondItem="LHV-Qw-FOK" secondAttribute="bottom" constant="16" id="ABH-hq-3z8"/>
+                            <constraint firstItem="GX4-11-nP0" firstAttribute="top" secondItem="LHV-Qw-FOK" secondAttribute="bottom" id="ABH-hq-3z8"/>
                             <constraint firstAttribute="trailing" secondItem="GX4-11-nP0" secondAttribute="trailing" constant="8" id="Ea5-R5-ufC"/>
                             <constraint firstItem="tbg-4s-rcB" firstAttribute="leading" secondItem="9mi-nK-NTf" secondAttribute="leading" constant="20" id="EgY-NV-CHF"/>
                             <constraint firstItem="WIg-zI-bPw" firstAttribute="top" secondItem="VZn-gD-gpU" secondAttribute="bottom" id="F1F-0W-VF9"/>
@@ -277,12 +276,10 @@
                             <constraint firstItem="LHV-Qw-FOK" firstAttribute="leading" secondItem="9mi-nK-NTf" secondAttribute="leading" id="JZk-D9-5Ee"/>
                             <constraint firstItem="LHV-Qw-FOK" firstAttribute="top" secondItem="WGa-Ln-XSE" secondAttribute="bottom" constant="8" id="JtC-aV-lwt"/>
                             <constraint firstAttribute="trailing" secondItem="tbg-4s-rcB" secondAttribute="trailing" constant="20" id="TxO-mR-YGa"/>
-                            <constraint firstItem="tbg-4s-rcB" firstAttribute="top" secondItem="GX4-11-nP0" secondAttribute="bottom" constant="16" id="YEd-f1-89k"/>
+                            <constraint firstItem="tbg-4s-rcB" firstAttribute="top" secondItem="GX4-11-nP0" secondAttribute="bottom" constant="8" id="YEd-f1-89k"/>
                             <constraint firstItem="WGa-Ln-XSE" firstAttribute="centerX" secondItem="9mi-nK-NTf" secondAttribute="centerX" id="cLH-Mw-7fJ"/>
                             <constraint firstAttribute="trailing" secondItem="LHV-Qw-FOK" secondAttribute="trailing" id="qiz-eQ-8ei"/>
-                            <constraint firstItem="GX4-11-nP0" firstAttribute="top" secondItem="LHV-Qw-FOK" secondAttribute="bottom" constant="16" id="qx2-0F-Sei"/>
                             <constraint firstItem="GX4-11-nP0" firstAttribute="leading" secondItem="9mi-nK-NTf" secondAttribute="leading" constant="8" id="rgu-IE-psy"/>
-                            <constraint firstItem="tbg-4s-rcB" firstAttribute="top" secondItem="GX4-11-nP0" secondAttribute="bottom" constant="16" id="s0Q-8K-xfx"/>
                         </constraints>
                     </view>
                     <connections>
@@ -299,6 +296,7 @@
                         <outlet property="picker" destination="LHV-Qw-FOK" id="Rfu-SI-hTc"/>
                         <outlet property="sessionButton" destination="ime-7u-tNT" id="WaR-9P-hQy"/>
                         <outlet property="sessionControl" destination="Oc5-ao-UEJ" id="xxO-MU-6Iv"/>
+                        <outlet property="switchChannel" destination="tbg-4s-rcB" id="2OY-Mo-BAD"/>
                         <outlet property="switchView" destination="pbf-vl-68X" id="Z9a-5L-iP9"/>
                         <outlet property="titleLabel" destination="7hG-qc-ta9" id="BM6-X2-0Jm"/>
                         <outlet property="topView" destination="lKr-Wy-Zk8" id="sIW-eE-fAb"/>

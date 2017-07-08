@@ -139,12 +139,71 @@ class Data: Settings {
             freq = "Fourth "
         }
         
-        return "Play Cadence Check Every \(freq)Run Interval"
+        return "Play Cadence Check\n Every \(freq)\nRun Interval"
     }
+    
+    var attrCadenceDescription: NSMutableAttributedString {
+        
+        var freq: String
+        switch cadenceFrequency {
+        case 0:
+            freq = ""
+        case 1:
+            freq =  "Other"
+        case 2:
+            freq  = "Third"
+        default:
+            freq = "Fourth"
+        }
+
+        
+        
+        
+        
+        let fontA = UIFont(name: "AvenirNext-DemiBold", size: 18.0)!
+        let fontB = UIFont(name: "AvenirNext-Bold", size: 20.0)!
+        let lineAttributes = [NSForegroundColorAttributeName: UIColor.packDark, NSFontAttributeName: fontA]
+        let lineOne = NSMutableAttributedString(string: "Play Cadence Check\n", attributes: lineAttributes)
+        let midAttributes = [NSForegroundColorAttributeName: UIColor.bush, NSFontAttributeName: fontB]
+         let lineTwo = NSMutableAttributedString(string: "Every \(freq)\n", attributes: midAttributes)
+        let lineThree = NSMutableAttributedString(string: "Run Interval", attributes: lineAttributes)
+               let combination = NSMutableAttributedString()
+         
+        
+         combination.append(lineOne)
+         combination.append(lineTwo)
+         combination.append(lineThree)
+        
+        
+        let style = NSMutableParagraphStyle()
+        
+        style.lineHeightMultiple = 0.8
+        style.alignment = .center;
+        style.lineSpacing = 1;
+        style.lineBreakMode = .byWordWrapping
+        style.alignment = .center
+        
+       
+        
+        combination.addAttribute(NSParagraphStyleAttributeName,
+                                     value: style,
+                                     range: NSMakeRange(0, combination.length))
+        
+        
+        
+        
+        
+         return combination
+
+
+    }
+    
+    
+    
     
     var workoutDescription: String {
         let minutes = sessionArray[sequenceRepeats]
-        return "Set for a \(minutes) minute workout"
+        return "Set for a\n \(minutes)\n minute workout"
     }
 
     func calcSessionIncrement() {

@@ -23,12 +23,22 @@ class MusicControls: UIView {
     
     lazy var musicPlayer: MPMusicPlayerController = {
         let player = MPMusicPlayerController.systemMusicPlayer()
-        let everyThing = MPMediaQuery()
+       
+        let everyThing = MPMediaQuery.songs()
         let itemsFromGenericQuery = everyThing.items
         player.setQueue(with: everyThing)
         player.shuffleMode = MPMusicShuffleMode.songs
+        player.prepareToPlay()
         return player
     }()
+    
+    /*
+     ]
+ 
+ */
+    
+    
+    
     
     @IBOutlet var buttons: [RoundButton]!
     @IBOutlet var playPauseButton: PlainButton!
@@ -88,9 +98,9 @@ class MusicControls: UIView {
     
     func  setMusicInterface() {
         if musicPlayer.playbackState == MPMusicPlaybackState.playing {
-            playPauseButton.setImage(UIImage(named: "but_pause"), for: UIControlState())
-        }else {
             playPauseButton.setImage(UIImage(named: "but_play"), for: UIControlState())
+        }else {
+            playPauseButton.setImage(UIImage(named: "but_pause"), for: UIControlState())
         }
     }
     

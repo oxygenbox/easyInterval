@@ -97,14 +97,14 @@ class MainViewController: UIViewController {
         return SessionClockView(frame: CGRect(x: 0, y: 0, width: dim, height: dim))
     }()
     
-    lazy var musicPlayer: MPMusicPlayerController = {
-        let player = MPMusicPlayerController.systemMusicPlayer()
-        let everyThing = MPMediaQuery()
-        let itemsFromGenericQuery = everyThing.items
-        player.setQueue(with: everyThing)
-        player.shuffleMode = MPMusicShuffleMode.songs
-        return player
-    }()
+//    lazy var musicPlayer: MPMusicPlayerController = {
+//        let player = MPMusicPlayerController.systemMusicPlayer()
+//        let everyThing = MPMediaQuery()
+//        let itemsFromGenericQuery = everyThing.items
+//        player.setQueue(with: everyThing)
+//        player.shuffleMode = MPMusicShuffleMode.songs
+//        return player
+//    }()
     
     //MARK:- LIFECYCLE
     override func viewDidLoad() {
@@ -162,6 +162,25 @@ class MainViewController: UIViewController {
     
     //MARK:- METHODS
     func configure() {
+        
+        let session = AVAudioSession.sharedInstance()
+        do {
+         
+            // try session.setCategory(AVAudioSessionCategoryPlayback, with: .mixWithOthers)
+           
+             try session.setCategory(AVAudioSessionCategoryPlayback, with: .duckOthers)
+            print("Successfully set the audio session")
+        } catch {
+            print("Cant set audio category")
+        }
+        
+        do {
+            try session.setActive(true)
+            print("activated")
+        } catch  {
+            print("Cant set audio active")
+        }
+        
         view.backgroundColor = UIColor.background
         titleLabel.attributedText = data.colorizedTitle
         initGestures()
@@ -213,7 +232,7 @@ class MainViewController: UIViewController {
             settingsButton.isEnabled = true
             intervalWindow.pause()
             intervalWindow.pauseIntervalClock()
-            //intervalWindow.intervalClock.alpha = 0.3
+            musicControls.musicPlayer.pause()
             if data.workoutOn {
                 self.sessionClock.pause()
             }
@@ -245,6 +264,14 @@ class MainViewController: UIViewController {
                 self.sessionClock.beginClock(intervalSeconds: data.totalSessionSeconds)
                
             }
+            
+            if data.musicOn {
+                if  musicControls.musicPlayer.playbackState == MPMusicPlaybackState.paused {
+                    musicControls.playMusic()
+                }
+            }
+            
+            
         }
     }
     
@@ -484,7 +511,7 @@ extension MainViewController: MusicControlDelegate {
         
         MPMediaLibrary.requestAuthorization { (status) in
             if status == .authorized {
-                let mediaPicker = MPMediaPickerController(mediaTypes: .any)
+                let mediaPicker = MPMediaPickerController(mediaTypes: .music)
                 mediaPicker.delegate = self
                 mediaPicker.allowsPickingMultipleItems = true
                 mediaPicker.prompt = "Pick songs to play"
@@ -493,6 +520,13 @@ extension MainViewController: MusicControlDelegate {
                 displayMediaLibraryError()
             }
         }
+        
+        /*
+    
+ */
+        
+        
+        
         
         func displayMediaLibraryError() {
             var error: String
@@ -575,7 +609,9 @@ extension MainViewController: WorkoutDelegate {
 //MARK:- MediaPicker Celegate
 extension MainViewController: MPMediaPickerControllerDelegate {
     func mediaPicker(_ mediaPicker: MPMediaPickerController, didPickMediaItems mediaItemCollection: MPMediaItemCollection) {
-        
+        let selectedSongs = mediaItemCollection
+        musicControls.musicPlayer.setQueue(with: selectedSongs)
+        musicControls.musicPlayer.play()
         
         mediaPicker.dismiss(animated: true, completion: nil)
     }

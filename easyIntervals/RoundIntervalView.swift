@@ -47,7 +47,7 @@ class RoundIntervalView: UIView {
     
     func setUp(frame: CGRect) {
         self.frame = frame
-        //backgroundColor = UIColor.gray
+         
         layer.cornerRadius = frame.size.height/2
         addSubview(clock)
         addSubview(label)

@@ -71,6 +71,9 @@ class PreferenceViewController: UIViewController {
     @IBOutlet var buttonCollection: [PreferenceButton]!
     
     @IBOutlet weak var topView: UIView!
+    @IBOutlet weak var switchChannel: UIView!
+    
+    
     //MARK- VARIABLES
    // var isRunWalk = true
     var runSetting = 0
@@ -171,10 +174,10 @@ class PreferenceViewController: UIViewController {
         configureButtons()
         initSegmentedControls()
         postTitle()
-        //descriptionView.layer.borderColor = UIColor.orange.cgColor
-       // descriptionView.layer.borderWidth = 5
-        descriptionView.layer.cornerRadius = 3
-        descriptionView.backgroundColor = UIColor.jake
+        
+
+        
+        descriptionView.backgroundColor = UIColor.clear
     }
     
     func configureButtons() {
@@ -192,10 +195,7 @@ class PreferenceViewController: UIViewController {
             infoButton.makeInfo()
             infoButton.isEnabled = false
             infoButton.alpha = 0.0
-            //doneButton.tintColor = UIColor.Theme.base
         }
-        
-       
     }
     
     func postTitle() {
@@ -210,6 +210,7 @@ class PreferenceViewController: UIViewController {
                 self.descriptionLabel.text = ""
             case .cadence:
                 self.descriptionLabel.text = data.cadenceDescription
+                self.descriptionLabel.attributedText = data.attrCadenceDescription
             case .music:
                 self.descriptionLabel.text = ""
             case .workout:
@@ -217,8 +218,8 @@ class PreferenceViewController: UIViewController {
             default:
                 self.descriptionLabel.text = ""
         }
+        descriptionView.backgroundColor = UIColor.clear
         descriptionLabel.backgroundColor = UIColor.clear
-        descriptionLabel.descFormat(lineHeight: 1)
     }
     
     

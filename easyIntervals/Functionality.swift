@@ -40,13 +40,12 @@ Improve descpription text (Title-desc)
  1. Preference fix text layout
  2. Preference stylize switch
  3. App store
- 4. Get music working
- 5. Music should toggle on and off with playback
 `6. Reset screen when returning from Prefernce screen
  7. take away swipe code
  8. Remove unused graphics
  9. Remove old code
- 13. audio cutting off music
+ 
+ 14. Test mucic playback
 
  
  */
