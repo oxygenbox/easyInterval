@@ -200,16 +200,9 @@ extension UILabel
             style.lineBreakMode = .byWordWrapping
             style.alignment = .center
             
-         //   let charRange = NSMakeRange(0, text.characters.count)
-         //   let fontName = UIFont(name: "AvenirNextCondensed-Regular", size: 16)
-            
             attributeString.addAttribute(NSParagraphStyleAttributeName,
                                          value: style,
                                          range: NSMakeRange(0, text.characters.count))
-           // attributeString.addAttribute(NSForegroundColorAttributeName, value: UIColor.white, range: charRange)
-            
-           // attributeString.addAttribute(NSFontAttributeName, value: fontName!, range: charRange)
-            
             self.attributedText = attributeString
         }
     }

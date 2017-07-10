@@ -143,7 +143,6 @@ class Data: Settings {
     }
     
     var attrCadenceDescription: NSMutableAttributedString {
-        
         var freq: String
         switch cadenceFrequency {
         case 0:
@@ -156,49 +155,22 @@ class Data: Settings {
             freq = "Fourth"
         }
 
+        let lineA = "Play Cadence Check"
+        let lineB = "Every \(freq)"
+        let lineC = "Run Interval"
         
-        
-        
-        
-        let fontA = UIFont(name: "AvenirNext-DemiBold", size: 18.0)!
-        let fontB = UIFont(name: "AvenirNext-Bold", size: 20.0)!
-        let lineAttributes = [NSForegroundColorAttributeName: UIColor.packDark, NSFontAttributeName: fontA]
-        let lineOne = NSMutableAttributedString(string: "Play Cadence Check\n", attributes: lineAttributes)
-        let midAttributes = [NSForegroundColorAttributeName: UIColor.bush, NSFontAttributeName: fontB]
-         let lineTwo = NSMutableAttributedString(string: "Every \(freq)\n", attributes: midAttributes)
-        let lineThree = NSMutableAttributedString(string: "Run Interval", attributes: lineAttributes)
-               let combination = NSMutableAttributedString()
-         
-        
-         combination.append(lineOne)
-         combination.append(lineTwo)
-         combination.append(lineThree)
-        
-        
-        let style = NSMutableParagraphStyle()
-        
-        style.lineHeightMultiple = 0.8
-        style.alignment = .center;
-        style.lineSpacing = 1;
-        style.lineBreakMode = .byWordWrapping
-        style.alignment = .center
-        
-       
-        
-        combination.addAttribute(NSParagraphStyleAttributeName,
-                                     value: style,
-                                     range: NSMakeRange(0, combination.length))
-        
-        
-        
-        
-        
-         return combination
-
-
+         return formatDescription(lineOne: lineA, lineTwo: lineB, lineThree: lineC)
     }
     
-    
+    var attrWorkoutDescription: NSMutableAttributedString {
+        let minutes = sessionArray[sequenceRepeats]
+
+        let lineA = "Set For A"
+        let lineB = "\(minutes) Minute"
+        let lineC = "Workout Session"
+        
+        return formatDescription(lineOne: lineA, lineTwo: lineB, lineThree: lineC)
+    }
     
     
     var workoutDescription: String {
@@ -212,6 +184,37 @@ class Data: Settings {
             i += 1
         }
         sessionIncrement = (sessionSeconds / 60) * i
+    }
+    
+    func formatDescription(lineOne: String, lineTwo: String, lineThree:String) -> NSMutableAttributedString {
+        
+        let fontA = UIFont(name: "AvenirNext-DemiBold", size: 18.0)!
+        let fontB = UIFont(name: "AvenirNext-Bold", size: 20.0)!
+        let mainAttributes = [NSForegroundColorAttributeName: UIColor.packDark, NSFontAttributeName: fontA]
+        let lineOne = NSMutableAttributedString(string: "\(lineOne)\n", attributes: mainAttributes)
+        let bigAttributes = [NSForegroundColorAttributeName: UIColor.bush, NSFontAttributeName: fontB]
+        let lineTwo = NSMutableAttributedString(string: "\(lineTwo)\n", attributes: bigAttributes)
+        let lineThree = NSMutableAttributedString(string: lineThree, attributes: mainAttributes)
+        let combination = NSMutableAttributedString()
+        
+        combination.append(lineOne)
+        combination.append(lineTwo)
+        combination.append(lineThree)
+        
+        let style = NSMutableParagraphStyle()
+        
+        style.lineHeightMultiple = 0.8
+        style.alignment = .center;
+        style.lineSpacing = 1;
+        style.lineBreakMode = .byWordWrapping
+        style.alignment = .center
+        
+        combination.addAttribute(NSParagraphStyleAttributeName,
+                                 value: style,
+                                 range: NSMakeRange(0, combination.length))
+        
+        return combination
+        
     }
     
 }

@@ -155,7 +155,6 @@ class PreferenceViewController: UIViewController {
         }
         data.save()
         postDescription()
-        
     }
     
     //MARK:- METHODS
@@ -169,22 +168,16 @@ class PreferenceViewController: UIViewController {
             intervalOrderControl.selectedSegmentIndex = 1
         }
         
-        
-        
         configureButtons()
         initSegmentedControls()
         postTitle()
-        
-
-        
+    
         descriptionView.backgroundColor = UIColor.clear
     }
     
     func configureButtons() {
         for (index, button) in buttonCollection.enumerated() {
             button.tag = index
-            
-         
             if index == data.settingsTab {
                 button.select()
             } else {
@@ -207,18 +200,20 @@ class PreferenceViewController: UIViewController {
             case .audio:
                 break
             case .vibrate:
-                self.descriptionLabel.text = ""
+                descriptionLabel.attributedText = data.formatDescription(lineOne: "Vibrate for the", lineTwo: "last five seconds", lineThree: "of each interval")
+                
+                
             case .cadence:
-                self.descriptionLabel.text = data.cadenceDescription
                 self.descriptionLabel.attributedText = data.attrCadenceDescription
             case .music:
                 self.descriptionLabel.text = ""
             case .workout:
-                self.descriptionLabel.text = data.workoutDescription
+               
+                self.descriptionLabel.attributedText = data.attrWorkoutDescription
             default:
                 self.descriptionLabel.text = ""
         }
-        descriptionView.backgroundColor = UIColor.clear
+        
         descriptionLabel.backgroundColor = UIColor.clear
     }
     
