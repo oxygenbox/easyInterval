@@ -171,6 +171,7 @@ class PreferenceViewController: UIViewController {
         configureButtons()
         initSegmentedControls()
         postTitle()
+        postDescription()
     
         descriptionView.backgroundColor = UIColor.clear
     }
@@ -198,15 +199,15 @@ class PreferenceViewController: UIViewController {
     func postDescription() {
         switch activePreference {
             case .audio:
-                break
+                 self.descriptionLabel.attributedText = data.formatDescription(lineOne: "", lineTwo: "play audio cues", lineThree: "")
             case .vibrate:
-                descriptionLabel.attributedText = data.formatDescription(lineOne: "Vibrate for the", lineTwo: "last five seconds", lineThree: "of each interval")
+                descriptionLabel.attributedText = data.formatDescription(lineOne: "vibrate for the", lineTwo: "last five seconds", lineThree: "of each interval")
                 
                 
             case .cadence:
                 self.descriptionLabel.attributedText = data.attrCadenceDescription
             case .music:
-                self.descriptionLabel.text = ""
+                self.descriptionLabel.attributedText = data.formatDescription(lineOne: "play music from", lineTwo: "the itunes library", lineThree: "while timer is running")
             case .workout:
                
                 self.descriptionLabel.attributedText = data.attrWorkoutDescription
@@ -216,6 +217,29 @@ class PreferenceViewController: UIViewController {
         
         descriptionLabel.backgroundColor = UIColor.clear
     }
+    /*
+     var desc: String {
+     switch self {
+     case .info:
+     return "Info mention need to be written"
+     case .audio:
+     return "Play audio cues"
+     case .vibrate:
+     return "Vibrate for the last five seconds \nof each interval"
+     case .cadence:
+     return "Play audio cadence check at the beginning of every other run interval"
+     case .music:
+     return "Play music from your iTunes \nwhile timer is running"
+     case .workout:
+     return "Run a session for the length of:"
+     }
+     }
+
+ */
+    
+    
+    
+    
     
     
     func setButtonState() {

@@ -155,9 +155,9 @@ class Data: Settings {
             freq = "Fourth"
         }
 
-        let lineA = "Play Cadence Check"
+        let lineA = "play a Cadence Check"
         let lineB = "Every \(freq)"
-        let lineC = "Run Interval"
+        let lineC = "run interval"
         
          return formatDescription(lineOne: lineA, lineTwo: lineB, lineThree: lineC)
     }
@@ -165,9 +165,9 @@ class Data: Settings {
     var attrWorkoutDescription: NSMutableAttributedString {
         let minutes = sessionArray[sequenceRepeats]
 
-        let lineA = "Set For A"
-        let lineB = "\(minutes) Minute"
-        let lineC = "Workout Session"
+        let lineA = "set for a"
+        let lineB = "\(minutes) minute"
+        let lineC = "workout session"
         
         return formatDescription(lineOne: lineA, lineTwo: lineB, lineThree: lineC)
     }
@@ -216,6 +216,38 @@ class Data: Settings {
         return combination
         
     }
+    
+    func formatStandardDescription(lineOne: String, lineTwo: String, lineThree:String) -> NSMutableAttributedString {
+        
+        let fontA = UIFont(name: "AvenirNext-DemiBold", size: 18.0)!
+        let fontB = UIFont(name: "AvenirNext-Bold", size: 20.0)!
+        let mainAttributes = [NSForegroundColorAttributeName: UIColor.packDark, NSFontAttributeName: fontA]
+        let lineOne = NSMutableAttributedString(string: "\(lineOne)\n", attributes: mainAttributes)
+        let bigAttributes = [NSForegroundColorAttributeName: UIColor.packDark, NSFontAttributeName: fontB]
+        let lineTwo = NSMutableAttributedString(string: "\(lineTwo)\n", attributes: bigAttributes)
+        let lineThree = NSMutableAttributedString(string: lineThree, attributes: mainAttributes)
+        let combination = NSMutableAttributedString()
+        
+        combination.append(lineOne)
+        combination.append(lineTwo)
+        combination.append(lineThree)
+        
+        let style = NSMutableParagraphStyle()
+        
+        style.lineHeightMultiple = 0.8
+        style.alignment = .center;
+        style.lineSpacing = 1;
+        style.lineBreakMode = .byWordWrapping
+        style.alignment = .center
+        
+        combination.addAttribute(NSParagraphStyleAttributeName,
+                                 value: style,
+                                 range: NSMakeRange(0, combination.length))
+        
+        return combination
+        
+    }
+
     
 }
 
