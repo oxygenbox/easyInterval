@@ -62,12 +62,6 @@ class MainViewController: UIViewController {
     }()
     
     
-
-    
-    
-    
-    
-    
     var runWindow: RoundModeView {
         if data.isRunWalk {
             return self.leftWindow
@@ -97,14 +91,6 @@ class MainViewController: UIViewController {
         return SessionClockView(frame: CGRect(x: 0, y: 0, width: dim, height: dim))
     }()
     
-//    lazy var musicPlayer: MPMusicPlayerController = {
-//        let player = MPMusicPlayerController.systemMusicPlayer()
-//        let everyThing = MPMediaQuery()
-//        let itemsFromGenericQuery = everyThing.items
-//        player.setQueue(with: everyThing)
-//        player.shuffleMode = MPMusicShuffleMode.songs
-//        return player
-//    }()
     
     //MARK:- LIFECYCLE
     override func viewDidLoad() {
@@ -227,52 +213,96 @@ class MainViewController: UIViewController {
     }
     
     func toggleWorkout() {
-        workout.toggleTimer()
-        if workout.timer == nil {
+        
+        
+        switch workout.state {
+        case .stopped:
+            setScreenMode()
+            guard let session = workout.woSession else {
+                return
+            }
+
+            if session.complete {
+                reset(type: .session)
+                session.remainingSeconds = session.totalSeconds
+                session.elapsedSeconds = 0
+            }
+            
+            self.sessionClock.beginClock(intervalSeconds: data.totalSessionSeconds)
+            
+            //            }
+            // if data.musicOn {
+            //  if  musicControls.musicPlayer.playbackState == MPMusicPlaybackState.paused {
+            //     musicControls.playMusic()
+            //     }
+            // }
+
+        case .paused:
             settingsButton.isEnabled = true
-            intervalWindow.pause()
+            intervalWindow.resumeIntervalClock()
+         
+            if data.workoutOn {
+                self.sessionClock.resume()
+            }
+
+        case .playing:
+            settingsButton.isEnabled = true
             intervalWindow.pauseIntervalClock()
-            musicControls.musicPlayer.pause()
             if data.workoutOn {
                 self.sessionClock.pause()
             }
-        } else {
-            settingsButton.isEnabled = false
-            if intervalWindow.intervalClock.hasStarted {
-                //resume
-                intervalWindow.resumeIntervalClock()
-                //intervalWindow.intervalClock.alpha = 1
-                
-                if data.workoutOn {
-                    self.sessionClock.resume()
-                }
-                
-            } else {
-                //start
-                setScreenMode()
-                
-                guard let session = workout.woSession else {
-                    return
-                }
-                
-                if session.complete {
-                    reset(type: .session)
-                    session.remainingSeconds = session.totalSeconds
-                    session.elapsedSeconds = 0
-                }
-                
-                self.sessionClock.beginClock(intervalSeconds: data.totalSessionSeconds)
-               
-            }
-            
-            if data.musicOn {
-                if  musicControls.musicPlayer.playbackState == MPMusicPlaybackState.paused {
-                    musicControls.playMusic()
-                }
-            }
-            
-            
+            //musicControls.musicPlayer.pause()
+        default:
+            break
         }
+        
+        workout.toggleTimer()
+        
+//        if workout.timer == nil {
+//            settingsButton.isEnabled = true
+//            intervalWindow.pause()
+//            intervalWindow.pauseIntervalClock()
+//            musicControls.musicPlayer.pause()
+//            if data.workoutOn {
+//                self.sessionClock.pause()
+//            }
+//        } else {
+//            settingsButton.isEnabled = false
+//            if intervalWindow.intervalClock.hasStarted {
+//                //resume
+//                intervalWindow.resumeIntervalClock()
+//                //intervalWindow.intervalClock.alpha = 1
+//                
+//                if data.workoutOn {
+//                    self.sessionClock.resume()
+//                }
+//                
+//            } else {
+//                //start
+//                setScreenMode()
+//                
+//                guard let session = workout.woSession else {
+//                    return
+//                }
+//                
+//                if session.complete {
+//                    reset(type: .session)
+//                    session.remainingSeconds = session.totalSeconds
+//                    session.elapsedSeconds = 0
+//                }
+//                
+//                self.sessionClock.beginClock(intervalSeconds: data.totalSessionSeconds)
+//               
+//            }
+//            
+//            if data.musicOn {
+//                if  musicControls.musicPlayer.playbackState == MPMusicPlaybackState.paused {
+//                    musicControls.playMusic()
+//                }
+//            }
+//            
+//            
+      //  }
     }
     
     func setScreenMode() {
@@ -588,6 +618,7 @@ extension MainViewController: WorkoutDelegate {
     }
     
     func sessionComplete() {
+        workout.state = .complete
         rightWindow.completeView.show(animated: true)
         leftWindow.completeView.show(animated: true)
        
@@ -602,8 +633,6 @@ extension MainViewController: WorkoutDelegate {
             }
         }
     }
-
-    
 }
 
 //MARK:- MediaPicker Celegate

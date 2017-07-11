@@ -10,6 +10,14 @@ import Foundation
 import UIKit
 import AVFoundation
 
+enum Playstate {
+    case stopped
+    case paused
+    case playing
+    case complete
+}
+
+
 protocol WorkoutDelegate {
     func woTick()
     func modeUpdate()
@@ -37,6 +45,12 @@ class Workout: NSObject, AVAudioPlayerDelegate {
     var isPaused: Bool {
         return timer == nil
     }
+    
+    var isSession: Bool {
+        return woSession != nil
+    }
+    
+    var state: Playstate = .stopped
     
     //MARK:- Lifecycle
     override init() {
@@ -68,13 +82,34 @@ class Workout: NSObject, AVAudioPlayerDelegate {
     }
     
     func toggleTimer() {
-        if  timer == nil {
+        switch state {
+        case .stopped:
+            state = .playing
             startTimer()
             speak(word: "start")
-        } else {
+        case .paused:
+            state = .playing
+            startTimer()
+            speak(word: currentMode.name.lowercased())
+        case .playing:
+            state = .paused
             pauseTimer()
             speak(word: "stop")
+        case .complete:
+            state = .playing
+            startSession()
+            startTimer()
+            speak(word: "start")
         }
+        
+        
+//        if  timer == nil {
+//            startTimer()
+//            speak(word: "start")
+//        } else {
+//            pauseTimer()
+//            speak(word: "stop")
+//        }
     }
     
     func startSession() {
