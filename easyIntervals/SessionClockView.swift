@@ -51,6 +51,7 @@ class SessionClockView: UIView {lazy var clock: ClockView = {
     
     
     func beginClock(intervalSeconds: Int) {
+        print("Session clock begin called")
         clock.shapeLayer.strokeColor = UIColor.white.cgColor
         clock.shapeLayer.lineWidth = clock.frame.size.width * 0.80
         clock.begin(with: intervalSeconds)

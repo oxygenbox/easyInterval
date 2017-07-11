@@ -21,14 +21,14 @@ class ClockView: UIView {
     let lineWidth: CGFloat = 6
     
     var shapeLayer = CAShapeLayer()
-    var countDownTimer = Timer()
+   // var countDownTimer = Timer()
     var timerValue = 0
     var ticks = 0
     var label = UILabel()
-    var firstTimerButton = UIButton()
-    var secondTimerButton = UIButton()
-    var doneButton: UIButton = UIButton()
-    var resetButton: UIButton = UIButton()
+    //var firstTimerButton = UIButton()
+   // var secondTimerButton = UIButton()
+   // var doneButton: UIButton = UIButton()
+   // var resetButton: UIButton = UIButton()
     var delegate: ClockViewDelegate?
     var color = UIColor.clear
     var homeY: CGFloat = 0
@@ -71,6 +71,7 @@ class ClockView: UIView {
         animation.fillMode = kCAFillModeForwards
         animation.isRemovedOnCompletion = false
         self.shapeLayer.add(animation, forKey: "ani")
+        print("startAnimation")
     }
  
     func completeTapped() {
@@ -109,6 +110,11 @@ class ClockView: UIView {
         shapeLayer.removeAllAnimations()
         shapeLayer.timeOffset = 0
         startAnimation()
+    }
+    
+    func cleanUp() {
+        shapeLayer.removeAllAnimations()
+        shapeLayer.timeOffset = 0
     }
     
     

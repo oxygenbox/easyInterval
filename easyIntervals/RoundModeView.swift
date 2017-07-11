@@ -60,12 +60,10 @@ class RoundModeView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        
     }
     
     func configure() {
@@ -105,18 +103,23 @@ class RoundModeView: UIView {
         }
     }
     
-    func beginClock(intervalSeconds: Int) {
-        intervalClock.shapeLayer.strokeColor = self.clockColor.cgColor
-        intervalClock.shapeLayer.lineWidth = intervalClock.frame.size.width * 0.92 //- 12
-        intervalClock.begin(with: intervalSeconds)
-    }
+//    func beginClock(intervalSeconds: Int) {
+//        
+//        intervalClock.shapeLayer.strokeColor = self.clockColor.cgColor
+//        intervalClock.shapeLayer.lineWidth = intervalClock.frame.size.width * 0.92 //- 12
+//        intervalClock.begin(with: intervalSeconds)
+//    }
     
+    //called from mainVC
     func beginIntervalClock(intervalSeconds: Int) {
+        print("Begin ModeClock called")
         intervalView.clock.frame = bounds
         if intervalView.mode == .run {
             intervalView.clock.shapeLayer.strokeColor = UIColor.walk.cgColor
+            print("RUN MODE")
         }else {
             intervalView.clock.shapeLayer.strokeColor = UIColor.run.cgColor
+            print("WALK MODE")
         }
         intervalView.clock.shapeLayer.lineWidth = intervalView.clock.frame.size.width * 0.92 //- 12
         intervalView.clock.begin(with: intervalSeconds)

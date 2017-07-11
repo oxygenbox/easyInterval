@@ -96,11 +96,12 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadMusicControls()
-        //configure()
     }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         configure()
         initWorkout()
         postTimes()
@@ -109,7 +110,6 @@ class MainViewController: UIViewController {
         sessionClock.center.x = countDownView.frame.width/2
         sessionClock.center.x = view.center.x
         sessionClock.isHidden = !data.workoutOn
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -151,7 +151,6 @@ class MainViewController: UIViewController {
         
         let session = AVAudioSession.sharedInstance()
         do {
-         
             // try session.setCategory(AVAudioSessionCategoryPlayback, with: .mixWithOthers)
            
              try session.setCategory(AVAudioSessionCategoryPlayback, with: .duckOthers)
@@ -213,32 +212,26 @@ class MainViewController: UIViewController {
     }
     
     func toggleWorkout() {
-        
-        
-        
         switch workout.state {
-        case .stopped:
-            setScreenMode()
+            case .stopped:
+                setScreenMode()
+                
+                if let session = workout.woSession {
+                    if session.complete {
+                        reset(type: .session)
+                        session.remainingSeconds = session.totalSeconds
+                        session.elapsedSeconds = 0
+                    }
             
-            if let session = workout.woSession {
-                if session.complete {
-                    reset(type: .session)
-                    session.remainingSeconds = session.totalSeconds
-                    session.elapsedSeconds = 0
+                    self.sessionClock.beginClock(intervalSeconds: data.totalSessionSeconds)
                 }
             
-                self.sessionClock.beginClock(intervalSeconds: data.totalSessionSeconds)
-            }
-            
-            //            }
-            // if data.musicOn {
-            //  if  musicControls.musicPlayer.playbackState == MPMusicPlaybackState.paused {
-            //     musicControls.playMusic()
-            //     }
-            // }
+                settingsButton.isEnabled = false
+                settingsButton.alpha = 0.5
 
         case .paused:
-            settingsButton.isEnabled = true
+            settingsButton.isEnabled = false
+            settingsButton.alpha = 0.5
             intervalWindow.resumeIntervalClock()
          
             if data.workoutOn {
@@ -247,65 +240,21 @@ class MainViewController: UIViewController {
 
         case .playing:
             settingsButton.isEnabled = true
+            settingsButton.alpha = 1
             intervalWindow.pauseIntervalClock()
             if data.workoutOn {
                 self.sessionClock.pause()
             }
-            //musicControls.musicPlayer.pause()
         default:
             break
         }
         
         workout.toggleTimer()
         
-//        if workout.timer == nil {
-//            settingsButton.isEnabled = true
-//            intervalWindow.pause()
-//            intervalWindow.pauseIntervalClock()
-//            musicControls.musicPlayer.pause()
-//            if data.workoutOn {
-//                self.sessionClock.pause()
-//            }
-//        } else {
-//            settingsButton.isEnabled = false
-//            if intervalWindow.intervalClock.hasStarted {
-//                //resume
-//                intervalWindow.resumeIntervalClock()
-//                //intervalWindow.intervalClock.alpha = 1
-//                
-//                if data.workoutOn {
-//                    self.sessionClock.resume()
-//                }
-//                
-//            } else {
-//                //start
-//                setScreenMode()
-//                
-//                guard let session = workout.woSession else {
-//                    return
-//                }
-//                
-//                if session.complete {
-//                    reset(type: .session)
-//                    session.remainingSeconds = session.totalSeconds
-//                    session.elapsedSeconds = 0
-//                }
-//                
-//                self.sessionClock.beginClock(intervalSeconds: data.totalSessionSeconds)
-//               
-//            }
-//            
-//            if data.musicOn {
-//                if  musicControls.musicPlayer.playbackState == MPMusicPlaybackState.paused {
-//                    musicControls.playMusic()
-//                }
-//            }
-//            
-//            
-      //  }
     }
     
     func setScreenMode() {
+        print("setScreenMode")
         let intervalSecs = workout.currentInterval.lengthInSeconds
         print(workout.state)
         
@@ -652,29 +601,6 @@ extension MainViewController: MPMediaPickerControllerDelegate {
         mediaPicker.dismiss(animated: true, completion: nil)
     }
 }
-
-
-/*
- 
- extension CenterViewController: MPMediaPickerControllerDelegate {
- func mediaPicker(_ mediaPicker: MPMediaPickerController, didPickMediaItems mediaItemCollection: MPMediaItemCollection) {
- /*
- let mc = mediaItemCollection
- musicPlayer.setQueue(with: mc)
- playMusic()
- 
- //mediaPicker.dismissViewControllerAnimated(true, completion: nil)
- 
- mediaPicker.dismiss(animated: true) {
- self.runnerSequenceView.restartAnimation(self)
- }
- */
- }
- 
- 
-
- */
-
 
 
 
