@@ -215,20 +215,20 @@ class MainViewController: UIViewController {
     func toggleWorkout() {
         
         
+        
         switch workout.state {
         case .stopped:
             setScreenMode()
-            guard let session = workout.woSession else {
-                return
-            }
-
-            if session.complete {
-                reset(type: .session)
-                session.remainingSeconds = session.totalSeconds
-                session.elapsedSeconds = 0
-            }
             
-            self.sessionClock.beginClock(intervalSeconds: data.totalSessionSeconds)
+            if let session = workout.woSession {
+                if session.complete {
+                    reset(type: .session)
+                    session.remainingSeconds = session.totalSeconds
+                    session.elapsedSeconds = 0
+                }
+            
+                self.sessionClock.beginClock(intervalSeconds: data.totalSessionSeconds)
+            }
             
             //            }
             // if data.musicOn {
@@ -306,6 +306,7 @@ class MainViewController: UIViewController {
     }
     
     func setScreenMode() {
+        print(workout.state)
         let intervalSecs = workout.currentInterval.lengthInSeconds
         switch workout.currentMode {
         case .run:
