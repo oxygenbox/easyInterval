@@ -306,14 +306,16 @@ class MainViewController: UIViewController {
     }
     
     func setScreenMode() {
-        print(workout.state)
         let intervalSecs = workout.currentInterval.lengthInSeconds
+        print(workout.state)
+        
         switch workout.currentMode {
         case .run:
             runWindow.statusOff()
             walkWindow.statusOn()
-            if workout.timer != nil {
-                workout.speak(word: "run")
+            
+            if workout.state == .stopped || !workout.isPaused {
+                //workout.speak(word: "run")
                 walkWindow.beginIntervalClock(intervalSeconds: intervalSecs)
             } else {
                 walkWindow.intervalView.clock.reset()
@@ -322,8 +324,8 @@ class MainViewController: UIViewController {
         case .walk:
             walkWindow.statusOff()
             runWindow.statusOn()
-            if workout.timer != nil {
-               workout.speak(word: "walk")
+            if workout.state == .stopped || !workout.isPaused {
+              // workout.speak(word: "walk")
                 runWindow.beginIntervalClock(intervalSeconds: intervalSecs)
             } else {
                 runWindow.intervalView.clock.reset()
