@@ -85,7 +85,6 @@ class Workout: NSObject, AVAudioPlayerDelegate {
         switch state {
         case .stopped:
             state = .playing
-            print("Here")
             startTimer()
             speak(word: "start")
         case .paused:

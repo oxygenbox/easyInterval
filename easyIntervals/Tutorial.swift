@@ -45,7 +45,6 @@ class Tutorial: UIView {
             pulse.animationDuration = 0.5
             pulse.backgroundColor = UIColor.jake.cgColor
             layer.insertSublayer(pulse, at: 1)
-            print("pulse")
     }
 
 }

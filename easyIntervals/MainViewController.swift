@@ -61,7 +61,6 @@ class MainViewController: UIViewController {
         return iv
     }()
     
-    
     var runWindow: RoundModeView {
         if data.isRunWalk {
             return self.leftWindow
@@ -110,6 +109,10 @@ class MainViewController: UIViewController {
         sessionClock.center.x = countDownView.frame.width/2
         sessionClock.center.x = view.center.x
         sessionClock.isHidden = !data.workoutOn
+        
+        
+       // walkWindow.resetIntervalClock()
+       // runWindow.resetIntervalClock()
     }
 
     override func didReceiveMemoryWarning() {
@@ -154,14 +157,12 @@ class MainViewController: UIViewController {
             // try session.setCategory(AVAudioSessionCategoryPlayback, with: .mixWithOthers)
            
              try session.setCategory(AVAudioSessionCategoryPlayback, with: .duckOthers)
-            print("Successfully set the audio session")
         } catch {
             print("Cant set audio category")
         }
         
         do {
             try session.setActive(true)
-            print("activated")
         } catch  {
             print("Cant set audio active")
         }
@@ -182,8 +183,6 @@ class MainViewController: UIViewController {
         
         if data.firstVisit {
             instructionView.show()
-        }else {
-            print("NOT FIRST VISIT")
         }
     }
     
@@ -254,9 +253,7 @@ class MainViewController: UIViewController {
     }
     
     func setScreenMode() {
-        print("setScreenMode")
         let intervalSecs = workout.currentInterval.lengthInSeconds
-        print(workout.state)
         
         switch workout.currentMode {
         case .run:
@@ -265,8 +262,10 @@ class MainViewController: UIViewController {
             
             if workout.state == .stopped || !workout.isPaused {
                 //workout.speak(word: "run")
+            
                 walkWindow.beginIntervalClock(intervalSeconds: intervalSecs)
             } else {
+                //resetIntervalClock
                 walkWindow.intervalView.clock.reset()
 
         }
@@ -283,23 +282,6 @@ class MainViewController: UIViewController {
             break
         }
         postTimes()
-    }
-    
-    
-    func screenCompleteMode() {
-//        if workout.currentMode == .run {
-//            walkWindow.intervalView.label.text = "complete"
-//            runWindow.imageView.image = UIImage(named: "finishFlag")
-//            walkWindow.statusOn()
-//            runWindow.statusOff()
-//        } else {
-//            runWindow.intervalView.label.text = "complete"
-//            walkWindow.imageView.image = UIImage(named: "finishFlag")
-//            runWindow.statusOn()
-//            walkWindow.statusOff()
-//            
-//        }
-        print("screenCompleteMode")
     }
     
     
@@ -502,13 +484,6 @@ extension MainViewController: MusicControlDelegate {
                 displayMediaLibraryError()
             }
         }
-        
-        /*
-    
- */
-        
-        
-        
         
         func displayMediaLibraryError() {
             var error: String

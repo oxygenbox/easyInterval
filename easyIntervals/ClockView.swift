@@ -107,6 +107,7 @@ class ClockView: UIView {
     }
     
     func  reset() {
+        print("RESET IN CLOCKVIEW")
         shapeLayer.removeAllAnimations()
         shapeLayer.timeOffset = 0
         startAnimation()

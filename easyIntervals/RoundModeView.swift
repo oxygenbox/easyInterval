@@ -116,10 +116,10 @@ class RoundModeView: UIView {
         intervalView.clock.frame = bounds
         if intervalView.mode == .run {
             intervalView.clock.shapeLayer.strokeColor = UIColor.walk.cgColor
-            print("RUN MODE")
+           
         }else {
             intervalView.clock.shapeLayer.strokeColor = UIColor.run.cgColor
-            print("WALK MODE")
+            
         }
         intervalView.clock.shapeLayer.lineWidth = intervalView.clock.frame.size.width * 0.92 //- 12
         intervalView.clock.begin(with: intervalSeconds)
@@ -137,20 +137,20 @@ class RoundModeView: UIView {
         intervalView.clock.reset()
     }
     
+//    
+//    func pause() {
+//        intervalClock.pause()
+//    }
+//    
+//    func reset() {
+//        intervalClock.reset()
+//    }
     
-    func pause() {
-        intervalClock.pause()
-    }
-    
-    func reset() {
-        intervalClock.reset()
-    }
-    
-    func resume() {
-        if intervalClock.hasStarted {
-            intervalClock.resume()
-        }
-    }
+//    func resume() {
+//        if intervalClock.hasStarted {
+//            intervalClock.resume()
+//        }
+//    }
     
     func statusOn() {
         intervalView.isHidden = false

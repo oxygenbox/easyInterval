@@ -45,8 +45,6 @@ enum Preference: Int {
     }
 }
 
-
-
 class PreferenceViewController: UIViewController {
 
     //MARK- OUTLETS

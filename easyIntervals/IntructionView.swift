@@ -144,14 +144,6 @@ class InstructionView: UIView {
             self.animateTwoFingerOn()
             self.startCycle()
         })
-
-//        print("show")
-//        alpha = 1
-//        isHidden = false
-//        self.handBaseConstraint.constant = self.handsOn
-//        self.layoutIfNeeded()
-//        self.initTwoFingerPulse()
-//        animateTwoFingerOn()
     }
     
     func startCycle() {
