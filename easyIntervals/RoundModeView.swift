@@ -100,6 +100,8 @@ class RoundModeView: UIView {
         default:
             break
         }
+        
+        intervalClock.cleanUp()
     }
     
     //called from mainVC

@@ -64,6 +64,9 @@ class ClockView: UIView {
     
     
     func startAnimation() {
+        layer.speed = 1.0
+        layer.timeOffset = 0.0
+        layer.beginTime = 0.0
         let animation = CABasicAnimation(keyPath: "strokeEnd")
         animation.fromValue = 0
         animation.toValue = 1
@@ -108,15 +111,16 @@ class ClockView: UIView {
     }
     
     func  reset() {
-        print("RESET IN CLOCKVIEW")
         shapeLayer.removeAllAnimations()
         shapeLayer.timeOffset = 0
         startAnimation()
     }
     
     func cleanUp() {
-        shapeLayer.removeAllAnimations()
-        shapeLayer.timeOffset = 0
+        layer.speed = 1.0
+        layer.timeOffset = 0.0
+        layer.beginTime = 0.0
+        print("cleanUp")
     }
     
     
