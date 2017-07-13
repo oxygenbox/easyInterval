@@ -116,15 +116,13 @@ class ClockView: UIView {
         startAnimation()
     }
     
-    func cleanUp() {
+    
+    func clean() {
         layer.speed = 1.0
         layer.timeOffset = 0.0
         layer.beginTime = 0.0
-        print("cleanUp")
     }
-    
-    
-    
+
 }
 
 

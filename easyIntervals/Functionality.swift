@@ -8,9 +8,8 @@
 /*
 Improve descpription text (Title-desc)
  Mai screen clarify/ run- walk
- Main screen clearify session (show clock)
- Fic colors
- info screem complete screen
+ 
+
  END WORKOUT
  
  ***MUSIC NOT STAYING ON
@@ -37,14 +36,15 @@ Improve descpription text (Title-desc)
 /*
 //June 29th
  
- 
- 3. App store
-`6. Reset screen when returning from Prefernce screen
- 7. take away swipe code
- 8. Remove unused graphics
- 9. Remove old code
- 
- 14. Test music playback
+ 1. make it obvioud when paused
+ 2. App store
+`3. Reset screen when returning from Prefernce screen
+ 4. take away swipe code
+ 5. Remove unused graphics
+ 6. Remove old code
+ 7. when force ending session put up complete
+ 8. test reset
+ 9. Test music playback
 
  
  */

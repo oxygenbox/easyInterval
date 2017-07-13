@@ -261,11 +261,8 @@ class MainViewController: UIViewController {
             walkWindow.statusOn()
             
             if workout.state == .stopped || !workout.isPaused {
-                //workout.speak(word: "run")
-            
                 walkWindow.beginIntervalClock(intervalSeconds: intervalSecs)
             } else {
-                //resetIntervalClock
                 walkWindow.intervalView.clock.reset()
 
         }
@@ -273,7 +270,6 @@ class MainViewController: UIViewController {
             walkWindow.statusOff()
             runWindow.statusOn()
             if workout.state == .stopped || !workout.isPaused {
-              // workout.speak(word: "walk")
                 runWindow.beginIntervalClock(intervalSeconds: intervalSecs)
             } else {
                 runWindow.intervalView.clock.reset()
@@ -386,14 +382,30 @@ class MainViewController: UIViewController {
             self.workout.elapsedSeconds = 0
             self.setScreenMode()
         case.session:
+            
             self.workout.startSession()
-            self.sessionClock.reset()
+            //self.sessionClock.reset()
             if data.isRunWalk {
                 self.workout.restart(mode: .run)
             } else {
                 self.workout.restart(mode: .walk)
             }
-            self.setScreenMode()
+            
+            
+            if workout.state == .paused {
+                workout.timer = nil
+                workout.state = .stopped
+                //intervalWindow.imageView.frame.origin.y = 0
+                //intervalWindow.statusOff()
+                runWindow.statusOff()
+                walkWindow.statusOff()
+            } else {
+                setScreenMode()
+                self.sessionClock.reset()
+                
+                
+                workout.speak(word: "start")
+            }
         }
         
         postTimes()
