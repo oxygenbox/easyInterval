@@ -37,6 +37,7 @@ class RoundModeView: UIView {
     var mode: Mode = .run {
         didSet {
             configure()
+            
         }
     }
     
@@ -91,8 +92,6 @@ class RoundModeView: UIView {
             self.imageView.image = UIImage(named: "run_solid")
             self.intervalView.mode = .walk
             self.completeView.setUp(isImage: false)
-           
-            
         case .walk:
             self.backgroundColor = UIColor.walk
             self.imageView.image = UIImage(named: "walk_solid")
@@ -103,16 +102,9 @@ class RoundModeView: UIView {
         }
     }
     
-//    func beginClock(intervalSeconds: Int) {
-//        
-//        intervalClock.shapeLayer.strokeColor = self.clockColor.cgColor
-//        intervalClock.shapeLayer.lineWidth = intervalClock.frame.size.width * 0.92 //- 12
-//        intervalClock.begin(with: intervalSeconds)
-//    }
-    
     //called from mainVC
     func beginIntervalClock(intervalSeconds: Int) {
-        print("Begin ModeClock called")
+        
         intervalView.clock.frame = bounds
         if intervalView.mode == .run {
             intervalView.clock.shapeLayer.strokeColor = UIColor.walk.cgColor
@@ -136,22 +128,7 @@ class RoundModeView: UIView {
     func resetIntervalClock() {
         intervalView.clock.reset()
     }
-    
-//    
-//    func pause() {
-//        intervalClock.pause()
-//    }
-//    
-//    func reset() {
-//        intervalClock.reset()
-//    }
-    
-//    func resume() {
-//        if intervalClock.hasStarted {
-//            intervalClock.resume()
-//        }
-//    }
-    
+        
     func statusOn() {
         intervalView.isHidden = false
         intervalView.setUp(frame: bounds)

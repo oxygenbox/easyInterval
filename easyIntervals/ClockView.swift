@@ -70,6 +70,7 @@ class ClockView: UIView {
         animation.duration = Double(self.timerValue)
         animation.fillMode = kCAFillModeForwards
         animation.isRemovedOnCompletion = false
+       
         self.shapeLayer.add(animation, forKey: "ani")
         print("startAnimation")
     }
