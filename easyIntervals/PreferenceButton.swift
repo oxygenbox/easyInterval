@@ -46,8 +46,9 @@ class PreferenceButton: UIButton {
     }
     
     func select() {
-        layer.borderWidth = 3
+        layer.borderWidth = 2
         layer.borderColor = UIColor.activeButton.cgColor
+        layer.borderColor = UIColor.white.cgColor
     }
     
     func deselect() {

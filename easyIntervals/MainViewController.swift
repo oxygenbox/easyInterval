@@ -110,6 +110,7 @@ class MainViewController: UIViewController {
         sessionClock.center.x = view.center.x
         sessionClock.isHidden = !data.workoutOn
         
+        topView.backgroundColor = UIColor.jake
         
        // walkWindow.resetIntervalClock()
        // runWindow.resetIntervalClock()
@@ -122,6 +123,7 @@ class MainViewController: UIViewController {
     //MARK- IBACTIONS
     @IBAction func settingsTapped(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        data.workout = workout
         if let preferenceVC = storyboard.instantiateViewController(withIdentifier: "Preferences") as? PreferenceViewController {
             preferenceVC.modalTransitionStyle = .crossDissolve
             self.present(preferenceVC, animated: true)
@@ -205,12 +207,24 @@ class MainViewController: UIViewController {
     }
     
     func initWorkout() {
-        workout = Workout()
-        workout.delegate = self
+        
+        data.state = State(runValue: data.runValue, walkValue: data.walkValue, sessionOn: data.workoutOn, isRunWalk: data.isRunWalk)
+        
+        
+        
+        if let wo = data.workout {
+            workout = wo
+            data.workout = nil
+        } else {
+            workout = Workout()
+            workout.delegate = self
+        }
+        
         modeUpdate()
     }
     
     func toggleWorkout() {
+        
         switch workout.state {
             case .stopped:
                 setScreenMode()
@@ -227,7 +241,6 @@ class MainViewController: UIViewController {
             
                 settingsButton.isEnabled = false
                 settingsButton.alpha = 0.5
-
         case .paused:
             settingsButton.isEnabled = false
             settingsButton.alpha = 0.5
@@ -249,6 +262,7 @@ class MainViewController: UIViewController {
         }
         
         workout.toggleTimer()
+        setBackground()
         
     }
     
@@ -575,6 +589,20 @@ extension MainViewController: WorkoutDelegate {
                 // self.displayMediaLibraryError()
             }
         }
+    }
+    
+    func setBackground() {
+        var destinationColor = UIColor.jake
+        if workout.state == .playing {
+            destinationColor = UIColor.packLight
+        }
+        
+        UIView.animate(withDuration: 0.5) {
+            self.topView.backgroundColor = destinationColor
+        }
+        
+        
+        
     }
 }
 

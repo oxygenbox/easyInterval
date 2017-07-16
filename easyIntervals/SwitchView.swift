@@ -30,6 +30,7 @@ class SwitchView: UIView {
         layer.borderWidth = 1
         layer.borderColor = UIColor.activeButton.cgColor
         clipsToBounds = true
+        
     }
     
     @IBAction func switchChanged(_ sender: UISwitch) {
@@ -66,6 +67,7 @@ class SwitchView: UIView {
     func initSwitch() {
        
         backgroundColor = UIColor.white//.withAlphaComponent(0.5)
+        backgroundColor = UIColor.packLight
         prefSwitch.onTintColor = UIColor.packDark
         prefSwitch.tintColor = UIColor.packDark
         prefSwitch.thumbTintColor = UIColor.activeButton

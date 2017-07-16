@@ -4,6 +4,15 @@
 //
 //  Created by Michael Schaffner on 1/9/17.
 //  Copyright © 2017 Michael Schaffner. All rights reserved.
+
+struct State {
+    var runValue: Int
+    var walkValue: Int
+    var sessionOn: Bool
+    var isRunWalk: Bool
+}
+
+
 //
 import UIKit
 
@@ -44,6 +53,7 @@ class Data: Settings {
     
     var sessionIncrement: Int = 30
     var workout:Workout?
+    var state: State?
     
     var settingTitle: String {
         if isRunWalk {

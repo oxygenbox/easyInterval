@@ -108,8 +108,9 @@ class PreferenceViewController: UIViewController {
         buttonHighlight.alpha = 0
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = buttonHighlight.bounds
-        gradientLayer.colors = [UIColor.white.cgColor, UIColor.packLight.cgColor]
+        gradientLayer.colors = [UIColor.packLight.cgColor, UIColor.jake.cgColor]
         buttonHighlight.layer.addSublayer(gradientLayer)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -134,6 +135,34 @@ class PreferenceViewController: UIViewController {
     }
     
     @IBAction func doneButtonTapped(_sender:UIButton) {
+        
+        //if mode changed 
+        //if run  is differnt
+        //is walk is different
+        //if session ids differnt
+        
+        if let state = data.state {
+            if state.runValue != data.runValue {
+                data.workout = nil
+            }
+            
+            if state.walkValue != data.walkValue {
+                data.workout = nil
+            }
+            
+            if state.isRunWalk != data.isRunWalk {
+                data.workout = nil
+            }
+            
+            if state.sessionOn != data.workoutOn {
+                data.workout = nil
+            }
+            
+            data.state = nil
+        }
+        
+        
+        
         dismiss(animated: true, completion: nil)
     }
     
@@ -159,7 +188,8 @@ class PreferenceViewController: UIViewController {
     
     //MARK:- METHODS
     func configure() {
-        self.view.backgroundColor = UIColor.background
+        self.view.backgroundColor = UIColor.jake
+        topView.backgroundColor = UIColor.packLight
         switchView.delegate = self
         picker.selectRow(data.runValue, inComponent: runComponent, animated: false)
         picker.selectRow(data.walkValue, inComponent: walkComponent, animated: false)
