@@ -6,6 +6,8 @@
 //  Copyright © 2017 Michael Schaffner. All rights reserved.
 //
 
+import MediaPlayer
+
 import UIKit
 
 enum Preference: Int {
@@ -315,7 +317,59 @@ class PreferenceViewController: UIViewController {
         pa.startAnimation()
         view.layoutIfNeeded()
     }
+    
+    func checkPermissions() {
+        MPMediaLibrary.requestAuthorization { (status) in
+            switch status {
+            case .notDetermined:
+                break
+            case .restricted:
+                break
+            case .denied:
+                break
+            case .authorized:
+                break
+            }
+        }
+    }
 }
+
+
+/*
+ -(void) checkMediaLibraryPermissions {
+ [MPMediaLibrary requestAuthorization:^(MPMediaLibraryAuthorizationStatus status){
+ switch (status) {
+ case MPMediaLibraryAuthorizationStatusNotDetermined: {
+ // not determined
+ break;
+ }
+ case MPMediaLibraryAuthorizationStatusRestricted: {
+ // restricted
+ break;
+ }
+ case MPMediaLibraryAuthorizationStatusDenied: {
+ // denied
+ break;
+ }
+ case MPMediaLibraryAuthorizationStatusAuthorized: {
+ // authorized
+ break;
+ }
+ default: {
+ break;
+ }
+ }
+ }];
+ }
+ 
+ */
+
+
+
+
+
+
+
 
 //MARK:- EXTENSIONS
 extension PreferenceViewController: UIPickerViewDelegate {

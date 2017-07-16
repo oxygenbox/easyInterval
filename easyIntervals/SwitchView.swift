@@ -8,6 +8,7 @@
 
 protocol SwitchViewDelegate {
     func changePreferenceState()
+    func checkPermissions()
 }
 
 
@@ -54,6 +55,11 @@ class SwitchView: UIView {
         }
         
         del.changePreferenceState()
+        
+        if preference == .audio {
+            del.checkPermissions()
+        }
+        
     }
     
     //MARK:- METHODS

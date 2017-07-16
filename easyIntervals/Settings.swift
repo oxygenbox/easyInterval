@@ -33,7 +33,7 @@ class Settings {
     var audioOn = true
     var vibrateOn = true
     var cadenceOn = false
-    var musicOn = true
+    var musicOn = false
     var workoutOn = false
     var isRunWalk = true
    

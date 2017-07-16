@@ -440,6 +440,10 @@ class MainViewController: UIViewController {
             self.musicControls.frame.origin.x = 0
         }
         
+        animator.addCompletion { (animation) in
+            
+        }
+        
         fadeAnimator.startAnimation()
         animator.startAnimation()
     }
