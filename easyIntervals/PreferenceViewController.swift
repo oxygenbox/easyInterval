@@ -73,7 +73,6 @@ class PreferenceViewController: UIViewController {
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var switchChannel: UIView!
     
-    
     //MARK- VARIABLES
    // var isRunWalk = true
     var runSetting = 0
@@ -131,7 +130,7 @@ class PreferenceViewController: UIViewController {
         data.save()
         self.positionSwitchView(destination: sender.center.x)
         self.selectButton(button: sender)
-        self.initSegmentedControls()
+        self.initSegmentedControls(animateDesc: true)
     }
     
     @IBAction func doneButtonTapped(_sender:UIButton) {
@@ -183,7 +182,8 @@ class PreferenceViewController: UIViewController {
             data.sequenceRepeats = sender.selectedSegmentIndex
         }
         data.save()
-        postDescription()
+        //postDescription()
+        setDescriptionText()
     }
     
     //MARK:- METHODS
@@ -199,7 +199,7 @@ class PreferenceViewController: UIViewController {
         }
         
         configureButtons()
-        initSegmentedControls()
+        initSegmentedControls(animateDesc: false)
         postTitle()
         postDescription()
     
@@ -227,28 +227,41 @@ class PreferenceViewController: UIViewController {
     }
     
     func postDescription() {
+        
+        UIView.animate(withDuration: 0.3, animations: {
+            self.descriptionView.alpha = 0
+        }) { (success) in
+            self.setDescriptionText()
+            UIView.animate(withDuration: 0.3, delay: 0.1, options: [], animations: {
+                self.descriptionView.alpha = 1
+            }, completion: { (success) in
+                
+            })
+        }
+    }
+    
+    func setDescriptionText() {
         switch activePreference {
-            case .audio:
-                 self.descriptionLabel.attributedText = data.formatDescription(lineOne: "", lineTwo: "play audio cues", lineThree: "")
-            case .vibrate:
-                descriptionLabel.attributedText = data.formatDescription(lineOne: "vibrate for the", lineTwo: "last five seconds", lineThree: "of each interval")
-                
-                
-            case .cadence:
-                self.descriptionLabel.attributedText = data.attrCadenceDescription
-            case .music:
-                self.descriptionLabel.attributedText = data.formatDescription(lineOne: "play music from", lineTwo: "the itunes library", lineThree: "while timer is running")
-            case .workout:
-               
-                self.descriptionLabel.attributedText = data.attrWorkoutDescription
-            default:
-                self.descriptionLabel.text = ""
+        case .audio:
+            self.descriptionLabel.attributedText = data.formatDescription(lineOne: "", lineTwo: "play audio cues", lineThree: "")
+        case .vibrate:
+            descriptionLabel.attributedText = data.formatDescription(lineOne: "vibrate for the", lineTwo: "last five seconds", lineThree: "of each interval")
+            
+            
+        case .cadence:
+            self.descriptionLabel.attributedText = data.attrCadenceDescription
+        case .music:
+            self.descriptionLabel.attributedText = data.formatDescription(lineOne: "play music from", lineTwo: "the itunes library", lineThree: "while timer is running")
+        case .workout:
+            
+            self.descriptionLabel.attributedText = data.attrWorkoutDescription
+        default:
+            self.descriptionLabel.text = ""
         }
         
         descriptionLabel.backgroundColor = UIColor.clear
-        
-       
     }
+    
    
     
     func setButtonState() {
@@ -286,7 +299,7 @@ class PreferenceViewController: UIViewController {
         }
     }
   
-    func initSegmentedControls() {
+    func initSegmentedControls(animateDesc:Bool) {
         intervalOrderControl.tintColor = UIColor.activeButton
         intervalOrderControl.backgroundColor = UIColor.white.withAlphaComponent(0.5)
         sessionControl.tintColor = UIColor.activeButton
@@ -296,6 +309,7 @@ class PreferenceViewController: UIViewController {
         
         sessionControl.isHidden = activePreference != .workout
         cadenceControl.isHidden = activePreference != .cadence
+        
         switch activePreference {
         case .cadence:
             cadenceControl.isEnabled = data.cadenceOn
@@ -311,7 +325,11 @@ class PreferenceViewController: UIViewController {
         default:
            break
         }
-        postDescription()
+        if animateDesc {
+            self.postDescription()
+        } else {
+            self.setDescriptionText()
+        }
     }
     
     func positionSwitchView(destination: CGFloat) {
@@ -344,42 +362,6 @@ class PreferenceViewController: UIViewController {
 }
 
 
-/*
- -(void) checkMediaLibraryPermissions {
- [MPMediaLibrary requestAuthorization:^(MPMediaLibraryAuthorizationStatus status){
- switch (status) {
- case MPMediaLibraryAuthorizationStatusNotDetermined: {
- // not determined
- break;
- }
- case MPMediaLibraryAuthorizationStatusRestricted: {
- // restricted
- break;
- }
- case MPMediaLibraryAuthorizationStatusDenied: {
- // denied
- break;
- }
- case MPMediaLibraryAuthorizationStatusAuthorized: {
- // authorized
- break;
- }
- default: {
- break;
- }
- }
- }];
- }
- 
- */
-
-
-
-
-
-
-
-
 //MARK:- EXTENSIONS
 extension PreferenceViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
@@ -389,7 +371,7 @@ extension PreferenceViewController: UIPickerViewDelegate {
         data.calcSessionIncrement()
         
         postTitle()
-        initSegmentedControls()
+        initSegmentedControls(animateDesc: false)
     }
 }
 
@@ -450,8 +432,9 @@ extension PreferenceViewController: UIPickerViewDataSource {
 
 extension PreferenceViewController: SwitchViewDelegate {
     func changePreferenceState() {
+        setDescriptionText()
         setButtonState()
-        initSegmentedControls()
+        initSegmentedControls(animateDesc: false)
     }
 }
 
