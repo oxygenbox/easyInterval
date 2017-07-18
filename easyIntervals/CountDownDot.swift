@@ -38,6 +38,9 @@ class CountDownDot: UIView {
     }
     
     func animateOn() {
+        label.isHidden = false
+        backgroundColor = UIColor.dot
+        
         UIView.animate(withDuration: 0.75, animations: {
             self.alpha = 1
         }) { (success) in
@@ -46,10 +49,30 @@ class CountDownDot: UIView {
     }
     
     func animateOff() {
-        UIView.animate(withDuration: 0.5, delay: 0.5, options: .curveLinear, animations: {
+        UIView.animate(withDuration: 0.1, delay: 0.3, options: .curveLinear, animations: {
             self.alpha = 0
         }) { (success) in
             
         }
+    }
+    
+    
+    func sequenceOn() {
+        label.isHidden = true
+        backgroundColor = UIColor.clear
+        
+        self.alpha = 1
+        UIView.animate(withDuration: 0.1, delay: 0.3, options: [], animations: {
+            self.alpha = 0
+        }) { (success) in
+            self.sequenceOff()
+        }
+        
+    }
+    
+    func sequenceOff() {
+        label.isHidden = false
+        backgroundColor = UIColor.dot
+        alpha = 0
     }
 }

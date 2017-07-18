@@ -12,8 +12,9 @@ class CountDownView: UIView {
     @IBOutlet var dots: [CountDownDot]!
     
     var sequenceTracker  = true
+    var sequenceArray = [0, 1, 3, 4]
     
-    let timer = Timer()
+    var timer: Timer?
     
     override func draw(_ rect: CGRect) {
         
@@ -25,6 +26,7 @@ class CountDownView: UIView {
         for (index, dot) in dots.enumerated() {
             dot.configure(tagNum: dots.count - index)
         }
+        
     }
     
     func countDown(second: Int) {
@@ -33,32 +35,25 @@ class CountDownView: UIView {
     }
     
     func startSequence() {
+        timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true, block: { (t) in
+            let index = self.sequenceArray.remove(at: 0)
+            self.sequenceArray.append(index)
+            self.dots[index].sequenceOn()
+            print("dddddd")
+        })
+        
         
     }
     
-    
-    var stopSequence() {
-    
-    }
-    
-    
-    func sequence() {
+    func stopSequence() {
+        timer?.invalidate()
+        timer = nil
         
-        if sequenceTracker {
-            dots[0].alpha = 1
-            dots[1].alpha = 0
-            dots[2].alpha = 0
-            dots[3].alpha = 0
-            dots[4].alpha = 1
-        } else {
-            dots[0].alpha = 0
-            dots[1].alpha = 1
-            dots[2].alpha = 0
-            dots[3].alpha = 1
-            dots[4].alpha = 0
+        for dot in dots {
+            dot.sequenceOff()
         }
-        
-        sequenceTracker = !sequenceTracker
     }
-
+    
+    
+    
 }

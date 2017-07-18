@@ -90,13 +90,11 @@ class MainViewController: UIViewController {
         return SessionClockView(frame: CGRect(x: 0, y: 0, width: dim, height: dim))
     }()
     
-    
     //MARK:- LIFECYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
         loadMusicControls()
     }
-    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -237,18 +235,22 @@ class MainViewController: UIViewController {
                     }
             
                     self.sessionClock.beginClock(intervalSeconds: data.totalSessionSeconds)
+                    
                 }
             
                 settingsButton.isEnabled = false
                 settingsButton.alpha = 0.5
+                
         case .paused:
             settingsButton.isEnabled = false
             settingsButton.alpha = 0.5
             intervalWindow.resumeIntervalClock()
+            
          
             if data.workoutOn {
                 self.sessionClock.resume()
             }
+           
 
         case .playing:
             settingsButton.isEnabled = true
@@ -257,12 +259,14 @@ class MainViewController: UIViewController {
             if data.workoutOn {
                 self.sessionClock.pause()
             }
+            
         default:
             break
         }
         
         workout.toggleTimer()
         setBackground()
+       
         
     }
     
