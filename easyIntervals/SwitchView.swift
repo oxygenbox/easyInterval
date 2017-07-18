@@ -27,8 +27,8 @@ class SwitchView: UIView {
     
     override func draw(_ rect: CGRect) {
         layer.cornerRadius = frame.size.height/2
-        layer.borderWidth = 1
-        layer.borderColor = UIColor.activeButton.cgColor
+        layer.borderWidth = 2
+        layer.borderColor = UIColor.white.cgColor
         clipsToBounds = true
         
     }
