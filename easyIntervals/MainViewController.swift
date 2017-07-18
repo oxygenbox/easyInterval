@@ -604,9 +604,6 @@ extension MainViewController: WorkoutDelegate {
         UIView.animate(withDuration: 0.5) {
             self.topView.backgroundColor = destinationColor
         }
-        
-        
-        
     }
 }
 
