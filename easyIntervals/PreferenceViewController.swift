@@ -246,31 +246,10 @@ class PreferenceViewController: UIViewController {
         }
         
         descriptionLabel.backgroundColor = UIColor.clear
+        
+       
     }
-    /*
-     var desc: String {
-     switch self {
-     case .info:
-     return "Info mention need to be written"
-     case .audio:
-     return "Play audio cues"
-     case .vibrate:
-     return "Vibrate for the last five seconds \nof each interval"
-     case .cadence:
-     return "Play audio cadence check at the beginning of every other run interval"
-     case .music:
-     return "Play music from your iTunes \nwhile timer is running"
-     case .workout:
-     return "Run a session for the length of:"
-     }
-     }
-
- */
-    
-    
-    
-    
-    
+   
     
     func setButtonState() {
         audioButton.isOn = data.audioOn

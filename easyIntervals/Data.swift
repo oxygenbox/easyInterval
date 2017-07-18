@@ -143,14 +143,14 @@ class Data: Settings {
         case 0:
             freq = ""
         case 1:
-            freq =  "Other "
+            freq =  "other "
         case 2:
-            freq  = "Third "
+            freq  = "third "
         default:
-            freq = "Fourth "
+            freq = "fourth "
         }
         
-        return "Play Cadence Check\n Every \(freq)\nRun Interval"
+        return "play cadence check\n every \(freq)\nrun interval"
     }
     
     var attrCadenceDescription: NSMutableAttributedString {
@@ -159,15 +159,15 @@ class Data: Settings {
         case 0:
             freq = ""
         case 1:
-            freq =  "Other"
+            freq =  "other"
         case 2:
-            freq  = "Third"
+            freq  = "third"
         default:
-            freq = "Fourth"
+            freq = "fourth"
         }
 
-        let lineA = "play a Cadence Check"
-        let lineB = "Every \(freq)"
+        let lineA = "play a cadence check"
+        let lineB = "every \(freq)"
         let lineC = "run interval"
         
          return formatDescription(lineOne: lineA, lineTwo: lineB, lineThree: lineC)
@@ -199,11 +199,11 @@ class Data: Settings {
     
     func formatDescription(lineOne: String, lineTwo: String, lineThree:String) -> NSMutableAttributedString {
         
-        let fontA = UIFont(name: "AvenirNext-DemiBold", size: 18.0)!
+        let fontA = UIFont(name: "AvenirNext-DemiBold", size: 20.0)!
         let fontB = UIFont(name: "AvenirNext-Bold", size: 20.0)!
-        let mainAttributes = [NSForegroundColorAttributeName: UIColor.packDark, NSFontAttributeName: fontA]
+        let mainAttributes = [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: fontA]
         let lineOne = NSMutableAttributedString(string: "\(lineOne)\n", attributes: mainAttributes)
-        let bigAttributes = [NSForegroundColorAttributeName: UIColor.bush, NSFontAttributeName: fontB]
+        let bigAttributes = [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: fontB]
         let lineTwo = NSMutableAttributedString(string: "\(lineTwo)\n", attributes: bigAttributes)
         let lineThree = NSMutableAttributedString(string: lineThree, attributes: mainAttributes)
         let combination = NSMutableAttributedString()
@@ -230,11 +230,11 @@ class Data: Settings {
     
     func formatStandardDescription(lineOne: String, lineTwo: String, lineThree:String) -> NSMutableAttributedString {
         
-        let fontA = UIFont(name: "AvenirNext-DemiBold", size: 18.0)!
+        let fontA = UIFont(name: "AvenirNext-DemiBold", size: 20.0)!
         let fontB = UIFont(name: "AvenirNext-Bold", size: 20.0)!
-        let mainAttributes = [NSForegroundColorAttributeName: UIColor.packDark, NSFontAttributeName: fontA]
+        let mainAttributes = [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: fontA]
         let lineOne = NSMutableAttributedString(string: "\(lineOne)\n", attributes: mainAttributes)
-        let bigAttributes = [NSForegroundColorAttributeName: UIColor.packDark, NSFontAttributeName: fontB]
+        let bigAttributes = [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: fontB]
         let lineTwo = NSMutableAttributedString(string: "\(lineTwo)\n", attributes: bigAttributes)
         let lineThree = NSMutableAttributedString(string: lineThree, attributes: mainAttributes)
         let combination = NSMutableAttributedString()
