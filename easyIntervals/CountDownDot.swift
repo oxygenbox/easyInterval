@@ -56,7 +56,6 @@ class CountDownDot: UIView {
         }
     }
     
-    
     func sequenceOn() {
         label.isHidden = true
         backgroundColor = UIColor.clear

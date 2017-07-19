@@ -66,9 +66,4 @@ class SessionClockView: UIView {lazy var clock: ClockView = {
             clock.resume()
         }
     }
-
-    
-    
-    
-
 }

@@ -346,46 +346,11 @@ class PreferenceViewController: UIViewController {
     }
     
     func checkPermissions() {
-        MPMediaLibrary.requestAuthorization { (status) in
-            switch status {
-            case .notDetermined:
-                break
-            case .restricted:
-                break
-            case .denied:
-                break
-            case .authorized:
-                break
-            }
-        }
-    }
-    
-    func teset() {
-        if MPMediaLibrary.authorizationStatus() == .authorized {
-            
-        } else {
-        MPMediaLibrary.requestAuthorization({ (status) in
-    
-        })
-        }
         
-        /*
-         if AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeVideo) ==  AVAuthorizationStatus.authorized {
-         // Already Authorized
-         } else {
-         AVCaptureDevice.requestAccess(forMediaType: AVMediaTypeVideo, completionHandler: { (granted: Bool) -> Void in
-         if granted == true {
-         // User granted
-         } else {
-         // User Rejected
-         }
-         })
-         }
- */
+        
     }
     
-    
-    
+  
 }
 
 

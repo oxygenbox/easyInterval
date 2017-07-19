@@ -30,7 +30,6 @@ class SwitchView: UIView {
         layer.borderWidth = 2
         layer.borderColor = UIColor.white.cgColor
         clipsToBounds = true
-        
     }
     
     @IBAction func switchChanged(_ sender: UISwitch) {
@@ -60,7 +59,6 @@ class SwitchView: UIView {
         if preference == .audio {
             del.checkPermissions()
         }
-        
     }
     
     //MARK:- METHODS
@@ -72,9 +70,6 @@ class SwitchView: UIView {
         prefSwitch.tintColor = UIColor.packDark
         prefSwitch.thumbTintColor = UIColor.activeButton
        
-        
-        
-        
         switch preference {
         case .audio:
             prefSwitch.isOn = data.audioOn
@@ -93,15 +88,4 @@ class SwitchView: UIView {
 }
 
 
-
-/*
- // Set the tint color for the On state. Here we set green colour tint for On state
- [customizedSwitch setOnTintColor:[UIColor colorWithRed:64.0/255 green:128.0/255.0 blue:64.0/255.0 alpha:1.0]];
- 
- // Set the tint color for the Off state. Here we set green red tint for Off state
- [customizedSwitch setTintColor:[UIColor colorWithRed:255.0/255 green:128.0/255.0 blue:128.0/255.0 alpha:1.0]];
- 
- // Set the tint color for the round shaped Thumb. Here we set blue tint for the Thumb
- [customizedSwitch setThumbTintColor:[UIColor colorWithRed:64.0/255 green:64.0/255.0 blue:255.0/255.0 alpha:1.0]];
- */
 

@@ -15,9 +15,6 @@ class PlainButton: UIButton {
         clipsToBounds = true
         layer.borderWidth = 1
         layer.borderColor = UIColor.activeButton.cgColor
-       
-        
-        
     }
     
     override func didMoveToWindow() {

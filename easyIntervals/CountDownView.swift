@@ -39,10 +39,7 @@ class CountDownView: UIView {
             let index = self.sequenceArray.remove(at: 0)
             self.sequenceArray.append(index)
             self.dots[index].sequenceOn()
-            print("dddddd")
         })
-        
-        
     }
     
     func stopSequence() {
