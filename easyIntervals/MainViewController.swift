@@ -515,27 +515,27 @@ extension MainViewController: MusicControlDelegate {
                 mediaPicker.prompt = "Pick songs to play"
                 self.present(mediaPicker, animated: true, completion: nil)
             } else {
-                displayMediaLibraryError()
+                self.displayMediaLibraryError()
             }
+        }
+    }
+    
+    func displayMediaLibraryError() {
+        var error: String
+        switch MPMediaLibrary.authorizationStatus() {
+        case .restricted:
+            error = "Media library access restricted by corporate or parental settings"
+        case .denied:
+            error = "Media library access denied, this can be changes in system settings"
+        default:
+            error = "Unknown error"
         }
         
-        func displayMediaLibraryError() {
-            var error: String
-            switch MPMediaLibrary.authorizationStatus() {
-            case .restricted:
-                error = "Media library access restricted by corporate or parental settings"
-            case .denied:
-                error = "Media library access denied, this can be changes in system settings"
-            default:
-                error = "Unknown error"
-            }
-            
-            let controller = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
-            controller.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            present(controller, animated: true, completion: nil)
-        }
-       
+        let controller = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
+        controller.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(controller, animated: true, completion: nil)
     }
+
 }
 
 
@@ -586,6 +586,7 @@ extension MainViewController: WorkoutDelegate {
     }
     
     func requestPermissions() {
+        
         MPMediaLibrary.requestAuthorization { (status) in
             if status == .authorized {
                 //  self.runMediaLibraryQuery()

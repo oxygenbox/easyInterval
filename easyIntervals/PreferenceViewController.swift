@@ -359,6 +359,33 @@ class PreferenceViewController: UIViewController {
             }
         }
     }
+    
+    func teset() {
+        if MPMediaLibrary.authorizationStatus() == .authorized {
+            
+        } else {
+        MPMediaLibrary.requestAuthorization({ (status) in
+    
+        })
+        }
+        
+        /*
+         if AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeVideo) ==  AVAuthorizationStatus.authorized {
+         // Already Authorized
+         } else {
+         AVCaptureDevice.requestAccess(forMediaType: AVMediaTypeVideo, completionHandler: { (granted: Bool) -> Void in
+         if granted == true {
+         // User granted
+         } else {
+         // User Rejected
+         }
+         })
+         }
+ */
+    }
+    
+    
+    
 }
 
 

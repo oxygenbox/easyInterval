@@ -14,6 +14,7 @@ import  MediaPlayer
 protocol MusicControlDelegate {
     func hideMusicControls()
     func openMediaPicker()
+    func displayMediaLibraryError()
 }
 
 class MusicControls: UIView {
@@ -67,9 +68,8 @@ class MusicControls: UIView {
     }
     
     @IBAction func chooseTapped(_ sender: UIButton) {
-        if let delegate = delegate {
-            delegate.openMediaPicker()
-        }
+        checkMediaLibraryAccess()
+        
     }
     
     
@@ -128,13 +128,57 @@ class MusicControls: UIView {
         }
     }
 
+    func checkMediaLibraryAccess() {
+        print("testAccess")
+        switch MPMediaLibrary.authorizationStatus() {
+        case .notDetermined:
+            MPMediaLibrary.requestAuthorization({(newPermissionStatus: MPMediaLibraryAuthorizationStatus) in
+                if newPermissionStatus == .authorized {
+                    self.openMediaPicker()
+                }
+            })
+        case .denied, .restricted:
+            if let d  = self.delegate {
+                d.displayMediaLibraryError()
+            }
+        default:
+            self.openMediaPicker()
+        }
+    }
+    
+    func openMediaPicker(){
+        print("Open Picker")
+        if let delegate = delegate {
+            delegate.openMediaPicker()
+        }
+    }
+    
     
     
 }
 
 
 /*
- 
+ func exampleMethod() {
+ if #available(iOS 9.3, *) {
+ let authorizationStatus = MPMediaLibrary.authorizationStatus()
+ switch authorizationStatus {
+ case .NotDetermined:
+ // Show the permission prompt.
+ MPMediaLibrary.requestAuthorization({[weak self] (newAuthorizationStatus: MPMediaLibraryAuthorizationStatus) in
+ // Try again after the prompt is dismissed.
+ self?.exampleMethod()
+ })
+ case .Denied, .Restricted:
+ // Do not use MPMediaQuery.
+ return
+ default:
+ // Proceed as usual.
+ break
+ }
+ }
+ // Do stuff with MPMediaQuery here...
+ }
  */
 
 
