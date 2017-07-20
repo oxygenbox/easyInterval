@@ -56,7 +56,7 @@ class SwitchView: UIView {
         
         del.changePreferenceState()
         
-        if preference == .audio {
+        if preference == .music {
             del.checkPermissions()
         }
     }

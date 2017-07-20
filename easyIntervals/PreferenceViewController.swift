@@ -347,7 +347,19 @@ class PreferenceViewController: UIViewController {
     }
     
     func checkPermissions() {
-        
+        switch MPMediaLibrary.authorizationStatus() {
+        case .notDetermined:
+            MPMediaLibrary.requestAuthorization({(newPermissionStatus: MPMediaLibraryAuthorizationStatus) in
+                if newPermissionStatus == .authorized {
+                    //self.musicControls.playMusic()
+                }
+            })
+        case .denied, .restricted:
+            break
+        default:
+            break
+        }
+
         
     }
     

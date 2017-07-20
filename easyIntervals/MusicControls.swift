@@ -74,13 +74,10 @@ class MusicControls: UIView {
     
     func toggleMusic() {
         if musicPlayer.playbackState == MPMusicPlaybackState.playing {
-            musicPaused = true
-            musicPlayed = false
-            musicPlayer.pause()
+            pauseMusic()
         }else{
             
-            musicPlayed = true
-            musicPaused = false
+            
             playMusic()
         }
         setMusicInterface()
@@ -96,6 +93,8 @@ class MusicControls: UIView {
     
     //MARK: Music
     func playMusic() {
+        musicPlayed = true
+        musicPaused = false
         var doPlay = false
         //music is set to ON
         if data.musicOn {
@@ -116,6 +115,12 @@ class MusicControls: UIView {
         if doPlay {
             musicPlayer.play()
         }
+    }
+    
+    func pauseMusic() {
+        musicPaused = true
+        musicPlayed = false
+        musicPlayer.pause()
     }
 
     func checkMediaLibraryAccess() {

@@ -234,6 +234,7 @@ class MainViewController: UIViewController {
             
                 settingsButton.isEnabled = false
                 settingsButton.alpha = 0.5
+                playMusic()
                 
         case .paused:
             settingsButton.isEnabled = false
@@ -244,7 +245,8 @@ class MainViewController: UIViewController {
             if data.workoutOn {
                 self.sessionClock.resume()
             }
-           
+            
+            playMusic()
 
         case .playing:
             settingsButton.isEnabled = true
@@ -254,12 +256,14 @@ class MainViewController: UIViewController {
                 self.sessionClock.pause()
             }
             
+            pauseMusic()
+            
         default:
             break
         }
         
         workout.toggleTimer()
-        setBackground()
+       // setBackground()
        
         
     }
@@ -408,7 +412,6 @@ class MainViewController: UIViewController {
                 self.workout.restart(mode: .walk)
             }
             
-            
             if workout.state == .paused {
                 workout.timer = nil
                 workout.state = .stopped
@@ -420,7 +423,6 @@ class MainViewController: UIViewController {
                 setScreenMode()
                 self.sessionClock.reset()
                 
-                
                 workout.speak(word: "start")
             }
         }
@@ -429,6 +431,33 @@ class MainViewController: UIViewController {
     }
     
    //MARK:- MUSIC METHODS
+    
+    func playMusic() {
+        if data.musicOn {
+        
+            switch MPMediaLibrary.authorizationStatus() {
+            case .notDetermined:
+                MPMediaLibrary.requestAuthorization({(newPermissionStatus: MPMediaLibraryAuthorizationStatus) in
+                    if newPermissionStatus == .authorized {
+                        self.musicControls.playMusic()
+                    }
+                })
+            case .denied, .restricted:
+                break
+            default:
+                musicControls.playMusic()
+            }
+ 
+        }
+    }
+    
+    func pauseMusic() {
+        if data.musicOn {
+            musicControls.pauseMusic()
+        }
+    }
+    
+    
     func loadMusicControls() {
         if let mc = Bundle.main.loadNibNamed("MusicControls", owner: self, options: nil)?.first as? MusicControls {
             self.musicControls = mc
@@ -450,8 +479,6 @@ class MainViewController: UIViewController {
         let fadeAnimator = UIViewPropertyAnimator(duration: 0.25, curve: .linear) {
             self.buttonBar.alpha = 0.0
         }
-        
-        
         
         let animator = UIViewPropertyAnimator(duration: 0.75, dampingRatio: 0.6) { 
             self.musicControls.frame.origin.x = 0
@@ -550,7 +577,6 @@ extension MainViewController: MusicControlDelegate {
 
 }
 
-
 extension MainViewController: WorkoutDelegate {
     func woTick() {
         postTimes()
@@ -597,28 +623,28 @@ extension MainViewController: WorkoutDelegate {
        
     }
     
-    func requestPermissions() {
-        
-        MPMediaLibrary.requestAuthorization { (status) in
-            if status == .authorized {
-                //  self.runMediaLibraryQuery()
-            } else {
-                // self.displayMediaLibraryError()
-            }
-        }
-    }
-    
-    func setBackground() {
-//        var destinationColor = UIColor.jake
-//        if workout.state == .playing {
-//            destinationColor = UIColor.packLight
-//        }
+//    func requestPermissions() {
 //        
-//        UIView.animate(withDuration: 0.5) {
-//            self.topView.backgroundColor = destinationColor
-//        }'
-        self.topView.backgroundColor = UIColor.clear
-    }
+//        MPMediaLibrary.requestAuthorization { (status) in
+//            if status == .authorized {
+//                //  self.runMediaLibraryQuery()
+//            } else {
+//                // self.displayMediaLibraryError()
+//            }
+//        }
+//    }
+    
+//    func setBackground() {
+////        var destinationColor = UIColor.jake
+////        if workout.state == .playing {
+////            destinationColor = UIColor.packLight
+////        }
+////        
+////        UIView.animate(withDuration: 0.5) {
+////            self.topView.backgroundColor = destinationColor
+////        }'
+//        self.topView.backgroundColor = UIColor.clear
+//    }
 }
 
 //MARK:- MediaPicker Celegate
