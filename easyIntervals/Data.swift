@@ -228,36 +228,36 @@ class Data: Settings {
         
     }
     
-    func formatStandardDescription(lineOne: String, lineTwo: String, lineThree:String) -> NSMutableAttributedString {
-        
-        let fontA = UIFont(name: "AvenirNext-DemiBold", size: 20.0)!
-        let fontB = UIFont(name: "AvenirNext-Bold", size: 20.0)!
-        let mainAttributes = [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: fontA]
-        let lineOne = NSMutableAttributedString(string: "\(lineOne)\n", attributes: mainAttributes)
-        let bigAttributes = [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: fontB]
-        let lineTwo = NSMutableAttributedString(string: "\(lineTwo)\n", attributes: bigAttributes)
-        let lineThree = NSMutableAttributedString(string: lineThree, attributes: mainAttributes)
-        let combination = NSMutableAttributedString()
-        
-        combination.append(lineOne)
-        combination.append(lineTwo)
-        combination.append(lineThree)
-        
-        let style = NSMutableParagraphStyle()
-        
-        style.lineHeightMultiple = 0.8
-        style.alignment = .center;
-        style.lineSpacing = 1;
-        style.lineBreakMode = .byWordWrapping
-        style.alignment = .center
-        
-        combination.addAttribute(NSParagraphStyleAttributeName,
-                                 value: style,
-                                 range: NSMakeRange(0, combination.length))
-        
-        return combination
-        
-    }
+//    func formatStandardDescription(lineOne: String, lineTwo: String, lineThree:String) -> NSMutableAttributedString {
+//        
+//        let fontA = UIFont(name: "AvenirNext-DemiBold", size: 20.0)!
+//        let fontB = UIFont(name: "AvenirNext-Bold", size: 20.0)!
+//        let mainAttributes = [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: fontA]
+//        let lineOne = NSMutableAttributedString(string: "\(lineOne)\n", attributes: mainAttributes)
+//        let bigAttributes = [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: fontB]
+//        let lineTwo = NSMutableAttributedString(string: "\(lineTwo)\n", attributes: bigAttributes)
+//        let lineThree = NSMutableAttributedString(string: lineThree, attributes: mainAttributes)
+//        let combination = NSMutableAttributedString()
+//        
+//        combination.append(lineOne)
+//        combination.append(lineTwo)
+//        combination.append(lineThree)
+//        
+//        let style = NSMutableParagraphStyle()
+//        
+//        style.lineHeightMultiple = 0.8
+//        style.alignment = .center;
+//        style.lineSpacing = 1;
+//        style.lineBreakMode = .byWordWrapping
+//        style.alignment = .center
+//        
+//        combination.addAttribute(NSParagraphStyleAttributeName,
+//                                 value: style,
+//                                 range: NSMakeRange(0, combination.length))
+//        
+//        return combination
+//        
+//    }
 
     
 }

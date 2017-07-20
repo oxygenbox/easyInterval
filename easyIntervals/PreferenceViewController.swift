@@ -359,8 +359,8 @@ class PreferenceViewController: UIViewController {
         let w = view.bounds.width
         
         gradientLayer.frame = CGRect(x: 0, y: offset, width: w, height: h)
-        gradientLayer.colors = [UIColor.dot.cgColor, UIColor.packLight.cgColor, UIColor.dot.cgColor]
-        gradientLayer.locations = [0,  0.5,  1.0]
+        gradientLayer.colors = [UIColor.dot.cgColor, UIColor.dot.cgColor, UIColor.packLight.cgColor, UIColor.dot.cgColor, UIColor.dot.cgColor]
+         gradientLayer.locations = [0, 0.2,  0.5, 0.8,  1.0]
         self.view.layer.insertSublayer(gradientLayer, at: 0)
     }
   

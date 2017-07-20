@@ -95,6 +95,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadMusicControls()
+         addSessionClock()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -103,16 +104,9 @@ class MainViewController: UIViewController {
         configure()
         initWorkout()
         postTimes()
-        addSessionClock()
+       
     }
     
-    
-    func addSessionClock() {
-        countDownView.insertSubview(sessionClock, at: 0)
-        sessionClock.frame.origin.x = countDownView.frame.width/2 - 3
-        sessionClock.isHidden = !data.workoutOn
-    }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -298,6 +292,11 @@ class MainViewController: UIViewController {
         postTimes()
     }
     
+    func addSessionClock() {
+        countDownView.insertSubview(sessionClock, at: 0)
+        sessionClock.frame.origin.x = countDownView.frame.width/2 //- sessionClock.frame.size.width/2
+        sessionClock.isHidden = !data.workoutOn
+    }
     
     func postTimes() {
         
@@ -544,8 +543,8 @@ extension MainViewController: MusicControlDelegate {
         let w = view.bounds.width
     
         gradientLayer.frame = CGRect(x: 0, y: offset, width: w, height: h)
-        gradientLayer.colors = [UIColor.packLight.cgColor, UIColor.dot.cgColor, UIColor.packLight.cgColor]
-        gradientLayer.locations = [0,  0.5,  1.0]
+        gradientLayer.colors = [UIColor.packLight.cgColor, UIColor.packLight.cgColor, UIColor.dot.cgColor, UIColor.packLight.cgColor, UIColor.packLight.cgColor]
+        gradientLayer.locations = [0, 0.2,  0.5, 0.8,  1.0]
         self.view.layer.insertSublayer(gradientLayer, at: 0)
     }
 
