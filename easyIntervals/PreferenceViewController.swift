@@ -244,18 +244,36 @@ class PreferenceViewController: UIViewController {
     func setDescriptionText() {
         switch activePreference {
         case .audio:
-            self.descriptionLabel.attributedText = data.formatDescription(lineOne: "", lineTwo: "play audio cues", lineThree: "")
+            if data.audioOn {
+                self.descriptionLabel.attributedText = data.formatDescription(lineOne: "", lineTwo: "play audio cues", lineThree: "")
+            } else {
+                self.descriptionLabel.attributedText = data.formatDescription(lineOne: "", lineTwo: "audio cues off", lineThree: "")
+            }
         case .vibrate:
-            descriptionLabel.attributedText = data.formatDescription(lineOne: "vibrate for the", lineTwo: "last five seconds", lineThree: "of each interval")
-            
+            if data.vibrateOn {
+                self.descriptionLabel.attributedText = data.formatDescription(lineOne: "vibrate for the", lineTwo: "last five seconds", lineThree: "of each interval")
+            } else {
+                self.descriptionLabel.attributedText = data.formatDescription(lineOne: "", lineTwo: "vibrate off", lineThree: "")
+            }
             
         case .cadence:
-            self.descriptionLabel.attributedText = data.attrCadenceDescription
+            if data.cadenceOn {
+                self.descriptionLabel.attributedText = data.attrCadenceDescription
+            } else {
+                self.descriptionLabel.attributedText = data.formatDescription(lineOne: "", lineTwo: "cadence off", lineThree: "")
+            }
         case .music:
+            if data.musicOn {
             self.descriptionLabel.attributedText = data.formatDescription(lineOne: "play music from", lineTwo: "the itunes library", lineThree: "while timer is running")
+            } else {
+                self.descriptionLabel.attributedText = data.formatDescription(lineOne: "", lineTwo: "music off", lineThree: "")
+            }
         case .workout:
-            
-            self.descriptionLabel.attributedText = data.attrWorkoutDescription
+            if data.workoutOn {
+                self.descriptionLabel.attributedText = data.attrWorkoutDescription
+            } else {
+                self.descriptionLabel.attributedText = data.formatDescription(lineOne: "", lineTwo: "timed session off", lineThree: "")
+            }
         default:
             self.descriptionLabel.text = ""
         }

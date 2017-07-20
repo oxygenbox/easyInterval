@@ -622,29 +622,6 @@ extension MainViewController: WorkoutDelegate {
         leftWindow.completeView.show(animated: true)
        
     }
-    
-//    func requestPermissions() {
-//        
-//        MPMediaLibrary.requestAuthorization { (status) in
-//            if status == .authorized {
-//                //  self.runMediaLibraryQuery()
-//            } else {
-//                // self.displayMediaLibraryError()
-//            }
-//        }
-//    }
-    
-//    func setBackground() {
-////        var destinationColor = UIColor.jake
-////        if workout.state == .playing {
-////            destinationColor = UIColor.packLight
-////        }
-////        
-////        UIView.animate(withDuration: 0.5) {
-////            self.topView.backgroundColor = destinationColor
-////        }'
-//        self.topView.backgroundColor = UIColor.clear
-//    }
 }
 
 //MARK:- MediaPicker Celegate
