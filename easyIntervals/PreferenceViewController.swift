@@ -120,6 +120,7 @@ class PreferenceViewController: UIViewController {
         super.viewDidAppear(animated)
         let button = buttonCollection[data.settingsTab]
         positionSwitchView(destination: button.center.x)
+        addGradient()
     }
     
     
@@ -189,7 +190,7 @@ class PreferenceViewController: UIViewController {
     //MARK:- METHODS
     func configure() {
         self.view.backgroundColor = UIColor.jake
-        topView.backgroundColor = UIColor.packLight
+       // topView.backgroundColor = UIColor.packLight
         switchView.delegate = self
         picker.selectRow(data.runValue, inComponent: runComponent, animated: false)
         picker.selectRow(data.walkValue, inComponent: walkComponent, animated: false)
@@ -350,6 +351,18 @@ class PreferenceViewController: UIViewController {
         
     }
     
+    func addGradient() {
+        let gradientLayer = CAGradientLayer()
+        let offset: CGFloat = 80
+        var h = view.bounds.height
+        h -= offset
+        let w = view.bounds.width
+        
+        gradientLayer.frame = CGRect(x: 0, y: offset, width: w, height: h)
+        gradientLayer.colors = [UIColor.dot.cgColor, UIColor.packLight.cgColor, UIColor.dot.cgColor]
+        gradientLayer.locations = [0,  0.5,  1.0]
+        self.view.layer.insertSublayer(gradientLayer, at: 0)
+    }
   
 }
 

@@ -53,7 +53,8 @@ class MainViewController: UIViewController {
         iv.frame = CGRect(x: 0, y: 0, width: dim, height: dim)
         
         let x = self.view.frame.size.width/2
-        let y = self.topView.frame.origin.y + self.topView.frame.size.height
+        let y = self.topView.frame.origin.y + self.topView.frame.size.height + 20
+    
         iv.center.x = x
         iv.frame.origin.y = y
         self.view.addSubview(iv)
@@ -102,16 +103,14 @@ class MainViewController: UIViewController {
         configure()
         initWorkout()
         postTimes()
+        addSessionClock()
+    }
     
+    
+    func addSessionClock() {
         countDownView.insertSubview(sessionClock, at: 0)
-        sessionClock.center.x = countDownView.frame.width/2
-        sessionClock.center.x = view.center.x
+        sessionClock.frame.origin.x = countDownView.frame.width/2 - 3
         sessionClock.isHidden = !data.workoutOn
-        
-        topView.backgroundColor = UIColor.jake
-        
-       // walkWindow.resetIntervalClock()
-       // runWindow.resetIntervalClock()
     }
 
     override func didReceiveMemoryWarning() {
@@ -176,6 +175,7 @@ class MainViewController: UIViewController {
         walkWindow.mode = .walk
        
         defaultInstructions()
+        addGradient()
         
     }
     
@@ -535,6 +535,19 @@ extension MainViewController: MusicControlDelegate {
         controller.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(controller, animated: true, completion: nil)
     }
+    
+    func addGradient() {
+        let gradientLayer = CAGradientLayer()
+        let offset: CGFloat = 80
+        var h = view.bounds.height
+        h -= offset
+        let w = view.bounds.width
+    
+        gradientLayer.frame = CGRect(x: 0, y: offset, width: w, height: h)
+        gradientLayer.colors = [UIColor.packLight.cgColor, UIColor.dot.cgColor, UIColor.packLight.cgColor]
+        gradientLayer.locations = [0,  0.5,  1.0]
+        self.view.layer.insertSublayer(gradientLayer, at: 0)
+    }
 
 }
 
@@ -597,14 +610,15 @@ extension MainViewController: WorkoutDelegate {
     }
     
     func setBackground() {
-        var destinationColor = UIColor.jake
-        if workout.state == .playing {
-            destinationColor = UIColor.packLight
-        }
-        
-        UIView.animate(withDuration: 0.5) {
-            self.topView.backgroundColor = destinationColor
-        }
+//        var destinationColor = UIColor.jake
+//        if workout.state == .playing {
+//            destinationColor = UIColor.packLight
+//        }
+//        
+//        UIView.animate(withDuration: 0.5) {
+//            self.topView.backgroundColor = destinationColor
+//        }'
+        self.topView.backgroundColor = UIColor.clear
     }
 }
 

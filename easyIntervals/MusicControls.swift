@@ -33,14 +33,6 @@ class MusicControls: UIView {
         return player
     }()
     
-    /*
-     ]
- 
- */
-    
-    
-    
-    
     @IBOutlet var buttons: [RoundButton]!
     @IBOutlet var playPauseButton: PlainButton!
     
@@ -69,9 +61,7 @@ class MusicControls: UIView {
     
     @IBAction func chooseTapped(_ sender: UIButton) {
         checkMediaLibraryAccess()
-        
     }
-    
     
     //MARK :- Methods
     func hide() {
@@ -152,33 +142,6 @@ class MusicControls: UIView {
             delegate.openMediaPicker()
         }
     }
-    
-    
-    
 }
-
-
-/*
- func exampleMethod() {
- if #available(iOS 9.3, *) {
- let authorizationStatus = MPMediaLibrary.authorizationStatus()
- switch authorizationStatus {
- case .NotDetermined:
- // Show the permission prompt.
- MPMediaLibrary.requestAuthorization({[weak self] (newAuthorizationStatus: MPMediaLibraryAuthorizationStatus) in
- // Try again after the prompt is dismissed.
- self?.exampleMethod()
- })
- case .Denied, .Restricted:
- // Do not use MPMediaQuery.
- return
- default:
- // Proceed as usual.
- break
- }
- }
- // Do stuff with MPMediaQuery here...
- }
- */
 
 

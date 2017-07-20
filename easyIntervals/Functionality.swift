@@ -36,14 +36,15 @@ Improve descpription text (Title-desc)
 /*
 //June 29th
  
- 1. make it obvioud when paused
+ 1. Music play/pause on start and top
+ 2. Complete music permission
+ 3. Make info look better
+ 4. Pref vc default position
+ 1. make it obvious when paused
  2. App store
-`3. Reset screen when returning from Prefernce screen
+
  4. take away swipe code
- 5. Remove unused graphics
- 6. Remove old code
- 7. when force ending session put up complete
- 8. test reset
+ 5
  9. Test music playback
 
  

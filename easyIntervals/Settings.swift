@@ -41,7 +41,7 @@ class Settings {
     var walkValue = 0
     var sequenceRepeats = 0
     var cadenceFrequency = 0
-    var settingsTab = 0
+    var settingsTab = 1
     var firstVisit: Bool = true
     
     //MARK: Methods

@@ -52,6 +52,7 @@ class InstructionView: UIView {
         gradientLayer.frame = bounds
         
         gradientLayer.colors = [UIColor.walk.cgColor, UIColor.run.cgColor]
+       // gradientLayer.colors = [UIColor.packDark.cgColor, UIColor.dot.cgColor]
         
         layer.insertSublayer(gradientLayer, at: 0)
         

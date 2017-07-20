@@ -43,7 +43,7 @@
                                                     <constraint firstAttribute="width" constant="44" id="MQh-hq-jSK"/>
                                                     <constraint firstAttribute="height" constant="44" id="hfg-zG-isx"/>
                                                 </constraints>
-                                                <state key="normal" image="icon_home">
+                                                <state key="normal" image="but_close">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
@@ -605,10 +605,10 @@
     </scenes>
     <resources>
         <image name="Gear2" width="22" height="22"/>
+        <image name="but_close" width="40" height="40"/>
         <image name="icon_audio" width="22" height="22"/>
         <image name="icon_cadence" width="22" height="22"/>
         <image name="icon_help" width="22" height="22"/>
-        <image name="icon_home" width="44" height="44"/>
         <image name="icon_music" width="22" height="22"/>
         <image name="icon_time" width="22" height="22"/>
         <image name="icon_vibrate" width="22" height="22"/>
