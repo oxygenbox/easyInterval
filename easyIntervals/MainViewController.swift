@@ -53,7 +53,7 @@ class MainViewController: UIViewController {
         iv.frame = CGRect(x: 0, y: 0, width: dim, height: dim)
         
         let x = self.view.frame.size.width/2
-        let y = self.topView.frame.origin.y + self.topView.frame.size.height + 20
+        let y = self.topView.frame.origin.y + self.topView.frame.size.height + 0
     
         iv.center.x = x
         iv.frame.origin.y = y
@@ -170,6 +170,7 @@ class MainViewController: UIViewController {
        
         defaultInstructions()
         addGradient()
+        sessionClock.isHidden = !data.workoutOn
         
     }
     
@@ -298,8 +299,11 @@ class MainViewController: UIViewController {
     
     func addSessionClock() {
         countDownView.insertSubview(sessionClock, at: 0)
-        sessionClock.frame.origin.x = countDownView.frame.width/2 //- sessionClock.frame.size.width/2
+        sessionClock.frame.origin.x = countDownView.frame.size.width/2 - sessionClock.frame.size.width/2
+        sessionClock.frame.origin.x = view.bounds.width/2 - sessionClock.frame.size.width/2
+        countDownView.backgroundColor = UIColor.white
         sessionClock.isHidden = !data.workoutOn
+        print("addSessionClock")
     }
     
     func postTimes() {
@@ -498,8 +502,8 @@ class MainViewController: UIViewController {
         twoFingerTap.numberOfTapsRequired = 1
         twoFingerTap.numberOfTouchesRequired = 2
         view.addGestureRecognizer(twoFingerTap)
-        let swipeRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipeDetected(_:)))
-        view.addGestureRecognizer(swipeRecognizer)
+        //let swipeRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipeDetected(_:)))
+        //view.addGestureRecognizer(swipeRecognizer)
 
     }
     

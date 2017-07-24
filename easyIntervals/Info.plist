@@ -4,6 +4,8 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
+	<key>CFBundleDisplayName</key>
+	<string>Easy Intervals</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -17,9 +19,11 @@
 	<key>CFBundleShortVersionString</key>
 	<string>3.1</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>2</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>Allow access to your music library.</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>audio</string>
@@ -38,7 +42,5 @@
 	</array>
 	<key>kTCCServiceMediaLibrary</key>
 	<string>Access to your music library will allow playback while running</string>
-	<key>NSAppleMusicUsageDescription</key>
-	<string>Allow access to your music library.</string>
 </dict>
 </plist>

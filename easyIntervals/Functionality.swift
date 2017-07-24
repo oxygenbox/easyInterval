@@ -21,9 +21,7 @@ Improve descpription text (Title-desc)
  IS IT CLEAR
  
 
- Play music
- Needs to run in plackground
- Allow background audio sources
+ 
 
  
  Heathkit
@@ -36,11 +34,7 @@ Improve descpription text (Title-desc)
 /*
 //June 29th
  
- 1. Music play/pause on start and top
- 2. Complete music permission
- 3. Make info look better
- 4. Pref vc default position
- 1. make it obvious when paused
+ 
  2. App store
 
  4. take away swipe code
