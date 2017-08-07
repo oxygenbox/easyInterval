@@ -132,7 +132,7 @@ extension UIColor {
     }
     
     public class var activeButton: UIColor {
-        return .bush
+        return .white
     }
     
     public class var primary: UIColor {

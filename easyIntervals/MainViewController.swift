@@ -160,7 +160,18 @@ class MainViewController: UIViewController {
             print("Cant set audio active")
         }
         
-        view.backgroundColor = UIColor.background
+        view.backgroundColor = UIColor.packLight
+        topView.backgroundColor = UIColor.packLight
+        let topGap = UIView(frame: CGRect(x: 0, y: topView.bounds.height, width: view.bounds.width, height: 1))
+        topGap.backgroundColor = UIColor.white
+        topView.addSubview(topGap)
+        
+        let botGap = UIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 1))
+        botGap.backgroundColor = UIColor.white
+        buttonBar.addSubview(botGap)
+        
+        buttonBar.backgroundColor = UIColor.packDark
+        
         titleLabel.attributedText = data.colorizedTitle
         initGestures()
         configureButtons()
@@ -330,13 +341,14 @@ class MainViewController: UIViewController {
         shadow.shadowBlurRadius = 1
         
         
-        shadow.shadowColor = UIColor.bush
+        textColor = UIColor.white
+        shadow.shadowColor = UIColor.packDark
         
         intervalText.addAttribute(NSForegroundColorAttributeName, value: textColor, range: NSMakeRange(0, intervalText.length))
         elapsedText.addAttribute(NSForegroundColorAttributeName, value: textColor, range: NSMakeRange(0, elapsedText.length))
         
         intervalText.addAttribute(NSShadowAttributeName, value: shadow, range: NSMakeRange(0, intervalText.length))
-        
+        elapsedText.addAttribute(NSShadowAttributeName, value: shadow, range: NSMakeRange(0, elapsedText.length))
  
         intervalTime.attributedText = intervalText
         elapsedTime.attributedText = elapsedText
@@ -570,12 +582,13 @@ extension MainViewController: MusicControlDelegate {
         let gradientLayer = CAGradientLayer()
         let offset: CGFloat = 80
         var h = view.bounds.height
+        h -= buttonBar.bounds.height
         h -= offset
         let w = view.bounds.width
     
         gradientLayer.frame = CGRect(x: 0, y: offset, width: w, height: h)
-        gradientLayer.colors = [UIColor.packLight.cgColor, UIColor.packLight.cgColor, UIColor.dot.cgColor, UIColor.packLight.cgColor, UIColor.packLight.cgColor]
-        gradientLayer.locations = [0, 0.2,  0.5, 0.8,  1.0]
+        gradientLayer.colors = [UIColor.packLight.cgColor, UIColor.packDark.cgColor]
+        gradientLayer.locations = [0,  1.0]
         self.view.layer.insertSublayer(gradientLayer, at: 0)
     }
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G24b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Yuq-lR-ZVo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Yuq-lR-ZVo">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -177,7 +177,7 @@
                                     <constraint firstAttribute="height" constant="60" id="yYs-A6-Rem"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VZn-gD-gpU" userLabel="View - bottom">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VZn-gD-gpU" userLabel="View - bottom" customClass="ButtonView" customModule="easyIntervals" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="508" width="320" height="60"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="-1" translatesAutoresizingMaskIntoConstraints="NO" id="G73-dK-eSw">
@@ -284,6 +284,7 @@
                     </view>
                     <connections>
                         <outlet property="audioButton" destination="Tl4-GW-6Ic" id="Ch2-UB-3fg"/>
+                        <outlet property="buttonBar" destination="VZn-gD-gpU" id="aMC-yO-rfk"/>
                         <outlet property="buttonHighlight" destination="lMW-0V-d4k" id="sgT-nt-6kD"/>
                         <outlet property="cadenceButton" destination="hWj-Nb-jJU" id="oL5-ts-wib"/>
                         <outlet property="cadenceControl" destination="3Jd-dG-8IR" id="e62-Jd-SNO"/>

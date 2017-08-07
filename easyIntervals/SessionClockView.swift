@@ -10,7 +10,7 @@ import UIKit
 
 class SessionClockView: UIView {lazy var clock: ClockView = {
     
-    let clockColor = UIColor.packDark
+    //let clockColor = UIColor.packLight
     
     let dim = self.frame.width
         return ClockView(frame: CGRect(x: 0, y: 0, width: dim, height: dim))
@@ -30,12 +30,24 @@ class SessionClockView: UIView {lazy var clock: ClockView = {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = UIColor.white.withAlphaComponent(0.2)
+     //   backgroundColor = UIColor.white.withAlphaComponent(0.2)
         backgroundColor = UIColor.clear
+        tintColor = UIColor.packLight
         
         let imageView = UIImageView(frame: self.frame)
+        
+        imageView.layer.shadowColor = UIColor.packDark.cgColor
+        imageView.layer.shadowOpacity = 1
+        imageView.layer.shadowOffset = CGSize(width: -1, height: 1)
+        imageView.layer.shadowRadius = 1
+        
+        
+        
         imageView.image = UIImage(named: "sessionclock")
-        imageView.tintColor = UIColor.packDark
+        //imageView.tintColor = UIColor.packLight
+        
+        
+        
         
         addSubview(clock)
         addSubview(imageView)

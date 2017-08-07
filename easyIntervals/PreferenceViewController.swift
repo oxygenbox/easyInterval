@@ -64,6 +64,7 @@ class PreferenceViewController: UIViewController {
     @IBOutlet weak var cadenceControl: UISegmentedControl!
     @IBOutlet weak var sessionControl: UISegmentedControl!
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var buttonBar: ButtonView!
     
     @IBOutlet weak var buttonHighlight:UIView!
     @IBOutlet weak var descriptionView:UIView!
@@ -107,7 +108,8 @@ class PreferenceViewController: UIViewController {
         buttonHighlight.alpha = 0
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = buttonHighlight.bounds
-        gradientLayer.colors = [UIColor.packLight.cgColor, UIColor.jake.cgColor]
+        gradientLayer.locations = [0.0, 0.75]
+        gradientLayer.colors = [UIColor.packLight.cgColor, UIColor.packDark.cgColor]
         buttonHighlight.layer.addSublayer(gradientLayer)
         
     }
@@ -120,7 +122,6 @@ class PreferenceViewController: UIViewController {
         super.viewDidAppear(animated)
         let button = buttonCollection[data.settingsTab]
         positionSwitchView(destination: button.center.x)
-        addGradient()
     }
     
     
@@ -183,17 +184,35 @@ class PreferenceViewController: UIViewController {
             data.sequenceRepeats = sender.selectedSegmentIndex
         }
         data.save()
-        //postDescription()
         setDescriptionText()
     }
     
     //MARK:- METHODS
     func configure() {
-        self.view.backgroundColor = UIColor.jake
-       // topView.backgroundColor = UIColor.packLight
+        view.backgroundColor = UIColor.packLight
+      
         switchView.delegate = self
         picker.selectRow(data.runValue, inComponent: runComponent, animated: false)
         picker.selectRow(data.walkValue, inComponent: walkComponent, animated: false)
+        
+        topView.backgroundColor = UIColor.packLight
+        let topGap = UIView(frame: CGRect(x: 0, y: topView.bounds.height, width: view.bounds.width, height: 1))
+        topGap.backgroundColor = UIColor.white
+        topView.addSubview(topGap)
+        
+        let botGap = UIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 1))
+        botGap.backgroundColor = UIColor.white
+        buttonBar.addSubview(botGap)
+        
+        let buttonBack = UIView(frame: CGRect(x: 0, y: view.frame.height - buttonBar.bounds.height, width: view.frame.width, height: buttonBar.bounds.height))
+        buttonBack.backgroundColor = UIColor.packDark
+        
+        view.insertSubview(buttonBack, at: 0)
+        
+        
+      //  buttonBar.backgroundColor = UIColor.packDark
+        addGradient()
+        
         
         if !data.isRunWalk {
             intervalOrderControl.selectedSegmentIndex = 1
@@ -319,12 +338,12 @@ class PreferenceViewController: UIViewController {
     }
   
     func initSegmentedControls(animateDesc:Bool) {
-        intervalOrderControl.tintColor = UIColor.activeButton
-        intervalOrderControl.backgroundColor = UIColor.white.withAlphaComponent(0.5)
-        sessionControl.tintColor = UIColor.activeButton
-        cadenceControl.tintColor = UIColor.activeButton
-        sessionControl.backgroundColor = UIColor.white.withAlphaComponent(0.5)
-        cadenceControl.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+        intervalOrderControl.tintColor = UIColor.packDark
+       // intervalOrderControl.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+        sessionControl.tintColor = UIColor.white
+        cadenceControl.tintColor = UIColor.white
+       // sessionControl.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+      //  cadenceControl.backgroundColor = UIColor.white.withAlphaComponent(0.5)
         
         sessionControl.isHidden = activePreference != .workout
         cadenceControl.isHidden = activePreference != .cadence
@@ -382,16 +401,17 @@ class PreferenceViewController: UIViewController {
     }
     
     func addGradient() {
-        let gradientLayer = CAGradientLayer()
-        let offset: CGFloat = 80
-        var h = view.bounds.height
-        h -= offset
-        let w = view.bounds.width
+            let gradientLayer = CAGradientLayer()
+            let offset: CGFloat = 80
+            var h = view.bounds.height
+            h -= offset
+            h -= buttonBar.bounds.height
+            let w = view.bounds.width
         
-        gradientLayer.frame = CGRect(x: 0, y: offset, width: w, height: h)
-        gradientLayer.colors = [UIColor.dot.cgColor, UIColor.dot.cgColor, UIColor.packLight.cgColor, UIColor.dot.cgColor, UIColor.dot.cgColor]
-         gradientLayer.locations = [0, 0.2,  0.5, 0.8,  1.0]
-        self.view.layer.insertSublayer(gradientLayer, at: 0)
+            gradientLayer.frame = CGRect(x: 0, y: offset, width: w, height: h)
+            gradientLayer.colors = [UIColor.packLight.cgColor, UIColor.packDark.cgColor]
+            gradientLayer.locations = [0,  1.0]
+            self.view.layer.insertSublayer(gradientLayer, at: 0)
     }
   
 }

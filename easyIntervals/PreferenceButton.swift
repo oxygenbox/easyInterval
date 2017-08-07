@@ -15,9 +15,15 @@ class PreferenceButton: UIButton {
             if isOn {
                 backgroundColor = UIColor.Theme.on
                 tintColor = UIColor.Theme.off
+                
+                backgroundColor = UIColor.clear
+                tintColor = UIColor.activeButton
+                
             } else {
                 backgroundColor = UIColor.Theme.off
                 tintColor = UIColor.Theme.on
+                backgroundColor = UIColor.clear
+                tintColor = UIColor.packLight
             }
         }
     }
@@ -46,19 +52,25 @@ class PreferenceButton: UIButton {
     }
     
     func select() {
-        layer.borderWidth = 2
-        layer.borderColor = UIColor.activeButton.cgColor
+        layer.borderWidth = 1
         layer.borderColor = UIColor.white.cgColor
+        layer.backgroundColor = UIColor.red.cgColor
+        backgroundColor = UIColor.white
+        
+//        layer.borderColor = UIColor.activeButton.cgColor
+//
     }
     
     func deselect() {
         layer.borderWidth = 1
         layer.borderColor = UIColor.activeButton.cgColor
+        backgroundColor = UIColor.clear
+        
     }
     
     func makeInfo() {
         tintColor = UIColor.activeButton
-        backgroundColor = UIColor.background
+        backgroundColor = UIColor.clear
         layer.borderWidth = 1
         layer.borderColor = UIColor.activeButton.cgColor
     }

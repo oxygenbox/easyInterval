@@ -27,7 +27,7 @@ class SwitchView: UIView {
     
     override func draw(_ rect: CGRect) {
         layer.cornerRadius = frame.size.height/2
-        layer.borderWidth = 2
+        layer.borderWidth = 1
         layer.borderColor = UIColor.white.cgColor
         clipsToBounds = true
     }
@@ -64,11 +64,11 @@ class SwitchView: UIView {
     //MARK:- METHODS
     func initSwitch() {
        
-        backgroundColor = UIColor.white//.withAlphaComponent(0.5)
-        backgroundColor = UIColor.packLight
-        prefSwitch.onTintColor = UIColor.packDark
-        prefSwitch.tintColor = UIColor.packDark
-        prefSwitch.thumbTintColor = UIColor.activeButton
+
+        backgroundColor = UIColor.packDark
+        prefSwitch.onTintColor = UIColor.white.withAlphaComponent(0.7)
+        prefSwitch.tintColor = UIColor.packLight
+//        prefSwitch.thumbTintColor = UIColor.packDark
        
         switch preference {
         case .audio:
