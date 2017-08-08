@@ -60,11 +60,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "easyIntervals/MainViewController.swift"
-            timestampString = "523899935.991119"
+            timestampString = "523912398.415772"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "324"
-            endingLineNumber = "324"
+            startingLineNumber = "337"
+            endingLineNumber = "337"
             landmarkName = "postTimes()"
             landmarkType = "7">
          </BreakpointContent>

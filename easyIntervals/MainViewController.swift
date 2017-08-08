@@ -179,6 +179,11 @@ class MainViewController: UIViewController {
        
         defaultInstructions()
         addGradient()
+        
+        sessionClock.center.x = countDownView.center.x
+        countDownView.backgroundColor = UIColor.yellow
+        
+        
         sessionClock.isHidden = !data.workoutOn
         
     }
@@ -308,11 +313,19 @@ class MainViewController: UIViewController {
     
     func addSessionClock() {
         countDownView.insertSubview(sessionClock, at: 0)
+        
         sessionClock.frame.origin.x = countDownView.frame.size.width/2 - sessionClock.frame.size.width/2
         sessionClock.frame.origin.x = view.bounds.width/2 - sessionClock.frame.size.width/2
+        sessionClock.center.x = countDownView.center.x
         countDownView.backgroundColor = UIColor.white
         sessionClock.isHidden = !data.workoutOn
         print("addSessionClock")
+        
+       // let test = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: 200))
+        ////test.center.x = countDownView.center.x
+       // test.backgroundColor = UIColor.yellow
+        //countDownView.addSubview(test)
+        
     }
     
     func postTimes() {

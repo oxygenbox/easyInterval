@@ -32,7 +32,7 @@ class SessionClockView: UIView {lazy var clock: ClockView = {
         super.init(frame: frame)
      //   backgroundColor = UIColor.white.withAlphaComponent(0.2)
         backgroundColor = UIColor.clear
-        tintColor = UIColor.packLight
+        tintColor = UIColor.white
         
         let imageView = UIImageView(frame: self.frame)
         
@@ -60,7 +60,7 @@ class SessionClockView: UIView {lazy var clock: ClockView = {
     
     
     func beginClock(intervalSeconds: Int) {
-        clock.shapeLayer.strokeColor = UIColor.white.cgColor
+        clock.shapeLayer.strokeColor = UIColor.packDark.cgColor
         clock.shapeLayer.lineWidth = clock.frame.size.width * 0.80
         clock.begin(with: intervalSeconds)
     }
