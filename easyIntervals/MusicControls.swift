@@ -40,7 +40,8 @@ class MusicControls: UIView {
     override func didMoveToSuperview() {
         super.didMoveToSuperview()
         backgroundColor = UIColor.clear
-    
+       
+        
     }
     
     @IBAction func closeTapped(_ sender: UIButton) {
@@ -76,8 +77,6 @@ class MusicControls: UIView {
         if musicPlayer.playbackState == MPMusicPlaybackState.playing {
             pauseMusic()
         }else{
-            
-            
             playMusic()
         }
         setMusicInterface()

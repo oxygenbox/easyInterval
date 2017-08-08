@@ -147,8 +147,6 @@ class MainViewController: UIViewController {
         
         let session = AVAudioSession.sharedInstance()
         do {
-            // try session.setCategory(AVAudioSessionCategoryPlayback, with: .mixWithOthers)
-           
              try session.setCategory(AVAudioSessionCategoryPlayback, with: .duckOthers)
         } catch {
             print("Cant set audio category")
