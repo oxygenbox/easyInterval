@@ -107,6 +107,11 @@ class MainViewController: UIViewController {
        
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        sessionClock.center.x = countDownView.center.x
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -180,11 +185,8 @@ class MainViewController: UIViewController {
         defaultInstructions()
         addGradient()
         
-        sessionClock.center.x = countDownView.center.x
-        countDownView.backgroundColor = UIColor.yellow
-        
-        
         sessionClock.isHidden = !data.workoutOn
+        sessionClock.center.x = countDownView.center.x
         
     }
     
@@ -314,12 +316,12 @@ class MainViewController: UIViewController {
     func addSessionClock() {
         countDownView.insertSubview(sessionClock, at: 0)
         
-        sessionClock.frame.origin.x = countDownView.frame.size.width/2 - sessionClock.frame.size.width/2
-        sessionClock.frame.origin.x = view.bounds.width/2 - sessionClock.frame.size.width/2
-        sessionClock.center.x = countDownView.center.x
+        //sessionClock.frame.origin.x = countDownView.frame.size.width/2 - sessionClock.frame.size.width/2
+        //sessionClock.frame.origin.x = view.bounds.width/2 - sessionClock.frame.size.width/2
+       // sessionClock.center.x = countDownView.center.x
         countDownView.backgroundColor = UIColor.white
         sessionClock.isHidden = !data.workoutOn
-        print("addSessionClock")
+        
         
        // let test = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: 200))
         ////test.center.x = countDownView.center.x
