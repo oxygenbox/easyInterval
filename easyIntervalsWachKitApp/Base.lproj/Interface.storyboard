@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="13196" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="EXM-lb-Mcy">
+    <device id="watch38" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="13051"/>
+    </dependencies>
+    <scenes>
+        <!--mainController-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller identifier="mainController" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="easyIntervalsWachKitApp" customModuleProvider="target">
+                    <items>
+                        <group width="1" alignment="left" layout="vertical" id="hBA-hg-E0Q">
+                            <items>
+                                <label width="1" height="44" alignment="center" text="00:00" textAlignment="center" id="i6I-a5-hzT">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <fontDescription key="font" type="boldSystem" pointSize="45"/>
+                                </label>
+                                <button width="80" height="80" alignment="center" backgroundImage="start_02" id="aqY-aU-l6h">
+                                    <connections>
+                                        <action selector="startTapped" destination="AgC-eL-Hgc" id="P9i-jT-yfz"/>
+                                    </connections>
+                                </button>
+                                <imageView width="80" height="80" alignment="center" image="walk_icon" id="Exv-uW-rJd"/>
+                                <label width="1" height="16" alignment="center" text="00:00" textAlignment="center" id="Y0h-Qn-aAq">
+                                    <color key="textColor" red="0.62745098040000002" green="0.8980392157" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="font" type="system" weight="semibold" pointSize="16"/>
+                                </label>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="elapsedTimeLabel" destination="Y0h-Qn-aAq" id="KbQ-Ub-5N5"/>
+                        <outlet property="intervalImage" destination="Exv-uW-rJd" id="2HE-PI-FwN"/>
+                        <outlet property="intervalTimeLabel" destination="i6I-a5-hzT" id="grO-pD-e1h"/>
+                        <outlet property="startButton" destination="aqY-aU-l6h" id="wTq-Sh-x9z"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="220" y="309"/>
+        </scene>
+        <!--Entry Interface Controller-->
+        <scene sceneID="hRP-vt-Wkz">
+            <objects>
+                <controller id="EXM-lb-Mcy" customClass="EntryInterfaceController" customModule="easyIntervalsWachKitApp_Extension">
+                    <items>
+                        <group width="134" alignment="center" spacing="6" id="w84-Ts-JLI">
+                            <items>
+                                <group width="0.5" alignment="left" layout="vertical" spacing="6" id="MHm-ug-Ifg">
+                                    <items>
+                                        <imageView width="50" height="50" alignment="center" image="walk_icon" contentMode="scaleAspectFit" id="uDt-AN-wy0"/>
+                                        <label alignment="center" verticalAlignment="bottom" text="10:00" id="Stc-Sz-GQl">
+                                            <fontDescription key="font" type="boldSystem" pointSize="18"/>
+                                        </label>
+                                    </items>
+                                </group>
+                                <group width="0.5" alignment="right" layout="vertical" spacing="6" id="2Rh-sk-gCF">
+                                    <items>
+                                        <imageView width="50" height="50" alignment="center" image="run_icon" contentMode="scaleAspectFill" id="OQh-Va-cva"/>
+                                        <label alignment="center" verticalAlignment="bottom" text="10:00" id="YQE-d3-uNL">
+                                            <fontDescription key="font" type="boldSystem" pointSize="18"/>
+                                        </label>
+                                    </items>
+                                </group>
+                            </items>
+                        </group>
+                        <button width="1" alignment="left" title="Start" id="M7A-jN-vJp">
+                            <connections>
+                                <action selector="startTapped" destination="EXM-lb-Mcy" id="Xbh-zq-xlf"/>
+                            </connections>
+                        </button>
+                        <button width="1" alignment="left" title="Settings" id="qFl-LU-laj">
+                            <connections>
+                                <segue destination="FSQ-F7-U0F" kind="modal" id="ide-Rr-8NE"/>
+                            </connections>
+                        </button>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="-175" y="291"/>
+        </scene>
+        <!--Settings Interface Controller-->
+        <scene sceneID="0Nt-ly-2x6">
+            <objects>
+                <controller id="FSQ-F7-U0F" customClass="SettingsInterfaceController" customModule="easyIntervalsWachKitApp_Extension">
+                    <items>
+                        <group width="1" alignment="center" verticalAlignment="center" id="4Tw-pX-AW6">
+                            <items>
+                                <group width="0.5" alignment="left" layout="vertical" id="3VA-ed-XvL">
+                                    <items>
+                                        <label width="1" alignment="left" text="run 10:00" textAlignment="center" numberOfLines="2" id="Rxj-e4-Wa3">
+                                            <fontDescription key="font" type="boldSystem" pointSize="16"/>
+                                        </label>
+                                        <picker height="70" alignment="left" focusStyle="stack" id="JI3-XU-npV">
+                                            <connections>
+                                                <action selector="leftPickerChanged:" destination="FSQ-F7-U0F" id="3H2-jV-oxy"/>
+                                            </connections>
+                                        </picker>
+                                    </items>
+                                </group>
+                                <group width="0.5" alignment="left" layout="vertical" id="xV1-b9-SCE">
+                                    <items>
+                                        <label width="1" alignment="left" text="walk 10:00" textAlignment="center" numberOfLines="2" id="0pC-95-mDJ">
+                                            <fontDescription key="font" type="system" weight="semibold" pointSize="16"/>
+                                        </label>
+                                        <picker height="70" alignment="left" focusStyle="stack" id="1qY-jp-FYh">
+                                            <connections>
+                                                <action selector="rightPickerChanged:" destination="FSQ-F7-U0F" id="v4G-6f-gZQ"/>
+                                            </connections>
+                                        </picker>
+                                    </items>
+                                </group>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="leftPicker" destination="JI3-XU-npV" id="cCa-cO-hE6"/>
+                        <outlet property="leftPickerLabel" destination="Rxj-e4-Wa3" id="YZj-LC-zgS"/>
+                        <outlet property="rightPicker" destination="1qY-jp-FYh" id="h6a-re-ZLR"/>
+                        <outlet property="rightPickerLabel" destination="0pC-95-mDJ" id="3YZ-Lb-Roy"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="-175" y="643"/>
+        </scene>
+        <!--Static Notification Interface Controller-->
+        <scene sceneID="AEw-b0-oYE">
+            <objects>
+                <notificationController id="YCC-NB-fut">
+                    <items>
+                        <label alignment="left" text="Alert Label" id="IdU-wH-bcW"/>
+                    </items>
+                    <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
+                    <connections>
+                        <outlet property="notificationAlertLabel" destination="IdU-wH-bcW" id="JKC-fr-R95"/>
+                        <segue destination="4sK-HA-Art" kind="relationship" relationship="dynamicNotificationInterface" id="kXh-Jw-8B1"/>
+                    </connections>
+                </notificationController>
+            </objects>
+            <point key="canvasLocation" x="220" y="643"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="ZPc-GJ-vnh">
+            <objects>
+                <controller id="4sK-HA-Art" customClass="NotificationController" customModule="easyIntervalsWachKitApp" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="468" y="643"/>
+        </scene>
+    </scenes>
+</document>

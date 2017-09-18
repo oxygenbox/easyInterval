@@ -75,10 +75,10 @@ class SettingWindow: UIView {
         sessionControl.tintColor = UIColor.Theme.borderOn
         cadenceControl.tintColor = UIColor.Theme.borderOn
         cadenceControl.setTitleTextAttributes(
-            [NSFontAttributeName: UIFont.cadence],
+            [NSAttributedStringKey.font: UIFont.cadence],
             for: .normal)
              sessionControl.setTitleTextAttributes(
-                [NSFontAttributeName: UIFont.session],
+                [NSAttributedStringKey.font: UIFont.session],
                 for: .normal)
     }
     

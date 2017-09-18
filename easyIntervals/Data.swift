@@ -67,10 +67,10 @@ class Data: Settings {
     var colorizedTitle: NSMutableAttributedString {
         let font = UIFont(name: "AvenirNext-DemiBold", size: 20.0)!
         
-        let runAttributes = [NSForegroundColorAttributeName: UIColor.run, NSFontAttributeName: font]
+        let runAttributes = [NSAttributedStringKey.foregroundColor: UIColor.run, NSAttributedStringKey.font: font]
         let runString = NSMutableAttributedString(string: "run: \(runTimeString)", attributes: runAttributes)
         
-        let walkAttributes = [NSForegroundColorAttributeName: UIColor.walk, NSFontAttributeName: font]
+        let walkAttributes = [NSAttributedStringKey.foregroundColor: UIColor.walk, NSAttributedStringKey.font: font]
         let walkString = NSMutableAttributedString(string: "walk: \(walkTimeString)", attributes: walkAttributes)
         
         let space = NSMutableAttributedString(string: " ", attributes: runAttributes)
@@ -95,8 +95,8 @@ class Data: Settings {
         let font = UIFont(name: "AvenirNextCondensed-Regular", size: 20.0)!
         let charCount = settingTitle.characters.count
         let attributedString = NSMutableAttributedString(string: settingTitle)
-        attributedString.addAttribute(NSForegroundColorAttributeName, value: UIColor.Theme.text, range: NSMakeRange(0, charCount))
-        attributedString.addAttribute(NSFontAttributeName, value: font, range: NSMakeRange(0, charCount))
+        attributedString.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor.Theme.text, range: NSMakeRange(0, charCount))
+        attributedString.addAttribute(NSAttributedStringKey.font, value: font, range: NSMakeRange(0, charCount))
         
         return attributedString
     }
@@ -201,9 +201,9 @@ class Data: Settings {
         
         let fontA = UIFont(name: "AvenirNext-DemiBold", size: 20.0)!
         let fontB = UIFont(name: "AvenirNext-Bold", size: 20.0)!
-        let mainAttributes = [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: fontA]
+        let mainAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white, NSAttributedStringKey.font: fontA]
         let lineOne = NSMutableAttributedString(string: "\(lineOne)\n", attributes: mainAttributes)
-        let bigAttributes = [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: fontB]
+        let bigAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white, NSAttributedStringKey.font: fontB]
         let lineTwo = NSMutableAttributedString(string: "\(lineTwo)\n", attributes: bigAttributes)
         let lineThree = NSMutableAttributedString(string: lineThree, attributes: mainAttributes)
         let combination = NSMutableAttributedString()
@@ -220,7 +220,7 @@ class Data: Settings {
         style.lineBreakMode = .byWordWrapping
         style.alignment = .center
         
-        combination.addAttribute(NSParagraphStyleAttributeName,
+        combination.addAttribute(NSAttributedStringKey.paragraphStyle,
                                  value: style,
                                  range: NSMakeRange(0, combination.length))
         

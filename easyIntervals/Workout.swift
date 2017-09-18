@@ -129,7 +129,7 @@ class Workout: NSObject, AVAudioPlayerDelegate {
         }
     }
 
-    func tickOccured() {
+    @objc func tickOccured() {
         intervalTick()
         
         if woSession != nil {
@@ -175,7 +175,7 @@ class Workout: NSObject, AVAudioPlayerDelegate {
         }
     }
     
-    func playCadence() {
+    @objc func playCadence() {
         speak(word: "checkCadenceBeat")
     }
     

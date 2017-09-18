@@ -17,9 +17,9 @@ class Tool {
         let charCount = timeString.characters.count
         let font = UIFont(name: "AvenirNext-Bold", size: 120)
         let attributedString = NSMutableAttributedString(string: timeString)
-        attributedString.addAttribute(NSKernAttributeName, value: -4, range: NSMakeRange(0, charCount))
-        attributedString.addAttribute(NSForegroundColorAttributeName, value: UIColor.Theme.text, range: NSMakeRange(0, charCount))
-        attributedString.addAttribute(NSFontAttributeName, value: font!, range: NSMakeRange(0, charCount))
+        attributedString.addAttribute(NSAttributedStringKey.kern, value: -4, range: NSMakeRange(0, charCount))
+        attributedString.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor.Theme.text, range: NSMakeRange(0, charCount))
+        attributedString.addAttribute(NSAttributedStringKey.font, value: font!, range: NSMakeRange(0, charCount))
         return attributedString
     }
     
@@ -28,9 +28,9 @@ class Tool {
         let attributedString = NSMutableAttributedString(string: timeString)
         let charCount = timeString.characters.count
         let font = UIFont(name: "AvenirNext-DemiBold", size: 48)!
-        attributedString.addAttribute(NSKernAttributeName, value: -4, range: NSMakeRange(0, charCount))
-        attributedString.addAttribute(NSForegroundColorAttributeName, value: UIColor.Theme.text, range: NSMakeRange(0, charCount))
-        attributedString.addAttribute(NSFontAttributeName, value: font, range: NSMakeRange(0, charCount))
+        attributedString.addAttribute(NSAttributedStringKey.kern, value: -4, range: NSMakeRange(0, charCount))
+        attributedString.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor.Theme.text, range: NSMakeRange(0, charCount))
+        attributedString.addAttribute(NSAttributedStringKey.font, value: font, range: NSMakeRange(0, charCount))
         return attributedString
     }
     
@@ -59,18 +59,18 @@ class Tool {
     }
     
     class func formatPickerMode(mode: String) -> NSMutableAttributedString {
-        let attributes =  [NSFontAttributeName: UIFont(name: "AvenirNext-DemiBold", size: 24.0)!]
+        let attributes =  [NSAttributedStringKey.font: UIFont(name: "AvenirNext-DemiBold", size: 24.0)!]
         let mutableString = NSMutableAttributedString(string: mode, attributes: attributes)
         if mode == "Run/Walk" {
              let runRange =  NSRange(location:0,length:3)
-            mutableString.addAttribute(NSForegroundColorAttributeName, value: UIColor.run, range: runRange)
+            mutableString.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor.run, range: runRange)
              let walkRange =  NSRange(location:4,length:4)
-            mutableString.addAttribute(NSForegroundColorAttributeName, value: UIColor.walk, range: walkRange)
+            mutableString.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor.walk, range: walkRange)
         } else {
             let walkRange =  NSRange(location:0,length:4)
-            mutableString.addAttribute(NSForegroundColorAttributeName, value: UIColor.walk, range: walkRange)
+            mutableString.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor.walk, range: walkRange)
             let runRange =  NSRange(location:5,length:3)
-            mutableString.addAttribute(NSForegroundColorAttributeName, value: UIColor.run, range: runRange)
+            mutableString.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor.run, range: runRange)
         }
         
         
@@ -80,13 +80,13 @@ class Tool {
     }
     
     class func formatPickerTime(time: String) -> NSMutableAttributedString {
-        let attribute = [NSFontAttributeName: UIFont(name: "AvenirNextCondensed-Bold", size: 45.0)!]
+        let attribute = [NSAttributedStringKey.font: UIFont(name: "AvenirNextCondensed-Bold", size: 45.0)!]
         let attributedString = NSMutableAttributedString(string: time, attributes: attribute)
         let myRange = NSRange(location: attributedString.length-3, length: 3)
-        attributedString.addAttribute(NSFontAttributeName, value: UIFont(name: "AvenirNextCondensed-DemiBold", size: 36.0)!, range: myRange)
-        attributedString.addAttribute(NSUnderlineStyleAttributeName, value: NSUnderlineStyle.styleSingle.rawValue, range: myRange)
-        attributedString.addAttribute(NSBaselineOffsetAttributeName , value: 6, range: myRange)
-        attributedString.addAttribute(NSForegroundColorAttributeName, value: UIColor.primary, range: NSMakeRange(0, time.characters.count))
+        attributedString.addAttribute(NSAttributedStringKey.font, value: UIFont(name: "AvenirNextCondensed-DemiBold", size: 36.0)!, range: myRange)
+        attributedString.addAttribute(NSAttributedStringKey.underlineStyle, value: NSUnderlineStyle.styleSingle.rawValue, range: myRange)
+        attributedString.addAttribute(NSAttributedStringKey.baselineOffset , value: 6, range: myRange)
+        attributedString.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor.primary, range: NSMakeRange(0, time.characters.count))
         return attributedString
     }
     

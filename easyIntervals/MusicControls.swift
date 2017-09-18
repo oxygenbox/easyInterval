@@ -23,7 +23,7 @@ class MusicControls: UIView {
     var musicPaused = false
     
     lazy var musicPlayer: MPMusicPlayerController = {
-        let player = MPMusicPlayerController.systemMusicPlayer()
+        let player = MPMusicPlayerController.systemMusicPlayer
        
         let everyThing = MPMediaQuery.songs()
         let itemsFromGenericQuery = everyThing.items

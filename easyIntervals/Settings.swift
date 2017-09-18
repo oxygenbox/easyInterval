@@ -200,7 +200,7 @@ extension UILabel
             style.lineBreakMode = .byWordWrapping
             style.alignment = .center
             
-            attributeString.addAttribute(NSParagraphStyleAttributeName,
+            attributeString.addAttribute(NSAttributedStringKey.paragraphStyle,
                                          value: style,
                                          range: NSMakeRange(0, text.characters.count))
             self.attributedText = attributeString

@@ -357,11 +357,11 @@ class MainViewController: UIViewController {
         textColor = UIColor.white
         shadow.shadowColor = UIColor.packDark
         
-        intervalText.addAttribute(NSForegroundColorAttributeName, value: textColor, range: NSMakeRange(0, intervalText.length))
-        elapsedText.addAttribute(NSForegroundColorAttributeName, value: textColor, range: NSMakeRange(0, elapsedText.length))
+        intervalText.addAttribute(NSAttributedStringKey.foregroundColor, value: textColor, range: NSMakeRange(0, intervalText.length))
+        elapsedText.addAttribute(NSAttributedStringKey.foregroundColor, value: textColor, range: NSMakeRange(0, elapsedText.length))
         
-        intervalText.addAttribute(NSShadowAttributeName, value: shadow, range: NSMakeRange(0, intervalText.length))
-        elapsedText.addAttribute(NSShadowAttributeName, value: shadow, range: NSMakeRange(0, elapsedText.length))
+        intervalText.addAttribute(NSAttributedStringKey.shadow, value: shadow, range: NSMakeRange(0, intervalText.length))
+        elapsedText.addAttribute(NSAttributedStringKey.shadow, value: shadow, range: NSMakeRange(0, elapsedText.length))
  
         intervalTime.attributedText = intervalText
         elapsedTime.attributedText = elapsedText
@@ -532,7 +532,7 @@ class MainViewController: UIViewController {
 
     }
     
-    func twoFingerTapDetected(_ sender: UIGestureRecognizer){
+    @objc func twoFingerTapDetected(_ sender: UIGestureRecognizer){
         hideInstructions()
         hideCompletion()
         toggleWorkout()
