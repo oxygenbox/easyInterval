@@ -135,11 +135,11 @@ class Workout: NSObject, AVAudioPlayerDelegate {
         if woSession != nil {
             woSession!.tick()
         }
-        
+       
         guard let mainVC = delegate else {
             return
         }
-        
+
         mainVC.workoutTick(remaining: currentInterval.remainingSeconds)
     }
     
@@ -154,6 +154,8 @@ class Workout: NSObject, AVAudioPlayerDelegate {
         } else if currentInterval.complete {
             complete()
         }
+        
+        
     }
     
     func cadenceCheck() {

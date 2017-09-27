@@ -6,6 +6,14 @@
 //  Copyright © 2017 Michael Schaffner. All rights reserved.
 //
 
+/*
+ add 30 secons
+ 1. add setting instructions
+ 2 . animattion for store
+ 3. add cooff when opening music
+ 
+ */
+
 import UIKit
 import MediaPlayer
 
@@ -45,6 +53,7 @@ class MainViewController: UIViewController {
     //MARK- VARIABLES
     var workout: Workout!
     var musicControls: MusicControls!
+    var pickerOpened = false
     
     
     lazy var instructionView: InstructionView = {
@@ -96,15 +105,19 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         loadMusicControls()
          addSessionClock()
+        print("viewDidLoad")
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         configure()
-        initWorkout()
+        if pickerOpened {
+            pickerOpened = false
+        } else {
+            initWorkout()
+        }
         postTimes()
-       
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -331,6 +344,7 @@ class MainViewController: UIViewController {
     }
     
     func postTimes() {
+        print("postTimes \(workout.currentInterval.remainingSeconds)")
         
         let intervalText = Tool.intervalTimeFormatted(seconds: workout.currentInterval.remainingSeconds)
         
@@ -611,6 +625,8 @@ extension MainViewController: WorkoutDelegate {
     func woTick() {
         postTimes()
         
+       
+        
     }
         
     func workoutTick(remaining seconds: Int) {
@@ -660,11 +676,12 @@ extension MainViewController: MPMediaPickerControllerDelegate {
         let selectedSongs = mediaItemCollection
         musicControls.musicPlayer.setQueue(with: selectedSongs)
         musicControls.musicPlayer.play()
-        
+        pickerOpened = true
         mediaPicker.dismiss(animated: true, completion: nil)
     }
     
     func mediaPickerDidCancel(_ mediaPicker: MPMediaPickerController) {
+        pickerOpened = true
         mediaPicker.dismiss(animated: true, completion: nil)
     }
 }

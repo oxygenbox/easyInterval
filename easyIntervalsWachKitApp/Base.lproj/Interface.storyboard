@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="13196" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="EXM-lb-Mcy">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="13196" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
     <device id="watch38" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -14,11 +14,15 @@
             <objects>
                 <controller identifier="mainController" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="easyIntervalsWachKitApp" customModuleProvider="target">
                     <items>
+                        <label width="1" alignment="center" text="run 10:00-walk 10:00" textAlignment="center" id="bvp-eZ-e5b">
+                            <color key="textColor" red="0.62745098039215685" green="0.89803921568627454" blue="0.47843137254901957" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="font" type="system" pointSize="13"/>
+                        </label>
                         <group width="1" alignment="left" layout="vertical" id="hBA-hg-E0Q">
                             <items>
                                 <label width="1" height="44" alignment="center" text="00:00" textAlignment="center" id="i6I-a5-hzT">
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <fontDescription key="font" type="boldSystem" pointSize="45"/>
+                                    <fontDescription key="font" type="boldSystem" pointSize="42"/>
                                 </label>
                                 <button width="80" height="80" alignment="center" backgroundImage="start_02" id="aqY-aU-l6h">
                                     <connections>
@@ -30,58 +34,43 @@
                                     <color key="textColor" red="0.62745098040000002" green="0.8980392157" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <fontDescription key="font" type="system" weight="semibold" pointSize="16"/>
                                 </label>
+                                <button width="1" alignment="left" hidden="YES" title="pause" id="Fiv-xR-3JX">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="backgroundColor" red="0.62745098039215685" green="0.89803921568627454" blue="0.47843137254901957" alpha="1" colorSpace="calibratedRGB"/>
+                                    <connections>
+                                        <action selector="startTapped" destination="AgC-eL-Hgc" id="1G8-Io-dgm"/>
+                                    </connections>
+                                </button>
+                                <button width="1" alignment="left" hidden="YES" title="end workout" id="B3f-ul-lA8">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="backgroundColor" red="0.62745098039215685" green="0.89803921568627454" blue="0.47843137254901957" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <connections>
+                                        <action selector="endWorkoutTapped" destination="AgC-eL-Hgc" id="Ya7-bb-t3g"/>
+                                    </connections>
+                                </button>
+                                <button width="1" alignment="left" title="settings" id="eqG-yC-BGa">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="backgroundColor" red="0.62745098039215685" green="0.89803921568627454" blue="0.47843137254901957" alpha="1" colorSpace="calibratedRGB"/>
+                                    <connections>
+                                        <segue destination="FSQ-F7-U0F" kind="modal" id="8ui-BO-V4f"/>
+                                    </connections>
+                                </button>
                             </items>
                         </group>
                     </items>
                     <connections>
                         <outlet property="elapsedTimeLabel" destination="Y0h-Qn-aAq" id="KbQ-Ub-5N5"/>
+                        <outlet property="endButton" destination="B3f-ul-lA8" id="hTb-gr-Qad"/>
                         <outlet property="intervalImage" destination="Exv-uW-rJd" id="2HE-PI-FwN"/>
                         <outlet property="intervalTimeLabel" destination="i6I-a5-hzT" id="grO-pD-e1h"/>
+                        <outlet property="pauseButton" destination="Fiv-xR-3JX" id="43c-g8-NbT"/>
+                        <outlet property="settingButton" destination="eqG-yC-BGa" id="RrN-dL-0X6"/>
+                        <outlet property="settingsLabel" destination="bvp-eZ-e5b" id="171-hX-sLK"/>
                         <outlet property="startButton" destination="aqY-aU-l6h" id="wTq-Sh-x9z"/>
                     </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="220" y="309"/>
-        </scene>
-        <!--Entry Interface Controller-->
-        <scene sceneID="hRP-vt-Wkz">
-            <objects>
-                <controller id="EXM-lb-Mcy" customClass="EntryInterfaceController" customModule="easyIntervalsWachKitApp_Extension">
-                    <items>
-                        <group width="134" alignment="center" spacing="6" id="w84-Ts-JLI">
-                            <items>
-                                <group width="0.5" alignment="left" layout="vertical" spacing="6" id="MHm-ug-Ifg">
-                                    <items>
-                                        <imageView width="50" height="50" alignment="center" image="walk_icon" contentMode="scaleAspectFit" id="uDt-AN-wy0"/>
-                                        <label alignment="center" verticalAlignment="bottom" text="10:00" id="Stc-Sz-GQl">
-                                            <fontDescription key="font" type="boldSystem" pointSize="18"/>
-                                        </label>
-                                    </items>
-                                </group>
-                                <group width="0.5" alignment="right" layout="vertical" spacing="6" id="2Rh-sk-gCF">
-                                    <items>
-                                        <imageView width="50" height="50" alignment="center" image="run_icon" contentMode="scaleAspectFill" id="OQh-Va-cva"/>
-                                        <label alignment="center" verticalAlignment="bottom" text="10:00" id="YQE-d3-uNL">
-                                            <fontDescription key="font" type="boldSystem" pointSize="18"/>
-                                        </label>
-                                    </items>
-                                </group>
-                            </items>
-                        </group>
-                        <button width="1" alignment="left" title="Start" id="M7A-jN-vJp">
-                            <connections>
-                                <action selector="startTapped" destination="EXM-lb-Mcy" id="Xbh-zq-xlf"/>
-                            </connections>
-                        </button>
-                        <button width="1" alignment="left" title="Settings" id="qFl-LU-laj">
-                            <connections>
-                                <segue destination="FSQ-F7-U0F" kind="modal" id="ide-Rr-8NE"/>
-                            </connections>
-                        </button>
-                    </items>
-                </controller>
-            </objects>
-            <point key="canvasLocation" x="-175" y="291"/>
         </scene>
         <!--Settings Interface Controller-->
         <scene sceneID="0Nt-ly-2x6">
@@ -125,7 +114,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="-175" y="643"/>
+            <point key="canvasLocation" x="490" y="391"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">
@@ -141,14 +130,14 @@
                     </connections>
                 </notificationController>
             </objects>
-            <point key="canvasLocation" x="220" y="643"/>
+            <point key="canvasLocation" x="220" y="680"/>
         </scene>
         <!--Notification Controller-->
         <scene sceneID="ZPc-GJ-vnh">
             <objects>
                 <controller id="4sK-HA-Art" customClass="NotificationController" customModule="easyIntervalsWachKitApp" customModuleProvider="target"/>
             </objects>
-            <point key="canvasLocation" x="468" y="643"/>
+            <point key="canvasLocation" x="484" y="691"/>
         </scene>
     </scenes>
 </document>

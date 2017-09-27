@@ -20,6 +20,7 @@
 		9E2E77E61E23D9FE0082ED83 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2E77E51E23D9FE0082ED83 /* Data.swift */; };
 		9E2E77E81E23DA0C0082ED83 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2E77E71E23DA0C0082ED83 /* Settings.swift */; };
 		9E2E77EA1E2557670082ED83 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2E77E91E2557670082ED83 /* Session.swift */; };
+		9E3BE24E1F714E950053A49A /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3BE24D1F714E950053A49A /* Data.swift */; };
 		9E490B6C1EF822A0008BD59A /* CountDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E490B6B1EF822A0008BD59A /* CountDownView.swift */; };
 		9E490B6E1EF8243B008BD59A /* CountDownDot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E490B6D1EF8243B008BD59A /* CountDownDot.swift */; };
 		9E520DDC1E6756BB00142F85 /* SettingModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E520DDB1E6756BB00142F85 /* SettingModeView.swift */; };
@@ -27,10 +28,8 @@
 		9E7095311F0C31C900560AEF /* RoundCompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7095301F0C31C900560AEF /* RoundCompleteView.swift */; };
 		9E77A4471F672E0900383050 /* Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E77A4461F672E0900383050 /* Tool.swift */; };
 		9E77A4491F676AA500383050 /* SettingsInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E77A4481F676AA500383050 /* SettingsInterfaceController.swift */; };
-		9E77A44B1F68309400383050 /* EntryInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E77A44A1F68309400383050 /* EntryInterfaceController.swift */; };
 		9E7F19551EE70F83004350D2 /* IntructionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7F19541EE70F83004350D2 /* IntructionView.swift */; };
 		9E7F19571EE70FA6004350D2 /* InstructionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E7F19561EE70FA6004350D2 /* InstructionView.xib */; };
-		9E8CE9851F6AD5860027898F /* StartInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8CE9841F6AD5860027898F /* StartInterfaceController.swift */; };
 		9E8FCDE51EE0A0E8003D2175 /* RoundCompleteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E8FCDE41EE0A0E8003D2175 /* RoundCompleteView.xib */; };
 		9E8FCDE71EE0A1EF003D2175 /* SettingWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8FCDE61EE0A1EF003D2175 /* SettingWindow.swift */; };
 		9E97E5581EF5CAB70094853D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E97E5571EF5CAB70094853D /* MainViewController.swift */; };
@@ -142,6 +141,7 @@
 		9E2E77F61E2577730082ED83 /* start.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = start.caf; sourceTree = "<group>"; };
 		9E2E77F71E2577730082ED83 /* stop.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = stop.caf; sourceTree = "<group>"; };
 		9E2E77F81E2577730082ED83 /* walk.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = walk.caf; sourceTree = "<group>"; };
+		9E3BE24D1F714E950053A49A /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		9E490B6B1EF822A0008BD59A /* CountDownView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountDownView.swift; sourceTree = "<group>"; };
 		9E490B6D1EF8243B008BD59A /* CountDownDot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountDownDot.swift; sourceTree = "<group>"; };
 		9E520DDB1E6756BB00142F85 /* SettingModeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingModeView.swift; sourceTree = "<group>"; };
@@ -149,10 +149,8 @@
 		9E7095301F0C31C900560AEF /* RoundCompleteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundCompleteView.swift; sourceTree = "<group>"; };
 		9E77A4461F672E0900383050 /* Tool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tool.swift; sourceTree = "<group>"; };
 		9E77A4481F676AA500383050 /* SettingsInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsInterfaceController.swift; sourceTree = "<group>"; };
-		9E77A44A1F68309400383050 /* EntryInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryInterfaceController.swift; sourceTree = "<group>"; };
 		9E7F19541EE70F83004350D2 /* IntructionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntructionView.swift; sourceTree = "<group>"; };
 		9E7F19561EE70FA6004350D2 /* InstructionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InstructionView.xib; sourceTree = "<group>"; };
-		9E8CE9841F6AD5860027898F /* StartInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartInterfaceController.swift; sourceTree = "<group>"; };
 		9E8FCDE41EE0A0E8003D2175 /* RoundCompleteView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RoundCompleteView.xib; sourceTree = "<group>"; };
 		9E8FCDE61EE0A1EF003D2175 /* SettingWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingWindow.swift; sourceTree = "<group>"; };
 		9E97E5571EF5CAB70094853D /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -332,8 +330,7 @@
 				9E9EBB051F6219FA00C5CAD7 /* Info.plist */,
 				9E9EBB061F6219FA00C5CAD7 /* PushNotificationPayload.apns */,
 				9E77A4461F672E0900383050 /* Tool.swift */,
-				9E77A44A1F68309400383050 /* EntryInterfaceController.swift */,
-				9E8CE9841F6AD5860027898F /* StartInterfaceController.swift */,
+				9E3BE24D1F714E950053A49A /* Data.swift */,
 			);
 			path = "easyIntervalsWachKitApp Extension";
 			sourceTree = "<group>";
@@ -536,13 +533,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9E77A44B1F68309400383050 /* EntryInterfaceController.swift in Sources */,
-				9E8CE9851F6AD5860027898F /* StartInterfaceController.swift in Sources */,
 				9E9EBB021F6219FA00C5CAD7 /* NotificationController.swift in Sources */,
 				9E77A4491F676AA500383050 /* SettingsInterfaceController.swift in Sources */,
 				9E9EBB001F6219FA00C5CAD7 /* ExtensionDelegate.swift in Sources */,
 				9E9EBAFE1F6219FA00C5CAD7 /* InterfaceController.swift in Sources */,
 				9E77A4471F672E0900383050 /* Tool.swift in Sources */,
+				9E3BE24E1F714E950053A49A /* Data.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
