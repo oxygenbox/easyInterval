@@ -49,11 +49,30 @@ enum Mode {
 
 class Data: Settings {
     static var modeNameArray = [Seq.runWalk.name, Seq.walkRun.name]
-    static var timeArray = ["1:00", "2:00", "3:00", "4:00", "5:00", "6:00", "7:00", "8:00", "9:00", "10:00"]
+    //static var timeArray = ["1:00", "2:00", "3:00", "4:00", "5:00", "6:00", "7:00", "8:00", "9:00", "10:00"]
     
     var sessionIncrement: Int = 30
     var workout:Workout?
     var state: State?
+    
+    var timeArray: [String] {
+        var tot = 20
+        var inc = 30
+        
+        if data.isSixtySeconds {
+             tot = 10
+             inc = 60
+        }
+    
+        var array = [String]()
+        for  i in 1 ... tot {
+            let time = Tool.formatPickerMinutes(secs: i*inc)
+            array.append(time)
+        }
+        
+        return array
+    }
+    
     
     var settingTitle: String {
         if isRunWalk {
@@ -67,11 +86,19 @@ class Data: Settings {
     var colorizedTitle: NSMutableAttributedString {
         let font = UIFont(name: "AvenirNext-DemiBold", size: 20.0)!
         
+       // let w = Tool.formatPickerMinutes(secs: walkIntervalInSeconds)
+       // let r = Tool.formatPickerMinutes(secs: runIntervalInSeconds)
+        
+       // print("R \(r), W \(w)")
+        
         let runAttributes = [NSAttributedStringKey.foregroundColor: UIColor.run, NSAttributedStringKey.font: font]
-        let runString = NSMutableAttributedString(string: "run: \(runTimeString)", attributes: runAttributes)
+        //let runString = NSMutableAttributedString(string: "run: \(runTimeString)", attributes: runAttributes)
+        let runString = NSMutableAttributedString(string: Tool.formatPickerMinutes(secs: runIntervalInSeconds), attributes: runAttributes)
         
         let walkAttributes = [NSAttributedStringKey.foregroundColor: UIColor.walk, NSAttributedStringKey.font: font]
-        let walkString = NSMutableAttributedString(string: "walk: \(walkTimeString)", attributes: walkAttributes)
+        //let walkString = NSMutableAttributedString(string: "walk: \(walkTimeString)", attributes: walkAttributes)
+        // NSMutableAttributedString(string: "hello, world!")
+        let walkString = NSMutableAttributedString(string: Tool.formatPickerMinutes(secs: walkIntervalInSeconds), attributes: walkAttributes)
         
         let space = NSMutableAttributedString(string: " ", attributes: runAttributes)
         
@@ -102,11 +129,19 @@ class Data: Settings {
     }
     
     var runIntervalInSeconds: Int {
-        return (self.runValue + 1) * 60
+        if data.isSixtySeconds {
+            return (self.runValue + 1) * 60
+        } else {
+            return (self.runValue + 1) * 30
+        }
     }
     
     var walkIntervalInSeconds: Int {
-        return (self.walkValue + 1) * 60
+        if data.isSixtySeconds {
+            return (self.walkValue + 1) * 60
+        } else {
+             return (self.walkValue + 1) * 30
+        }
     }
     
     var sessionSeconds: Int {

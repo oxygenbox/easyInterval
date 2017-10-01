@@ -7,11 +7,29 @@
 //
 
 /*
+ Added 30 second increment option
+ Fixed issues with music playback
+ 
+ 
  add 30 secons
  1. add setting instructions
- 2 . animattion for store
- 3. add cooff when opening music
+ 2 . animation for store
+ 4. change title for 30 seconds'
+ 5. check workout ength for 30 secons
  
+ //added 9/30/17
+ UIApplication.shared.isIdleTimerDisabled = true
+ UIApplication.shared.isIdleTimerDisabled = true
+ 
+ 
+ AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, error: nil)
+ 
+ Then in your Info.plist, add a new entry for UIBackgroundModes and set it to audio. Xcode will automatically fill it out as 'Require background modes' and 'App plays audio or streams audio/video using Airplay'
+ 
+ 
+ 
+ iport AVFoundatio
+ AVAudioPlayer
  */
 
 import UIKit
@@ -257,11 +275,10 @@ class MainViewController: UIViewController {
                         session.remainingSeconds = session.totalSeconds
                         session.elapsedSeconds = 0
                     }
-            
                     self.sessionClock.beginClock(intervalSeconds: data.totalSessionSeconds)
                     
                 }
-            
+                UIApplication.shared.isIdleTimerDisabled = true
                 settingsButton.isEnabled = false
                 settingsButton.alpha = 0.5
                 playMusic()
@@ -270,7 +287,7 @@ class MainViewController: UIViewController {
             settingsButton.isEnabled = false
             settingsButton.alpha = 0.5
             intervalWindow.resumeIntervalClock()
-            
+            UIApplication.shared.isIdleTimerDisabled = true
          
             if data.workoutOn {
                 self.sessionClock.resume()
@@ -285,7 +302,7 @@ class MainViewController: UIViewController {
             if data.workoutOn {
                 self.sessionClock.pause()
             }
-            
+            UIApplication.shared.isIdleTimerDisabled = false
             pauseMusic()
             
         default:
@@ -344,8 +361,6 @@ class MainViewController: UIViewController {
     }
     
     func postTimes() {
-        print("postTimes \(workout.currentInterval.remainingSeconds)")
-        
         let intervalText = Tool.intervalTimeFormatted(seconds: workout.currentInterval.remainingSeconds)
         
         var textColor = UIColor.run
@@ -674,7 +689,15 @@ extension MainViewController: WorkoutDelegate {
 extension MainViewController: MPMediaPickerControllerDelegate {
     func mediaPicker(_ mediaPicker: MPMediaPickerController, didPickMediaItems mediaItemCollection: MPMediaItemCollection) {
         let selectedSongs = mediaItemCollection
+    
+        
+         let everyThing = MPMediaQuery.songs()
+       //  let itemsFromGenericQuery = everyThing.items
+         //player.setQueue(with: everyThing)
+ 
+       
         musicControls.musicPlayer.setQueue(with: selectedSongs)
+         musicControls.musicPlayer.setQueue(with: everyThing)
         musicControls.musicPlayer.play()
         pickerOpened = true
         mediaPicker.dismiss(animated: true, completion: nil)

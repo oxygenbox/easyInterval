@@ -197,6 +197,8 @@ class Workout: NSObject, AVAudioPlayerDelegate {
                 
                 let audioSession = AVAudioSession.sharedInstance()
                 
+                //AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, error: nil)
+                
                 do {
                     try audioSession.setCategory(AVAudioSessionCategoryPlayback)
                 }

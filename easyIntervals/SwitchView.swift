@@ -9,6 +9,7 @@
 protocol SwitchViewDelegate {
     func changePreferenceState()
     func checkPermissions()
+    func incrementUpdate()
 }
 
 
@@ -46,7 +47,7 @@ class SwitchView: UIView {
             case .workout:
                 data.workoutOn = sender.isOn
             default:
-                break
+                data.isSixtySeconds = sender.isOn
         }
         data.save()
         
@@ -58,6 +59,10 @@ class SwitchView: UIView {
         
         if preference == .music {
             del.checkPermissions()
+        }
+        
+        if preference == .info {
+            del.incrementUpdate()
         }
     }
     
@@ -82,7 +87,7 @@ class SwitchView: UIView {
         case .workout:
             prefSwitch.isOn = data.workoutOn 
         default:
-            break
+            prefSwitch.isOn = data.isSixtySeconds
         }
     }
 }

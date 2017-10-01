@@ -51,6 +51,20 @@ class Tool {
         return "\(minuteString):\(secondString)"
     }
     
+    class func formatPickerMinutes(secs: Int) -> String {
+        var seconds = secs
+        var minutes = seconds / 60
+        seconds -= minutes * 60
+        let hours = minutes / 60
+        minutes -= hours * 60
+        let secondString = numberToString(value: seconds)
+        
+        return "\(minutes):\(secondString)"
+    }
+    
+    
+    
+    
     class func numberToString(value : Int) -> String {
         if value < 10 {
             return "0\(value)"
@@ -72,10 +86,6 @@ class Tool {
             let runRange =  NSRange(location:5,length:3)
             mutableString.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor.run, range: runRange)
         }
-        
-        
-        
-        
         return mutableString
     }
     

@@ -17,6 +17,7 @@ enum BoolKey: String {
     case workoutOn
     case isRunWalk
     case firstVisit
+    case isSixtySeconds
 }
 
 enum IntKey: String {
@@ -36,6 +37,7 @@ class Settings {
     var musicOn = false
     var workoutOn = false
     var isRunWalk = true
+    var isSixtySeconds = true
    
     var runValue = 4
     var walkValue = 0
@@ -61,7 +63,7 @@ class Settings {
             workoutOn = defaults.bool(forKey: BoolKey.workoutOn.rawValue)
             isRunWalk = defaults.bool(forKey: BoolKey.isRunWalk.rawValue)
             firstVisit = defaults.bool(forKey: BoolKey.firstVisit.rawValue)
-            
+            isSixtySeconds = defaults.bool(forKey: BoolKey.isSixtySeconds.rawValue)
             
             runValue = defaults.value(forKeyPath: IntKey.runValue.rawValue) as! Int
             walkValue = defaults.value(forKeyPath: IntKey.walkValue.rawValue) as! Int
@@ -81,13 +83,13 @@ class Settings {
         defaults.set(workoutOn, forKey: BoolKey.workoutOn.rawValue)
         defaults.set(isRunWalk, forKey: BoolKey.isRunWalk.rawValue)
         defaults.set(firstVisit, forKey: BoolKey.firstVisit.rawValue)
+        defaults.set(isSixtySeconds, forKey: BoolKey.isSixtySeconds.rawValue)
         
         defaults.set(runValue, forKey: IntKey.runValue.rawValue)
         defaults.set(walkValue, forKey: IntKey.walkValue.rawValue)
         defaults.set(sequenceRepeats, forKey: IntKey.sequenceRepeats.rawValue)
         defaults.set(cadenceFrequency, forKey: IntKey.cadenceFrequency.rawValue)
         defaults.set(settingsTab, forKey: IntKey.settingsTab.rawValue)
-        
         
         defaults.synchronize()
     }

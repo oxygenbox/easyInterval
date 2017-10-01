@@ -261,10 +261,10 @@
 			children = (
 				9E2E77E51E23D9FE0082ED83 /* Data.swift */,
 				9E2E77E71E23DA0C0082ED83 /* Settings.swift */,
+				9ED0CF6E1E26B53E0036233A /* Tool.swift */,
 				9ED0CF6C1E2684320036233A /* Workout.swift */,
 				9E2E77E91E2557670082ED83 /* Session.swift */,
 				9ED0CF5D1E2588510036233A /* Interval.swift */,
-				9ED0CF6E1E26B53E0036233A /* Tool.swift */,
 				9EAEA5931ED3446B005E3F63 /* ButtonView.swift */,
 				9E520DDB1E6756BB00142F85 /* SettingModeView.swift */,
 				9E0599A81EC2295500E15A34 /* ClockView.swift */,
@@ -275,6 +275,7 @@
 				9E8FCDE61EE0A1EF003D2175 /* SettingWindow.swift */,
 				9E7F19541EE70F83004350D2 /* IntructionView.swift */,
 				9EB1C7491EE9754C00B9BDD1 /* MusicControls.swift */,
+				9EDF7B641F3A16F300350AE5 /* MusicButton.swift */,
 				9E10CC5E1EF30CA60017D7B8 /* PreferenceButton.swift */,
 				9E10CC601EF3112D0017D7B8 /* SwitchView.swift */,
 				9E97E5591EF5D02D0094853D /* RoundModeView.swift */,
@@ -284,7 +285,6 @@
 				9E0CA72B1F015B4B006F6F9A /* PlainButton.swift */,
 				9E0CA72D1F02CFAB006F6F9A /* SessionClockView.swift */,
 				9E7095301F0C31C900560AEF /* RoundCompleteView.swift */,
-				9EDF7B641F3A16F300350AE5 /* MusicButton.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";

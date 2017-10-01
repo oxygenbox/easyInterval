@@ -133,6 +133,7 @@ class PreferenceViewController: UIViewController {
         self.positionSwitchView(destination: sender.center.x)
         self.selectButton(button: sender)
         self.initSegmentedControls(animateDesc: true)
+       
     }
     
     @IBAction func doneButtonTapped(_sender:UIButton) {
@@ -227,18 +228,18 @@ class PreferenceViewController: UIViewController {
     }
     
     func configureButtons() {
-        for (index, button) in buttonCollection.enumerated() {
+       for (index, button) in buttonCollection.enumerated() {
             button.tag = index
             if index == data.settingsTab {
                 button.select()
             } else {
                 button.deselect()
             }
-            
-            setButtonState()
-            infoButton.makeInfo()
-            infoButton.isEnabled = false
-            infoButton.alpha = 0.0
+//
+                setButtonState()
+//            //infoButton.makeInfo()
+//            //infoButton.isEnabled = false
+//           // infoButton.alpha = 0.0
         }
     }
     
@@ -283,7 +284,7 @@ class PreferenceViewController: UIViewController {
             }
         case .music:
             if data.musicOn {
-            self.descriptionLabel.attributedText = data.formatDescription(lineOne: "play music from", lineTwo: "the itunes library", lineThree: "while timer is running")
+                self.descriptionLabel.attributedText = data.formatDescription(lineOne: "play music from", lineTwo: "the itunes library", lineThree: "while timer is running")
             } else {
                 self.descriptionLabel.attributedText = data.formatDescription(lineOne: "", lineTwo: "music off", lineThree: "")
             }
@@ -294,7 +295,13 @@ class PreferenceViewController: UIViewController {
                 self.descriptionLabel.attributedText = data.formatDescription(lineOne: "", lineTwo: "timed session off", lineThree: "")
             }
         default:
-            self.descriptionLabel.text = ""
+            if data.isSixtySeconds {
+                 self.descriptionLabel.attributedText = data.formatDescription(lineOne: "display intervals", lineTwo: "as 60 second", lineThree: "increments")
+            } else {
+                self.descriptionLabel.attributedText = data.formatDescription(lineOne: "display intervals", lineTwo: "as 30 second", lineThree: "increments")
+            }
+            
+            
         }
         
         descriptionLabel.backgroundColor = UIColor.clear
@@ -308,6 +315,7 @@ class PreferenceViewController: UIViewController {
         cadenceButton.isOn = data.cadenceOn
         musicButton.isOn = data.musicOn
         sessionButton.isOn = data.workoutOn
+        infoButton.isOn = data.isSixtySeconds
     }
     
     func selectButton(button: PreferenceButton) {
@@ -331,8 +339,11 @@ class PreferenceViewController: UIViewController {
                     but.isOn = data.musicOn
                 case sessionButton:
                     but.isOn = data.workoutOn
+                case infoButton:
+                    but.isOn = data.isSixtySeconds
                 default:
-                    break
+                break
+                
             }
         }
     }
@@ -436,7 +447,7 @@ extension PreferenceViewController: UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return Data.timeArray.count
+        return data.timeArray.count
     }
     
     func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
@@ -461,7 +472,7 @@ extension PreferenceViewController: UIPickerViewDataSource {
         let label = UILabel(frame: pView.frame)
         label.frame = CGRect(x: 0, y: dim*0.60, width: dim, height: dim*0.25)
         
-        label.attributedText = Tool.formatPickerTime(time: Data.timeArray[row])
+        label.attributedText = Tool.formatPickerTime(time: data.timeArray[row])
         label.textAlignment = .center
         pView.addSubview(label)
         label.textColor = UIColor.white
@@ -490,6 +501,35 @@ extension PreferenceViewController: SwitchViewDelegate {
         setDescriptionText()
         setButtonState()
         initSegmentedControls(animateDesc: false)
+    }
+    
+    func incrementUpdate() {
+        var runVal = data.runValue
+        var walkVal = data.walkValue
+       
+        if data.isSixtySeconds {
+            runVal /= 2
+            walkVal /= 2
+            let image = UIImage(named: "icon_00")
+            infoButton.setImage(image, for: .normal)
+           // infoButton.titleLabel?.text = ":00"
+        } else {
+            runVal *= 2
+            walkVal *= 2
+           // infoButton.titleLabel?.text = ":30"
+            let image = UIImage(named: "icon_30")
+            infoButton.setImage(image, for: .normal)
+        }
+        
+        data.runValue = runVal
+        data.walkValue = walkVal
+        data.save()
+        
+        self.picker.reloadAllComponents()
+        self.picker.selectRow(data.runValue, inComponent: runComponent, animated: true)
+        self.picker.selectRow(data.walkValue, inComponent: walkComponent, animated: true)
+        postTitle()
+        
     }
 }
 
