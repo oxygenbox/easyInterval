@@ -82,12 +82,13 @@ class PreferenceViewController: UIViewController {
     var walkSetting = 0
     var preferences: [Preference] =  [.info, .audio, .vibrate, .cadence, .music, .workout]
     
-   // var infoPointer = 0
-    var infoTimer: Timer?
-    
-    var infoTracker: InfoTracker!
-    
-    
+   //Help Sequence
+    var helpSeqTimer: Timer?
+    var helpSeqPointer = 0
+    var helpSeqComponents = [Int]()
+    var helpSeqDelay = 0
+    var helpSeqDelayLength = 3
+
     var runComponent: Int {
         if data.isRunWalk {
             return 0
@@ -119,7 +120,6 @@ class PreferenceViewController: UIViewController {
         gradientLayer.locations = [0.0, 0.75]
         gradientLayer.colors = [UIColor.packLight.cgColor, UIColor.packDark.cgColor]
         buttonHighlight.layer.addSublayer(gradientLayer)
-        
     }
     
     lazy var buttonRing: UIView = {
@@ -144,7 +144,7 @@ class PreferenceViewController: UIViewController {
     
     //MARK:- ACTIONS
     @IBAction func preferenceButtonTapped(_ sender: PreferenceButton) {
-        stopInfo()
+        stopHelpSeq()
         data.settingsTab  = sender.tag
         data.save()
         self.positionSwitchView(destination: sender.center.x)
@@ -153,7 +153,7 @@ class PreferenceViewController: UIViewController {
     }
     
     @IBAction func doneButtonTapped(_sender:UIButton) {
-        stopInfo()
+        stopHelpSeq()
         //if mode changed 
         //if run  is differnt
         //is walk is different
@@ -183,7 +183,7 @@ class PreferenceViewController: UIViewController {
     }
     
     @IBAction func intervalOrderChanged(_ sender: UISegmentedControl) {
-        stopInfo()
+        stopHelpSeq()
         data.isRunWalk = sender.selectedSegmentIndex == 0
         data.isRunWalk = sender.selectedSegmentIndex == 0
         data.save()
@@ -194,7 +194,7 @@ class PreferenceViewController: UIViewController {
     }
     
     @IBAction func controlChanged(_ sender: UISegmentedControl) {
-        stopInfo()
+        stopHelpSeq()
         if activePreference  == .cadence {
             data.cadenceFrequency = sender.selectedSegmentIndex
         } else if activePreference == .workout {
@@ -324,11 +324,12 @@ class PreferenceViewController: UIViewController {
             } else {
                 self.descriptionLabel.attributedText = data.formatDescription(lineOne: "display intervals", lineTwo: "as 30 second", lineThree: "increments")
             }
-            
-            
         }
         
         descriptionLabel.backgroundColor = UIColor.clear
+        descriptionLabel.layer.cornerRadius  = 0
+        descriptionLabel.layer.borderWidth = 0
+        descriptionLabel.clipsToBounds = false
     }
     
    
@@ -367,7 +368,6 @@ class PreferenceViewController: UIViewController {
                     but.isOn = data.isSixtySeconds
                 default:
                 break
-                
             }
         }
     }
@@ -431,8 +431,6 @@ class PreferenceViewController: UIViewController {
         default:
             break
         }
-
-        
     }
     
     func addGradient() {
@@ -450,44 +448,54 @@ class PreferenceViewController: UIViewController {
     }
     
     func startInfo() {
-        
-        guard infoTimer == nil else {
-            self.stopInfo()
+        guard helpSeqTimer == nil else {
+            self.stopHelpSeq()
             return
         }
-        infoTracker = InfoTracker(runComponent: runComponent, walkComponent: walkComponent)
-        infoTimer = Timer.scheduledTimer(withTimeInterval: 1.25, repeats: true) { (timer) in
+        initHelpSequence()
+        helpSeqTimer = Timer.scheduledTimer(withTimeInterval: 1.1, repeats: true) { (timer) in
             
 
-            if self.infoTracker!.isPicker {
-                self.animatePicker()
+            if self.helpSeqComponents.count > 0 {
+                self.helpPickerSequence()
             } else {
-                self.cycleButtons()
+                
+                if self.helpSeqDelay > 0 {
+                    self.helpSeqDelay -= 1
+                } else {
+                    self.helpButtonSequence()
+                }
             }
         }
-        
-        
-        
-        
     }
     
-    func cycleButtons() {
+    func initHelpSequence() {
+        helpSeqPointer = 0
+        helpSeqComponents = [runComponent, walkComponent]
+        helpSeqDelay = helpSeqDelayLength
+    
+        descriptionLabel.layer.cornerRadius  = 20
+        descriptionLabel.layer.borderColor = UIColor.white.cgColor
+        descriptionLabel.layer.borderWidth = 1
+        descriptionLabel.clipsToBounds = true
+        self.descriptionLabel.attributedText = data.formatDescription(lineOne: "set the", lineTwo: "run and walk intervals", lineThree: "by swiping numbers above")
+    }
+    
+    func helpButtonSequence() {
         self.descriptionLabel.attributedText = data.formatDescription(lineOne: "use the buttons below to", lineTwo: "set preferences", lineThree: "")
-        let button = self.buttonCollection[self.infoTracker.pointer]
+        let button = self.buttonCollection[helpSeqPointer]
         self.buttonRing.center.x = button.center.x + 20
         self.buttonRing.isHidden = false
-        self.infoTracker.pointer += 1
-        if self.infoTracker.pointer >= self.buttonCollection.count {
-            self.infoTracker.pointer = 0
-            self.infoTracker.components = [runComponent, walkComponent]
-            //self.infoTracker.pause = 5
+        helpSeqPointer += 1
+        if helpSeqPointer >= self.buttonCollection.count {
+            initHelpSequence()
         }
     }
     
-    func animatePicker() {
-        self.descriptionLabel.attributedText = data.formatDescription(lineOne: "set the", lineTwo: "run and walk intervals", lineThree: "by swiping numbers above")
+    func helpPickerSequence() {
+       // self.descriptionLabel.attributedText = data.formatDescription(lineOne: "set the", lineTwo: "run and walk intervals", lineThree: "by swiping numbers above")
         
-        let component = infoTracker.components.remove(at: 0)
+        let component = helpSeqComponents.remove(at: 0)
         var value = 0
         if component == runComponent {
             value = data.runValue
@@ -502,48 +510,22 @@ class PreferenceViewController: UIViewController {
             i = -1
         }
         
-        
-        
         if value == current {
             self.picker.selectRow(current + i, inComponent: component, animated: true)
         } else {
             self.picker.selectRow(value, inComponent: component, animated: true)
         }
-        
-        
-    
     }
     
-    func stopInfo() {
-        infoTimer?.invalidate()
-        infoTimer = nil
+    func stopHelpSeq() {
+        helpSeqTimer?.invalidate()
+        helpSeqTimer = nil
         buttonRing.isHidden = true
         self.picker.selectRow(data.runValue, inComponent: runComponent, animated: true)
         self.picker.selectRow(data.walkValue, inComponent: walkComponent, animated: true)
         self.postDescription()
     }
-    
-    /*
-     func positionSwitchView(destination: CGFloat) {
-     switchView.preference = activePreference
-     let pa = UIViewPropertyAnimator(duration: 0.25, curve: .easeOut) {
-     self.switchView.center.x = destination
-     self.buttonHighlight.center.x = destination
-     self.switchView.alpha = 1
-     self.buttonHighlight.alpha = 1
-     }
-     
-     pa.startAnimation()
-     view.layoutIfNeeded()
-     }
- 
-     */
-    
-    
-    
-  
 }
-
 
 //MARK:- EXTENSIONS
 extension PreferenceViewController: UIPickerViewDelegate {
@@ -556,7 +538,7 @@ extension PreferenceViewController: UIPickerViewDelegate {
         
         postTitle()
         initSegmentedControls(animateDesc: false)
-         stopInfo()
+         stopHelpSeq()
         
     }
 }
@@ -597,16 +579,12 @@ extension PreferenceViewController: UIPickerViewDataSource {
         pView.addSubview(label)
         label.textColor = UIColor.white
         
-        
         if component == runComponent {
             pView.backgroundColor = UIColor.run
             imageView.image = UIImage(named: "run_solid")
-           
-            
         } else {
             pView.backgroundColor = UIColor.walk
             imageView.image = UIImage(named: "walk_solid")
-            
         }
         
         pView.layer.borderWidth = 2
@@ -618,7 +596,7 @@ extension PreferenceViewController: UIPickerViewDataSource {
 
 extension PreferenceViewController: SwitchViewDelegate {
     func changePreferenceState() {
-        stopInfo()
+        stopHelpSeq()
         setDescriptionText()
         setButtonState()
         initSegmentedControls(animateDesc: false)
@@ -633,11 +611,9 @@ extension PreferenceViewController: SwitchViewDelegate {
             walkVal /= 2
             let image = UIImage(named: "icon_00")
             secondsButton.setImage(image, for: .normal)
-           // infoButton.titleLabel?.text = ":00"
         } else {
             runVal *= 2
             walkVal *= 2
-           // infoButton.titleLabel?.text = ":30"
             let image = UIImage(named: "icon_30")
             secondsButton.setImage(image, for: .normal)
         }
@@ -650,30 +626,10 @@ extension PreferenceViewController: SwitchViewDelegate {
         self.picker.selectRow(data.runValue, inComponent: runComponent, animated: true)
         self.picker.selectRow(data.walkValue, inComponent: walkComponent, animated: true)
         postTitle()
-        
     }
 }
 
 
-class InfoTracker {
-    var pointer: Int
-    var isPicker: Bool {
-        return self.components.count > 0
-    }
-    
-    
-    var run: Int
-    var walk: Int
-    var components: [Int]
-    init(runComponent: Int, walkComponent: Int) {
-        pointer = 0
-        self.run = runComponent
-        self.walk = runComponent
-        components = [runComponent, walkComponent]
-    }
-    
-   
-}
 
 
 
