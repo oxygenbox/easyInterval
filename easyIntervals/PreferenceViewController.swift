@@ -231,7 +231,7 @@ class PreferenceViewController: UIViewController {
         view.insertSubview(buttonBack, at: 0)
         
         
-      //  buttonBar.backgroundColor = UIColor.packDark
+        buttonBar.backgroundColor = UIColor.packDark
         addGradient()
         
         
@@ -255,15 +255,11 @@ class PreferenceViewController: UIViewController {
             } else {
                 button.deselect()
             }
-//
-                setButtonState()
-//            //infoButton.makeInfo()
-//            //infoButton.isEnabled = false
-//           // infoButton.alpha = 0.0
+
+            setButtonState()
         }
         
         infoButton.makeInfo()
-        
         buttonBar.addSubview(buttonRing)
     }
     
@@ -272,7 +268,6 @@ class PreferenceViewController: UIViewController {
     }
     
     func postDescription() {
-        
         UIView.animate(withDuration: 0.3, animations: {
             self.descriptionView.alpha = 0
         }) { (success) in
@@ -374,11 +369,8 @@ class PreferenceViewController: UIViewController {
   
     func initSegmentedControls(animateDesc:Bool) {
         intervalOrderControl.tintColor = UIColor.packDark
-       // intervalOrderControl.backgroundColor = UIColor.white.withAlphaComponent(0.5)
         sessionControl.tintColor = UIColor.white
         cadenceControl.tintColor = UIColor.white
-       // sessionControl.backgroundColor = UIColor.white.withAlphaComponent(0.5)
-      //  cadenceControl.backgroundColor = UIColor.white.withAlphaComponent(0.5)
         
         sessionControl.isHidden = activePreference != .workout
         cadenceControl.isHidden = activePreference != .cadence
@@ -478,11 +470,11 @@ class PreferenceViewController: UIViewController {
         descriptionLabel.layer.borderColor = UIColor.white.cgColor
         descriptionLabel.layer.borderWidth = 1
         descriptionLabel.clipsToBounds = true
-        self.descriptionLabel.attributedText = data.formatDescription(lineOne: "set the", lineTwo: "run and walk intervals", lineThree: "by swiping numbers above")
+        self.descriptionLabel.attributedText = data.formatDescription(lineOne: "set the length of", lineTwo: "run and walk intervals", lineThree: "by swiping numbers above")
     }
     
     func helpButtonSequence() {
-        self.descriptionLabel.attributedText = data.formatDescription(lineOne: "use the buttons below to", lineTwo: "set preferences", lineThree: "")
+        self.descriptionLabel.attributedText = data.formatDescription(lineOne: "you are able to", lineTwo: "change preferences", lineThree: "use the buttons below")
         let button = self.buttonCollection[helpSeqPointer]
         self.buttonRing.center.x = button.center.x + 20
         self.buttonRing.isHidden = false
@@ -493,8 +485,6 @@ class PreferenceViewController: UIViewController {
     }
     
     func helpPickerSequence() {
-       // self.descriptionLabel.attributedText = data.formatDescription(lineOne: "set the", lineTwo: "run and walk intervals", lineThree: "by swiping numbers above")
-        
         let component = helpSeqComponents.remove(at: 0)
         var value = 0
         if component == runComponent {

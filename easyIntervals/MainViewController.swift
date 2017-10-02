@@ -34,6 +34,7 @@
 
 import UIKit
 import MediaPlayer
+import GameplayKit
 
 class MainViewController: UIViewController {
     
@@ -689,15 +690,33 @@ extension MainViewController: WorkoutDelegate {
 extension MainViewController: MPMediaPickerControllerDelegate {
     func mediaPicker(_ mediaPicker: MPMediaPickerController, didPickMediaItems mediaItemCollection: MPMediaItemCollection) {
         let selectedSongs = mediaItemCollection
-    
+        let selectedSongsArray = selectedSongs.items
         
-         let everyThing = MPMediaQuery.songs()
-       //  let itemsFromGenericQuery = everyThing.items
-         //player.setQueue(with: everyThing)
+        
+        
+        let everything = MPMediaQuery.songs()
+        var everythingArray = everything.items
+        
+        
+        everythingArray = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: everythingArray!) as? [MPMediaItem]
+        
+        for (index, item) in selectedSongsArray.enumerated() {
+            everythingArray!.insert(item, at: index)
+        }
+        
+        
+        
+        let mediaItemCollection = MPMediaItemCollection(items: everythingArray!)
+         //player.setQueue(with: everyThing)\
+        //SMutableArray *items = [NSMutableArray arrayWithArray:myMediaItemCollection.items];
+       // [items addObject:myNewMediaItem];
+       // MPMediaItemCollection *myNewMediaItemCollection = [MPMediaItemCollection collectionWithItems:items];
  
        
         musicControls.musicPlayer.setQueue(with: selectedSongs)
-         musicControls.musicPlayer.setQueue(with: everyThing)
+        musicControls.musicPlayer.setQueue(with: mediaItemCollection)
+        musicControls.musicPlayer.shuffleMode = MPMusicShuffleMode.off
+        
         musicControls.musicPlayer.play()
         pickerOpened = true
         mediaPicker.dismiss(animated: true, completion: nil)

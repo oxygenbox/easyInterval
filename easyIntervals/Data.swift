@@ -95,16 +95,22 @@ class Data: Settings {
         let walkString = NSMutableAttributedString(string: Tool.formatPickerMinutes(secs: walkIntervalInSeconds), attributes: walkAttributes)
         
         let space = NSMutableAttributedString(string: " ", attributes: runAttributes)
+        let runPrefix = NSMutableAttributedString(string: "run: ", attributes: runAttributes)
+        let walkPrefix = NSMutableAttributedString(string: "walk: ", attributes: walkAttributes)
         
         let combination = NSMutableAttributedString()
         
         if data.isRunWalk {
+            combination.append(runPrefix)
             combination.append(runString)
             combination.append(space)
+            combination.append(walkPrefix)
             combination.append(walkString)
         }else {
+            combination.append(walkPrefix)
             combination.append(walkString)
             combination.append(space)
+            combination.append(runPrefix)
             combination.append(runString)
         }
     
