@@ -10,6 +10,8 @@ import UIKit
 
 class PreferenceButton: UIButton {
     //MARK:- VARIABLES
+    
+    
     var isOn: Bool = false {
         didSet{
             if isOn {
@@ -85,6 +87,11 @@ class PreferenceButton: UIButton {
         backgroundColor = UIColor.clear
         layer.borderWidth = 1
         layer.borderColor = UIColor.activeButton.cgColor
+    }
+    
+    func animate() {
+        backgroundColor = UIColor.blue
+        layer.borderColor = UIColor.yellow.cgColor
     }
 
 }

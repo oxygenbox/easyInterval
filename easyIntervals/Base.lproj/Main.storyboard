@@ -37,6 +37,21 @@
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BLa-ed-P4I">
                                                 <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dTs-Dn-ygf" customClass="PreferenceButton" customModule="easyIntervals" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                                                        <state key="normal" image="icon_help"/>
+                                                        <connections>
+                                                            <action selector="infoTappedWith_sender:" destination="sKf-lX-bwi" eventType="touchUpInside" id="snX-rJ-ZQ1"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="dTs-Dn-ygf" firstAttribute="top" secondItem="BLa-ed-P4I" secondAttribute="top" id="2Mu-F2-hL0"/>
+                                                    <constraint firstAttribute="bottom" secondItem="dTs-Dn-ygf" secondAttribute="bottom" id="5NS-qM-3mh"/>
+                                                    <constraint firstAttribute="trailing" secondItem="dTs-Dn-ygf" secondAttribute="trailing" id="6aW-e0-DLo"/>
+                                                    <constraint firstItem="dTs-Dn-ygf" firstAttribute="leading" secondItem="BLa-ed-P4I" secondAttribute="leading" id="tL0-iH-xEE"/>
+                                                </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7hG-qc-ta9">
                                                 <rect key="frame" x="44" y="0.0" width="216" height="44"/>
@@ -298,10 +313,11 @@
                         <outlet property="descriptionLabel" destination="f4o-uE-U9h" id="35k-av-ng6"/>
                         <outlet property="descriptionView" destination="MgM-Vu-fe7" id="s8a-Qs-NhA"/>
                         <outlet property="doneButton" destination="p0y-pu-dV6" id="pFw-o5-0E1"/>
-                        <outlet property="infoButton" destination="pGX-BI-mZh" id="cA8-9T-rap"/>
+                        <outlet property="infoButton" destination="dTs-Dn-ygf" id="kbv-s1-e6M"/>
                         <outlet property="intervalOrderControl" destination="WGa-Ln-XSE" id="vl3-FG-a9d"/>
                         <outlet property="musicButton" destination="RjW-Qz-zcj" id="O7V-EI-nGy"/>
                         <outlet property="picker" destination="LHV-Qw-FOK" id="Rfu-SI-hTc"/>
+                        <outlet property="secondsButton" destination="pGX-BI-mZh" id="LdK-Id-DJb"/>
                         <outlet property="sessionButton" destination="ime-7u-tNT" id="WaR-9P-hQy"/>
                         <outlet property="sessionControl" destination="Oc5-ao-UEJ" id="xxO-MU-6Iv"/>
                         <outlet property="switchChannel" destination="tbg-4s-rcB" id="2OY-Mo-BAD"/>

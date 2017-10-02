@@ -53,12 +53,14 @@ class PreferenceViewController: UIViewController {
     @IBOutlet weak var picker: UIPickerView!
     @IBOutlet weak var intervalOrderControl: UISegmentedControl!
     @IBOutlet weak var switchView: SwitchView!
-    @IBOutlet weak var infoButton: PreferenceButton!
+    @IBOutlet weak var secondsButton: PreferenceButton!
     @IBOutlet weak var audioButton: PreferenceButton!
     @IBOutlet weak var vibrateButton: PreferenceButton!
     @IBOutlet weak var cadenceButton: PreferenceButton!
     @IBOutlet weak var musicButton: PreferenceButton!
     @IBOutlet weak var sessionButton: PreferenceButton!
+    @IBOutlet weak var infoButton: PreferenceButton!
+    
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var cadenceControl: UISegmentedControl!
@@ -79,6 +81,12 @@ class PreferenceViewController: UIViewController {
     var runSetting = 0
     var walkSetting = 0
     var preferences: [Preference] =  [.info, .audio, .vibrate, .cadence, .music, .workout]
+    
+   // var infoPointer = 0
+    var infoTimer: Timer?
+    
+    var infoTracker: InfoTracker!
+    
     
     var runComponent: Int {
         if data.isRunWalk {
@@ -114,6 +122,16 @@ class PreferenceViewController: UIViewController {
         
     }
     
+    lazy var buttonRing: UIView = {
+        let view = UIView(frame: (CGRect(x: 0, y: 8, width: 44, height: 44)))
+        view.backgroundColor = UIColor.white.withAlphaComponent(0.75)
+        view.layer.cornerRadius = 22
+        view.layer.borderColor = UIColor.run.cgColor
+        view.layer.borderWidth = 4
+        view.isHidden = true
+        return view
+    }()
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
@@ -124,20 +142,18 @@ class PreferenceViewController: UIViewController {
         positionSwitchView(destination: button.center.x)
     }
     
-    
-    
     //MARK:- ACTIONS
     @IBAction func preferenceButtonTapped(_ sender: PreferenceButton) {
+        stopInfo()
         data.settingsTab  = sender.tag
         data.save()
         self.positionSwitchView(destination: sender.center.x)
         self.selectButton(button: sender)
         self.initSegmentedControls(animateDesc: true)
-       
     }
     
     @IBAction func doneButtonTapped(_sender:UIButton) {
-        
+        stopInfo()
         //if mode changed 
         //if run  is differnt
         //is walk is different
@@ -163,12 +179,11 @@ class PreferenceViewController: UIViewController {
             data.state = nil
         }
         
-        
-        
         dismiss(animated: true, completion: nil)
     }
     
     @IBAction func intervalOrderChanged(_ sender: UISegmentedControl) {
+        stopInfo()
         data.isRunWalk = sender.selectedSegmentIndex == 0
         data.isRunWalk = sender.selectedSegmentIndex == 0
         data.save()
@@ -179,6 +194,7 @@ class PreferenceViewController: UIViewController {
     }
     
     @IBAction func controlChanged(_ sender: UISegmentedControl) {
+        stopInfo()
         if activePreference  == .cadence {
             data.cadenceFrequency = sender.selectedSegmentIndex
         } else if activePreference == .workout {
@@ -186,6 +202,10 @@ class PreferenceViewController: UIViewController {
         }
         data.save()
         setDescriptionText()
+    }
+    
+    @IBAction func infoTapped(_sender:UIButton) {
+        self.startInfo()
     }
     
     //MARK:- METHODS
@@ -241,6 +261,10 @@ class PreferenceViewController: UIViewController {
 //            //infoButton.isEnabled = false
 //           // infoButton.alpha = 0.0
         }
+        
+        infoButton.makeInfo()
+        
+        buttonBar.addSubview(buttonRing)
     }
     
     func postTitle() {
@@ -315,7 +339,7 @@ class PreferenceViewController: UIViewController {
         cadenceButton.isOn = data.cadenceOn
         musicButton.isOn = data.musicOn
         sessionButton.isOn = data.workoutOn
-        infoButton.isOn = data.isSixtySeconds
+        secondsButton.isOn = data.isSixtySeconds
     }
     
     func selectButton(button: PreferenceButton) {
@@ -339,7 +363,7 @@ class PreferenceViewController: UIViewController {
                     but.isOn = data.musicOn
                 case sessionButton:
                     but.isOn = data.workoutOn
-                case infoButton:
+                case secondsButton:
                     but.isOn = data.isSixtySeconds
                 default:
                 break
@@ -424,6 +448,99 @@ class PreferenceViewController: UIViewController {
             gradientLayer.locations = [0,  1.0]
             self.view.layer.insertSublayer(gradientLayer, at: 0)
     }
+    
+    func startInfo() {
+        
+        guard infoTimer == nil else {
+            self.stopInfo()
+            return
+        }
+        infoTracker = InfoTracker(runComponent: runComponent, walkComponent: walkComponent)
+        infoTimer = Timer.scheduledTimer(withTimeInterval: 1.25, repeats: true) { (timer) in
+            
+
+            if self.infoTracker!.isPicker {
+                self.animatePicker()
+            } else {
+                self.cycleButtons()
+            }
+        }
+        
+        
+        
+        
+    }
+    
+    func cycleButtons() {
+        self.descriptionLabel.attributedText = data.formatDescription(lineOne: "use the buttons below to", lineTwo: "set preferences", lineThree: "")
+        let button = self.buttonCollection[self.infoTracker.pointer]
+        self.buttonRing.center.x = button.center.x + 20
+        self.buttonRing.isHidden = false
+        self.infoTracker.pointer += 1
+        if self.infoTracker.pointer >= self.buttonCollection.count {
+            self.infoTracker.pointer = 0
+            self.infoTracker.components = [runComponent, walkComponent]
+            //self.infoTracker.pause = 5
+        }
+    }
+    
+    func animatePicker() {
+        self.descriptionLabel.attributedText = data.formatDescription(lineOne: "set the", lineTwo: "run and walk intervals", lineThree: "by swiping numbers above")
+        
+        let component = infoTracker.components.remove(at: 0)
+        var value = 0
+        if component == runComponent {
+            value = data.runValue
+        } else {
+            value = data.walkValue
+        }
+        let current = self.picker.selectedRow(inComponent: component)
+        
+        var i = 1
+        
+        if value >= data.timeArray.count-1 {
+            i = -1
+        }
+        
+        
+        
+        if value == current {
+            self.picker.selectRow(current + i, inComponent: component, animated: true)
+        } else {
+            self.picker.selectRow(value, inComponent: component, animated: true)
+        }
+        
+        
+    
+    }
+    
+    func stopInfo() {
+        infoTimer?.invalidate()
+        infoTimer = nil
+        buttonRing.isHidden = true
+        self.picker.selectRow(data.runValue, inComponent: runComponent, animated: true)
+        self.picker.selectRow(data.walkValue, inComponent: walkComponent, animated: true)
+        self.postDescription()
+    }
+    
+    /*
+     func positionSwitchView(destination: CGFloat) {
+     switchView.preference = activePreference
+     let pa = UIViewPropertyAnimator(duration: 0.25, curve: .easeOut) {
+     self.switchView.center.x = destination
+     self.buttonHighlight.center.x = destination
+     self.switchView.alpha = 1
+     self.buttonHighlight.alpha = 1
+     }
+     
+     pa.startAnimation()
+     view.layoutIfNeeded()
+     }
+ 
+     */
+    
+    
+    
   
 }
 
@@ -431,6 +548,7 @@ class PreferenceViewController: UIViewController {
 //MARK:- EXTENSIONS
 extension PreferenceViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+       
         data.runValue = picker.selectedRow(inComponent: runComponent)
         data.walkValue = picker.selectedRow(inComponent: walkComponent)
         data.save()
@@ -438,6 +556,8 @@ extension PreferenceViewController: UIPickerViewDelegate {
         
         postTitle()
         initSegmentedControls(animateDesc: false)
+         stopInfo()
+        
     }
 }
 
@@ -498,6 +618,7 @@ extension PreferenceViewController: UIPickerViewDataSource {
 
 extension PreferenceViewController: SwitchViewDelegate {
     func changePreferenceState() {
+        stopInfo()
         setDescriptionText()
         setButtonState()
         initSegmentedControls(animateDesc: false)
@@ -511,14 +632,14 @@ extension PreferenceViewController: SwitchViewDelegate {
             runVal /= 2
             walkVal /= 2
             let image = UIImage(named: "icon_00")
-            infoButton.setImage(image, for: .normal)
+            secondsButton.setImage(image, for: .normal)
            // infoButton.titleLabel?.text = ":00"
         } else {
             runVal *= 2
             walkVal *= 2
            // infoButton.titleLabel?.text = ":30"
             let image = UIImage(named: "icon_30")
-            infoButton.setImage(image, for: .normal)
+            secondsButton.setImage(image, for: .normal)
         }
         
         data.runValue = runVal
@@ -532,5 +653,27 @@ extension PreferenceViewController: SwitchViewDelegate {
         
     }
 }
+
+
+class InfoTracker {
+    var pointer: Int
+    var isPicker: Bool {
+        return self.components.count > 0
+    }
+    
+    
+    var run: Int
+    var walk: Int
+    var components: [Int]
+    init(runComponent: Int, walkComponent: Int) {
+        pointer = 0
+        self.run = runComponent
+        self.walk = runComponent
+        components = [runComponent, walkComponent]
+    }
+    
+   
+}
+
 
 
