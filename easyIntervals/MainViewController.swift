@@ -399,7 +399,7 @@ class MainViewController: UIViewController {
     }
     
     func  openResetOptions() {
-        let ac = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
+        let ac = UIAlertController(title: "Select", message: nil, preferredStyle: .alert)
         
         let runAction = UIAlertAction(title: "Restart Run Interval", style: .default) { [unowned self] (action) in
             self.reset(type: .run)
