@@ -344,6 +344,12 @@ class MainViewController: UIViewController {
         postTimes()
     }
     
+    func stopClockAnimation() {
+        if workout.state != .playing {
+            self.intervalWindow.pauseIntervalClock()
+        }
+    }
+    
     func addSessionClock() {
         countDownView.insertSubview(sessionClock, at: 0)
         
@@ -448,19 +454,24 @@ class MainViewController: UIViewController {
     }
     
     func reset(type: resetType) {
+        
+        print("reset before \(workout.state)")
         switch type {
         case .run:
             self.workout.restart(mode: .run)
             self.setScreenMode()
+            stopClockAnimation()
         case .walk:
             self.workout.restart(mode: .walk)
             self.setScreenMode()
+            stopClockAnimation()
         case .elapsed:
             self.workout.elapsedSeconds = 0
         case .all:
             self.workout.restart(mode: self.workout.currentMode)
             self.workout.elapsedSeconds = 0
             self.setScreenMode()
+            stopClockAnimation()
         case.session:
             
             self.workout.startSession()
@@ -474,8 +485,7 @@ class MainViewController: UIViewController {
             if workout.state == .paused {
                 workout.timer = nil
                 workout.state = .stopped
-                //intervalWindow.imageView.frame.origin.y = 0
-                //intervalWindow.statusOff()
+
                 runWindow.statusOff()
                 walkWindow.statusOff()
             } else {

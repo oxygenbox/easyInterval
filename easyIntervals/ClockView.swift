@@ -25,10 +25,7 @@ class ClockView: UIView {
     var timerValue = 0
     var ticks = 0
     var label = UILabel()
-    //var firstTimerButton = UIButton()
-   // var secondTimerButton = UIButton()
-   // var doneButton: UIButton = UIButton()
-   // var resetButton: UIButton = UIButton()
+   //
     var delegate: ClockViewDelegate?
     var color = UIColor.clear
     var homeY: CGFloat = 0
@@ -75,7 +72,6 @@ class ClockView: UIView {
         animation.isRemovedOnCompletion = false
        
         self.shapeLayer.add(animation, forKey: "ani")
-        print("startAnimation")
     }
  
     func completeTapped() {
