@@ -109,6 +109,18 @@ class PreferenceViewController: UIViewController {
         return preferences[data.settingsTab]
     }
     
+    lazy var buttonRing: UIView = {
+        let view = UIView(frame: (CGRect(x: 0, y: 8, width: 44, height: 44)))
+        view.backgroundColor = UIColor.dot.withAlphaComponent(0.7)
+        view.layer.cornerRadius = 22
+        view.layer.borderColor = UIColor.walk.cgColor
+        view.layer.borderWidth = 3
+        view.isHidden = true
+        return view
+    }()
+    
+    
+    
     //MARK:- LIFECYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -121,16 +133,6 @@ class PreferenceViewController: UIViewController {
         gradientLayer.colors = [UIColor.packLight.cgColor, UIColor.packDark.cgColor]
         buttonHighlight.layer.addSublayer(gradientLayer)
     }
-    
-    lazy var buttonRing: UIView = {
-        let view = UIView(frame: (CGRect(x: 0, y: 8, width: 44, height: 44)))
-        view.backgroundColor = UIColor.white.withAlphaComponent(0.75)
-        view.layer.cornerRadius = 22
-        view.layer.borderColor = UIColor.run.cgColor
-        view.layer.borderWidth = 4
-        view.isHidden = true
-        return view
-    }()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -445,11 +447,12 @@ class PreferenceViewController: UIViewController {
             return
         }
         initHelpSequence()
-        helpSeqTimer = Timer.scheduledTimer(withTimeInterval: 1.1, repeats: true) { (timer) in
+        helpSeqTimer = Timer.scheduledTimer(withTimeInterval: 0.8, repeats: true) { (timer) in
             
 
             if self.helpSeqComponents.count > 0 {
                 self.helpPickerSequence()
+                 self.buttonRing.isHidden = true
             } else {
                 
                 if self.helpSeqDelay > 0 {
